@@ -165,13 +165,15 @@ function freezerCycle(entry, levels) {
 
 function splashDamageCycle(entry, levels) {
   const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
-  const formula = statistics.match(/\$DPS\$\s*=\s*(?:\[\[)?Splash Damage(?:\]\])?\s*\/\s*Firerate/i);
+  const formula = statistics.match(/\$DPS\$\s*=\s*(?:\[\[)?Splash Damage(?:\]\])?(?:\s*\*\s*Missile Count)?\s*\/\s*Firerate/i);
   if (!formula) return null;
+  const hasMissileCount = /\*\s*Missile Count/i.test(formula[0]);
   const header = statistics.match(/^!\s*Level\s*!!([^\n]+)$/m);
   const columns = header ? ["Level", ...header[1].split("!!").map((column) => clean(column))] : [];
   const splashIndex = columns.findIndex((column) => /Splash Damage/i.test(column));
   const firerateIndex = columns.findIndex((column) => /Firerate/i.test(column));
-  if (splashIndex < 1 || firerateIndex < 1) return null;
+  const missileIndex = hasMissileCount ? columns.findIndex((column) => /Missile Count/i.test(column)) : -1;
+  if (splashIndex < 1 || firerateIndex < 1 || (hasMissileCount && missileIndex < 1)) return null;
   const start = statistics.search(/^!\s*Level\s*!![^\n]*Splash Damage[^\n]*Firerate/m);
   const endOffset = start < 0 ? -1 : statistics.slice(start).search(/^\|\}/m);
   const end = endOffset < 0 ? -1 : start + endOffset;
@@ -183,10 +185,15 @@ function splashDamageCycle(entry, levels) {
       const value = clean(cells[index] ?? "").match(/\d[\d,]*(?:\.\d+)?/)?.[0];
       return value ? Number(value.replaceAll(",", "")) : null;
     };
-    return { level: numberAt(0), splashDamage: numberAt(splashIndex), splashInterval: numberAt(firerateIndex) };
+    return {
+      level: numberAt(0),
+      splashDamage: numberAt(splashIndex),
+      ...(hasMissileCount ? { splashHits: numberAt(missileIndex) } : {}),
+      splashInterval: numberAt(firerateIndex),
+    };
   });
   if (!values.length || values.length !== levels.length || values.some((value, index) => value.level !== index || !Number.isFinite(value.splashDamage) || value.splashDamage <= 0 || !Number.isFinite(value.splashInterval) || value.splashInterval <= 0)) return null;
-  return { formula: "splash-damage-cycle", values };
+  return { formula: hasMissileCount ? "missile-splash-cycle" : "splash-damage-cycle", values };
 }
 
 const result = [];
@@ -211,11 +218,11 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
-  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
   let dpsMethod = cycle
     ? cycle.formula === "overcharge-cycle"
       ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
@@ -229,7 +236,9 @@ for (const entry of corpus.entries) {
             ? "Source-listed direct-damage cycle: burst levels use (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)); non-burst levels use Damage / Firerate. Chill and slowdown effects are excluded."
             : cycle.formula === "splash-damage-cycle"
               ? "Source-listed per-target splash estimate: Splash Damage / Firerate. Actual total damage depends on how many enemies a blast hits."
-              : "Source-listed burst estimate: (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)). Firerate applies within the burst."
+              : cycle.formula === "missile-splash-cycle"
+                ? "Source-listed single-target missile splash estimate: (Splash Damage × Missile Count) / Firerate. Projectile travel time and multiple targets are excluded."
+                : "Source-listed burst estimate: (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)). Firerate applies within the burst."
     : specialDamageMethod
       ? `Special damage cycle (${damageMethod}); generic DPS is not estimated.`
     : revUp

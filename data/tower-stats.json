@@ -5550,7 +5550,7 @@
       "placementCost": 2000,
       "pvpPlacementCost": null,
       "damageMethod": "Splash",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "missile-splash-cycle",
       "detectionNotes": [
         {
           "attribute": "Hidden",
@@ -5572,7 +5572,10 @@
           "hidden": "Level 2+",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": ""
+          "notes": "",
+          "splashDamage": 30,
+          "splashHits": 1,
+          "splashInterval": 3.75
         },
         {
           "level": 1,
@@ -5584,7 +5587,10 @@
           "hidden": "Level 2+",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "3.75 > 3 Firerate Sell Price changes to 866"
+          "notes": "3.75 > 3 Firerate Sell Price changes to 866",
+          "splashDamage": 30,
+          "splashHits": 1,
+          "splashInterval": 3
         },
         {
           "level": 2,
@@ -5596,7 +5602,10 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+20 Damage +2.5 Range 3 > 4 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 1,466"
+          "notes": "+20 Damage +2.5 Range 3 > 4 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 1,466",
+          "splashDamage": 50,
+          "splashHits": 1,
+          "splashInterval": 3
         },
         {
           "level": 3,
@@ -5608,7 +5617,10 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+45 Damage 3 > 2.75 Firerate 4 > 5 Explosion Range Sell Price changes to 3,466"
+          "notes": "+45 Damage 3 > 2.75 Firerate 4 > 5 Explosion Range Sell Price changes to 3,466",
+          "splashDamage": 95,
+          "splashHits": 1,
+          "splashInterval": 2.75
         },
         {
           "level": 4,
@@ -5620,7 +5632,10 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+1.5 Range 2.75 > 4.5 Firerate Description = +3 Missile Count +100 Angle -0.75 Accuracy Sell Price changes to 9,633"
+          "notes": "+1.5 Range 2.75 > 4.5 Firerate Description = +3 Missile Count +100 Angle -0.75 Accuracy Sell Price changes to 9,633",
+          "splashDamage": 95,
+          "splashHits": 4,
+          "splashInterval": 4.5
         }
       ],
       "source": {
@@ -5631,7 +5646,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
+      "dpsMethod": "Source-listed single-target missile splash estimate: (Splash Damage × Missile Count) / Firerate. Projectile travel time and multiple targets are excluded."
     },
     {
       "pageid": 56729,

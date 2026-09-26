@@ -25,6 +25,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Mortar")?.dpsFormula, "splash-damage-cycle");
+  assert.equal(find("Rocketeer")?.dpsFormula, "missile-splash-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
 });
@@ -104,6 +105,15 @@ test("Mortar splash estimates use the named source columns and exclude cluster d
   assert.match(mortar.dpsMethod, /cluster damage and target count are excluded/i);
 });
 
+test("Rocketeer estimates use source missile count and exclude multi-target and travel assumptions", () => {
+  const rocketeer = find("Rocketeer");
+  assert.deepEqual(rocketeer.levels.map(({ splashDamage, splashHits, splashInterval }) => [splashDamage, splashHits, splashInterval]), [[30, 1, 3.75], [30, 1, 3], [50, 1, 3], [95, 1, 2.75], [95, 4, 4.5]]);
+  assert.ok(Math.abs(estimateTowerDps(rocketeer, rocketeer.levels[0]) - (30 * 1) / 3.75) < 0.01);
+  assert.ok(Math.abs(estimateTowerDps(rocketeer, rocketeer.levels[4]) - (95 * 4) / 4.5) < 0.01);
+  assert.equal(estimateTowerDps(rocketeer, { ...rocketeer.levels[4], splashHits: null }), null);
+  assert.match(rocketeer.dpsMethod, /Projectile travel time and multiple targets are excluded/i);
+});
+
 test("detection footnotes remain separate from the detection flag", () => {
   const pulseTrooper = find("Pulse Trooper");
   assert.equal(pulseTrooper?.levels[0].hidden, "No");
@@ -153,6 +163,9 @@ test("the data contract rejects missing records, broken provenance, and false ge
   const mortarIndex = incomplete.findIndex((tower) => tower.name === "Mortar");
   incomplete[mortarIndex] = { ...incomplete[mortarIndex], levels: incomplete[mortarIndex].levels.map((level) => ({ ...level })) };
   delete incomplete[mortarIndex].levels[0].splashInterval;
+  const rocketeerIndex = incomplete.findIndex((tower) => tower.name === "Rocketeer");
+  incomplete[rocketeerIndex] = { ...incomplete[rocketeerIndex], levels: incomplete[rocketeerIndex].levels.map((level) => ({ ...level })) };
+  delete incomplete[rocketeerIndex].levels[4].splashHits;
 
   const issues = validateTowerStats(incomplete, corpus.entries);
   assert.ok(issues.some((issue) => issue.includes("tower count mismatch")));
@@ -166,4 +179,5 @@ test("the data contract rejects missing records, broken provenance, and false ge
   assert.ok(issues.some((issue) => issue.includes("Golden Soldier cycle inputs are incomplete at level 3")));
   assert.ok(issues.some((issue) => issue.includes("Freezer cycle inputs are incomplete at level 3")));
   assert.ok(issues.some((issue) => issue.includes("splash-damage cycle inputs are incomplete at level 0")));
+  assert.ok(issues.some((issue) => issue.includes("missile splash cycle inputs are incomplete at level 4")));
 });
