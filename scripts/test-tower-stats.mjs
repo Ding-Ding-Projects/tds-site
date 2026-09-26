@@ -17,6 +17,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
     assert.equal(find(name)?.dpsFormula, "unmodeled-special", `${name} must not use generic DPS`);
   }
   assert.equal(find("Accelerator")?.dpsFormula, "accelerator-overcharge-cycle");
+  assert.equal(find("Operator")?.dpsFormula, "operator-burst-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
 });
@@ -27,6 +28,16 @@ test("Accelerator DPS follows its source-listed charge, tick, cooldown, and over
   assert.ok(Math.abs(estimateTowerDps(accelerator, accelerator.levels[0]) - 45.8) < 0.01);
   assert.ok(Math.abs(estimateTowerDps(accelerator, accelerator.levels[5]) - 474.31) < 0.01);
   assert.equal(estimateTowerDps(accelerator, { ...accelerator.levels[0], tick: null }), null);
+});
+
+test("Operator DPS follows source-listed burst stats and switches to single-fire at Levels 5 and 6", () => {
+  const operator = find("Operator");
+  assert.equal(operator.levels.length, 7);
+  assert.deepEqual(operator.levels.map(({ burstCount, burstCooldown }) => [burstCount, burstCooldown]), [[6, 1.4], [6, 1.4], [6, 1], [9, 1], [9, 1], [null, 0], [null, 0]]);
+  assert.ok(Math.abs(estimateTowerDps(operator, operator.levels[0]) - 2.83) < 0.01);
+  assert.ok(Math.abs(estimateTowerDps(operator, operator.levels[4]) - 28.42) < 0.01);
+  assert.equal(estimateTowerDps(operator, operator.levels[5]), 37.5);
+  assert.equal(estimateTowerDps(operator, operator.levels[6]), 62.5);
 });
 
 test("detection footnotes remain separate from the detection flag", () => {
@@ -57,6 +68,9 @@ test("the data contract rejects missing records, broken provenance, and false ge
   const acceleratorIndex = incomplete.findIndex((tower) => tower.name === "Accelerator");
   incomplete[acceleratorIndex] = { ...incomplete[acceleratorIndex], levels: incomplete[acceleratorIndex].levels.map((level) => ({ ...level })) };
   delete incomplete[acceleratorIndex].levels[0].overcharge;
+  const operatorIndex = incomplete.findIndex((tower) => tower.name === "Operator");
+  incomplete[operatorIndex] = { ...incomplete[operatorIndex], levels: incomplete[operatorIndex].levels.map((level) => ({ ...level })) };
+  delete incomplete[operatorIndex].levels[0].burstCount;
 
   const issues = validateTowerStats(incomplete, corpus.entries);
   assert.ok(issues.some((issue) => issue.includes("tower count mismatch")));
@@ -64,4 +78,5 @@ test("the data contract rejects missing records, broken provenance, and false ge
   assert.ok(issues.some((issue) => issue.includes("invalid placement limit")));
   assert.ok(issues.some((issue) => issue.includes("special damage method has a generic DPS formula for Biologist")));
   assert.ok(issues.some((issue) => issue.includes("Accelerator cycle inputs are incomplete at level 0")));
+  assert.ok(issues.some((issue) => issue.includes("Operator cycle inputs are incomplete at level 0")));
 });
