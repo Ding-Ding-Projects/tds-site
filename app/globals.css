@@ -6,6 +6,21 @@
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; background:var(--bg); color:var(--text); font-family:Arial,Helvetica,sans-serif; font-size:14px; }
+.site-settings { position:fixed; top:12px; right:14px; z-index:1000; font:13px/1.45 system-ui,sans-serif; color:#e5ece7; }
+.site-settings__opener,.site-settings__close,.site-settings__reset { min-height:44px; border:1px solid #54716a; border-radius:10px; background:#182423; color:#d9eee5; padding:9px 14px; font:inherit; cursor:pointer; }
+.site-settings__opener:focus-visible,.site-settings__close:focus-visible,.site-settings__reset:focus-visible,.site-settings__panel select:focus-visible,.site-settings__panel input:focus-visible { outline:3px solid #8edbc5; outline-offset:2px; }
+.site-settings__panel { width:min(370px,calc(100vw - 24px)); max-height:min(82vh,720px); overflow:auto; margin-top:8px; padding:18px; border:1px solid #45605a; border-radius:16px; background:#11191b; box-shadow:0 16px 48px #0009; }
+.site-settings__heading { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
+.site-settings__heading h2 { margin:0; color:#e7f2ed; font-size:18px; }
+.site-settings__close { padding-inline:10px; }
+.site-settings__field { display:grid; gap:8px; margin:14px 0; color:#d4e0da; }
+.site-settings__field select,.site-settings__file { width:100%; min-height:44px; border:1px solid #475b57; border-radius:9px; background:#1b2829; color:#eff5f1; padding:8px; font:inherit; }
+.site-settings__checkbox { display:flex; align-items:flex-start; gap:10px; min-height:44px; margin:14px 0; color:#d4e0da; }
+.site-settings__checkbox input { width:20px; height:20px; margin:1px 0 0; accent-color:#86d2bd; }
+.site-settings__status { min-height:2.9em; margin:10px 0; color:#c3d5ce; }
+.site-settings__reset:disabled { opacity:.55; cursor:not-allowed; }
+.site-settings__privacy { margin:12px 0 0; color:#9dafaa; font-size:12px; }
+@media (max-width:380px) { .site-settings { top:8px; right:8px; } .site-settings__panel { width:calc(100vw - 16px); padding:14px; } }
 button,input,select { font:inherit; }
 button,a,select,input { -webkit-tap-highlight-color:transparent; }
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible { outline:2px solid var(--mint); outline-offset:3px; }

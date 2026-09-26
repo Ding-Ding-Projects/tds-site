@@ -4,9 +4,9 @@ import { sanitizeWikiHtml } from "../lib/wiki-html-sanitizer.mjs";
 
 const revisionFile = new URL("../data/wiki-revisions.json", import.meta.url);
 const revisions = JSON.parse(await readFile(revisionFile, "utf8"));
-const revisionFileBytes = await readFile(revisionFile);
-const snapshotSha256 = createHash("sha256").update(revisionFileBytes).digest("hex");
-const revisionSetSha256 = createHash("sha256").update(JSON.stringify(revisions.map(({ pageid, revisionId, namespace }) => ({ pageid, revisionId, namespace })))).digest("hex");
+const canonicalRevisionSet = revisions.map(({ pageid, revisionId, namespace }) => ({ pageid, revisionId, namespace }));
+const snapshotSha256 = createHash("sha256").update(JSON.stringify(canonicalRevisionSet)).digest("hex");
+const revisionSetSha256 = snapshotSha256;
 const wikiCorpus = JSON.parse(await readFile(new URL("../data/wiki-corpus.json", import.meta.url), "utf8"));
 const sourceSnapshot = wikiCorpus.entries.map(({ pageid, title, revisionId, namespace }) => ({ pageid, title, revisionId, namespace }));
 const sourceSnapshotSha256 = createHash("sha256").update(`${JSON.stringify(sourceSnapshot)}\n`).digest("hex");
@@ -37,8 +37,30 @@ const failures = [];
 const totals = { responseBytes: 0, sanitizedNodes: 0, cacheBytes: 0 };
 const sourceFallbacks = [];
 const cachedPages = [];
+const priorEntries = new Map((priorCacheIndex?.entries ?? []).map((entry) => [String(entry.pageid), entry]));
+let reusedCachePages = 0;
+
+async function reuseCachedPage(entry) {
+  const prior = priorEntries.get(String(entry.pageid));
+  if (!prior || prior.revisionId !== entry.revisionId || prior.file !== `${entry.pageid}.json`) return false;
+  try {
+    const bytes = await readFile(new URL(prior.file, renderedRoot));
+    const sha256 = createHash("sha256").update(bytes).digest("hex");
+    if (bytes.byteLength !== prior.sizeBytes || sha256 !== prior.sha256) return false;
+    const cached = JSON.parse(bytes.toString("utf8"));
+    if (cached.pageid !== entry.pageid || cached.revisionId !== entry.revisionId || cached.schemaVersion !== 1 || !Array.isArray(cached.content) || !Number.isSafeInteger(cached.nodeCount)) return false;
+    cachedPages.push({ pageid: entry.pageid, revisionId: entry.revisionId, file: prior.file, sizeBytes: bytes.byteLength, sha256 });
+    totals.sanitizedNodes += cached.nodeCount;
+    totals.cacheBytes += bytes.byteLength;
+    reusedCachePages += 1;
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 async function auditOne(entry) {
+  if (await reuseCachedPage(entry)) return { cached: true };
   const url = `https://tds.wiki/rest.php/v1/revision/${entry.revisionId}/html`;
   let lastCode = "network";
   for (let attempt = 0; attempt < 3; attempt += 1) {
@@ -77,7 +99,7 @@ async function auditOne(entry) {
             totals.responseBytes += bytes.byteLength;
             totals.sanitizedNodes += article.nodeCount;
             totals.cacheBytes += cacheBytes;
-            return null;
+            return { cached: false, failure: null };
           }
         }
       }
@@ -86,7 +108,7 @@ async function auditOne(entry) {
     }
     if (attempt < 2) await new Promise((resolve) => setTimeout(resolve, 500 * (attempt + 1)));
   }
-  return { pageid: entry.pageid, revisionId: entry.revisionId, code: lastCode };
+  return { cached: false, failure: { pageid: entry.pageid, revisionId: entry.revisionId, code: lastCode } };
 }
 
 async function worker() {
@@ -95,14 +117,14 @@ async function worker() {
     if (entry.namespace === 2900) {
       sourceFallbacks.push({ pageid: entry.pageid, revisionId: entry.revisionId, reason: mapFallbackReason });
     } else {
-      const failure = await auditOne(entry);
-      if (failure) failures.push(failure);
+      const result = await auditOne(entry);
+      if (result.failure) failures.push(result.failure);
+      if (!result.cached) await new Promise((resolve) => setTimeout(resolve, delayMs));
     }
     completed += 1;
     if (completed % 50 === 0 || completed === revisions.length) {
       console.log(`Rendered revision audit: ${completed}/${revisions.length}; source-fallback=${sourceFallbacks.length}; unavailable=${failures.length}`);
     }
-    await new Promise((resolve) => setTimeout(resolve, delayMs));
   }
 }
 
@@ -129,7 +151,7 @@ const report = {
   currentRevisionAllowlistSha256: snapshotSha256,
   canonicalRevisionSetSha256: revisionSetSha256,
   importedRevisionCount: revisions.length,
-  remoteRevisionHtml: { namespace: 0, count: standardEntries.length, sanitized: standardEntries.length - failures.length, responseBytes: totals.responseBytes, sanitizedNodeCount: totals.sanitizedNodes },
+  remoteRevisionHtml: { namespace: 0, count: standardEntries.length, sanitized: standardEntries.length - failures.length, reusedFromVerifiedCache: reusedCachePages, refreshedFromSource: standardEntries.length - failures.length - reusedCachePages, responseBytes: totals.responseBytes, sanitizedNodeCount: totals.sanitizedNodes },
   offlineSanitizedCache: { directory: "public/wiki/rendered", records: cachedPages.length, bytes: totals.cacheBytes, manifestPath: "public/wiki/rendered/index.json", boundToRevisionAllowlistSha256: snapshotSha256 },
   importedSourceFallback: { namespace: 2900, count: mapEntries.length, reason: mapFallbackReason, pages: sourceFallbacks },
   failedCount: failures.length,

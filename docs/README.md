@@ -6,5 +6,6 @@
 - [Data pipeline](data-pipeline/README.md)
 - [Simulator](simulator/README.md)
 - [Strategies](strategies/README.md)
+- [Settings](settings/README.md)
 - [User guide and accessibility](guide/README.md)
 - [Solo playbook](strategies/solo-playbook.md)

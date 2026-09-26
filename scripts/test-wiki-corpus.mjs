@@ -61,12 +61,11 @@ test("the completeness check fails when adaptation or direct license provenance 
 test("the full rendering audit matches the exact imported revision snapshot", () => {
   const namespaceZeroCount = index.entries.filter((entry) => entry.namespace === 0).length;
   const mapNamespaceCount = index.entries.filter((entry) => entry.namespace === 2900).length;
-  const snapshotHash = createHash("sha256").update(revisionBytes).digest("hex");
   const canonicalRevisionSet = revisions.map(({ pageid, revisionId, namespace }) => ({ pageid, revisionId, namespace }));
   const canonicalRevisionSetHash = createHash("sha256").update(JSON.stringify(canonicalRevisionSet)).digest("hex");
   const historicalAuditInput = wikiCorpus.entries.map(({ pageid, title, revisionId, namespace }) => ({ pageid, title, revisionId, namespace }));
   const historicalAuditHash = createHash("sha256").update(`${JSON.stringify(historicalAuditInput)}\n`).digest("hex");
-  assert.equal(renderAudit.currentRevisionAllowlistSha256, snapshotHash);
+  assert.equal(renderAudit.currentRevisionAllowlistSha256, canonicalRevisionSetHash);
   assert.equal(renderAudit.canonicalRevisionSetSha256, canonicalRevisionSetHash);
   assert.equal(renderAudit.sourceSnapshotSha256, historicalAuditHash);
   assert.equal(renderAudit.importedRevisionCount, index.entries.length);

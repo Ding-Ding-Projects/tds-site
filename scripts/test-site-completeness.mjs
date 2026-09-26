@@ -27,7 +27,13 @@ test("the inventory check rejects duplicate families and unsupported completion 
   assert.ok(validateSiteCompletenessInventory(duplicate)
     .includes(`duplicate completeness family: ${SITE_CONTRACT_FAMILIES[0]}`));
 
-  const unsupportedComplete = inventory.replace(originalRow, originalRow.replace("| open |", "| complete |"));
+  const incompleteRow = inventory.split(/\r?\n/).find((line) => {
+    const values = line.split("|").slice(1, -1).map((cell) => cell.trim());
+    return values.length === 7 && values[1] === "pending" && values[2] === "pending" && values[3] === "pending" && values[4] === "pending" && values[5] === "pending" && values[6] === "open";
+  });
+  assert.ok(incompleteRow);
+  const incompleteFamily = incompleteRow.split("|")[1].trim();
+  const unsupportedComplete = inventory.replace(incompleteRow, incompleteRow.replace("| open |", "| complete |"));
   assert.ok(validateSiteCompletenessInventory(unsupportedComplete)
-    .includes(`complete family lacks linked evidence: ${SITE_CONTRACT_FAMILIES[0]}`));
+    .includes(`complete family lacks linked evidence: ${incompleteFamily}`));
 });

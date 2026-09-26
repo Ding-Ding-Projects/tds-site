@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteSettings } from "@/components/site-settings";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <SiteSettings />
+        {children}
+      </body>
     </html>
   );
 }

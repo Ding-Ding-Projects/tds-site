@@ -6,9 +6,9 @@ import { validateWikiRenderCache } from "../lib/wiki-render-cache-contract.mjs";
 
 const sourceIndex = JSON.parse(await readFile(new URL("../public/wiki/index.json", import.meta.url), "utf8"));
 const revisions = JSON.parse(await readFile(new URL("../data/wiki-revisions.json", import.meta.url), "utf8"));
-const revisionBytes = await readFile(new URL("../data/wiki-revisions.json", import.meta.url));
 const renderIndex = JSON.parse(await readFile(new URL("../public/wiki/rendered/index.json", import.meta.url), "utf8"));
 const readerSource = await readFile(new URL("../components/wiki-rendered-article.tsx", import.meta.url), "utf8");
+const attributesSource = await readFile(new URL("../.gitattributes", import.meta.url), "utf8");
 const cacheRoot = new URL("../public/wiki/rendered/", import.meta.url);
 const files = new Map();
 const cacheFileNames = await readdir(cacheRoot);
@@ -30,7 +30,8 @@ for (const name of cacheFileNames) {
 
 test("every standard page has a revision-matched sanitized offline render", () => {
   assert.deepEqual(unexpectedFileNames, []);
-  const snapshotSha = createHash("sha256").update(revisionBytes).digest("hex");
+  const canonicalRevisionSet = revisions.map(({ pageid, revisionId, namespace }) => ({ pageid, revisionId, namespace }));
+  const snapshotSha = createHash("sha256").update(JSON.stringify(canonicalRevisionSet)).digest("hex");
   assert.equal(renderIndex.revisionAllowlistSha256, snapshotSha);
   assert.deepEqual(validateWikiRenderCache(sourceIndex.entries, renderIndex, files), []);
   assert.equal(files.size, sourceIndex.entries.filter((entry) => entry.namespace === 0).length);
@@ -63,4 +64,8 @@ test("the article reader uses the local revision cache before its network fallba
   assert.ok(networkFallback > localRead);
   assert.ok(readerSource.includes("namespace === 2900"));
   assert.ok(readerSource.includes("cached.pageid === pageid && cached.revisionId === revisionId"));
+});
+
+test("rendered cache bytes keep LF across Git checkouts so manifest digests remain portable", () => {
+  assert.match(attributesSource, /^public\/wiki\/rendered\/\*\.json text eol=lf$/m);
 });
