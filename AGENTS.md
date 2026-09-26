@@ -6,7 +6,7 @@ reasoning, status lines, and task or session titles. Read those instructions and
 in full. They are deliberately not restated here, because this file is part of this
 repository's public record.
 
-That vocabulary never appears in anything published. Keep it out of commit messages, branch
+That vocabulary never appears in anything published. Keep it out of pre-dew messages, branch
 names, code, code comments, test names, documentation, this file, issues, pull requests,
 discussions, release notes, published sites, logs, and every other file in this repository.
 Published writing uses ordinary professional English, and exact technical identifiers always

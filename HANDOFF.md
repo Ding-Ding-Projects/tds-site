@@ -10,7 +10,7 @@ The Sites project is active and version 4 is saved from source revision `660515e
 
 ## Solo strategy coverage
 
-The planner has separate solo notes for all 14 mode types and keeps co-op guidance distinct. Public creator demonstrations cover Frost, Molten, Fallen, and Pizza Party. A Frost community poster reports a solo win after following replies, but the loadouts conflict and detection claims need current verification. The Official Wiki Index lists solo-triumph badges for Molten, Fallen, Pizza Party, Badlands II, and Polluted Wasteland II. The latter's solo availability is documented, while a current reproducible route has not been established. Hardcore is an anecdotal loadout report. Voidcore evidence is conflicting, and one recorded creator triumph is not labeled solo. Most remaining solo notes are cautious preparation checklists, not verified wave-by-wave clears. Evidence and source limits are in `docs/research/solo-strategy-evidence.md`.
+The planner has separate solo notes for all 14 mode types and keeps co-op guidance distinct. Public creator demonstrations cover Frost, Molten, Fallen, and Pizza Party. A Frost community poster reports a solo win after following replies, but the loadouts conflict and detection claims need current verification. The Official Wiki Index lists solo-triumph badges for Molten, Fallen, Pizza Party, Badlands II, and Polluted Wasteland II. A Badlands II player reports a no-micro clear with Minigunner, Engineer, Commander, DJ Booth, and Mortar, but gives no wave log or tower levels; it remains a candidate loadout. A separate Hardcore report reaches Wave 48 but is not a triumph. Polluted Wasteland II community accounts conflict, including one Wave 18 loss and later feasibility disagreements. Voidcore evidence is conflicting, and one recorded creator triumph is not labeled solo. Most remaining solo notes are cautious preparation checklists, not verified wave-by-wave clears. Evidence and source limits are in `docs/research/solo-strategy-evidence.md`.
 
 ## Data and research limits
 
@@ -22,19 +22,21 @@ The initial user-supplied dossier was not imported as fact. Research identified 
 
 Material Designer and Status Hub tools were unavailable in this session. No live Hub update is claimed. Access changes and production publication remain pending the required owner-side confirmation through the Sites access flow.
 
+GitHub issue #1 remains open for the broader delivery. No progress comment was added for this solo-research slice because the current isolated capture route is unavailable and the issue's visible-surface comment contract requires a genuine capture.
+
 ## Remaining work
 
 1. Verify the sanitized reader visually across representative article types and required viewport, language, theme, and scale tuples. Confirm live Sites supports outbound requests to the source wiki. Offline pages currently fall back to partial rendering and source markup; historical transcluded-template versions are not archived.
 2. Expand simulator coverage beyond the 83 tower infobox pages and model tower-specific mechanics with source-verified full-cycle formulas. Damage methods, placement limits, and a fail-closed source contract are now present; special damage remains explicitly unmodeled.
-3. Finish solo research with reproducible wave-by-wave routes, current update identifiers, and run evidence; keep unsupported entries labeled as checklists or anecdotes.
+3. Finish solo research with reproducible wave-by-wave routes, current update identifiers, and run evidence. Badlands II, Hardcore, and Polluted Wasteland II now include additional cited candidate, partial, or conflicting reports, but none is a reproduced route.
 4. Complete the required viewport, language, theme, and scale matrix, and verify touch interactions on the 3D scene.
 5. Complete the required owner-side access confirmation. Then set the requested public access mode, deploy a version bound to the latest source revision, and verify public access and image delivery. Version 4 is saved but not deployed.
 
 ## Verification
 
-- `npm run test:wiki`: 17/17 passed on the current local simulator changes, including corpus completeness, negative missing-entry, missing-revision, missing-license, invalid tower cap, stale tower revision, special-DPS, detection-footnote, and multi-tower investment checks, plus rendered-audit snapshot binding.
-- `npm run lint`: passed on the current local simulator changes.
-- `npm run build`: passed on the current local simulator changes. Large-client-chunk and route-classification warnings remain.
+- `npm run test:wiki`: 17/17 passed with the added solo evidence and planner notes.
+- `npm run lint`: passed with the added solo planner notes.
+- `npm run build`: passed with the added solo planner notes. Large-client-chunk and route-classification warnings remain.
 - The local production Worker returned 200 for imported revision `670384` (746 semantic nodes, no active or remote-media nodes) and 404 for revision `123456789999`, which is outside the imported allowlist.
 - Isolated Edge production build review on an earlier source revision: one 1280×900 desktop and one 390×844 emulated mobile capture, with no console exceptions, failed resources, unnamed interactive controls, or horizontal page overflow in those tuples.
 - Current simulator repair capture: unrun because the required isolated headless browser route was unavailable; no alternate computer-use route was used.
