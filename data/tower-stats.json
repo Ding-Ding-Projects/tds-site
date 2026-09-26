@@ -6289,7 +6289,7 @@
       "placementCost": 400,
       "pvpPlacementCost": 450,
       "damageMethod": "Burst",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "soldier-burst-cycle",
       "detectionNotes": [],
       "levels": [
         {
@@ -6302,7 +6302,9 @@
           "hidden": "Level 2+",
           "lead": "No",
           "flying": "Level 4",
-          "notes": ""
+          "notes": "",
+          "burstCount": 3,
+          "burstCooldown": 0.5
         },
         {
           "level": 1,
@@ -6314,7 +6316,9 @@
           "hidden": "Level 2+",
           "lead": "No",
           "flying": "Level 4",
-          "notes": "0.175 > 0.15 Firerate 0.5 > 0.4 Cooldown Sell Price changes to 166"
+          "notes": "0.175 > 0.15 Firerate 0.5 > 0.4 Cooldown Sell Price changes to 166",
+          "burstCount": 3,
+          "burstCooldown": 0.4
         },
         {
           "level": 2,
@@ -6326,7 +6330,9 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "Level 4",
-          "notes": "+2 Range +1 Damage 3 > 4 Burst +Hidden Detection Hidden Detection Sell Price changes to 433"
+          "notes": "+2 Range +1 Damage 3 > 4 Burst +Hidden Detection Hidden Detection Sell Price changes to 433",
+          "burstCount": 4,
+          "burstCooldown": 0.4
         },
         {
           "level": 3,
@@ -6338,7 +6344,9 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "Level 4",
-          "notes": "+2 Damage 4 > 8 Burst Sell Price changes to 1,050"
+          "notes": "+2 Damage 4 > 8 Burst Sell Price changes to 1,050",
+          "burstCount": 8,
+          "burstCooldown": 0.4
         },
         {
           "level": 4,
@@ -6350,7 +6358,9 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "Yes",
-          "notes": "+3 Range +6 Damage 8 > 12 Burst +Flying Detection Flying Detection Sell Price changes to 3,050"
+          "notes": "+3 Range +6 Damage 8 > 12 Burst +Flying Detection Flying Detection Sell Price changes to 3,050",
+          "burstCount": 12,
+          "burstCooldown": 0.4
         }
       ],
       "source": {
@@ -6361,7 +6371,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Burst); generic DPS is not estimated."
+      "dpsMethod": "Source-listed burst estimate: (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)). Firerate applies within the burst."
     },
     {
       "pageid": 53044,
