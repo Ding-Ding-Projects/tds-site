@@ -13,13 +13,13 @@ All status below reflects the source state on 2026-09-26. An item is complete on
 
 - [x] Snapshot and reconcile the current eligible wiki inventory from the MediaWiki API, including namespace counts and snapshot time.
 - [x] Import 2,835 source records with revision, source, history, license, and adaptation metadata.
-- [ ] Complete MediaWiki-compatible rendering for imported markup. A safe partial renderer now covers common headings, prose, links, lists, tables, nowiki blocks, and structured template fields; source syntax remains available, while extension and complex template behavior still needs coverage.
-- [ ] Add an inventory Shek Q and prove deliberate missing-entry and missing-provenance cases fail.
+- [x] Render the 2,649 namespace 0 pages through the MediaWiki REST HTML route, sanitize active markup, route indexed links into the guide, omit unlicensed media, and retain the complete imported source fallback. Use the local source formatter for all 186 namespace 2900 map entries because the REST endpoint returns a map-widget fragment without a page-revision envelope. Historical transcluded-template versions and rendered HTML for offline use are not archived.
+- [x] Add a hand-written corpus completeness check for the 2,835 indexed page files, revision allowlist, source text, timestamps, and source/license provenance; prove missing-page, missing-revision, and missing-license cases fail. `npm run test:wiki`: 12 passed.
 - [x] Add dated, cited official, creator, and public community research with disagreement and confidence labels.
 
 ## Product experience
 
-- [ ] Ship search, filters, article navigation, source attribution, and contribution/license notices. Search, source notices, and a readable partial article renderer exist; built-surface capture and full wiki syntax coverage remain open.
+- [ ] Ship search, filters, article navigation, source attribution, and contribution/license notices. Search, source links, and a revision-pinned sanitized article reader exist; cross-viewport reader captures and offline rendered copies remain open.
 - [ ] Ship validated mode, wave, reward, map, enemy, and strategy coverage. Fourteen mode types have solo planning notes; most are editorial checklists and not verified clears. Continue checking source conflicts and map geometry.
 - [ ] Ship tower stat comparison and simulator formulas with worked, source-backed examples.
 - [ ] Ship the original interactive 3D defense explorer with keyboard, touch, reduced-motion, 2D, and text alternatives.

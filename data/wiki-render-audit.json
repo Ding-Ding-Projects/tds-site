@@ -1,0 +1,792 @@
+{
+  "schemaVersion": 2,
+  "auditedAt": "2026-09-26T09:41:15.768Z",
+  "fallbackRouteVerifiedAt": "2026-09-26T09:47:12.804Z",
+  "sourceSnapshotSha256": "2fc98f9f3ab5d29706fcbba022fe174abff723849916eab2f3e65394e8395420",
+  "importedRevisionCount": 2835,
+  "remoteRevisionHtml": {
+    "namespace": 0,
+    "count": 2649,
+    "sanitized": 2649,
+    "responseBytes": 374517387,
+    "sanitizedNodeCount": 9486077
+  },
+  "importedSourceFallback": {
+    "namespace": 2900,
+    "count": 186,
+    "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter.",
+    "pages": [
+      {
+        "pageid": 35273,
+        "revisionId": 229553
+      },
+      {
+        "pageid": 30982,
+        "revisionId": 199596
+      },
+      {
+        "pageid": 30989,
+        "revisionId": 199632
+      },
+      {
+        "pageid": 31067,
+        "revisionId": 200067
+      },
+      {
+        "pageid": 31076,
+        "revisionId": 200116
+      },
+      {
+        "pageid": 31163,
+        "revisionId": 200326
+      },
+      {
+        "pageid": 31176,
+        "revisionId": 200364
+      },
+      {
+        "pageid": 31342,
+        "revisionId": 200898
+      },
+      {
+        "pageid": 31343,
+        "revisionId": 200908
+      },
+      {
+        "pageid": 31383,
+        "revisionId": 201253
+      },
+      {
+        "pageid": 31680,
+        "revisionId": 205467
+      },
+      {
+        "pageid": 31681,
+        "revisionId": 205474
+      },
+      {
+        "pageid": 31853,
+        "revisionId": 206176
+      },
+      {
+        "pageid": 31912,
+        "revisionId": 206495
+      },
+      {
+        "pageid": 32156,
+        "revisionId": 209533
+      },
+      {
+        "pageid": 32407,
+        "revisionId": 211921
+      },
+      {
+        "pageid": 32409,
+        "revisionId": 211936
+      },
+      {
+        "pageid": 32470,
+        "revisionId": 214010
+      },
+      {
+        "pageid": 33521,
+        "revisionId": 218766
+      },
+      {
+        "pageid": 33523,
+        "revisionId": 665105
+      },
+      {
+        "pageid": 33565,
+        "revisionId": 218992
+      },
+      {
+        "pageid": 33722,
+        "revisionId": 219390
+      },
+      {
+        "pageid": 34141,
+        "revisionId": 221060
+      },
+      {
+        "pageid": 34143,
+        "revisionId": 221077
+      },
+      {
+        "pageid": 34362,
+        "revisionId": 221669
+      },
+      {
+        "pageid": 35274,
+        "revisionId": 229559
+      },
+      {
+        "pageid": 35435,
+        "revisionId": 231336
+      },
+      {
+        "pageid": 35436,
+        "revisionId": 231341
+      },
+      {
+        "pageid": 38224,
+        "revisionId": 257211
+      },
+      {
+        "pageid": 38655,
+        "revisionId": 259475
+      },
+      {
+        "pageid": 38827,
+        "revisionId": 260536
+      },
+      {
+        "pageid": 38828,
+        "revisionId": 260544
+      },
+      {
+        "pageid": 38829,
+        "revisionId": 260552
+      },
+      {
+        "pageid": 38830,
+        "revisionId": 260559
+      },
+      {
+        "pageid": 40727,
+        "revisionId": 272562
+      },
+      {
+        "pageid": 41512,
+        "revisionId": 279063
+      },
+      {
+        "pageid": 45698,
+        "revisionId": 303697
+      },
+      {
+        "pageid": 45699,
+        "revisionId": 303701
+      },
+      {
+        "pageid": 45997,
+        "revisionId": 305505
+      },
+      {
+        "pageid": 46335,
+        "revisionId": 309757
+      },
+      {
+        "pageid": 46569,
+        "revisionId": 310608
+      },
+      {
+        "pageid": 48719,
+        "revisionId": 318522
+      },
+      {
+        "pageid": 49200,
+        "revisionId": 320194
+      },
+      {
+        "pageid": 51367,
+        "revisionId": 328960
+      },
+      {
+        "pageid": 51891,
+        "revisionId": 530515
+      },
+      {
+        "pageid": 58417,
+        "revisionId": 619209
+      },
+      {
+        "pageid": 58418,
+        "revisionId": 619212
+      },
+      {
+        "pageid": 58430,
+        "revisionId": 619236
+      },
+      {
+        "pageid": 59466,
+        "revisionId": 631110
+      },
+      {
+        "pageid": 60739,
+        "revisionId": 634002
+      },
+      {
+        "pageid": 60803,
+        "revisionId": 634139
+      },
+      {
+        "pageid": 30983,
+        "revisionId": 199608
+      },
+      {
+        "pageid": 30987,
+        "revisionId": 199622
+      },
+      {
+        "pageid": 30991,
+        "revisionId": 199641
+      },
+      {
+        "pageid": 31065,
+        "revisionId": 200058
+      },
+      {
+        "pageid": 31107,
+        "revisionId": 200177
+      },
+      {
+        "pageid": 31169,
+        "revisionId": 200338
+      },
+      {
+        "pageid": 31171,
+        "revisionId": 200348
+      },
+      {
+        "pageid": 31192,
+        "revisionId": 200403
+      },
+      {
+        "pageid": 31341,
+        "revisionId": 200889
+      },
+      {
+        "pageid": 31385,
+        "revisionId": 201267
+      },
+      {
+        "pageid": 31686,
+        "revisionId": 205488
+      },
+      {
+        "pageid": 31865,
+        "revisionId": 206212
+      },
+      {
+        "pageid": 31866,
+        "revisionId": 206219
+      },
+      {
+        "pageid": 31867,
+        "revisionId": 206227
+      },
+      {
+        "pageid": 31868,
+        "revisionId": 206233
+      },
+      {
+        "pageid": 31914,
+        "revisionId": 206503
+      },
+      {
+        "pageid": 31916,
+        "revisionId": 206511
+      },
+      {
+        "pageid": 32408,
+        "revisionId": 211928
+      },
+      {
+        "pageid": 32411,
+        "revisionId": 211951
+      },
+      {
+        "pageid": 32412,
+        "revisionId": 211958
+      },
+      {
+        "pageid": 32472,
+        "revisionId": 214024
+      },
+      {
+        "pageid": 32473,
+        "revisionId": 214031
+      },
+      {
+        "pageid": 33362,
+        "revisionId": 217524
+      },
+      {
+        "pageid": 33520,
+        "revisionId": 218752
+      },
+      {
+        "pageid": 33525,
+        "revisionId": 218787
+      },
+      {
+        "pageid": 33526,
+        "revisionId": 218795
+      },
+      {
+        "pageid": 33566,
+        "revisionId": 219002
+      },
+      {
+        "pageid": 33724,
+        "revisionId": 219400
+      },
+      {
+        "pageid": 33788,
+        "revisionId": 219853
+      },
+      {
+        "pageid": 34150,
+        "revisionId": 221094
+      },
+      {
+        "pageid": 35710,
+        "revisionId": 235104
+      },
+      {
+        "pageid": 35711,
+        "revisionId": 235117
+      },
+      {
+        "pageid": 35712,
+        "revisionId": 235129
+      },
+      {
+        "pageid": 37025,
+        "revisionId": 242263
+      },
+      {
+        "pageid": 37267,
+        "revisionId": 244055
+      },
+      {
+        "pageid": 41345,
+        "revisionId": 277004
+      },
+      {
+        "pageid": 41638,
+        "revisionId": 279445
+      },
+      {
+        "pageid": 42225,
+        "revisionId": 281615
+      },
+      {
+        "pageid": 44931,
+        "revisionId": 300406
+      },
+      {
+        "pageid": 46013,
+        "revisionId": 305586
+      },
+      {
+        "pageid": 46014,
+        "revisionId": 305593
+      },
+      {
+        "pageid": 46040,
+        "revisionId": 305760
+      },
+      {
+        "pageid": 47110,
+        "revisionId": 312099
+      },
+      {
+        "pageid": 47111,
+        "revisionId": 312103
+      },
+      {
+        "pageid": 49339,
+        "revisionId": 320515
+      },
+      {
+        "pageid": 49342,
+        "revisionId": 320522
+      },
+      {
+        "pageid": 49725,
+        "revisionId": 321259
+      },
+      {
+        "pageid": 51926,
+        "revisionId": 530688
+      },
+      {
+        "pageid": 60820,
+        "revisionId": 634158
+      },
+      {
+        "pageid": 60939,
+        "revisionId": 634445
+      },
+      {
+        "pageid": 30980,
+        "revisionId": 199574
+      },
+      {
+        "pageid": 30993,
+        "revisionId": 199651
+      },
+      {
+        "pageid": 31014,
+        "revisionId": 199798
+      },
+      {
+        "pageid": 31063,
+        "revisionId": 200051
+      },
+      {
+        "pageid": 31074,
+        "revisionId": 200103
+      },
+      {
+        "pageid": 31108,
+        "revisionId": 200184
+      },
+      {
+        "pageid": 31156,
+        "revisionId": 200298
+      },
+      {
+        "pageid": 31158,
+        "revisionId": 200305
+      },
+      {
+        "pageid": 31173,
+        "revisionId": 200355
+      },
+      {
+        "pageid": 31910,
+        "revisionId": 206482
+      },
+      {
+        "pageid": 32471,
+        "revisionId": 214017
+      },
+      {
+        "pageid": 32793,
+        "revisionId": 215676
+      },
+      {
+        "pageid": 33088,
+        "revisionId": 216949
+      },
+      {
+        "pageid": 33366,
+        "revisionId": 217534
+      },
+      {
+        "pageid": 33827,
+        "revisionId": 219987
+      },
+      {
+        "pageid": 34142,
+        "revisionId": 221069
+      },
+      {
+        "pageid": 37711,
+        "revisionId": 251296
+      },
+      {
+        "pageid": 38095,
+        "revisionId": 256088
+      },
+      {
+        "pageid": 38638,
+        "revisionId": 259423
+      },
+      {
+        "pageid": 38639,
+        "revisionId": 259428
+      },
+      {
+        "pageid": 38640,
+        "revisionId": 259433
+      },
+      {
+        "pageid": 38642,
+        "revisionId": 259441
+      },
+      {
+        "pageid": 38643,
+        "revisionId": 259446
+      },
+      {
+        "pageid": 38644,
+        "revisionId": 259451
+      },
+      {
+        "pageid": 38647,
+        "revisionId": 259459
+      },
+      {
+        "pageid": 40860,
+        "revisionId": 273039
+      },
+      {
+        "pageid": 41874,
+        "revisionId": 280754
+      },
+      {
+        "pageid": 42661,
+        "revisionId": 289006
+      },
+      {
+        "pageid": 42754,
+        "revisionId": 289419
+      },
+      {
+        "pageid": 42759,
+        "revisionId": 289428
+      },
+      {
+        "pageid": 43141,
+        "revisionId": 291029
+      },
+      {
+        "pageid": 45796,
+        "revisionId": 304298
+      },
+      {
+        "pageid": 45998,
+        "revisionId": 305509
+      },
+      {
+        "pageid": 45999,
+        "revisionId": 305516
+      },
+      {
+        "pageid": 46000,
+        "revisionId": 305522
+      },
+      {
+        "pageid": 47105,
+        "revisionId": 312088
+      },
+      {
+        "pageid": 48197,
+        "revisionId": 316404
+      },
+      {
+        "pageid": 48202,
+        "revisionId": 316433
+      },
+      {
+        "pageid": 48220,
+        "revisionId": 316475
+      },
+      {
+        "pageid": 48285,
+        "revisionId": 317085
+      },
+      {
+        "pageid": 49046,
+        "revisionId": 669728
+      },
+      {
+        "pageid": 49201,
+        "revisionId": 320199
+      },
+      {
+        "pageid": 49338,
+        "revisionId": 320509
+      },
+      {
+        "pageid": 49767,
+        "revisionId": 321642
+      },
+      {
+        "pageid": 50446,
+        "revisionId": 325037
+      },
+      {
+        "pageid": 51892,
+        "revisionId": 530521
+      },
+      {
+        "pageid": 52341,
+        "revisionId": 547107
+      },
+      {
+        "pageid": 59354,
+        "revisionId": 630765
+      },
+      {
+        "pageid": 60639,
+        "revisionId": 633747
+      },
+      {
+        "pageid": 60753,
+        "revisionId": 634019
+      },
+      {
+        "pageid": 31069,
+        "revisionId": 200075
+      },
+      {
+        "pageid": 31072,
+        "revisionId": 200089
+      },
+      {
+        "pageid": 31105,
+        "revisionId": 200164
+      },
+      {
+        "pageid": 31106,
+        "revisionId": 200171
+      },
+      {
+        "pageid": 31160,
+        "revisionId": 200315
+      },
+      {
+        "pageid": 31186,
+        "revisionId": 200382
+      },
+      {
+        "pageid": 31384,
+        "revisionId": 201261
+      },
+      {
+        "pageid": 32410,
+        "revisionId": 211944
+      },
+      {
+        "pageid": 32413,
+        "revisionId": 211965
+      },
+      {
+        "pageid": 32768,
+        "revisionId": 215569
+      },
+      {
+        "pageid": 33061,
+        "revisionId": 216864
+      },
+      {
+        "pageid": 33527,
+        "revisionId": 218803
+      },
+      {
+        "pageid": 33902,
+        "revisionId": 220343
+      },
+      {
+        "pageid": 33954,
+        "revisionId": 220408
+      },
+      {
+        "pageid": 34151,
+        "revisionId": 221104
+      },
+      {
+        "pageid": 35275,
+        "revisionId": 229565
+      },
+      {
+        "pageid": 35276,
+        "revisionId": 229571
+      },
+      {
+        "pageid": 35277,
+        "revisionId": 229578
+      },
+      {
+        "pageid": 35434,
+        "revisionId": 231330
+      },
+      {
+        "pageid": 36729,
+        "revisionId": 240456
+      },
+      {
+        "pageid": 37541,
+        "revisionId": 248787
+      },
+      {
+        "pageid": 39799,
+        "revisionId": 267327
+      },
+      {
+        "pageid": 41346,
+        "revisionId": 277012
+      },
+      {
+        "pageid": 46015,
+        "revisionId": 305601
+      },
+      {
+        "pageid": 48123,
+        "revisionId": 315976
+      },
+      {
+        "pageid": 49466,
+        "revisionId": 320726
+      },
+      {
+        "pageid": 51943,
+        "revisionId": 530733
+      },
+      {
+        "pageid": 53393,
+        "revisionId": 592338
+      },
+      {
+        "pageid": 54667,
+        "revisionId": 595931
+      },
+      {
+        "pageid": 55760,
+        "revisionId": 604227
+      },
+      {
+        "pageid": 58421,
+        "revisionId": 619217
+      },
+      {
+        "pageid": 59340,
+        "revisionId": 637352
+      },
+      {
+        "pageid": 59364,
+        "revisionId": 630778
+      },
+      {
+        "pageid": 60715,
+        "revisionId": 633964
+      },
+      {
+        "pageid": 64805,
+        "revisionId": 671607
+      }
+    ]
+  },
+  "representativeMapApiResponse": {
+    "pageid": 30980,
+    "revisionId": 199574,
+    "httpStatus": 200,
+    "htmlProfile": "0.0.0",
+    "revisionEnvelope": false
+  },
+  "localProductionWorker": {
+    "standardRevision": {
+      "revisionId": 670384,
+      "httpStatus": 200,
+      "semanticNodes": 1699
+    },
+    "mapNamespace": {
+      "revisionId": 199574,
+      "httpStatus": 501,
+      "fallback": "imported-source"
+    },
+    "outOfSnapshotRevision": {
+      "revisionId": 123456789999,
+      "httpStatus": 404
+    }
+  },
+  "failedCount": 0,
+  "failures": [],
+  "currentRevisionAllowlistSha256": "4a818638a0b79b3d30a5418985c586c0bed5ee46bbe9cf7718c19c47afe16209",
+  "canonicalRevisionSetSha256": "a463aec8c10af08318b7dc4b4a08a82ac2b4981c75c6528d9c72d0ec16fd01f4"
+}

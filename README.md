@@ -24,6 +24,8 @@ The research build uses the Official Tower Defense Simulator Wiki as its primary
 
 The mode planner includes distinct solo notes for 14 mode types and keeps solo evidence separate from co-op assumptions. Frost creator demonstrations, a reported Hardcore loadout, disputed Voidcore claims, and an unverified Polluted Wasteland II solo claim have separate confidence labels and source links. Most other entries are planning checklists, not verified wave-by-wave clears. See [solo strategy evidence](docs/research/solo-strategy-evidence.md).
 
+The encyclopedia records the captured source revision for all 2,835 entries. The 2,649 standard pages use sanitized HTML from the matching revision through a same-origin route; 186 map pages use the imported source formatter because their endpoint returns only a map-widget fragment. Scripts, styles, and remote image files are removed. Full source remains available, and older transcluded-template versions are not archived.
+
 ## Content and attribution
 
 Imported article text is adapted into this guide's own navigation and presentation. Each entry records its source title, URL, revision, retrieval date, history link, applicable license, and any adaptation notice. The wiki's current policy distinguishes historical CC BY-SA 3.0 text from newer CC BY-SA 4.0 contributions and licenses media individually. Media without verified reuse terms is linked to its source description instead of redistributed.
