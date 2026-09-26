@@ -13,7 +13,7 @@
     "extract:towers": "node scripts/extract-tower-stats.mjs",
     "refresh:wiki": "npm run import:wiki && npm run extract:towers && node scripts/materialize-wiki.mjs",
     "test:wiki-renderer": "node --test scripts/test-wiki-source-renderer.mjs",
-    "test:wiki": "node --test scripts/test-wiki-source-renderer.mjs scripts/test-wiki-corpus.mjs scripts/test-tower-stats.mjs scripts/test-site-completeness.mjs scripts/test-solo-strategy-coverage.mjs scripts/test-scene-render-scheduler.mjs",
+    "test:wiki": "node --test scripts/test-wiki-source-renderer.mjs scripts/test-wiki-corpus.mjs scripts/test-tower-stats.mjs scripts/test-site-completeness.mjs scripts/test-solo-strategy-coverage.mjs scripts/test-scene-render-scheduler.mjs scripts/test-scene-controls.mjs",
     "audit:wiki-rendered": "node scripts/audit-wiki-rendered-availability.mjs",
     "start": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
