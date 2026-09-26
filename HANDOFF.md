@@ -33,7 +33,7 @@ Material Designer and Status Hub tools were unavailable in this session. A task-
 ## Verification
 
 - `npm run lint`: passed with zero warnings on the first source revision.
-- `npm run test:wiki`: 16/16 passed on the current local changes, including corpus completeness, negative missing-entry, missing-revision, missing-license, invalid tower cap, stale tower revision, special-DPS, and detection-footnote checks, plus rendered-audit snapshot binding.
+- `npm run test:wiki`: 17/17 passed on the current local simulator changes, including corpus completeness, negative missing-entry, missing-revision, missing-license, invalid tower cap, stale tower revision, special-DPS, detection-footnote, and multi-tower investment checks, plus rendered-audit snapshot binding.
 - `npm run lint`: passed on the current local simulator changes.
 - `npm run build`: passed on the current local simulator changes. Large-client-chunk and route-classification warnings remain.
 - The production build passed with the source-rendering API route; large client-chunk and route-classification warnings remain.

@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { validateTowerStats } from "../lib/tower-stats-contract.mjs";
+import { estimateInvestment, validateTowerStats } from "../lib/tower-stats-contract.mjs";
 
 const catalog = JSON.parse(await readFile(new URL("../data/tower-stats.json", import.meta.url), "utf8"));
 const corpus = JSON.parse(await readFile(new URL("../data/wiki-corpus.json", import.meta.url), "utf8"));
@@ -26,6 +26,14 @@ test("detection footnotes remain separate from the detection flag", () => {
   assert.equal(pulseTrooper?.levels[0].flying, "No");
   assert.ok(pulseTrooper?.detectionNotes.some((note) => note.attribute === "Hidden" && /indirectly hit/i.test(note.text)));
   assert.ok(pulseTrooper?.detectionNotes.some((note) => note.attribute === "Flying" && /indirectly hit/i.test(note.text)));
+});
+
+test("investment estimates scale with count and selected upgrade costs", () => {
+  const scout = find("Scout");
+  assert.equal(estimateInvestment(scout, 0, 1), 125);
+  assert.equal(estimateInvestment(scout, 2, 4), 2_200);
+  assert.equal(estimateInvestment(scout, 0, 0), null);
+  assert.equal(estimateInvestment({ ...scout, placementCost: null }, 0, 1), null);
 });
 
 test("the data contract rejects missing records, broken provenance, and false generic formulas", () => {
