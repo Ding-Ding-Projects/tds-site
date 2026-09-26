@@ -42,11 +42,17 @@ Snowballer now has a source-backed `Damage / Firerate` single-target-equivalent 
 
 ## Verification
 
-- `npm run test:wiki`: 45/45 passed on the current source, including three negative completeness regressions, strategy coverage and map-assumption checks, inventory-drift comparator cases, three scene-render scheduler checks, two 3D touch-target checks, and the Accelerator, Operator, Commando, Soldier, Golden Soldier, Freezer, Demoman, Golden Demoman, Paintballer, Ranger, Mortar, Rocketeer, and Snowballer formula regressions.
+- `npm run test:wiki`: 46/46 passed on the current source, including three negative completeness regressions, strategy coverage and map-assumption checks, inventory-drift comparator cases, three scene-render scheduler checks, two 3D touch-target checks, and the Accelerator, Operator, Commando, Soldier, Golden Soldier, Freezer, Demoman, Golden Demoman, Paintballer, Ranger, Mortar, Rocketeer, and Snowballer formula regressions.
 - `npm run lint`: passed on the current source.
 - `npm run build`: passed on the current source. Large-client-chunk and route-classification warnings remain.
 - The local production Worker returned 200 for imported revision `670384` (746 semantic nodes, no active or remote-media nodes) and 404 for revision `123456789999`, which is outside the imported allowlist.
 - Isolated Edge production build review on an earlier source revision: one 1280×900 desktop and one 390×844 emulated mobile capture, with no console exceptions, failed resources, unnamed interactive controls, or horizontal page overflow in those tuples.
-- Current simulator and solo-planner version-label captures: unrun because the required isolated headless browser route was unavailable; no alternate computer-use route was used.
+- Current simulator, Solo checkpoint, and solo-planner version-label captures: unrun because the required isolated headless browser route was unavailable; no alternate computer-use route was used.
 - The mode-aware map picker extends the existing planner. Material Designer creation/export tools were not present in this session, so no new design handoff was produced. Fresh built-page captures and the required layout matrix also remain open because the isolated headless capture tools were unavailable.
 - Not verified: full cross-product viewport matrix, physical-device behavior, all tower formulas, touch orbit, complete readable wiki rendering, deployment, or live public access.
+
+
+## Solo decision checkpoints
+
+
+The Solo planner now shows four mode-specific checkpoints for each of its 15 scenarios. The sequence gives a solo player prompts for an opening, a mode-specific midgame decision, a late-game or boss response, and evidence interpretation. The UI keeps Solo checkpoints out of the Co-op view and labels their basis as a mode fact, a creator or community report, or editorial advice. The new [Solo playbook](docs/strategies/solo-playbook.md) summarizes all scenarios, evidence limits, and the fields needed to record a reproducible attempt. The source completeness check requires all 15 modes and exactly four steps per mode, with negative cases for a missing mode, a shortened step list, and a Co-op leak. `npm run test:wiki` passes 46/46, lint passes, and the production build completes with existing chunk-size and route-classification warnings. A fresh built-surface capture remains unavailable through the isolated capture route. This addition does not establish any previously unverified Solo route as a proven clear.

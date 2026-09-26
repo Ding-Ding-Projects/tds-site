@@ -15,6 +15,19 @@ test("every supported mode has exactly one solo and one co-op plan with phases a
   assert.ok(component.includes("current official page's impossibility claim conflicts with its own Index solo badge"));
 });
 
+test("every mode has four Solo decision checkpoints and the checklist stays out of Co-op", () => {
+  assert.deepEqual(validateSoloStrategyCoverage(component), []);
+  const missingMode = component.replace('  "Challenge Trials": [', '  "Challenge Trial": [');
+  assert.ok(validateSoloStrategyCoverage(missingMode).includes("missing Solo decision checkpoints: Challenge Trials"));
+  const easyStart = component.indexOf('  "Easy": [');
+  const easyEnd = component.indexOf("\n  ]", easyStart);
+  const easyBlock = component.slice(easyStart, easyEnd).replace(/\n    \{ title:[^\n]+/, "");
+  const shortened = component.slice(0, easyStart) + easyBlock + component.slice(easyEnd);
+  assert.ok(validateSoloStrategyCoverage(shortened).includes("Solo decision checkpoints must contain four steps: Easy"));
+  const coOpLeak = component.replace('team === "Solo" && <section className="solo-checklist"', '<section className="solo-checklist"');
+  assert.ok(validateSoloStrategyCoverage(coOpLeak).includes("Solo decision checkpoints are not restricted to the Solo view"));
+});
+
 test("strategy coverage fails when a solo mode plan is removed", () => {
   const row = component.split(/\r?\n/).find((line) => line.startsWith('  { mode: "Badlands II"') && line.includes('team: "Solo"'));
   assert.ok(row);
