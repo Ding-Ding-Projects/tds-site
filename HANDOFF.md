@@ -6,7 +6,7 @@ The public source repository is at https://github.com/Ding-Ding-Projects/tds-sit
 
 The production build was pinned to the default revision. Existing isolated desktop and emulated mobile captures show an earlier build with the read-aloud control and current mode label. Their provenance, hashes, dimensions, runtime checks, and limits are in `evidence/site/current-build.json`. They verify one dark English desktop tuple at 1280×900 and one dark English emulated mobile tuple at 390×844, but do not show the current simulator repair or strategy version-context label. The required isolated headless interaction and capture route was not available in this session, so current simulator controls remain visually unverified. The captures also do not cover the complete language, theme, and display-scale matrix, touch orbit gestures, or all simulator formulas.
 
-The Sites project is active and version 4 is saved from source revision `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`. The current access mode remains custom owner access, `current_live_url` is null, and no deployment has been verified. The requested public deployment is not live. A save attempt for `474d7fbba09c1b751913badb0507901ff5902c5e` was rejected because the Sites connector's configured source `main` still reports `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`; no new version was created. The source sync and any access changes or production publication remain pending the owner-confirmation path.
+The Sites project is active and version 4 is saved from source revision `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`. Public access mode is now set and was verified at policy revision 2. The Sites listing still reports `current_live_url` as null and version 4 as the latest saved version, so no public deployment is live. Version 4 references source `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`, which is behind current `main` at `b46e6281556f2e0774ed769cf49b1d08bcfbea91`. A newer source-matched version and deployment remain outstanding.
 
 ## Solo strategy coverage
 
@@ -20,7 +20,7 @@ The initial user-supplied dossier was not imported as fact. Research identified 
 
 ## Design and status limitations
 
-Material Designer and Status Hub tools were unavailable in this session. No live Hub update is claimed. Access changes and production publication remain pending the required owner-side confirmation through the Sites access flow.
+Material Designer and Status Hub tools were unavailable in this session. No live Hub update is claimed. The existing Sites project is configured for public access, but no live URL or deployment exists; the latest saved version still points to older source `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`.
 
 The repository's wiki setting is enabled, but `git ls-remote https://github.com/Ding-Ding-Projects/tds-site.wiki.git` returned “Repository not found.” GitHub's documented wiki setup requires creating the first page in the web UI before cloning; the available `gh` commands do not create that initial page. No browser or alternate GitHub mutation route was used. The local strategy and evidence documentation remains current, while wiki publication awaits the first-page creation step.
 
