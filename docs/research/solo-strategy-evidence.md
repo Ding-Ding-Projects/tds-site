@@ -18,6 +18,8 @@ Research cutoff: 2026-09-26. A solo report is separate from a co-op strategy. Re
 
 The Official Wiki's [Index page](https://tds.wiki/w/Index) lists solo-specific triumph badges for Molten Mode, Fallen Mode, Pizza Party, Badlands II, and Polluted Wasteland II. The Badlands II page separately lists the Outlaw solo badge and describes its three-path All Paths modifier, solo cash allocation, and wave-30 Gunslinger. These entries support solo availability, but do not supply a reproducible current build by themselves.
 
+The current [Gamemodes catalog](https://tds.wiki/w/Gamemodes) lists Hidden Wave as a secret Fallen Mode encounter, rather than as a separate queue. Its [page](https://tds.wiki/w/Hidden_Wave) documents the activation sequence, base-health condition, 60-second wave-40 Fallen King requirement, consumable restrictions, and wave-41 encounter. The planner includes a Solo adaptation of those official mechanics, labeled unverified because this project has not reproduced a solo triumph. A separate Co-op plan assigns trigger, boss-damage, and add-control responsibilities; that role split is editorial.
+
 This official badge evidence supersedes the earlier community-only uncertainty about whether Polluted Wasteland II can be completed solo. The current route, matchmaking behavior, and exact wave-by-wave loadout remain unverified. A badge entry is stronger evidence than a community comment, but it is not a replay log.
 
 ## Community reports and disagreements
