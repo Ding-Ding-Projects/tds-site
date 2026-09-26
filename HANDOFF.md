@@ -6,7 +6,7 @@ The Solo Frost planner now includes a long-map budget proposal from a September 
 
 `node --test scripts/test-solo-strategy-coverage.mjs` passes 8/8, `npm run test:wiki` passes 90/90, and `npm run lint` passes. `npm run build` completes with the existing large-chunk and route-classification warnings. The candidate-source negative test removes every occurrence of the source URL and confirms the evidence check fails. All seven changed public files pass the 167-needle private-vocabulary scan, and `git diff --check` passes. Built interaction capture remains unavailable through the isolated browser route. Sites still has no verified live URL and this source change has not been saved or deployed.
 
-## Latest verified simulator slice
+## Archer simulator slice
 
 The Archer simulator now imports its separate Flame, Explosive, and Shock Arrow tables from the eligible revision snapshot, shows only the arrow choices available at the selected upgrade level, and calculates the matching source-listed one-target estimate. The maximum-hit count remains separate from the estimate, and the UI states that extra pierce targets, status effects, immunity, and travel time are not modeled. The supporting source is revision 665496, with its history and reuse policy linked in `docs/simulator/README.md`.
 
@@ -101,3 +101,7 @@ The new `scripts/test-regex-workbench.mjs` covers worker matching, named capture
 The strategy planner now renders the same fenced prompt as `docs/research/chatgpt-research-prompt.md` in a keyboard-focusable code panel. The prompt explicitly limits research to eligible public pages, excludes talk/user namespaces, private/deleted pages, and superseded revision content, and requires individual licensing evidence for media. Its Copy action reports success only after the clipboard API resolves and gives a manual-copy instruction when clipboard access is unavailable. The exact prompt string is checked against the canonical Markdown block by `scripts/test-research-prompt.mjs`. The full suite passes 86/86, lint passes, and the production build completes with existing size and route-classification notices. Built interaction captures for the new prompt card remain unavailable.
 
 At the prompt-card milestone, public `main` was `f89e918e4d353c368201339e883d2d958f565587`. Sites still lists version 4 from `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`; the later source save attempt for `e915297bbceaf264754e219ea918d0d080943904` was rejected because Sites reports that older internal `main` head. The valid 34,914,417-byte package contains 5,604 entries and the required hosting manifest, but it was not saved as a version. The project remains public with no live URL. Owner-side protected source recovery remains a prerequisite recorded in the delivery issue.
+
+## Current source checkpoint
+
+The latest Solo Frost source update is `743bfd791479ce53ac953820fd52f2475337eb9a` on `main`, verified on the public repository with `git ls-remote`. The focused Solo suite passes 8/8, the full wiki suite passes 90/90, lint passes, and the production build completes with the existing chunk-size and route-classification warnings. The source update is not in a saved Sites version or public deployment. Current-source interactive captures and the required language/theme/viewport/scale matrix remain unavailable in this session.
