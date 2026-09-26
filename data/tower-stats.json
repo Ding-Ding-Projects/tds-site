@@ -245,7 +245,105 @@
       "placementCost": 600,
       "pvpPlacementCost": null,
       "damageMethod": "Pierce Fire (Level 3+) Splash (Level 4+)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "archer-arrow-cycle",
+      "damageVariants": [
+        {
+          "name": "Flame Arrow",
+          "levels": [
+            {
+              "level": 0,
+              "damage": 5,
+              "interval": 1.6,
+              "splashDamage": null,
+              "burnDamage": null,
+              "burnTick": null,
+              "maxHits": 2
+            },
+            {
+              "level": 1,
+              "damage": 5,
+              "interval": 1.4,
+              "splashDamage": null,
+              "burnDamage": null,
+              "burnTick": null,
+              "maxHits": 2
+            },
+            {
+              "level": 2,
+              "damage": 8,
+              "interval": 1.4,
+              "splashDamage": null,
+              "burnDamage": null,
+              "burnTick": null,
+              "maxHits": 2
+            },
+            {
+              "level": 3,
+              "damage": 10,
+              "interval": 1.4,
+              "splashDamage": null,
+              "burnDamage": 3,
+              "burnTick": 1,
+              "maxHits": 3
+            },
+            {
+              "level": 4,
+              "damage": 16,
+              "interval": 1.2,
+              "splashDamage": null,
+              "burnDamage": 5,
+              "burnTick": 1,
+              "maxHits": 4
+            },
+            {
+              "level": 5,
+              "damage": 40,
+              "interval": 1,
+              "splashDamage": null,
+              "burnDamage": 14,
+              "burnTick": 1,
+              "maxHits": 8
+            }
+          ]
+        },
+        {
+          "name": "Explosive Arrow",
+          "levels": [
+            {
+              "level": 4,
+              "damage": 16,
+              "interval": 1.2,
+              "splashDamage": 25,
+              "burnDamage": null,
+              "burnTick": null,
+              "maxHits": 1
+            },
+            {
+              "level": 5,
+              "damage": 40,
+              "interval": 1,
+              "splashDamage": 45,
+              "burnDamage": null,
+              "burnTick": null,
+              "maxHits": 1
+            }
+          ]
+        },
+        {
+          "name": "Shock Arrow",
+          "levels": [
+            {
+              "level": 5,
+              "damage": 40,
+              "interval": 1,
+              "splashDamage": null,
+              "burnDamage": null,
+              "burnTick": null,
+              "maxHits": 5
+            }
+          ]
+        }
+      ],
       "detectionNotes": [],
       "levels": [
         {
@@ -329,7 +427,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Pierce Fire (Level 3+) Splash (Level 4+)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed Archer arrow estimate: Flame Arrow uses Damage / Firerate, adding Burn Damage / Burn Tick when listed; Explosive Arrow uses Damage / Firerate + Splash Damage / Firerate; Shock Arrow uses Damage / Firerate. Each estimate assumes one enemy and excludes additional pierce targets."
     },
     {
       "pageid": 48924,

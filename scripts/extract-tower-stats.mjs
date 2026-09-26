@@ -393,6 +393,48 @@ function hallowPunkCycle(entry, levels) {
   return { formula: "hallow-punk-burn-cycle", values };
 }
 
+function archerArrowVariants(entry) {
+  const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
+  if (!/\$DPS\$\s*=\s*Damage\s*\/\s*Firerate/i.test(statistics) || !/\$BDPS\$\s*=\s*Burn Damage\s*\/\s*Burn Tick/i.test(statistics) || !/\$SDPS\$\s*=\s*\[\[Splash Damage\]\]\s*\/\s*Firerate/i.test(statistics)) return null;
+  const tabber = statistics.match(/<tabber>([\s\S]*?)<\/tabber>/i)?.[1];
+  if (!tabber) return null;
+  const names = ["Flame Arrow", "Explosive Arrow", "Shock Arrow"];
+  const variants = names.map((name) => {
+    const start = tabber.indexOf(`|-|${name} =`);
+    if (start < 0) return null;
+    const next = tabber.slice(start + 3).search(/\|-\|/);
+    const branch = tabber.slice(start, next < 0 ? undefined : start + 3 + next);
+    const table = branch.match(/\{\|[\s\S]*?\n\|\}/)?.[0];
+    if (!table) return null;
+    const header = table.match(/^!\s*Level\s*!!([^\n]+)$/m)?.[1];
+    if (!header) return null;
+    const columns = ["Level", ...header.split("!!").map((column) => clean(column.replace(/\$[^$]+\$/g, "")))];
+    const index = (pattern) => columns.findIndex((column) => pattern.test(column));
+    const indexes = {
+      damage: index(/^Damage$/i),
+      splashDamage: index(/^Splash Damage$/i),
+      burnDamage: index(/^Burn Damage$/i),
+      interval: index(/^Firerate/i),
+      burnTick: index(/^Burn Tick$/i),
+      maxHits: index(/^Max Hits$/i),
+    };
+    if ([indexes.damage, indexes.interval, indexes.maxHits].some((value) => value < 1)) return null;
+    const rows = [...table.matchAll(/^\|\s*(\d+)\s*\|\|([^\n]+)$/gm)];
+    const values = rows.map((row) => {
+      const cells = [row[1], ...row[2].replace(/^\s*\|\|/, "").split("||")];
+      const numberAt = (column) => {
+        if (column < 1) return null;
+        const value = clean(cells[column] ?? "").match(/\d[\d,]*(?:\.\d+)?/);
+        return value ? Number(value[0].replaceAll(",", "")) : null;
+      };
+      return { level: Number(row[1]), damage: numberAt(indexes.damage), interval: numberAt(indexes.interval), splashDamage: numberAt(indexes.splashDamage), burnDamage: numberAt(indexes.burnDamage), burnTick: numberAt(indexes.burnTick), maxHits: numberAt(indexes.maxHits) };
+    });
+    return values.length ? { name, levels: values } : null;
+  }).filter(Boolean);
+  if (variants.length !== names.length) return null;
+  return variants;
+}
+
 const result = [];
 for (const entry of corpus.entries) {
   if (!entry.wikitext.includes("{{TowerInfobox")) continue;
@@ -416,10 +458,11 @@ for (const entry of corpus.entries) {
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
   const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : ["Snowballer", "Golden Snowballer"].includes(entry.title) ? snowballerSplashCycle(entry, levels) : entry.title === "Toxic Gunner" ? toxicGunnerCycle(entry, levels) : entry.title === "Ace Pilot" ? acePilotCycle(entry, levels) : entry.title === "Slime Trooper" ? singleTargetDamageCycle(entry, levels) : entry.title === "Pulse Trooper" ? pulseTrooperCycle(entry, levels) : entry.title === "Hallow Punk" ? hallowPunkCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const archerVariants = entry.title === "Archer" ? archerArrowVariants(entry) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
-  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "toxic-gunner-poison-cycle" ? "toxic-gunner-poison-cycle" : cycle.formula === "ace-pilot-bomb-cycle" ? "ace-pilot-bomb-cycle" : cycle.formula === "single-target-damage-cycle" ? "single-target-damage-cycle" : cycle.formula === "pulse-direct-cycle" ? "pulse-direct-cycle" : cycle.formula === "hallow-punk-burn-cycle" ? "hallow-punk-burn-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : cycle.formula === "direct-splash-cycle" ? "direct-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsFormula = archerVariants ? "archer-arrow-cycle" : cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "toxic-gunner-poison-cycle" ? "toxic-gunner-poison-cycle" : cycle.formula === "ace-pilot-bomb-cycle" ? "ace-pilot-bomb-cycle" : cycle.formula === "single-target-damage-cycle" ? "single-target-damage-cycle" : cycle.formula === "pulse-direct-cycle" ? "pulse-direct-cycle" : cycle.formula === "hallow-punk-burn-cycle" ? "hallow-punk-burn-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : cycle.formula === "direct-splash-cycle" ? "direct-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
   let dpsMethod = cycle
     ? cycle.formula === "overcharge-cycle"
       ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
@@ -450,6 +493,8 @@ for (const entry of corpus.entries) {
                 : cycle.formula === "direct-splash-cycle"
                   ? "Source-listed single-target combined estimate: (Damage / Firerate) + (Splash Damage / Firerate). Maximum Hits is shown separately and is not multiplied into this estimate."
                   : "Source-listed burst estimate: (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)). Firerate applies within the burst."
+    : archerVariants
+      ? "Source-listed Archer arrow estimate: Flame Arrow uses Damage / Firerate, adding Burn Damage / Burn Tick when listed; Explosive Arrow uses Damage / Firerate + Splash Damage / Firerate; Shock Arrow uses Damage / Firerate. Each estimate assumes one enemy and excludes additional pierce targets."
     : specialDamageMethod
       ? `Special damage cycle (${damageMethod}); generic DPS is not estimated.`
     : revUp
@@ -463,7 +508,7 @@ for (const entry of corpus.entries) {
     ...referencedNotes(tower.lead_detection).map((text) => ({ attribute: "Lead", text })),
     ...referencedNotes(tower.flying_detection).map((text) => ({ attribute: "Flying", text })),
   ];
-  result.push({ pageid: entry.pageid, name: entry.title, role: clean(tower.role ?? "Unknown"), placement: clean(tower.placement ?? "Unknown"), placementLimit: placementLimit(tower.placement_limit), unlock: clean(tower.unlockcost ?? "Unknown"), placementCost: base.cost, pvpPlacementCost: lastNumber(tower.pvp_basecost), damageMethod, dpsFormula, detectionNotes, levels, source: { url: entry.sourceUrl, historyUrl: entry.historyUrl, revisionId: entry.revisionId, revisionTimestamp: entry.revisionTimestamp, licensePolicyUrl: entry.licensePolicyUrl, license: entry.license }, dpsMethod });
+  result.push({ pageid: entry.pageid, name: entry.title, role: clean(tower.role ?? "Unknown"), placement: clean(tower.placement ?? "Unknown"), placementLimit: placementLimit(tower.placement_limit), unlock: clean(tower.unlockcost ?? "Unknown"), placementCost: base.cost, pvpPlacementCost: lastNumber(tower.pvp_basecost), damageMethod, dpsFormula, ...(archerVariants ? { damageVariants: archerVariants } : {}), detectionNotes, levels, source: { url: entry.sourceUrl, historyUrl: entry.historyUrl, revisionId: entry.revisionId, revisionTimestamp: entry.revisionTimestamp, licensePolicyUrl: entry.licensePolicyUrl, license: entry.license }, dpsMethod });
 }
 await mkdir(new URL("../data/", import.meta.url), { recursive: true });
 await writeFile(new URL("../data/tower-stats.json", import.meta.url), `${JSON.stringify({ generatedFromRevisionSnapshot: corpus.generatedAt, count: result.length, towers: result }, null, 2)}\n`);

@@ -1,5 +1,13 @@
 # Tower simulator
 
+## Archer arrow variants
+
+The Archer source page publishes separate Flame Arrow, Explosive Arrow, and Shock Arrow tables. The extractor imports each listed level instead of flattening arrow effects into upgrade notes. At Levels 0–3 only Flame Arrow is listed; Level 4 adds Explosive Arrow; Level 5 adds Shock Arrow. The calculator exposes only the arrow choices listed for the selected level.
+
+The displayed estimate follows the matching source formula for one enemy: Flame Arrow uses `Damage / Firerate`, adding `Burn Damage / Burn Tick` where the source lists burn; Explosive Arrow uses `Damage / Firerate + Splash Damage / Firerate`; Shock Arrow uses `Damage / Firerate`. The listed maximum-hit count is shown separately and is not multiplied into this per-target figure. Extra pierce targets, burn immunity, stun effects, and projectile travel time are not simulated, so the result is not total wave damage. The level comparison view uses Flame Arrow as its stated default when Archer is the comparison tower.
+
+The source values come from [Archer, revision 665496](https://tds.wiki/w/Archer?oldid=665496), with [revision history](https://tds.wiki/w/Archer?action=history) and the [wiki reuse policy](https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights). This implementation extracts the numeric inputs and formulas and uses original explanatory wording.
+
 Source values and derived values are stored separately. Keep unlock cost distinct from in-match placement and upgrade costs. Record units and source-specific exceptions for burst, charge, cooldown, rev-up, abilities, buffs, targeting, defense, splash, mode variants, player count, and rounding.
 
 The current extractor processes all 83 source pages with a `TowerInfobox` and reads regular upgrade rows from the same dated revision snapshot. Each record retains its damage method, regular-mode placement limit where the source provides one, and source revision provenance. The placement-count slider respects finite caps and uses an explicit 1-10 estimate when the source gives no finite cap. Each level uses the extracted regular damage, interval, range, and detection values. Detection footnotes remain separate from the Hidden, Lead, and Flying state labels. Investment reports both per-tower and selected-count totals from the placement and upgrade costs. Missing placement costs display as unknown.

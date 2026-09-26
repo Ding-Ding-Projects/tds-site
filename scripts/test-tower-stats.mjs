@@ -39,6 +39,34 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
 });
 
+test("Archer simulator preserves the source's selectable arrow cycles", () => {
+  const archer = find("Archer");
+  assert.equal(archer.dpsFormula, "archer-arrow-cycle");
+  assert.deepEqual(archer.damageVariants.map(({ name, levels }) => [name, levels.map(({ level }) => level)]), [
+    ["Flame Arrow", [0, 1, 2, 3, 4, 5]],
+    ["Explosive Arrow", [4, 5]],
+    ["Shock Arrow", [5]],
+  ]);
+  const variantLevel = (name, level) => ({ ...archer.damageVariants.find((variant) => variant.name === name).levels.find((item) => item.level === level), name });
+  assert.equal(estimateTowerDps(archer, archer.levels[0], variantLevel("Flame Arrow", 0)), 5 / 1.6);
+  assert.equal(estimateTowerDps(archer, archer.levels[3], variantLevel("Flame Arrow", 3)), 10 / 1.4 + 3);
+  assert.equal(estimateTowerDps(archer, archer.levels[4], variantLevel("Explosive Arrow", 4)), 16 / 1.2 + 25 / 1.2);
+  assert.equal(estimateTowerDps(archer, archer.levels[5], variantLevel("Shock Arrow", 5)), 40);
+  assert.equal(estimateTowerDps(archer, archer.levels[5]), 40 + 14);
+  assert.match(archer.dpsMethod, /excludes additional pierce targets/i);
+  const broken = { ...archer, damageVariants: archer.damageVariants.map((variant) => ({ ...variant, levels: variant.levels.map((level) => ({ ...level })) })) };
+  broken.damageVariants[1].levels[0].splashDamage = null;
+  assert.ok(validateTowerStats([broken], [corpus.entries.find((entry) => entry.pageid === broken.pageid)]).includes("Explosive Arrow splash inputs are incomplete at level 4"));
+});
+
+test("Archer arrow picker is level-aware and passes the selected variant into the estimate", async () => {
+  const component = await readFile(new URL("../components/tower-simulator.tsx", import.meta.url), "utf8");
+  const isConnected = (source) => source.includes('aria-label="Select Archer arrow type"') && source.includes("availableArrowVariants.map") && source.includes("estimateTowerDps(tower, shownStat, arrowStat)");
+  assert.equal(isConnected(component), true);
+  const missingPicker = component.replace(/\{selectedArrowVariant && <label className="select-row">Archer arrow type[\s\S]*?<\/label>\}/, "");
+  assert.equal(isConnected(missingPicker), false, "the check must reject a removed arrow selector");
+});
+
 test("Snowballer uses the wiki-listed single-target splash cycle and does not multiply hit count", () => {
   const snowballer = find("Snowballer");
   assert.deepEqual(snowballer.levels.map(({ splashDamage, splashInterval, splashMaxHits }) => [splashDamage, splashInterval, splashMaxHits]), [
