@@ -1,25 +1,25 @@
 {
   "schemaVersion": 2,
-  "auditedAt": "2026-09-26T18:39:40.673Z",
-  "sourceSnapshotSha256": "314e6d9c7c8fe8a857fbf95651e9f37464db9025ca86f5ab2e052c21210c9fe9",
-  "currentRevisionAllowlistSha256": "ca50acf853d8850db7bcbad9bb0e21ca22bcf011df7c4ce87beed47a7e28f0cc",
-  "canonicalRevisionSetSha256": "ca50acf853d8850db7bcbad9bb0e21ca22bcf011df7c4ce87beed47a7e28f0cc",
+  "auditedAt": "2026-09-26T21:35:41.005Z",
+  "sourceSnapshotSha256": "922f30dfbac0fa204e0d177a44668ab17d4de3f3db0fa0da6b76592086347635",
+  "currentRevisionAllowlistSha256": "68f940f07b594c1fef9a2dc203759bd21b2ffabc0fe501571ea8445ea55a0db8",
+  "canonicalRevisionSetSha256": "68f940f07b594c1fef9a2dc203759bd21b2ffabc0fe501571ea8445ea55a0db8",
   "importedRevisionCount": 2836,
   "remoteRevisionHtml": {
     "namespace": 0,
     "count": 2649,
     "sanitized": 2649,
-    "reusedFromVerifiedCache": 2649,
-    "refreshedFromSource": 0,
-    "responseBytes": 0,
-    "sanitizedNodeCount": 9487736
+    "reusedFromVerifiedCache": 2482,
+    "refreshedFromSource": 167,
+    "responseBytes": 27937784,
+    "sanitizedNodeCount": 9488034
   },
   "offlineSanitizedCache": {
     "directory": "public/wiki/rendered",
     "records": 2649,
-    "bytes": 299462947,
+    "bytes": 299474375,
     "manifestPath": "public/wiki/rendered/index.json",
-    "boundToRevisionAllowlistSha256": "ca50acf853d8850db7bcbad9bb0e21ca22bcf011df7c4ce87beed47a7e28f0cc"
+    "boundToRevisionAllowlistSha256": "68f940f07b594c1fef9a2dc203759bd21b2ffabc0fe501571ea8445ea55a0db8"
   },
   "importedSourceFallback": {
     "namespace": 2900,
@@ -778,7 +778,7 @@
       },
       {
         "pageid": 79102,
-        "revisionId": 672541,
+        "revisionId": 672554,
         "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {

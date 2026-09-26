@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "auditedAt": "2026-09-26T17:20:52.574Z",
-  "snapshotGeneratedAt": "2026-09-26T17:20:10.637Z",
+  "auditedAt": "2026-09-26T21:34:12.627Z",
+  "snapshotGeneratedAt": "2026-09-26T21:33:36.389Z",
   "snapshotCount": 2836,
   "liveCount": 2836,
   "counts": {
@@ -169,15 +169,15 @@
     {
       "pageid": 268,
       "title": "Molten",
-      "snapshotRevisionId": 670567,
-      "currentRevisionId": 670567,
+      "snapshotRevisionId": 672780,
+      "currentRevisionId": 672780,
       "status": "current"
     },
     {
       "pageid": 269,
       "title": "Tank 2",
-      "snapshotRevisionId": 16616,
-      "currentRevisionId": 16616,
+      "snapshotRevisionId": 672827,
+      "currentRevisionId": 672827,
       "status": "current"
     },
     {
@@ -204,8 +204,8 @@
     {
       "pageid": 323,
       "title": "Normal",
-      "snapshotRevisionId": 669784,
-      "currentRevisionId": 669784,
+      "snapshotRevisionId": 672772,
+      "currentRevisionId": 672772,
       "status": "current"
     },
     {
@@ -218,8 +218,8 @@
     {
       "pageid": 372,
       "title": "Strong",
-      "snapshotRevisionId": 21446,
-      "currentRevisionId": 21446,
+      "snapshotRevisionId": 672824,
+      "currentRevisionId": 672824,
       "status": "current"
     },
     {
@@ -358,8 +358,8 @@
     {
       "pageid": 459,
       "title": "Normal Boss",
-      "snapshotRevisionId": 669787,
-      "currentRevisionId": 669787,
+      "snapshotRevisionId": 672773,
+      "currentRevisionId": 672773,
       "status": "current"
     },
     {
@@ -428,8 +428,8 @@
     {
       "pageid": 469,
       "title": "Super Mystery",
-      "snapshotRevisionId": 28901,
-      "currentRevisionId": 28901,
+      "snapshotRevisionId": 672823,
+      "currentRevisionId": 672823,
       "status": "current"
     },
     {
@@ -477,8 +477,8 @@
     {
       "pageid": 479,
       "title": "Necromancer 2",
-      "snapshotRevisionId": 30020,
-      "currentRevisionId": 30020,
+      "snapshotRevisionId": 672821,
+      "currentRevisionId": 672821,
       "status": "current"
     },
     {
@@ -498,22 +498,22 @@
     {
       "pageid": 482,
       "title": "Boomer 2",
-      "snapshotRevisionId": 30601,
-      "currentRevisionId": 30601,
+      "snapshotRevisionId": 672828,
+      "currentRevisionId": 672828,
       "status": "current"
     },
     {
       "pageid": 483,
       "title": "Carrier",
-      "snapshotRevisionId": 30687,
-      "currentRevisionId": 30687,
+      "snapshotRevisionId": 672825,
+      "currentRevisionId": 672825,
       "status": "current"
     },
     {
       "pageid": 484,
       "title": "Controlled",
-      "snapshotRevisionId": 30742,
-      "currentRevisionId": 30742,
+      "snapshotRevisionId": 672829,
+      "currentRevisionId": 672829,
       "status": "current"
     },
     {
@@ -526,8 +526,8 @@
     {
       "pageid": 486,
       "title": "Witch Doctor",
-      "snapshotRevisionId": 30997,
-      "currentRevisionId": 30997,
+      "snapshotRevisionId": 672832,
+      "currentRevisionId": 672832,
       "status": "current"
     },
     {
@@ -575,15 +575,15 @@
     {
       "pageid": 500,
       "title": "Shrike Crystal",
-      "snapshotRevisionId": 31965,
-      "currentRevisionId": 31965,
+      "snapshotRevisionId": 672830,
+      "currentRevisionId": 672830,
       "status": "current"
     },
     {
       "pageid": 501,
       "title": "Tombstone",
-      "snapshotRevisionId": 32020,
-      "currentRevisionId": 32020,
+      "snapshotRevisionId": 672833,
+      "currentRevisionId": 672833,
       "status": "current"
     },
     {
@@ -624,8 +624,8 @@
     {
       "pageid": 507,
       "title": "Fallen Hero (Legacy)",
-      "snapshotRevisionId": 32684,
-      "currentRevisionId": 32684,
+      "snapshotRevisionId": 672795,
+      "currentRevisionId": 672795,
       "status": "current"
     },
     {
@@ -638,8 +638,8 @@
     {
       "pageid": 548,
       "title": "Swarm",
-      "snapshotRevisionId": 33382,
-      "currentRevisionId": 33382,
+      "snapshotRevisionId": 672826,
+      "currentRevisionId": 672826,
       "status": "current"
     },
     {
@@ -918,8 +918,8 @@
     {
       "pageid": 854,
       "title": "Rusted",
-      "snapshotRevisionId": 38623,
-      "currentRevisionId": 38623,
+      "snapshotRevisionId": 672831,
+      "currentRevisionId": 672831,
       "status": "current"
     },
     {
@@ -1023,8 +1023,8 @@
     {
       "pageid": 1554,
       "title": "Fallen",
-      "snapshotRevisionId": 671282,
-      "currentRevisionId": 671282,
+      "snapshotRevisionId": 672786,
+      "currentRevisionId": 672786,
       "status": "current"
     },
     {
@@ -1051,8 +1051,8 @@
     {
       "pageid": 1558,
       "title": "Abnormal",
-      "snapshotRevisionId": 670256,
-      "currentRevisionId": 670256,
+      "snapshotRevisionId": 672765,
+      "currentRevisionId": 672765,
       "status": "current"
     },
     {
@@ -1079,29 +1079,29 @@
     {
       "pageid": 1562,
       "title": "Giant Boss",
-      "snapshotRevisionId": 670321,
-      "currentRevisionId": 670321,
+      "snapshotRevisionId": 672769,
+      "currentRevisionId": 672769,
       "status": "current"
     },
     {
       "pageid": 1563,
       "title": "Molten Titan",
-      "snapshotRevisionId": 670638,
-      "currentRevisionId": 670638,
+      "snapshotRevisionId": 672783,
+      "currentRevisionId": 672783,
       "status": "current"
     },
     {
       "pageid": 1565,
       "title": "Quick",
-      "snapshotRevisionId": 670262,
-      "currentRevisionId": 670262,
+      "snapshotRevisionId": 672766,
+      "currentRevisionId": 672766,
       "status": "current"
     },
     {
       "pageid": 1566,
       "title": "Gravekeeper",
-      "snapshotRevisionId": 45997,
-      "currentRevisionId": 45997,
+      "snapshotRevisionId": 672822,
+      "currentRevisionId": 672822,
       "status": "current"
     },
     {
@@ -1429,8 +1429,8 @@
     {
       "pageid": 2457,
       "title": "Hidden Wave",
-      "snapshotRevisionId": 672312,
-      "currentRevisionId": 672312,
+      "snapshotRevisionId": 672665,
+      "currentRevisionId": 672665,
       "status": "current"
     },
     {
@@ -1709,8 +1709,8 @@
     {
       "pageid": 3970,
       "title": "Warden (Modern Enemy)",
-      "snapshotRevisionId": 671388,
-      "currentRevisionId": 671388,
+      "snapshotRevisionId": 672775,
+      "currentRevisionId": 672775,
       "status": "current"
     },
     {
@@ -1870,8 +1870,8 @@
     {
       "pageid": 5205,
       "title": "Radioactive",
-      "snapshotRevisionId": 69495,
-      "currentRevisionId": 69495,
+      "snapshotRevisionId": 672834,
+      "currentRevisionId": 672834,
       "status": "current"
     },
     {
@@ -1905,8 +1905,8 @@
     {
       "pageid": 5252,
       "title": "Wasted Boss",
-      "snapshotRevisionId": 70392,
-      "currentRevisionId": 70392,
+      "snapshotRevisionId": 672835,
+      "currentRevisionId": 672835,
       "status": "current"
     },
     {
@@ -2367,8 +2367,8 @@
     {
       "pageid": 14569,
       "title": "Fallen Swordmaster",
-      "snapshotRevisionId": 646209,
-      "currentRevisionId": 646209,
+      "snapshotRevisionId": 672700,
+      "currentRevisionId": 672700,
       "status": "current"
     },
     {
@@ -2479,8 +2479,8 @@
     {
       "pageid": 15999,
       "title": "Fallen Reaper",
-      "snapshotRevisionId": 113921,
-      "currentRevisionId": 113921,
+      "snapshotRevisionId": 672562,
+      "currentRevisionId": 672562,
       "status": "current"
     },
     {
@@ -2521,22 +2521,22 @@
     {
       "pageid": 16206,
       "title": "Fallen Titan",
-      "snapshotRevisionId": 117656,
-      "currentRevisionId": 117656,
+      "snapshotRevisionId": 672589,
+      "currentRevisionId": 672589,
       "status": "current"
     },
     {
       "pageid": 16222,
       "title": "Soul Stealer (Legacy)",
-      "snapshotRevisionId": 117826,
-      "currentRevisionId": 117826,
+      "snapshotRevisionId": 672726,
+      "currentRevisionId": 672726,
       "status": "current"
     },
     {
       "pageid": 16250,
       "title": "Lava",
-      "snapshotRevisionId": 117991,
-      "currentRevisionId": 117991,
+      "snapshotRevisionId": 672690,
+      "currentRevisionId": 672690,
       "status": "current"
     },
     {
@@ -2549,50 +2549,50 @@
     {
       "pageid": 16252,
       "title": "Slow King (Legacy)",
-      "snapshotRevisionId": 118339,
-      "currentRevisionId": 118339,
+      "snapshotRevisionId": 672622,
+      "currentRevisionId": 672622,
       "status": "current"
     },
     {
       "pageid": 16286,
       "title": "Speedy King (Legacy)",
-      "snapshotRevisionId": 118582,
-      "currentRevisionId": 118582,
+      "snapshotRevisionId": 672629,
+      "currentRevisionId": 672629,
       "status": "current"
     },
     {
       "pageid": 16287,
       "title": "Soul",
-      "snapshotRevisionId": 649737,
-      "currentRevisionId": 649737,
+      "snapshotRevisionId": 672612,
+      "currentRevisionId": 672612,
       "status": "current"
     },
     {
       "pageid": 16288,
       "title": "Soul Boss",
-      "snapshotRevisionId": 118857,
-      "currentRevisionId": 118857,
+      "snapshotRevisionId": 672675,
+      "currentRevisionId": 672675,
       "status": "current"
     },
     {
       "pageid": 16290,
       "title": "Health Cultist",
-      "snapshotRevisionId": 119004,
-      "currentRevisionId": 119004,
+      "snapshotRevisionId": 672688,
+      "currentRevisionId": 672688,
       "status": "current"
     },
     {
       "pageid": 16291,
       "title": "Necromancer Boss",
-      "snapshotRevisionId": 119150,
-      "currentRevisionId": 119150,
+      "snapshotRevisionId": 672685,
+      "currentRevisionId": 672685,
       "status": "current"
     },
     {
       "pageid": 16292,
       "title": "Unknown",
-      "snapshotRevisionId": 119325,
-      "currentRevisionId": 119325,
+      "snapshotRevisionId": 672679,
+      "currentRevisionId": 672679,
       "status": "current"
     },
     {
@@ -2619,8 +2619,8 @@
     {
       "pageid": 20888,
       "title": "Vindicator (Legacy)",
-      "snapshotRevisionId": 126383,
-      "currentRevisionId": 126383,
+      "snapshotRevisionId": 672695,
+      "currentRevisionId": 672695,
       "status": "current"
     },
     {
@@ -3158,8 +3158,8 @@
     {
       "pageid": 23462,
       "title": "Frost Hero (Frost Invasion)",
-      "snapshotRevisionId": 671582,
-      "currentRevisionId": 671582,
+      "snapshotRevisionId": 672776,
+      "currentRevisionId": 672776,
       "status": "current"
     },
     {
@@ -4649,8 +4649,8 @@
     {
       "pageid": 29909,
       "title": "Rusher",
-      "snapshotRevisionId": 193316,
-      "currentRevisionId": 193316,
+      "snapshotRevisionId": 672814,
+      "currentRevisionId": 672814,
       "status": "current"
     },
     {
@@ -4663,8 +4663,8 @@
     {
       "pageid": 29919,
       "title": "Necromancer (Modern Enemy)",
-      "snapshotRevisionId": 669795,
-      "currentRevisionId": 669795,
+      "snapshotRevisionId": 672584,
+      "currentRevisionId": 672584,
       "status": "current"
     },
     {
@@ -4677,15 +4677,15 @@
     {
       "pageid": 29922,
       "title": "Goo",
-      "snapshotRevisionId": 194023,
-      "currentRevisionId": 194023,
+      "snapshotRevisionId": 672815,
+      "currentRevisionId": 672815,
       "status": "current"
     },
     {
       "pageid": 29926,
       "title": "Cursed Skeleton",
-      "snapshotRevisionId": 665237,
-      "currentRevisionId": 665237,
+      "snapshotRevisionId": 672552,
+      "currentRevisionId": 672552,
       "status": "current"
     },
     {
@@ -4803,8 +4803,8 @@
     {
       "pageid": 30902,
       "title": "Breaker",
-      "snapshotRevisionId": 669792,
-      "currentRevisionId": 669792,
+      "snapshotRevisionId": 672767,
+      "currentRevisionId": 672767,
       "status": "current"
     },
     {
@@ -6847,8 +6847,8 @@
     {
       "pageid": 34985,
       "title": "Voodoo Doll",
-      "snapshotRevisionId": 228219,
-      "currentRevisionId": 228219,
+      "snapshotRevisionId": 672820,
+      "currentRevisionId": 672820,
       "status": "current"
     },
     {
@@ -7631,8 +7631,8 @@
     {
       "pageid": 36683,
       "title": "Armored",
-      "snapshotRevisionId": 669805,
-      "currentRevisionId": 669805,
+      "snapshotRevisionId": 672768,
+      "currentRevisionId": 672768,
       "status": "current"
     },
     {
@@ -8268,8 +8268,8 @@
     {
       "pageid": 37620,
       "title": "Ghoul",
-      "snapshotRevisionId": 670281,
-      "currentRevisionId": 670281,
+      "snapshotRevisionId": 672778,
+      "currentRevisionId": 672778,
       "status": "current"
     },
     {
@@ -8282,15 +8282,15 @@
     {
       "pageid": 37623,
       "title": "Slime",
-      "snapshotRevisionId": 670296,
-      "currentRevisionId": 670296,
+      "snapshotRevisionId": 672779,
+      "currentRevisionId": 672779,
       "status": "current"
     },
     {
       "pageid": 37625,
       "title": "Reaver",
-      "snapshotRevisionId": 670279,
-      "currentRevisionId": 670279,
+      "snapshotRevisionId": 672777,
+      "currentRevisionId": 672777,
       "status": "current"
     },
     {
@@ -9402,8 +9402,8 @@
     {
       "pageid": 39448,
       "title": "Fallen Soul",
-      "snapshotRevisionId": 670688,
-      "currentRevisionId": 670688,
+      "snapshotRevisionId": 672785,
+      "currentRevisionId": 672785,
       "status": "current"
     },
     {
@@ -9458,8 +9458,8 @@
     {
       "pageid": 39460,
       "title": "Fallen Hazmat",
-      "snapshotRevisionId": 671293,
-      "currentRevisionId": 671293,
+      "snapshotRevisionId": 672787,
+      "currentRevisionId": 672787,
       "status": "current"
     },
     {
@@ -9500,29 +9500,29 @@
     {
       "pageid": 39466,
       "title": "Necrotic Skeleton",
-      "snapshotRevisionId": 671326,
-      "currentRevisionId": 671326,
+      "snapshotRevisionId": 672770,
+      "currentRevisionId": 672770,
       "status": "current"
     },
     {
       "pageid": 39484,
       "title": "Fallen Rusher",
-      "snapshotRevisionId": 671626,
-      "currentRevisionId": 671626,
+      "snapshotRevisionId": 672788,
+      "currentRevisionId": 672788,
       "status": "current"
     },
     {
       "pageid": 39489,
       "title": "Fallen Guardian",
-      "snapshotRevisionId": 671370,
-      "currentRevisionId": 671370,
+      "snapshotRevisionId": 672796,
+      "currentRevisionId": 672796,
       "status": "current"
     },
     {
       "pageid": 39491,
       "title": "Fallen Hero",
-      "snapshotRevisionId": 265604,
-      "currentRevisionId": 265604,
+      "snapshotRevisionId": 672792,
+      "currentRevisionId": 672792,
       "status": "current"
     },
     {
@@ -10277,15 +10277,15 @@
     {
       "pageid": 41205,
       "title": "Brain Bound",
-      "snapshotRevisionId": 275247,
-      "currentRevisionId": 275247,
+      "snapshotRevisionId": 672869,
+      "currentRevisionId": 672869,
       "status": "current"
     },
     {
       "pageid": 41206,
       "title": "Neuro Runner",
-      "snapshotRevisionId": 275288,
-      "currentRevisionId": 275288,
+      "snapshotRevisionId": 672870,
+      "currentRevisionId": 672870,
       "status": "current"
     },
     {
@@ -10326,8 +10326,8 @@
     {
       "pageid": 41257,
       "title": "Hex Wraith",
-      "snapshotRevisionId": 275765,
-      "currentRevisionId": 275765,
+      "snapshotRevisionId": 672860,
+      "currentRevisionId": 672860,
       "status": "current"
     },
     {
@@ -10354,8 +10354,8 @@
     {
       "pageid": 41273,
       "title": "Hex Corpse",
-      "snapshotRevisionId": 276161,
-      "currentRevisionId": 276161,
+      "snapshotRevisionId": 672862,
+      "currentRevisionId": 672862,
       "status": "current"
     },
     {
@@ -10368,50 +10368,50 @@
     {
       "pageid": 41278,
       "title": "Hex Spawn",
-      "snapshotRevisionId": 276252,
-      "currentRevisionId": 276252,
+      "snapshotRevisionId": 672858,
+      "currentRevisionId": 672858,
       "status": "current"
     },
     {
       "pageid": 41279,
       "title": "Hex Revenant",
-      "snapshotRevisionId": 276293,
-      "currentRevisionId": 276293,
+      "snapshotRevisionId": 672861,
+      "currentRevisionId": 672861,
       "status": "current"
     },
     {
       "pageid": 41280,
       "title": "Hex Minion",
-      "snapshotRevisionId": 276330,
-      "currentRevisionId": 276330,
+      "snapshotRevisionId": 672859,
+      "currentRevisionId": 672859,
       "status": "current"
     },
     {
       "pageid": 41281,
       "title": "Forsaken Skull",
-      "snapshotRevisionId": 276367,
-      "currentRevisionId": 276367,
+      "snapshotRevisionId": 672864,
+      "currentRevisionId": 672864,
       "status": "current"
     },
     {
       "pageid": 41282,
       "title": "Hex Mimic",
-      "snapshotRevisionId": 276404,
-      "currentRevisionId": 276404,
+      "snapshotRevisionId": 672865,
+      "currentRevisionId": 672865,
       "status": "current"
     },
     {
       "pageid": 41283,
       "title": "Rotting Terror",
-      "snapshotRevisionId": 276466,
-      "currentRevisionId": 276466,
+      "snapshotRevisionId": 672867,
+      "currentRevisionId": 672867,
       "status": "current"
     },
     {
       "pageid": 41284,
       "title": "Blight Walker",
-      "snapshotRevisionId": 276512,
-      "currentRevisionId": 276512,
+      "snapshotRevisionId": 672866,
+      "currentRevisionId": 672866,
       "status": "current"
     },
     {
@@ -10424,22 +10424,22 @@
     {
       "pageid": 41286,
       "title": "Nightmarish Hulk",
-      "snapshotRevisionId": 276616,
-      "currentRevisionId": 276616,
+      "snapshotRevisionId": 672871,
+      "currentRevisionId": 672871,
       "status": "current"
     },
     {
       "pageid": 41287,
       "title": "Hex's Maw",
-      "snapshotRevisionId": 276655,
-      "currentRevisionId": 276655,
+      "snapshotRevisionId": 672872,
+      "currentRevisionId": 672872,
       "status": "current"
     },
     {
       "pageid": 41288,
       "title": "Upper Body",
-      "snapshotRevisionId": 276689,
-      "currentRevisionId": 276689,
+      "snapshotRevisionId": 672863,
+      "currentRevisionId": 672863,
       "status": "current"
     },
     {
@@ -10578,15 +10578,15 @@
     {
       "pageid": 41447,
       "title": "Corrupted Titus",
-      "snapshotRevisionId": 672258,
-      "currentRevisionId": 672258,
+      "snapshotRevisionId": 672646,
+      "currentRevisionId": 672646,
       "status": "current"
     },
     {
       "pageid": 41449,
       "title": "Hex Drako",
-      "snapshotRevisionId": 278324,
-      "currentRevisionId": 278324,
+      "snapshotRevisionId": 672868,
+      "currentRevisionId": 672868,
       "status": "current"
     },
     {
@@ -10648,8 +10648,8 @@
     {
       "pageid": 41464,
       "title": "Unknown Boss",
-      "snapshotRevisionId": 649693,
-      "currentRevisionId": 649693,
+      "snapshotRevisionId": 672755,
+      "currentRevisionId": 672755,
       "status": "current"
     },
     {
@@ -10697,8 +10697,8 @@
     {
       "pageid": 41525,
       "title": "Unknown Small",
-      "snapshotRevisionId": 649820,
-      "currentRevisionId": 649820,
+      "snapshotRevisionId": 672745,
+      "currentRevisionId": 672745,
       "status": "current"
     },
     {
@@ -10907,15 +10907,15 @@
     {
       "pageid": 41779,
       "title": "Noob",
-      "snapshotRevisionId": 280013,
-      "currentRevisionId": 280013,
+      "snapshotRevisionId": 672851,
+      "currentRevisionId": 672851,
       "status": "current"
     },
     {
       "pageid": 41781,
       "title": "Guest",
-      "snapshotRevisionId": 280056,
-      "currentRevisionId": 280056,
+      "snapshotRevisionId": 672852,
+      "currentRevisionId": 672852,
       "status": "current"
     },
     {
@@ -10928,29 +10928,29 @@
     {
       "pageid": 41783,
       "title": "Troll",
-      "snapshotRevisionId": 280205,
-      "currentRevisionId": 280205,
+      "snapshotRevisionId": 672853,
+      "currentRevisionId": 672853,
       "status": "current"
     },
     {
       "pageid": 41786,
       "title": "Trader",
-      "snapshotRevisionId": 280245,
-      "currentRevisionId": 280245,
+      "snapshotRevisionId": 672854,
+      "currentRevisionId": 672854,
       "status": "current"
     },
     {
       "pageid": 41787,
       "title": "Dev",
-      "snapshotRevisionId": 280283,
-      "currentRevisionId": 280283,
+      "snapshotRevisionId": 672856,
+      "currentRevisionId": 672856,
       "status": "current"
     },
     {
       "pageid": 41788,
       "title": "Cat",
-      "snapshotRevisionId": 280328,
-      "currentRevisionId": 280328,
+      "snapshotRevisionId": 672855,
+      "currentRevisionId": 672855,
       "status": "current"
     },
     {
@@ -10970,8 +10970,8 @@
     {
       "pageid": 41791,
       "title": "Corrupted Haz3mn",
-      "snapshotRevisionId": 280477,
-      "currentRevisionId": 280477,
+      "snapshotRevisionId": 672857,
+      "currentRevisionId": 672857,
       "status": "current"
     },
     {
@@ -11117,8 +11117,8 @@
     {
       "pageid": 42302,
       "title": "Tanker",
-      "snapshotRevisionId": 670618,
-      "currentRevisionId": 670618,
+      "snapshotRevisionId": 672771,
+      "currentRevisionId": 672771,
       "status": "current"
     },
     {
@@ -11180,8 +11180,8 @@
     {
       "pageid": 42323,
       "title": "Molten Hound",
-      "snapshotRevisionId": 670595,
-      "currentRevisionId": 670595,
+      "snapshotRevisionId": 672781,
+      "currentRevisionId": 672781,
       "status": "current"
     },
     {
@@ -11215,8 +11215,8 @@
     {
       "pageid": 42328,
       "title": "Molten Summoner",
-      "snapshotRevisionId": 670621,
-      "currentRevisionId": 670621,
+      "snapshotRevisionId": 672782,
+      "currentRevisionId": 672782,
       "status": "current"
     },
     {
@@ -11411,15 +11411,15 @@
     {
       "pageid": 42438,
       "title": "Snowy",
-      "snapshotRevisionId": 671402,
-      "currentRevisionId": 671402,
+      "snapshotRevisionId": 672798,
+      "currentRevisionId": 672798,
       "status": "current"
     },
     {
       "pageid": 42439,
       "title": "Snow Golem",
-      "snapshotRevisionId": 671424,
-      "currentRevisionId": 671424,
+      "snapshotRevisionId": 672800,
+      "currentRevisionId": 672800,
       "status": "current"
     },
     {
@@ -11453,15 +11453,15 @@
     {
       "pageid": 42444,
       "title": "Frost Invader",
-      "snapshotRevisionId": 671535,
-      "currentRevisionId": 671535,
+      "snapshotRevisionId": 672806,
+      "currentRevisionId": 672806,
       "status": "current"
     },
     {
       "pageid": 42445,
       "title": "Frost Necromancer",
-      "snapshotRevisionId": 671568,
-      "currentRevisionId": 671568,
+      "snapshotRevisionId": 672810,
+      "currentRevisionId": 672810,
       "status": "current"
     },
     {
@@ -11474,22 +11474,22 @@
     {
       "pageid": 42447,
       "title": "Frost Hero",
-      "snapshotRevisionId": 671580,
-      "currentRevisionId": 671580,
+      "snapshotRevisionId": 672812,
+      "currentRevisionId": 672812,
       "status": "current"
     },
     {
       "pageid": 42454,
       "title": "Frozen",
-      "snapshotRevisionId": 671398,
-      "currentRevisionId": 671398,
+      "snapshotRevisionId": 672797,
+      "currentRevisionId": 672797,
       "status": "current"
     },
     {
       "pageid": 42455,
       "title": "Snow Minion",
-      "snapshotRevisionId": 647940,
-      "currentRevisionId": 647940,
+      "snapshotRevisionId": 672850,
+      "currentRevisionId": 672850,
       "status": "current"
     },
     {
@@ -11502,43 +11502,43 @@
     {
       "pageid": 42460,
       "title": "Packed Ice",
-      "snapshotRevisionId": 671526,
-      "currentRevisionId": 671526,
+      "snapshotRevisionId": 672804,
+      "currentRevisionId": 672804,
       "status": "current"
     },
     {
       "pageid": 42473,
       "title": "Unstable Ice",
-      "snapshotRevisionId": 671531,
-      "currentRevisionId": 671531,
+      "snapshotRevisionId": 672805,
+      "currentRevisionId": 672805,
       "status": "current"
     },
     {
       "pageid": 42474,
       "title": "Frost Mystery",
-      "snapshotRevisionId": 671435,
-      "currentRevisionId": 671435,
+      "snapshotRevisionId": 672802,
+      "currentRevisionId": 672802,
       "status": "current"
     },
     {
       "pageid": 42475,
       "title": "Frost Ravager",
-      "snapshotRevisionId": 671551,
-      "currentRevisionId": 671551,
+      "snapshotRevisionId": 672808,
+      "currentRevisionId": 672808,
       "status": "current"
     },
     {
       "pageid": 42476,
       "title": "Crying Angel",
-      "snapshotRevisionId": 671443,
-      "currentRevisionId": 671443,
+      "snapshotRevisionId": 672803,
+      "currentRevisionId": 672803,
       "status": "current"
     },
     {
       "pageid": 42478,
       "title": "Deep Freeze",
-      "snapshotRevisionId": 671557,
-      "currentRevisionId": 671557,
+      "snapshotRevisionId": 672809,
+      "currentRevisionId": 672809,
       "status": "current"
     },
     {
@@ -11551,8 +11551,8 @@
     {
       "pageid": 42501,
       "title": "Cold Mist",
-      "snapshotRevisionId": 671431,
-      "currentRevisionId": 671431,
+      "snapshotRevisionId": 672801,
+      "currentRevisionId": 672801,
       "status": "current"
     },
     {
@@ -11670,8 +11670,8 @@
     {
       "pageid": 42593,
       "title": "Snowman",
-      "snapshotRevisionId": 671413,
-      "currentRevisionId": 671413,
+      "snapshotRevisionId": 672799,
+      "currentRevisionId": 672799,
       "status": "current"
     },
     {
@@ -11691,8 +11691,8 @@
     {
       "pageid": 42600,
       "title": "Frost Undead",
-      "snapshotRevisionId": 671540,
-      "currentRevisionId": 671540,
+      "snapshotRevisionId": 672807,
+      "currentRevisionId": 672807,
       "status": "current"
     },
     {
@@ -12195,8 +12195,8 @@
     {
       "pageid": 43695,
       "title": "Ghost",
-      "snapshotRevisionId": 293026,
-      "currentRevisionId": 293026,
+      "snapshotRevisionId": 672818,
+      "currentRevisionId": 672818,
       "status": "current"
     },
     {
@@ -12230,8 +12230,8 @@
     {
       "pageid": 43701,
       "title": "Cobalt Guard",
-      "snapshotRevisionId": 672033,
-      "currentRevisionId": 672033,
+      "snapshotRevisionId": 672819,
+      "currentRevisionId": 672819,
       "status": "current"
     },
     {
@@ -12419,8 +12419,8 @@
     {
       "pageid": 43983,
       "title": "Conjurer",
-      "snapshotRevisionId": 294637,
-      "currentRevisionId": 294637,
+      "snapshotRevisionId": 672817,
+      "currentRevisionId": 672817,
       "status": "current"
     },
     {
@@ -12531,8 +12531,8 @@
     {
       "pageid": 44362,
       "title": "Lurker",
-      "snapshotRevisionId": 296054,
-      "currentRevisionId": 296054,
+      "snapshotRevisionId": 672813,
+      "currentRevisionId": 672813,
       "status": "current"
     },
     {
@@ -14225,8 +14225,8 @@
     {
       "pageid": 47488,
       "title": "Fallen Dreg",
-      "snapshotRevisionId": 670679,
-      "currentRevisionId": 670679,
+      "snapshotRevisionId": 672784,
+      "currentRevisionId": 672784,
       "status": "current"
     },
     {
@@ -15506,8 +15506,8 @@
     {
       "pageid": 50408,
       "title": "Corrupted Wraith",
-      "snapshotRevisionId": 672443,
-      "currentRevisionId": 672443,
+      "snapshotRevisionId": 672630,
+      "currentRevisionId": 672630,
       "status": "current"
     },
     {
@@ -15541,22 +15541,22 @@
     {
       "pageid": 50414,
       "title": "Corrupted Revenant",
-      "snapshotRevisionId": 672465,
-      "currentRevisionId": 672465,
+      "snapshotRevisionId": 672633,
+      "currentRevisionId": 672633,
       "status": "current"
     },
     {
       "pageid": 50418,
       "title": "Corrupted Blight Walker",
-      "snapshotRevisionId": 324691,
-      "currentRevisionId": 324691,
+      "snapshotRevisionId": 672632,
+      "currentRevisionId": 672632,
       "status": "current"
     },
     {
       "pageid": 50422,
       "title": "Corrupted Horror",
-      "snapshotRevisionId": 672515,
-      "currentRevisionId": 672515,
+      "snapshotRevisionId": 672634,
+      "currentRevisionId": 672634,
       "status": "current"
     },
     {
@@ -16052,8 +16052,8 @@
     {
       "pageid": 51288,
       "title": "Null Electroshocker",
-      "snapshotRevisionId": 328565,
-      "currentRevisionId": 328565,
+      "snapshotRevisionId": 672641,
+      "currentRevisionId": 672641,
       "status": "current"
     },
     {
@@ -16178,8 +16178,8 @@
     {
       "pageid": 51520,
       "title": "Null Engineer",
-      "snapshotRevisionId": 671885,
-      "currentRevisionId": 671885,
+      "snapshotRevisionId": 672636,
+      "currentRevisionId": 672636,
       "status": "current"
     },
     {
@@ -16227,8 +16227,8 @@
     {
       "pageid": 51528,
       "title": "Null Sentry",
-      "snapshotRevisionId": 330259,
-      "currentRevisionId": 330259,
+      "snapshotRevisionId": 672642,
+      "currentRevisionId": 672642,
       "status": "current"
     },
     {
@@ -16556,8 +16556,8 @@
     {
       "pageid": 52314,
       "title": "Jack Frost",
-      "snapshotRevisionId": 671578,
-      "currentRevisionId": 671578,
+      "snapshotRevisionId": 672750,
+      "currentRevisionId": 672750,
       "status": "current"
     },
     {
@@ -18334,43 +18334,43 @@
     {
       "pageid": 58237,
       "title": "Soccer Ball",
-      "snapshotRevisionId": 618348,
-      "currentRevisionId": 618348,
+      "snapshotRevisionId": 672837,
+      "currentRevisionId": 672837,
       "status": "current"
     },
     {
       "pageid": 58238,
       "title": "Whistle",
-      "snapshotRevisionId": 618375,
-      "currentRevisionId": 618375,
+      "snapshotRevisionId": 672839,
+      "currentRevisionId": 672839,
       "status": "current"
     },
     {
       "pageid": 58239,
       "title": "Boombox",
-      "snapshotRevisionId": 618404,
-      "currentRevisionId": 618404,
+      "snapshotRevisionId": 672838,
+      "currentRevisionId": 672838,
       "status": "current"
     },
     {
       "pageid": 58247,
       "title": "Duffle Bag",
-      "snapshotRevisionId": 618441,
-      "currentRevisionId": 618441,
+      "snapshotRevisionId": 672842,
+      "currentRevisionId": 672842,
       "status": "current"
     },
     {
       "pageid": 58248,
       "title": "Soccer Head",
-      "snapshotRevisionId": 618469,
-      "currentRevisionId": 618469,
+      "snapshotRevisionId": 672840,
+      "currentRevisionId": 672840,
       "status": "current"
     },
     {
       "pageid": 58249,
       "title": "Referee",
-      "snapshotRevisionId": 618515,
-      "currentRevisionId": 618515,
+      "snapshotRevisionId": 672843,
+      "currentRevisionId": 672843,
       "status": "current"
     },
     {
@@ -18383,8 +18383,8 @@
     {
       "pageid": 58251,
       "title": "Cleats",
-      "snapshotRevisionId": 618598,
-      "currentRevisionId": 618598,
+      "snapshotRevisionId": 672836,
+      "currentRevisionId": 672836,
       "status": "current"
     },
     {
@@ -18397,22 +18397,22 @@
     {
       "pageid": 58255,
       "title": "Crowd Pleaser",
-      "snapshotRevisionId": 618671,
-      "currentRevisionId": 618671,
+      "snapshotRevisionId": 672844,
+      "currentRevisionId": 672844,
       "status": "current"
     },
     {
       "pageid": 58256,
       "title": "Decoy",
-      "snapshotRevisionId": 618698,
-      "currentRevisionId": 618698,
+      "snapshotRevisionId": 672845,
+      "currentRevisionId": 672845,
       "status": "current"
     },
     {
       "pageid": 58261,
       "title": "Soccer Goal",
-      "snapshotRevisionId": 618743,
-      "currentRevisionId": 618743,
+      "snapshotRevisionId": 672846,
+      "currentRevisionId": 672846,
       "status": "current"
     },
     {
@@ -18425,8 +18425,8 @@
     {
       "pageid": 58269,
       "title": "Goal Keeper",
-      "snapshotRevisionId": 618829,
-      "currentRevisionId": 618829,
+      "snapshotRevisionId": 672847,
+      "currentRevisionId": 672847,
       "status": "current"
     },
     {
@@ -18439,15 +18439,15 @@
     {
       "pageid": 58278,
       "title": "Felipe",
-      "snapshotRevisionId": 618930,
-      "currentRevisionId": 618930,
+      "snapshotRevisionId": 672848,
+      "currentRevisionId": 672848,
       "status": "current"
     },
     {
       "pageid": 58279,
       "title": "Sports Drink",
-      "snapshotRevisionId": 618958,
-      "currentRevisionId": 618958,
+      "snapshotRevisionId": 672841,
+      "currentRevisionId": 672841,
       "status": "current"
     },
     {
@@ -18705,8 +18705,8 @@
     {
       "pageid": 58752,
       "title": "Void Caster",
-      "snapshotRevisionId": 670860,
-      "currentRevisionId": 670860,
+      "snapshotRevisionId": 672731,
+      "currentRevisionId": 672731,
       "status": "current"
     },
     {
@@ -18726,64 +18726,64 @@
     {
       "pageid": 58756,
       "title": "Void Reaver",
-      "snapshotRevisionId": 670856,
-      "currentRevisionId": 670856,
+      "snapshotRevisionId": 672709,
+      "currentRevisionId": 672709,
       "status": "current"
     },
     {
       "pageid": 58758,
       "title": "Vindicator",
-      "snapshotRevisionId": 628723,
-      "currentRevisionId": 628723,
+      "snapshotRevisionId": 672754,
+      "currentRevisionId": 672754,
       "status": "current"
     },
     {
       "pageid": 58759,
       "title": "Void Swordmaster",
-      "snapshotRevisionId": 669702,
-      "currentRevisionId": 669702,
+      "snapshotRevisionId": 672762,
+      "currentRevisionId": 672762,
       "status": "current"
     },
     {
       "pageid": 58761,
       "title": "Soul Stealer",
-      "snapshotRevisionId": 628831,
-      "currentRevisionId": 628831,
+      "snapshotRevisionId": 672757,
+      "currentRevisionId": 672757,
       "status": "current"
     },
     {
       "pageid": 58762,
       "title": "Slow King",
-      "snapshotRevisionId": 649819,
-      "currentRevisionId": 649819,
+      "snapshotRevisionId": 672747,
+      "currentRevisionId": 672747,
       "status": "current"
     },
     {
       "pageid": 58763,
       "title": "Speedy King",
-      "snapshotRevisionId": 628902,
-      "currentRevisionId": 628902,
+      "snapshotRevisionId": 672748,
+      "currentRevisionId": 672748,
       "status": "current"
     },
     {
       "pageid": 58770,
       "title": "Swift",
-      "snapshotRevisionId": 672483,
-      "currentRevisionId": 672483,
+      "snapshotRevisionId": 672733,
+      "currentRevisionId": 672733,
       "status": "current"
     },
     {
       "pageid": 58771,
       "title": "Odd",
-      "snapshotRevisionId": 672478,
-      "currentRevisionId": 672478,
+      "snapshotRevisionId": 672732,
+      "currentRevisionId": 672732,
       "status": "current"
     },
     {
       "pageid": 58772,
       "title": "Mandrake",
-      "snapshotRevisionId": 672490,
-      "currentRevisionId": 672490,
+      "snapshotRevisionId": 672736,
+      "currentRevisionId": 672736,
       "status": "current"
     },
     {
@@ -18796,169 +18796,169 @@
     {
       "pageid": 58779,
       "title": "Elite Lead",
-      "snapshotRevisionId": 672538,
-      "currentRevisionId": 672538,
+      "snapshotRevisionId": 672735,
+      "currentRevisionId": 672735,
       "status": "current"
     },
     {
       "pageid": 58780,
       "title": "Voidling",
-      "snapshotRevisionId": 629132,
-      "currentRevisionId": 629132,
+      "snapshotRevisionId": 672647,
+      "currentRevisionId": 672647,
       "status": "current"
     },
     {
       "pageid": 58781,
       "title": "Void Reaper",
-      "snapshotRevisionId": 669159,
-      "currentRevisionId": 669159,
+      "snapshotRevisionId": 672559,
+      "currentRevisionId": 672559,
       "status": "current"
     },
     {
       "pageid": 58782,
       "title": "Elite Phantom",
-      "snapshotRevisionId": 650891,
-      "currentRevisionId": 650891,
+      "snapshotRevisionId": 672737,
+      "currentRevisionId": 672737,
       "status": "current"
     },
     {
       "pageid": 58783,
       "title": "Mandragora",
-      "snapshotRevisionId": 658626,
-      "currentRevisionId": 658626,
+      "snapshotRevisionId": 672741,
+      "currentRevisionId": 672741,
       "status": "current"
     },
     {
       "pageid": 58784,
       "title": "Void Rusher",
-      "snapshotRevisionId": 629266,
-      "currentRevisionId": 629266,
+      "snapshotRevisionId": 672738,
+      "currentRevisionId": 672738,
       "status": "current"
     },
     {
       "pageid": 58785,
       "title": "Void Pike",
-      "snapshotRevisionId": 650849,
-      "currentRevisionId": 650849,
+      "snapshotRevisionId": 672739,
+      "currentRevisionId": 672739,
       "status": "current"
     },
     {
       "pageid": 58787,
       "title": "Void Titan",
-      "snapshotRevisionId": 672505,
-      "currentRevisionId": 672505,
+      "snapshotRevisionId": 672740,
+      "currentRevisionId": 672740,
       "status": "current"
     },
     {
       "pageid": 58789,
       "title": "Void Floater",
-      "snapshotRevisionId": 629377,
-      "currentRevisionId": 629377,
+      "snapshotRevisionId": 672592,
+      "currentRevisionId": 672592,
       "status": "current"
     },
     {
       "pageid": 58790,
       "title": "Elite Mystery",
-      "snapshotRevisionId": 629401,
-      "currentRevisionId": 629401,
+      "snapshotRevisionId": 672742,
+      "currentRevisionId": 672742,
       "status": "current"
     },
     {
       "pageid": 58791,
       "title": "Void Brute",
-      "snapshotRevisionId": 629458,
-      "currentRevisionId": 629458,
+      "snapshotRevisionId": 672743,
+      "currentRevisionId": 672743,
       "status": "current"
     },
     {
       "pageid": 58792,
       "title": "Nightshade",
-      "snapshotRevisionId": 672512,
-      "currentRevisionId": 672512,
+      "snapshotRevisionId": 672607,
+      "currentRevisionId": 672607,
       "status": "current"
     },
     {
       "pageid": 58793,
       "title": "Elite Void Rusher",
-      "snapshotRevisionId": 629526,
-      "currentRevisionId": 629526,
+      "snapshotRevisionId": 672746,
+      "currentRevisionId": 672746,
       "status": "current"
     },
     {
       "pageid": 58794,
       "title": "Void Keeper",
-      "snapshotRevisionId": 629585,
-      "currentRevisionId": 629585,
+      "snapshotRevisionId": 672744,
+      "currentRevisionId": 672744,
       "status": "current"
     },
     {
       "pageid": 58795,
       "title": "Void Cultist",
-      "snapshotRevisionId": 629627,
-      "currentRevisionId": 629627,
+      "snapshotRevisionId": 672756,
+      "currentRevisionId": 672756,
       "status": "current"
     },
     {
       "pageid": 58798,
       "title": "Heavy Voidling",
-      "snapshotRevisionId": 649611,
-      "currentRevisionId": 649611,
+      "snapshotRevisionId": 672760,
+      "currentRevisionId": 672760,
       "status": "current"
     },
     {
       "pageid": 58799,
       "title": "Void Knight",
-      "snapshotRevisionId": 670862,
-      "currentRevisionId": 670862,
+      "snapshotRevisionId": 672761,
+      "currentRevisionId": 672761,
       "status": "current"
     },
     {
       "pageid": 58800,
       "title": "Void Trickster",
-      "snapshotRevisionId": 629735,
-      "currentRevisionId": 629735,
+      "snapshotRevisionId": 672752,
+      "currentRevisionId": 672752,
       "status": "current"
     },
     {
       "pageid": 58801,
       "title": "Void Guardian",
-      "snapshotRevisionId": 649528,
-      "currentRevisionId": 649528,
+      "snapshotRevisionId": 672763,
+      "currentRevisionId": 672763,
       "status": "current"
     },
     {
       "pageid": 58804,
       "title": "Elite Soul",
-      "snapshotRevisionId": 649736,
-      "currentRevisionId": 649736,
+      "snapshotRevisionId": 672751,
+      "currentRevisionId": 672751,
       "status": "current"
     },
     {
       "pageid": 58805,
       "title": "Void Eye",
-      "snapshotRevisionId": 649612,
-      "currentRevisionId": 649612,
+      "snapshotRevisionId": 672759,
+      "currentRevisionId": 672759,
       "status": "current"
     },
     {
       "pageid": 58808,
       "title": "Crystalian",
-      "snapshotRevisionId": 649778,
-      "currentRevisionId": 649778,
+      "snapshotRevisionId": 672749,
+      "currentRevisionId": 672749,
       "status": "current"
     },
     {
       "pageid": 58810,
       "title": "Lead",
-      "snapshotRevisionId": 672522,
-      "currentRevisionId": 672522,
+      "snapshotRevisionId": 672734,
+      "currentRevisionId": 672734,
       "status": "current"
     },
     {
       "pageid": 58826,
       "title": "Void Portal",
-      "snapshotRevisionId": 629940,
-      "currentRevisionId": 629940,
+      "snapshotRevisionId": 672753,
+      "currentRevisionId": 672753,
       "status": "current"
     },
     {
@@ -19734,8 +19734,8 @@
     {
       "pageid": 61659,
       "title": "Frost Champion",
-      "snapshotRevisionId": 671574,
-      "currentRevisionId": 671574,
+      "snapshotRevisionId": 672811,
+      "currentRevisionId": 672811,
       "status": "current"
     },
     {
@@ -19811,15 +19811,15 @@
     {
       "pageid": 76079,
       "title": "V2.11.0",
-      "snapshotRevisionId": 672430,
-      "currentRevisionId": 672430,
+      "snapshotRevisionId": 672579,
+      "currentRevisionId": 672579,
       "status": "current"
     },
     {
       "pageid": 78822,
       "title": "Halloween 2026 Live Events",
-      "snapshotRevisionId": 672502,
-      "currentRevisionId": 672502,
+      "snapshotRevisionId": 672721,
+      "currentRevisionId": 672721,
       "status": "current"
     },
     {
@@ -19832,36 +19832,36 @@
     {
       "pageid": 78868,
       "title": "Solar Shard",
-      "snapshotRevisionId": 672140,
-      "currentRevisionId": 672140,
+      "snapshotRevisionId": 672560,
+      "currentRevisionId": 672560,
       "status": "current"
     },
     {
       "pageid": 78869,
       "title": "Nil Zone II",
-      "snapshotRevisionId": 672542,
-      "currentRevisionId": 672542,
+      "snapshotRevisionId": 672718,
+      "currentRevisionId": 672718,
       "status": "current"
     },
     {
       "pageid": 78878,
       "title": "Lunar Shard",
-      "snapshotRevisionId": 671876,
-      "currentRevisionId": 671876,
+      "snapshotRevisionId": 672570,
+      "currentRevisionId": 672570,
       "status": "current"
     },
     {
       "pageid": 78941,
       "title": "Cobalt Guard (2026)",
-      "snapshotRevisionId": 672052,
-      "currentRevisionId": 672052,
+      "snapshotRevisionId": 672574,
+      "currentRevisionId": 672574,
       "status": "current"
     },
     {
       "pageid": 79102,
       "title": "Map:Nil Zone II",
-      "snapshotRevisionId": 672541,
-      "currentRevisionId": 672541,
+      "snapshotRevisionId": 672554,
+      "currentRevisionId": 672554,
       "status": "current"
     }
   ]
