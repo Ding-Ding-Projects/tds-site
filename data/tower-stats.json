@@ -6168,7 +6168,7 @@
       "placementCost": 500,
       "pvpPlacementCost": null,
       "damageMethod": "Single Splash (Level 4)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "single-target-damage-cycle",
       "detectionNotes": [],
       "levels": [
         {
@@ -6240,7 +6240,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Single Splash (Level 4)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed single-target estimate: Damage / Firerate. Assumes one enemy receives full damage; projectile travel time and slowdown effects are excluded."
     },
     {
       "pageid": 113,

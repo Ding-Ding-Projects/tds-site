@@ -20,6 +20,10 @@ The current [Ace Pilot page](https://tds.wiki/w/Ace_Pilot) publishes `Gun DPS + 
 
 The current [Golden Snowballer page](https://tds.wiki/w/Golden_Snowballer) publishes `DPS = Damage / Firerate` and states that the estimate assumes one enemy receives full damage while excluding projectile travel time. The simulator extracts all four regular levels and displays the source's maximum-hit count separately. It does not multiply that count into the displayed per-target rate; the slowdown and freeze effects are not damage inputs.
 
+## Slime Trooper one-target estimate
+
+The current [Slime Trooper page](https://tds.wiki/w/Slime_Trooper) publishes `DPS = Damage / Firerate` and explicitly assumes one enemy is hit and receives full damage. Its estimate excludes projectile travel time. Level 4 has splash with no listed maximum-hit cap, but that multi-enemy output is not multiplied into this one-target figure. Slowdown remains a separate support effect, not DPS.
+
 `npm run test:wiki` checks all extracted tower rows against the imported revision snapshot, including source links, license policy links, level data, damage-method classification, and placement-limit shape. Negative cases remove a row, corrupt revision provenance, set an invalid cap, assign a generic formula to a special-damage tower, or remove a required Accelerator, Operator, Commando, Soldier, Golden Soldier, Freezer, Demoman, Golden Demoman, Mortar, Paintballer, Ranger, or Rocketeer cycle input; each must be rejected.
 
 ## Snowballer source formula
