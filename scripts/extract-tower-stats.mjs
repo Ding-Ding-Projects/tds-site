@@ -142,6 +142,27 @@ function soldierCycle(entry, levels) {
   return { formula: entry.title === "Golden Soldier" ? "golden-soldier-cycle" : "soldier-burst-cycle", values };
 }
 
+function freezerCycle(entry, levels) {
+  const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
+  const formula = statistics.match(/\$DPS\$\s*=\s*\(Damage\s*\*\s*Burst Count\)\s*\/\s*\(Cooldown\s*\+\s*\(Firerate\s*\*\s*Burst Count\)\)/i);
+  if (!formula) return null;
+  const start = statistics.search(/\|-\|Regular\s*=/i);
+  const endOffset = start < 0 ? -1 : statistics.slice(start).search(/\|-\|PVP\s*=/i);
+  const end = endOffset < 0 ? -1 : start + endOffset;
+  if (start < 0 || end <= start) return null;
+  const rows = [...statistics.slice(start, end).matchAll(/^\|\s*(\d+)\s*\|\|([^\n]+)$/gm)];
+  const values = rows.map((row) => {
+    const cells = [`${row[1]}`, ...row[2].replace(/^\s*\|\|/, "").split("||")];
+    const numberAt = (index) => {
+      const value = clean(cells[index] ?? "").match(/\d[\d,]*(?:\.\d+)?/)?.[0];
+      return value ? Number(value.replaceAll(",", "")) : null;
+    };
+    return { level: numberAt(0), damage: numberAt(3), burstCount: numberAt(11), interval: numberAt(5), burstCooldown: numberAt(12) };
+  });
+  if (!values.length || values.length !== levels.length || values.some((value, index) => value.level !== index || !Number.isFinite(value.damage) || !Number.isFinite(value.interval) || value.interval <= 0 || !Number.isFinite(value.burstCooldown) || value.burstCooldown < 0 || (value.burstCount !== null && (!Number.isFinite(value.burstCount) || value.burstCount < 1)) || Math.abs(value.damage - levels[index].damage) > 1e-9 || Math.abs(value.interval - levels[index].interval) > 1e-9)) return null;
+  return { formula: "freezer-damage-cycle", values };
+}
+
 const result = [];
 for (const entry of corpus.entries) {
   if (!entry.wikitext.includes("{{TowerInfobox")) continue;
@@ -164,11 +185,11 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
-  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
   const dpsMethod = cycle
     ? cycle.formula === "overcharge-cycle"
       ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
@@ -176,8 +197,10 @@ for (const entry of corpus.entries) {
         ? "Source-listed burst estimate: (Damage × Burst Count) / (Burst Cooldown + (Firerate × Burst Count)); levels without a burst use Damage / Firerate. Coordination damage buffs are excluded."
         : cycle.formula === "commando-magazine-cycle"
           ? "Source-listed magazine estimate: (Ammo × Damage) / (Ammo × Firerate + Reload Time). Missile ability damage is excluded."
-          : cycle.formula === "golden-soldier-cycle"
-            ? "Source-listed burst estimate: (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)); single-fire levels use Damage / Firerate."
+        : cycle.formula === "golden-soldier-cycle"
+          ? "Source-listed burst estimate: (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)); single-fire levels use Damage / Firerate."
+          : cycle.formula === "freezer-damage-cycle"
+            ? "Source-listed direct-damage cycle: burst levels use (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)); non-burst levels use Damage / Firerate. Chill and slowdown effects are excluded."
             : "Source-listed burst estimate: (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)). Firerate applies within the burst."
     : specialDamageMethod
       ? `Special damage cycle (${damageMethod}); generic DPS is not estimated.`

@@ -21,6 +21,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Commando")?.dpsFormula, "commando-magazine-cycle");
   assert.equal(find("Soldier")?.dpsFormula, "soldier-burst-cycle");
   assert.equal(find("Golden Soldier")?.dpsFormula, "golden-soldier-cycle");
+  assert.equal(find("Freezer")?.dpsFormula, "freezer-damage-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
 });
@@ -71,6 +72,16 @@ test("Golden Soldier DPS follows burst levels then switches to single-fire", () 
   assert.match(goldenSoldier.dpsMethod, /single-fire levels use Damage \/ Firerate/i);
 });
 
+test("Freezer DPS follows single-hit levels and the burst cycle at Levels 3 and 4", () => {
+  const freezer = find("Freezer");
+  assert.equal(freezer.levels.length, 5);
+  assert.deepEqual(freezer.levels.map(({ burstCount, burstCooldown }) => [burstCount, burstCooldown]), [[1, 0], [1, 0], [1, 0], [6, 0.6], [8, 0.6]]);
+  assert.ok(Math.abs(estimateTowerDps(freezer, freezer.levels[0]) - 2 / 0.55) < 0.01);
+  assert.ok(Math.abs(estimateTowerDps(freezer, freezer.levels[3]) - (4 * 6) / (0.6 + (0.15 * 6))) < 0.01);
+  assert.ok(Math.abs(estimateTowerDps(freezer, freezer.levels[4]) - (9 * 8) / (0.6 + (0.15 * 8))) < 0.01);
+  assert.match(freezer.dpsMethod, /Chill and slowdown effects are excluded/i);
+});
+
 test("detection footnotes remain separate from the detection flag", () => {
   const pulseTrooper = find("Pulse Trooper");
   assert.equal(pulseTrooper?.levels[0].hidden, "No");
@@ -111,6 +122,9 @@ test("the data contract rejects missing records, broken provenance, and false ge
   const goldenSoldierIndex = incomplete.findIndex((tower) => tower.name === "Golden Soldier");
   incomplete[goldenSoldierIndex] = { ...incomplete[goldenSoldierIndex], levels: incomplete[goldenSoldierIndex].levels.map((level) => ({ ...level })) };
   delete incomplete[goldenSoldierIndex].levels[3].burstCooldown;
+  const freezerIndex = incomplete.findIndex((tower) => tower.name === "Freezer");
+  incomplete[freezerIndex] = { ...incomplete[freezerIndex], levels: incomplete[freezerIndex].levels.map((level) => ({ ...level })) };
+  delete incomplete[freezerIndex].levels[3].burstCount;
 
   const issues = validateTowerStats(incomplete, corpus.entries);
   assert.ok(issues.some((issue) => issue.includes("tower count mismatch")));
@@ -122,4 +136,5 @@ test("the data contract rejects missing records, broken provenance, and false ge
   assert.ok(issues.some((issue) => issue.includes("Commando cycle inputs are incomplete at level 0")));
   assert.ok(issues.some((issue) => issue.includes("Soldier cycle inputs are incomplete at level 0")));
   assert.ok(issues.some((issue) => issue.includes("Golden Soldier cycle inputs are incomplete at level 3")));
+  assert.ok(issues.some((issue) => issue.includes("Freezer cycle inputs are incomplete at level 3")));
 });

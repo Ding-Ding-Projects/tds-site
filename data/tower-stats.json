@@ -2217,7 +2217,7 @@
       "placementCost": 450,
       "pvpPlacementCost": 450,
       "damageMethod": "Single Burst (Level 3+)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "freezer-damage-cycle",
       "detectionNotes": [],
       "levels": [
         {
@@ -2230,7 +2230,9 @@
           "hidden": "Level 2+",
           "lead": "No",
           "flying": "No",
-          "notes": ""
+          "notes": "",
+          "burstCount": 1,
+          "burstCooldown": 0
         },
         {
           "level": 1,
@@ -2242,7 +2244,9 @@
           "hidden": "Level 2+",
           "lead": "No",
           "flying": "No",
-          "notes": "0.55 > 0.35 Firerate 15% > 20% Max Slowdown 7.5% > 10% Slowdown per Shot Sell Price changes to 250"
+          "notes": "0.55 > 0.35 Firerate 15% > 20% Max Slowdown 7.5% > 10% Slowdown per Shot Sell Price changes to 250",
+          "burstCount": 1,
+          "burstCooldown": 0
         },
         {
           "level": 2,
@@ -2254,7 +2258,9 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "No",
-          "notes": "+1 Damage +2 Range +Hidden Detection Hidden Detection Now freezes enemies upon reaching max chillness •0.5 Freeze Time Sell Price changes to 400"
+          "notes": "+1 Damage +2 Range +Hidden Detection Hidden Detection Now freezes enemies upon reaching max chillness •0.5 Freeze Time Sell Price changes to 400",
+          "burstCount": 1,
+          "burstCooldown": 0
         },
         {
           "level": 3,
@@ -2266,7 +2272,9 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "No",
-          "notes": "+1 Damage 0.35 > 0.15 Firerate 1 > 6 Burst 0 > 0.6 Burst Cooldown 20% > 25% Max Slowdown 10% > 12.5% Slowdown per Shot 2 > 3 Slowdown Time Melts 10% defense every tick Defense Melting Enemies take damage when slowed down •3 Chill Damage •1 Tick Sell Price changes to 966"
+          "notes": "+1 Damage 0.35 > 0.15 Firerate 1 > 6 Burst 0 > 0.6 Burst Cooldown 20% > 25% Max Slowdown 10% > 12.5% Slowdown per Shot 2 > 3 Slowdown Time Melts 10% defense every tick Defense Melting Enemies take damage when slowed down •3 Chill Damage •1 Tick Sell Price changes to 966",
+          "burstCount": 6,
+          "burstCooldown": 0.6
         },
         {
           "level": 4,
@@ -2278,7 +2286,9 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "No",
-          "notes": "+5 Damage +2 Chill Damage +2 Range 6 > 8 Burst 0.5 > 0.75 Freeze Time +Frost Grenade Ability Sell Price changes to 2,466"
+          "notes": "+5 Damage +2 Chill Damage +2 Range 6 > 8 Burst 0.5 > 0.75 Freeze Time +Frost Grenade Ability Sell Price changes to 2,466",
+          "burstCount": 8,
+          "burstCooldown": 0.6
         }
       ],
       "source": {
@@ -2289,7 +2299,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Single Burst (Level 3+)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed direct-damage cycle: burst levels use (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)); non-burst levels use Damage / Firerate. Chill and slowdown effects are excluded."
     },
     {
       "pageid": 2641,
