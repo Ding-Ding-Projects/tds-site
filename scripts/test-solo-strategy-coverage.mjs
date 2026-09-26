@@ -8,6 +8,8 @@ const component = await readFile(new URL("../components/strategy-lab.tsx", impor
 test("every supported mode has exactly one solo plan with phases and source attribution", () => {
   assert.equal(STRATEGY_MODES.length, 14);
   assert.deepEqual(validateSoloStrategyCoverage(component), []);
+  assert.ok(component.includes("Snapshot: v2.11.0 · reviewed 2026-09-26"));
+  assert.ok(component.includes("https://www.roblox.com/games/3260590327/Tower-Defense-Simulator"));
 });
 
 test("solo strategy coverage fails when a mode plan is removed", () => {
