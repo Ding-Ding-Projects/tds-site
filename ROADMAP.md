@@ -30,6 +30,6 @@ All status below reflects the source state on 2026-09-26. An item is complete on
 
 - [ ] Run the smallest decisive build and verification set after implementation stabilizes.
 - [x] Capture genuine local built-site evidence and record source commit, build identity, viewport, language, theme, and privacy state for 1280×900 desktop and 390×844 emulated mobile. The complete matrix remains open.
-- [x] Save Site versions 1 through 3 from their recorded source revisions, then version 4 from `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`. Version 4 has 2,928 files, 41,861,120 bytes, and SHA-256 `00ea454e20636e4fef8e3b54f5b5573339fc3ddfc91258ff1f71726fcd9d9057`. It is not deployed. Any later source change needs its own saved version before publication.
+- [x] Save Site versions 1 through 3 from their recorded source revisions, then version 4 from `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`. Version 4 has 2,928 files, 41,861,120 bytes, and SHA-256 `00ea454e20636e4fef8e3b54f5b5573339fc3ddfc91258ff1f71726fcd9d9057`. It is not deployed. Current source is `474d7fbba09c1b751913badb0507901ff5902c5e`; the Sites connector still reports `660515e0b1ed0d3893b90a5811e0d8b245d36dfc`, so version 4 is stale and a new version awaits source synchronization.
 - [ ] Publish the complete guide publicly and confirm deployed source parity.
 - [ ] Complete handoff and exact task-owned closeout after the required archive and ancestry proofs.
