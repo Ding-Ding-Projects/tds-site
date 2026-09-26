@@ -1,0 +1,23 @@
+import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import test from "node:test";
+import { STRATEGY_MODES, validateSoloStrategyCoverage } from "../lib/solo-strategy-coverage.mjs";
+
+const component = await readFile(new URL("../components/strategy-lab.tsx", import.meta.url), "utf8");
+
+test("every supported mode has exactly one solo plan with phases and source attribution", () => {
+  assert.equal(STRATEGY_MODES.length, 14);
+  assert.deepEqual(validateSoloStrategyCoverage(component), []);
+});
+
+test("solo strategy coverage fails when a mode plan is removed", () => {
+  const row = component.split(/\r?\n/).find((line) => line.startsWith('  { mode: "Badlands II"') && line.includes('team: "Solo"'));
+  assert.ok(row);
+  const incomplete = component.replace(row, "");
+  assert.ok(validateSoloStrategyCoverage(incomplete).includes("missing solo strategy plan: Badlands II"));
+});
+
+test("solo strategy coverage fails when the mode catalog drifts", () => {
+  const changed = component.replace('const modes = ["Casual"', 'const modes = ["Unreviewed"');
+  assert.ok(validateSoloStrategyCoverage(changed).includes("strategy mode list differs from the required catalog"));
+});
