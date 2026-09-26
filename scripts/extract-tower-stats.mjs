@@ -173,6 +173,7 @@ function splashDamageCycle(entry, levels) {
   const splashIndex = columns.findIndex((column) => /Splash Damage/i.test(column));
   const firerateIndex = columns.findIndex((column) => /Firerate/i.test(column));
   const missileIndex = hasMissileCount ? columns.findIndex((column) => /Missile Count/i.test(column)) : -1;
+  const maxHitsIndex = columns.findIndex((column) => /Max Hits/i.test(column));
   if (splashIndex < 1 || firerateIndex < 1 || (hasMissileCount && missileIndex < 1)) return null;
   const start = statistics.search(/^!\s*Level\s*!![^\n]*Splash Damage[^\n]*Firerate/m);
   const endOffset = start < 0 ? -1 : statistics.slice(start).search(/^\|\}/m);
@@ -189,6 +190,7 @@ function splashDamageCycle(entry, levels) {
       level: numberAt(0),
       splashDamage: numberAt(splashIndex),
       ...(hasMissileCount ? { splashHits: numberAt(missileIndex) } : {}),
+      ...(maxHitsIndex > 0 ? { splashMaxHits: numberAt(maxHitsIndex) } : {}),
       splashInterval: numberAt(firerateIndex),
     };
   });
@@ -218,7 +220,7 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }

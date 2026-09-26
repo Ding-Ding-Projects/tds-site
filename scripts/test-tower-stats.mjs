@@ -25,6 +25,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Mortar")?.dpsFormula, "splash-damage-cycle");
+  assert.equal(find("Paintballer")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Rocketeer")?.dpsFormula, "missile-splash-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
@@ -105,6 +106,14 @@ test("Mortar splash estimates use the named source columns and exclude cluster d
   assert.match(mortar.dpsMethod, /cluster damage and target count are excluded/i);
 });
 
+test("Paintballer estimates use the source splash formula without applying its separate maximum-hit count", () => {
+  const paintballer = find("Paintballer");
+  assert.deepEqual(paintballer.levels.map(({ splashDamage, splashInterval, splashMaxHits }) => [splashDamage, splashInterval, splashMaxHits]), [[1, 1.7, 8], [1, 1.7, 8], [2, 1.4, 8], [3, 0.7, 8], [8, 0.7, 8], [20, 0.7, 8]]);
+  assert.ok(Math.abs(estimateTowerDps(paintballer, paintballer.levels[0]) - 1 / 1.7) < 0.01);
+  assert.ok(Math.abs(estimateTowerDps(paintballer, paintballer.levels[5]) - 20 / 0.7) < 0.01);
+  assert.match(paintballer.dpsMethod, /Actual total damage depends on how many enemies a blast hits/i);
+});
+
 test("Rocketeer estimates use source missile count and exclude multi-target and travel assumptions", () => {
   const rocketeer = find("Rocketeer");
   assert.deepEqual(rocketeer.levels.map(({ splashDamage, splashHits, splashInterval }) => [splashDamage, splashHits, splashInterval]), [[30, 1, 3.75], [30, 1, 3], [50, 1, 3], [95, 1, 2.75], [95, 4, 4.5]]);
@@ -166,6 +175,10 @@ test("the data contract rejects missing records, broken provenance, and false ge
   const rocketeerIndex = incomplete.findIndex((tower) => tower.name === "Rocketeer");
   incomplete[rocketeerIndex] = { ...incomplete[rocketeerIndex], levels: incomplete[rocketeerIndex].levels.map((level) => ({ ...level })) };
   delete incomplete[rocketeerIndex].levels[4].splashHits;
+  const paintballerIndex = incomplete.findIndex((tower) => tower.name === "Paintballer");
+  incomplete[paintballerIndex] = { ...incomplete[paintballerIndex], levels: incomplete[paintballerIndex].levels.map((level) => ({ ...level })) };
+  delete incomplete[paintballerIndex].levels[0].splashDamage;
+  delete incomplete[paintballerIndex].levels[1].splashMaxHits;
 
   const issues = validateTowerStats(incomplete, corpus.entries);
   assert.ok(issues.some((issue) => issue.includes("tower count mismatch")));
@@ -180,4 +193,5 @@ test("the data contract rejects missing records, broken provenance, and false ge
   assert.ok(issues.some((issue) => issue.includes("Freezer cycle inputs are incomplete at level 3")));
   assert.ok(issues.some((issue) => issue.includes("splash-damage cycle inputs are incomplete at level 0")));
   assert.ok(issues.some((issue) => issue.includes("missile splash cycle inputs are incomplete at level 4")));
+  assert.ok(issues.some((issue) => issue.includes("Paintballer is missing its source-listed maximum-hit count")));
 });
