@@ -1,6 +1,6 @@
 # Research and source policy
 
-Research cutoff for the initial corpus: 2026-09-26. The paginated API import contains 2,649 namespace-0 pages and 186 Map-namespace pages. The wiki homepage displayed 2,638 articles while the API's non-redirect inventory returned 2,649 main-namespace titles, so the guide records its method and counts instead of copying one live badge as the total.
+Research cutoff for the initial corpus: 2026-09-26. The paginated API import contains 2,649 namespace-0 pages and 186 Map-namespace pages. A current API page-ID audit found no additions or removals. The page header showed 2,638 articles, while a later siteinfo query reported 2,639 content pages; MediaWiki defines its article statistic separately from a page enumeration, so both summaries are recorded without substituting either for the exact paginated inventory. See [data pipeline](../data-pipeline/README.md) for the comparison and audit command.
 
 Official Roblox metadata identified the experience as v2.11.0 and last updated it on 2026-09-18. The storefront page is authoritative for the public version and developer description, but does not replace the detailed wiki data: [Roblox experience](https://www.roblox.com/games/3260590327/Tower-Defense-Simulator) and [Paradoxum Games](https://paradoxum.gg/).
 
