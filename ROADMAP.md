@@ -30,5 +30,6 @@ All status below reflects the source state on 2026-09-26. An item is complete on
 
 - [ ] Run the smallest decisive build and verification set after implementation stabilizes.
 - [x] Capture genuine local built-site evidence and record source commit, build identity, viewport, language, theme, and privacy state for 1280×900 desktop and 390×844 emulated mobile. The complete matrix remains open.
+- [x] Save Sites version 1 from source revision `d3e015b00be44c299e4536321f5d96d69676babd` with a validated 2,948-entry archive. The Site has no deployment; this roadmap update needs a newer source-bound version before any later publication.
 - [ ] Publish the complete guide publicly and confirm deployed source parity.
 - [ ] Complete handoff and exact task-owned closeout after the required archive and ancestry proofs.

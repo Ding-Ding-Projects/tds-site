@@ -2,11 +2,11 @@
 
 ## Current state
 
-The public source repository is at https://github.com/Ding-Ding-Projects/tds-site. Before this handoff update, `git ls-remote` confirmed `main` at `b15feef069c1203770cdce2259ef17fb4d85219d`. The task includes an indexed, attributed wiki snapshot, a tower-stat simulator, solo and co-op mode notes, a 3D scene, a deep-research prompt, and documentation. `npm run lint` and `npm run build` passed on source revision `a3025f8d4d79fdf816c2d603cc88597632e5b0c7`; a production build also passed on revision `b15feef069c1203770cdce2259ef17fb4d85219d`. Both builds report a large-client-chunk warning. The archive prepared from revision `b15feef069c1203770cdce2259ef17fb4d85219d` was validated with 2,948 entries, size 7,289,037 bytes, and SHA-256 `B54E2AEBD24CD820DBD42DAAF3ED218C210F5A88B630751E8EDCBB7E9A7A82F6`; its embedded manifest carries the matching Site project ID. This handoff update is not in that archive. Rebuild and repackage the new source head before saving a Sites version. No version is saved or deployed yet.
+The public source repository is at https://github.com/Ding-Ding-Projects/tds-site. Before this handoff update, `git ls-remote` confirmed `main` at `d3e015b00be44c299e4536321f5d96d69676babd`. The task includes an indexed, attributed wiki snapshot, a tower-stat simulator, solo and co-op mode notes, a 3D scene, a deep-research prompt, and documentation. `npm run lint` passed on source revision `a3025f8d4d79fdf816c2d603cc88597632e5b0c7`; production builds passed on `a3025f8d4d79fdf816c2d603cc88597632e5b0c7`, `b15feef069c1203770cdce2259ef17fb4d85219d`, and `d3e015b00be44c299e4536321f5d96d69676babd`. Each build reports a large-client-chunk warning. The archive prepared from `d3e015b00be44c299e4536321f5d96d69676babd` was validated with 2,948 entries, size 7,289,132 bytes, and SHA-256 `FA6EE45550590CDE74319F38665277531636AD1403072E1D335180CC37C0BC45`. The Sites workflow later produced the upload archive, which Sites saved as version 1 from the same source revision. This handoff update is not in version 1. Rebuild and repackage the new source head before saving any later Sites version. Version 1 has no deployment.
 
 The production build was pinned to the default revision. Isolated desktop and emulated mobile captures now show the read-aloud control and current mode label. Their provenance, hashes, dimensions, runtime checks, and limits are in `evidence/site/current-build.json`. They verify one dark English desktop tuple at 1280×900 and one dark English emulated mobile tuple at 390×844. They do not cover the complete language, theme, and display-scale matrix, touch orbit gestures, or all simulator formulas.
 
-The Sites project is registered, but no version has been saved and no public deployment has been verified. An earlier protected credential exposure remains unresolved, so publication is withheld. Do not claim a live public guide.
+The Sites project is active and version 1 is saved from source revision `d3e015b00be44c299e4536321f5d96d69676babd`. The current access mode remains custom owner access, `current_live_url` is null, and no deployment has been verified. The requested public deployment is not live. A previously returned protected Sites credential has not been rotated; resolve that credential exposure before changing access or deploying publicly.
 
 ## Solo strategy coverage
 
@@ -28,8 +28,8 @@ Material Designer and Status Hub tools were unavailable in this session. A task-
 2. Expand simulator coverage and model tower-specific mechanics that the generic DPS formula cannot represent.
 3. Finish solo research with reproducible wave-by-wave routes, current update identifiers, and run evidence; keep unsupported entries labeled as checklists or anecdotes.
 4. Complete the required viewport, language, theme, and scale matrix, and verify touch interactions on the 3D scene.
-5. Resolve the exposed Site credential through the owner-supported recovery process, then save a Site version from a build bound to the current source revision.
-6. Publish and verify public page access and image delivery only after the credential blocker is resolved.
+5. Rotate the exposed protected Sites credential through its supported owner recovery operation, then rebuild and save a Site version bound to the current source revision.
+6. Set the requested public access mode, deploy the saved version, and verify public page access and image delivery only after the credential blocker is resolved.
 
 ## Verification
 
