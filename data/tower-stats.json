@@ -6823,7 +6823,7 @@
       "placementCost": 5750,
       "pvpPlacementCost": null,
       "damageMethod": "Chain Splash (Level 2+)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "tesla-chain-smite-cycle",
       "detectionNotes": [
         {
           "attribute": "Hidden",
@@ -6841,7 +6841,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": ""
+          "notes": "",
+          "splashMaxHits": 2,
+          "smiteDamage": null,
+          "smiteMeter": null
         },
         {
           "level": 1,
@@ -6853,7 +6856,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "+15 Damage 0.3 > 0.45 Shock Time +1 Max Hits Sell Price changes to 3,354"
+          "notes": "+15 Damage 0.3 > 0.45 Shock Time +1 Max Hits Sell Price changes to 3,354",
+          "splashMaxHits": 3,
+          "smiteDamage": null,
+          "smiteMeter": null
         },
         {
           "level": 2,
@@ -6865,7 +6871,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "+1.5 Range 2 > 1.6 Firerate +4 Chain Range Description = Smites the currently targeted enemy once the hit meter is full, creating an explosion •200 Smite Damage •5 Smite Radius •9 Meter Sell Price changes to 6,690"
+          "notes": "+1.5 Range 2 > 1.6 Firerate +4 Chain Range Description = Smites the currently targeted enemy once the hit meter is full, creating an explosion •200 Smite Damage •5 Smite Radius •9 Meter Sell Price changes to 6,690",
+          "splashMaxHits": 3,
+          "smiteDamage": 200,
+          "smiteMeter": 9
         },
         {
           "level": 3,
@@ -6877,7 +6886,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "+1.5 Range +20 Damage +275 Smite Damage 5 > 5.5 Smite Radius 9 > 12 Meter 0.45 > 0.6 Shock Time Sell Price changes to 14,690"
+          "notes": "+1.5 Range +20 Damage +275 Smite Damage 5 > 5.5 Smite Radius 9 > 12 Meter 0.45 > 0.6 Shock Time Sell Price changes to 14,690",
+          "splashMaxHits": 3,
+          "smiteDamage": 475,
+          "smiteMeter": 12
         },
         {
           "level": 4,
@@ -6889,7 +6901,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "1.6 > 1.4 Firerate +35 Damage 0.6 > 0.85 Shock Time +4 Chain Range +175 Smite Damage 5.5 > 7.5 Smite Radius 12 > 15 Meter Sell Price changes to 33,023"
+          "notes": "1.6 > 1.4 Firerate +35 Damage 0.6 > 0.85 Shock Time +4 Chain Range +175 Smite Damage 5.5 > 7.5 Smite Radius 12 > 15 Meter Sell Price changes to 33,023",
+          "splashMaxHits": 3,
+          "smiteDamage": 650,
+          "smiteMeter": 15
         }
       ],
       "source": {
@@ -6900,7 +6915,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Chain Splash (Level 2+)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed DPS is Damage / Firerate. Maximum DPS includes every listed chain hit and, at Levels 2+, Smite Damage using ceil(Smite Meter / Max Hits) as the source specifies. Smite's AoE can hit more enemies than this single-chain maximum; actual total output depends on targets in range."
     },
     {
       "pageid": 60822,

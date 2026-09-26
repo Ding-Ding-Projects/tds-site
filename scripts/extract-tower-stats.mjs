@@ -198,6 +198,34 @@ function splashDamageCycle(entry, levels) {
   return { formula: hasMissileCount ? "missile-splash-cycle" : "splash-damage-cycle", values };
 }
 
+function teslaCycle(entry, levels) {
+  const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
+  if (!/\$DPS0\$\s*=\s*Damage\s*\/\s*Firerate/i.test(statistics)
+    || !/\$MDPS0\$\s*=\s*DPS\s*\*\s*Max Hits/i.test(statistics)
+    || !/\$MDPS2\$\s*=\s*\{\{#expr:\(Damage\s*\*\s*Max Hits\s*\*\s*ceil\(\(Smite Meter\s*\/\s*Max Hits\)\)\s*\+\s*Smite Damage\)\s*\/\s*\(Firerate\s*\*\s*ceil\(\(Smite Meter\s*\/\s*Max Hits\)\)\)/i.test(statistics)) return null;
+  const header = statistics.match(/^!\s*Level\s*!!([^\n]+)$/m);
+  const columns = header ? ["Level", ...header[1].split("!!").map((column) => clean(column))] : [];
+  const index = (pattern) => columns.findIndex((column) => pattern.test(column));
+  const indexes = { damage: index(/^Damage$/i), smiteDamage: index(/^Smite Damage$/i), interval: index(/^Firerate$/i), smiteMeter: index(/^Smite Meter$/i), maxHits: index(/^Max Hits$/i) };
+  if (Object.values(indexes).some((value) => value < 1)) return null;
+  const start = statistics.search(/^!\s*Level\s*!![^\n]*Damage[^\n]*Smite Damage[^\n]*Firerate[^\n]*Smite Meter[^\n]*Max Hits/m);
+  const endOffset = start < 0 ? -1 : statistics.slice(start).search(/^\|\}/m);
+  const end = endOffset < 0 ? -1 : start + endOffset;
+  if (start < 0 || end <= start) return null;
+  const rows = [...statistics.slice(start, end).matchAll(/^\|\s*(\d+)\s*\|\|([^\n]+)$/gm)];
+  const values = rows.map((row) => {
+    const cells = [row[1], ...row[2].replace(/^\s*\|\|/, "").split("||")];
+    const numberAt = (column) => {
+      const value = clean(cells[indexes[column]] ?? "").match(/\d[\d,]*(?:\.\d+)?/);
+      return value ? Number(value[0].replaceAll(",", "")) : null;
+    };
+    const optionalNumberAt = (column) => /N\/A/i.test(clean(cells[indexes[column]] ?? "")) ? null : numberAt(column);
+    return { level: Number(row[1]), damage: numberAt("damage"), interval: numberAt("interval"), splashMaxHits: numberAt("maxHits"), smiteDamage: optionalNumberAt("smiteDamage"), smiteMeter: optionalNumberAt("smiteMeter") };
+  });
+  if (values.length !== levels.length || values.some((value, position) => value.level !== position || ![value.damage, value.interval, value.splashMaxHits].every(Number.isFinite) || value.damage <= 0 || value.interval <= 0 || value.splashMaxHits < 1 || Math.abs(value.damage - levels[position].damage) > 1e-9 || Math.abs(value.interval - levels[position].interval) > 1e-9 || (position < 2 ? value.smiteDamage !== null || value.smiteMeter !== null : !Number.isFinite(value.smiteDamage) || value.smiteDamage < 0 || !Number.isFinite(value.smiteMeter) || value.smiteMeter <= 0))) return null;
+  return { formula: "tesla-chain-smite-cycle", values };
+}
+
 function snowballerSplashCycle(entry, levels) {
   const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
   if (!/\$DPS\$\s*=\s*Damage\s*\/\s*Firerate/i.test(statistics)) return null;
@@ -457,12 +485,12 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : ["Snowballer", "Golden Snowballer"].includes(entry.title) ? snowballerSplashCycle(entry, levels) : entry.title === "Toxic Gunner" ? toxicGunnerCycle(entry, levels) : entry.title === "Ace Pilot" ? acePilotCycle(entry, levels) : entry.title === "Slime Trooper" ? singleTargetDamageCycle(entry, levels) : entry.title === "Pulse Trooper" ? pulseTrooperCycle(entry, levels) : entry.title === "Hallow Punk" ? hallowPunkCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : ["Snowballer", "Golden Snowballer"].includes(entry.title) ? snowballerSplashCycle(entry, levels) : entry.title === "Toxic Gunner" ? toxicGunnerCycle(entry, levels) : entry.title === "Ace Pilot" ? acePilotCycle(entry, levels) : entry.title === "Slime Trooper" ? singleTargetDamageCycle(entry, levels) : entry.title === "Pulse Trooper" ? pulseTrooperCycle(entry, levels) : entry.title === "Hallow Punk" ? hallowPunkCycle(entry, levels) : entry.title === "Tesla" ? teslaCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
   const archerVariants = entry.title === "Archer" ? archerArrowVariants(entry) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
-  const dpsFormula = archerVariants ? "archer-arrow-cycle" : cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "toxic-gunner-poison-cycle" ? "toxic-gunner-poison-cycle" : cycle.formula === "ace-pilot-bomb-cycle" ? "ace-pilot-bomb-cycle" : cycle.formula === "single-target-damage-cycle" ? "single-target-damage-cycle" : cycle.formula === "pulse-direct-cycle" ? "pulse-direct-cycle" : cycle.formula === "hallow-punk-burn-cycle" ? "hallow-punk-burn-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : cycle.formula === "direct-splash-cycle" ? "direct-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsFormula = archerVariants ? "archer-arrow-cycle" : cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "toxic-gunner-poison-cycle" ? "toxic-gunner-poison-cycle" : cycle.formula === "ace-pilot-bomb-cycle" ? "ace-pilot-bomb-cycle" : cycle.formula === "single-target-damage-cycle" ? "single-target-damage-cycle" : cycle.formula === "pulse-direct-cycle" ? "pulse-direct-cycle" : cycle.formula === "hallow-punk-burn-cycle" ? "hallow-punk-burn-cycle" : cycle.formula === "tesla-chain-smite-cycle" ? "tesla-chain-smite-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : cycle.formula === "direct-splash-cycle" ? "direct-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
   let dpsMethod = cycle
     ? cycle.formula === "overcharge-cycle"
       ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
@@ -484,6 +512,8 @@ for (const entry of corpus.entries) {
                     ? "Source-listed main-pulse estimate: Damage / Firerate. Maximum Hits is shown separately and not multiplied into this rate; the Sweeper ability is excluded."
                     : cycle.formula === "hallow-punk-burn-cycle"
                       ? "Source-listed combined estimate: Splash Damage / Firerate + Burn Damage / Tick. Assumes one enemy receives full splash damage; projectile travel time and multi-target blast output are excluded."
+                      : cycle.formula === "tesla-chain-smite-cycle"
+                        ? "Source-listed DPS is Damage / Firerate. Maximum DPS includes every listed chain hit and, at Levels 2+, Smite Damage using ceil(Smite Meter / Max Hits) as the source specifies. Smite's AoE can hit more enemies than this single-chain maximum; actual total output depends on targets in range."
             : cycle.formula === "splash-damage-cycle"
               ? ["Snowballer", "Golden Snowballer"].includes(entry.title)
                 ? "Source-listed estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count and projectile travel time are excluded."

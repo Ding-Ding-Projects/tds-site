@@ -1,5 +1,9 @@
 # Tower simulator
 
+## Tesla chain and Smite estimates
+
+The Tesla record preserves its source-listed Damage, Firerate, Max Hits, Smite Damage, and Smite Meter at each regular upgrade level. Its displayed per-target DPS is `Damage / Firerate`. A separate maximum-chain DPS value applies the source formula: below Level 2, `DPS × Max Hits`; from Level 2, `(Damage × Max Hits × ceil(Smite Meter / Max Hits) + Smite Damage) / (Firerate × ceil(Smite Meter / Max Hits))`. This is the source's theoretical chain maximum, not a wave simulator. Smite's explosion can hit more targets than the listed chain, and the actual result depends on enemy positions, target uptime, and stun resistance. The source is [Tesla, revision 667818](https://tds.wiki/w/Tesla?oldid=667818); see its [revision history](https://tds.wiki/w/Tesla?action=history) and the [reuse policy](https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights).
+
 ## Archer arrow variants
 
 The Archer source page publishes separate Flame Arrow, Explosive Arrow, and Shock Arrow tables. The extractor imports each listed level instead of flattening arrow effects into upgrade notes. At Levels 0–3 only Flame Arrow is listed; Level 4 adds Explosive Arrow; Level 5 adds Shock Arrow. The calculator exposes only the arrow choices listed for the selected level.

@@ -1,5 +1,13 @@
 # Handoff
 
+## Solo planner and Tesla simulator update
+
+The Solo planner already has separate Solo and Co-op mode plans, four Solo checkpoints for each of 15 scenarios, and clearly attributed community candidates with evidence limits. This change adds Tesla's current source-listed inputs to the simulator so players can compare its Solo loadout role: regular DPS remains `Damage / Firerate`, while a separate maximum-chain estimate applies the wiki's Max Hits and rounded-up Smite cycle. The Tesla notes call out that Smite AoE can hit more targets than this single-chain upper estimate, and the comparison view exposes the metric only when a selected tower supports it.
+
+Tesla source revision: `667818`. Implemented in `scripts/extract-tower-stats.mjs`, `data/tower-stats.json`, `lib/tower-stats-contract.mjs`, `components/tower-simulator.tsx`, and `docs/simulator/README.md`; Solo Fallen playbook linkage is updated in `docs/strategies/solo-playbook.md`. The regular extractor completed for all 83 towers. The new DPS values are `27.50`, `35.00`, `43.75`, `56.25`, and `89.29`; the maximum-chain values are `55.00`, `105.00`, `172.92`, `242.97`, and `360.71`. `npm run lint` passes, and `npm run build` completes with the existing chunk-size and route-classification warnings. Automated tests were not run. A current built interaction capture is unavailable through the isolated route, and the public Sites source-sync blocker remains in effect.
+
+The GitHub Wiki remote lookup returned `Repository not found`, so no Wiki page was updated. The existing progress Discussion remains available, but an issue comment with current Tesla UI evidence is deferred because the isolated capture route is unavailable.
+
 ## Full wiki freshness and render refresh
 
 On 2026-09-26, the first live revision audit found 146 stale records in the 2,836-page corpus. A later same-day audit found 32 additional stale records. The latest refresh reimported all 2,836 current page records, rebuilt all 83 tower records, and materialized the article pages. The final revision audit reports 2,836 current, 0 stale, 0 missing, 0 new, and 0 integrity issues. The page-ID inventory remains 2,836 with no additions, removals, renames, or namespace moves.
