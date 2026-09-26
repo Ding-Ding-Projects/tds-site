@@ -22,7 +22,7 @@ The initial user-supplied dossier was not imported as fact. Research identified 
 
 Material Designer and Status Hub tools were unavailable in this session. No live Hub update is claimed. Access changes and production publication remain pending the required owner-side confirmation through the Sites access flow.
 
-The completeness document now has an executable validator for its 12 hand-written contract families, and the planner has a separate guard for all 14 Solo mode plans. Both include observed negative regressions. All user-facing contract families remain open until their implementation and built-artifact evidence exist.
+The completeness document now has an executable validator for its 12 hand-written contract families, and the planner has a separate guard for all 14 Solo and 14 Co-op mode plans. Co-op entries are editorial, mode-specific role guidance, not independently tested clears. The strategy guard includes observed negative regressions for missing plans and mode-catalog drift. All user-facing contract families remain open until their implementation and built-artifact evidence exist.
 
 GitHub issue #1 remains open for the broader delivery. No progress comment was added for this solo-research slice because the current isolated capture route is unavailable and the issue's visible-surface comment contract requires a genuine capture.
 
@@ -36,7 +36,7 @@ GitHub issue #1 remains open for the broader delivery. No progress comment was a
 
 ## Verification
 
-- `npm run test:wiki`: 23/23 passed on the current source, including three negative completeness regressions and three solo strategy coverage checks.
+- `npm run test:wiki`: 24/24 passed on the current source, including three negative completeness regressions and four strategy coverage checks for Solo and Co-op omissions and catalog drift.
 - `npm run lint`: passed on the current source.
 - `npm run build`: passed on the current source. Large-client-chunk and route-classification warnings remain.
 - The local production Worker returned 200 for imported revision `670384` (746 semantic nodes, no active or remote-media nodes) and 404 for revision `123456789999`, which is outside the imported allowlist.
