@@ -11,7 +11,7 @@ All status below reflects the source state on 2026-09-26. An item is complete on
 
 ## Research corpus
 
-- [x] Snapshot and reconcile the current eligible wiki inventory from the MediaWiki API, including namespace counts and snapshot time.
+- [x] Snapshot and reconcile the current eligible wiki inventory from the MediaWiki API, including namespace counts and snapshot time. A live page-ID recheck on 2026-09-26 found the same 2,649 namespace 0 and 186 namespace 2900 records, with no additions or removals; the wiki header's 2,638 article counter remains a separate, differently scoped report.
 - [x] Import 2,835 source records with revision, source, history, license, and adaptation metadata.
 - [x] Render the 2,649 namespace 0 pages through the MediaWiki REST HTML route, sanitize active markup, route indexed links into the guide, omit unlicensed media, and retain the complete imported source fallback. Use the local source formatter for all 186 namespace 2900 map entries because the REST endpoint returns a map-widget fragment without a page-revision envelope. Historical transcluded-template versions and rendered HTML for offline use are not archived.
 - [x] Add a hand-written corpus completeness check for the 2,835 indexed page files, revision allowlist, source text, timestamps, and source/license provenance; prove missing-page, missing-revision, and missing-license cases fail. `npm run test:wiki`: 12 passed.
