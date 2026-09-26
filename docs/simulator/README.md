@@ -16,6 +16,10 @@ The current [Toxic Gunner page](https://tds.wiki/w/Toxic_Gunner) publishes separ
 
 The current [Ace Pilot page](https://tds.wiki/w/Ace_Pilot) publishes `Gun DPS + Bomb DPS`: `Normal Damage / Firerate + Splash Damage / Bomb Cooldown`. The extractor reads these named columns from all six regular upgrade rows. Levels 0–1 have no bomb values and use only the gun rate. From Level 2, the bomb contribution is shown as a one-target-equivalent splash rate. Actual output depends on flight-path uptime, enemies caught by the blast, and projectile travel; the calculator does not multiply the splash value by an assumed target count.
 
+## Golden Snowballer single-target estimate
+
+The current [Golden Snowballer page](https://tds.wiki/w/Golden_Snowballer) publishes `DPS = Damage / Firerate` and states that the estimate assumes one enemy receives full damage while excluding projectile travel time. The simulator extracts all four regular levels and displays the source's maximum-hit count separately. It does not multiply that count into the displayed per-target rate; the slowdown and freeze effects are not damage inputs.
+
 `npm run test:wiki` checks all extracted tower rows against the imported revision snapshot, including source links, license policy links, level data, damage-method classification, and placement-limit shape. Negative cases remove a row, corrupt revision provenance, set an invalid cap, assign a generic formula to a special-damage tower, or remove a required Accelerator, Operator, Commando, Soldier, Golden Soldier, Freezer, Demoman, Golden Demoman, Mortar, Paintballer, Ranger, or Rocketeer cycle input; each must be rejected.
 
 ## Snowballer source formula

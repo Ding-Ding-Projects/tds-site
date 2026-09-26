@@ -24,6 +24,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Freezer")?.dpsFormula, "freezer-damage-cycle");
   assert.equal(find("Toxic Gunner")?.dpsFormula, "toxic-gunner-poison-cycle");
   assert.equal(find("Ace Pilot")?.dpsFormula, "ace-pilot-bomb-cycle");
+  assert.equal(find("Golden Snowballer")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Mortar")?.dpsFormula, "splash-damage-cycle");
@@ -93,6 +94,22 @@ test("Ace Pilot combines the source-listed gun rate with bomb splash cooldowns",
   assert.match(acePilot.dpsMethod, /bomb splash is shown as a per-target-equivalent estimate/i);
   assert.equal(estimateTowerDps(acePilot, { ...acePilot.levels[2], bombCooldown: null }), null);
   assert.equal(estimateTowerDps(acePilot, { ...acePilot.levels[0], bombCooldown: 4 }), null);
+});
+
+test("Golden Snowballer uses the source single-target rate and keeps maximum hits separate", () => {
+  const goldenSnowballer = find("Golden Snowballer");
+  assert.deepEqual(goldenSnowballer.levels.map(({ splashDamage, splashInterval, splashMaxHits }) => [splashDamage, splashInterval, splashMaxHits]), [
+    [6, 0.5, 2],
+    [17, 0.35, 2],
+    [67, 0.2, 2],
+    [3267, 0.1, 4],
+  ]);
+  assert.deepEqual(goldenSnowballer.levels.map((level) => estimateTowerDps(goldenSnowballer, level)), [12, 17 / 0.35, 335, 32670]);
+  assert.match(goldenSnowballer.dpsMethod, /one target receiving full damage/i);
+  assert.equal(estimateTowerDps(goldenSnowballer, { ...goldenSnowballer.levels[0], splashMaxHits: null }), 12);
+  const broken = { ...goldenSnowballer, levels: goldenSnowballer.levels.map((level) => ({ ...level })) };
+  broken.levels[3].splashMaxHits = null;
+  assert.ok(validateTowerStats([broken], corpus.entries.filter((entry) => entry.pageid === broken.pageid)).some((error) => /Golden Snowballer maximum-hit source value is missing at level 3/.test(error)));
 });
 
 test("Accelerator DPS follows its source-listed charge, tick, cooldown, and overcharge cycle", () => {

@@ -339,7 +339,7 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : entry.title === "Snowballer" ? snowballerSplashCycle(entry, levels) : entry.title === "Toxic Gunner" ? toxicGunnerCycle(entry, levels) : entry.title === "Ace Pilot" ? acePilotCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : ["Snowballer", "Golden Snowballer"].includes(entry.title) ? snowballerSplashCycle(entry, levels) : entry.title === "Toxic Gunner" ? toxicGunnerCycle(entry, levels) : entry.title === "Ace Pilot" ? acePilotCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
@@ -360,8 +360,8 @@ for (const entry of corpus.entries) {
               : cycle.formula === "ace-pilot-bomb-cycle"
                 ? "Source-listed combined estimate: Normal Damage / Firerate + Splash Damage / Bomb Cooldown. Bomb splash is shown as a per-target-equivalent estimate; blast target count and projectile travel time are excluded."
             : cycle.formula === "splash-damage-cycle"
-              ? entry.title === "Snowballer"
-                ? "Source-listed Snowballer estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count, projectile travel time, slowdown, and freeze effects are excluded."
+              ? ["Snowballer", "Golden Snowballer"].includes(entry.title)
+                ? "Source-listed estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count and projectile travel time are excluded."
                 : "Source-listed per-target splash estimate: Splash Damage / Firerate. Actual total damage depends on how many enemies a blast hits."
               : cycle.formula === "missile-splash-cycle"
                 ? "Source-listed single-target missile splash estimate: (Splash Damage × Missile Count) / Firerate. Projectile travel time and multiple targets are excluded."

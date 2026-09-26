@@ -3263,7 +3263,7 @@
       "placementCost": 67,
       "pvpPlacementCost": null,
       "damageMethod": "Splash",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "splash-damage-cycle",
       "detectionNotes": [],
       "levels": [
         {
@@ -3276,7 +3276,10 @@
           "hidden": "Level 0+",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": ""
+          "notes": "",
+          "splashDamage": 6,
+          "splashInterval": 0.5,
+          "splashMaxHits": 2
         },
         {
           "level": 1,
@@ -3288,7 +3291,10 @@
           "hidden": "Level 0+",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "0.5 > 0.35 Firerate +11 Damage Description = Canonically killed Lord Exo Sell Price changes to 129"
+          "notes": "0.5 > 0.35 Firerate +11 Damage Description = Canonically killed Lord Exo Sell Price changes to 129",
+          "splashDamage": 17,
+          "splashInterval": 0.35,
+          "splashMaxHits": 2
         },
         {
           "level": 2,
@@ -3300,7 +3306,10 @@
           "hidden": "Level 0+",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "+1 Range +50 Damage 0.35 > 0.2 Firerate 100 > 4 Slowdown Time 6 > 8 Explosion Range Description = Leaked Solar Eclipse and Mercenary tower Stop datamining pls Sell Price changes to 869"
+          "notes": "+1 Range +50 Damage 0.35 > 0.2 Firerate 100 > 4 Slowdown Time 6 > 8 Explosion Range Description = Leaked Solar Eclipse and Mercenary tower Stop datamining pls Sell Price changes to 869",
+          "splashDamage": 67,
+          "splashInterval": 0.2,
+          "splashMaxHits": 2
         },
         {
           "level": 3,
@@ -3312,7 +3321,10 @@
           "hidden": "Level 0+",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "0.2 > 0.1 Firerate +4 Range +3,200 Damage +21,365 Placement Limit +2 Max Hits 8 > 15 Explosion Range Description = Ez destroys two x and spectin Sell Price changes to 334,203"
+          "notes": "0.2 > 0.1 Firerate +4 Range +3,200 Damage +21,365 Placement Limit +2 Max Hits 8 > 15 Explosion Range Description = Ez destroys two x and spectin Sell Price changes to 334,203",
+          "splashDamage": 3267,
+          "splashInterval": 0.1,
+          "splashMaxHits": 4
         }
       ],
       "source": {
@@ -3323,7 +3335,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
+      "dpsMethod": "Source-listed estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count and projectile travel time are excluded."
     },
     {
       "pageid": 41441,
@@ -6396,7 +6408,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Source-listed Snowballer estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count, projectile travel time, slowdown, and freeze effects are excluded."
+      "dpsMethod": "Source-listed estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count and projectile travel time are excluded."
     },
     {
       "pageid": 112,
