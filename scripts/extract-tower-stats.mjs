@@ -342,6 +342,32 @@ function singleTargetDamageCycle(entry, levels) {
   return { formula: "single-target-damage-cycle", values };
 }
 
+function pulseTrooperCycle(entry, levels) {
+  const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
+  if (!/\$DPS\$\s*=\s*Damage\s*\/\s*Firerate/i.test(statistics)) return null;
+  const header = statistics.match(/^!\s*Level\s*!!([^\n]+)$/m);
+  const columns = header ? ["Level", ...header[1].split("!!").map((column) => clean(column))] : [];
+  const damageIndex = columns.findIndex((column) => /^Damage$/i.test(column));
+  const intervalIndex = columns.findIndex((column) => /^Firerate/i.test(column));
+  const maxHitsIndex = columns.findIndex((column) => /^Max Hits$/i.test(column));
+  if (damageIndex < 1 || intervalIndex < 1 || maxHitsIndex < 1) return null;
+  const start = statistics.search(/^!\s*Level\s*!![^\n]*Damage[^\n]*Firerate[^\n]*Max Hits/m);
+  const endOffset = start < 0 ? -1 : statistics.slice(start).search(/^\|\}/m);
+  const end = endOffset < 0 ? -1 : start + endOffset;
+  if (start < 0 || end <= start) return null;
+  const rows = [...statistics.slice(start, end).matchAll(/^\|\s*(\d+)\s*\|\|([^\n]+)$/gm)];
+  const values = rows.map((row) => {
+    const cells = [row[1], ...row[2].replace(/^\s*\|\|/, "").split("||")];
+    const numberAt = (index) => {
+      const value = clean(cells[index] ?? "").match(/\d[\d,]*(?:\.\d+)?/);
+      return value ? Number(value[0].replaceAll(",", "")) : null;
+    };
+    return { level: Number(row[1]), damage: numberAt(damageIndex), interval: numberAt(intervalIndex), splashMaxHits: numberAt(maxHitsIndex) };
+  });
+  if (values.length !== levels.length || values.some((value, position) => value.level !== position || !Number.isFinite(value.damage) || value.damage <= 0 || !Number.isFinite(value.interval) || value.interval <= 0 || !Number.isFinite(value.splashMaxHits) || value.splashMaxHits < 1 || Math.abs(value.damage - levels[position].damage) > 1e-9 || Math.abs(value.interval - levels[position].interval) > 1e-9)) return null;
+  return { formula: "pulse-direct-cycle", values };
+}
+
 const result = [];
 for (const entry of corpus.entries) {
   if (!entry.wikitext.includes("{{TowerInfobox")) continue;
@@ -364,11 +390,11 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : ["Snowballer", "Golden Snowballer"].includes(entry.title) ? snowballerSplashCycle(entry, levels) : entry.title === "Toxic Gunner" ? toxicGunnerCycle(entry, levels) : entry.title === "Ace Pilot" ? acePilotCycle(entry, levels) : entry.title === "Slime Trooper" ? singleTargetDamageCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : ["Snowballer", "Golden Snowballer"].includes(entry.title) ? snowballerSplashCycle(entry, levels) : entry.title === "Toxic Gunner" ? toxicGunnerCycle(entry, levels) : entry.title === "Ace Pilot" ? acePilotCycle(entry, levels) : entry.title === "Slime Trooper" ? singleTargetDamageCycle(entry, levels) : entry.title === "Pulse Trooper" ? pulseTrooperCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
-  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "toxic-gunner-poison-cycle" ? "toxic-gunner-poison-cycle" : cycle.formula === "ace-pilot-bomb-cycle" ? "ace-pilot-bomb-cycle" : cycle.formula === "single-target-damage-cycle" ? "single-target-damage-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : cycle.formula === "direct-splash-cycle" ? "direct-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "toxic-gunner-poison-cycle" ? "toxic-gunner-poison-cycle" : cycle.formula === "ace-pilot-bomb-cycle" ? "ace-pilot-bomb-cycle" : cycle.formula === "single-target-damage-cycle" ? "single-target-damage-cycle" : cycle.formula === "pulse-direct-cycle" ? "pulse-direct-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : cycle.formula === "direct-splash-cycle" ? "direct-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
   let dpsMethod = cycle
     ? cycle.formula === "overcharge-cycle"
       ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
@@ -386,6 +412,8 @@ for (const entry of corpus.entries) {
                 ? "Source-listed combined estimate: Normal Damage / Firerate + Splash Damage / Bomb Cooldown. Bomb splash is shown as a per-target-equivalent estimate; blast target count and projectile travel time are excluded."
                 : cycle.formula === "single-target-damage-cycle"
                   ? "Source-listed single-target estimate: Damage / Firerate. Assumes one enemy receives full damage; projectile travel time and slowdown effects are excluded."
+                  : cycle.formula === "pulse-direct-cycle"
+                    ? "Source-listed main-pulse estimate: Damage / Firerate. Maximum Hits is shown separately and not multiplied into this rate; the Sweeper ability is excluded."
             : cycle.formula === "splash-damage-cycle"
               ? ["Snowballer", "Golden Snowballer"].includes(entry.title)
                 ? "Source-listed estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count and projectile travel time are excluded."

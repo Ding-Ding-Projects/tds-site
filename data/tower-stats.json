@@ -5218,7 +5218,7 @@
       "placementCost": 2100,
       "pvpPlacementCost": null,
       "damageMethod": "Pulse",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "pulse-direct-cycle",
       "detectionNotes": [
         {
           "attribute": "Hidden",
@@ -5240,7 +5240,8 @@
           "hidden": "No",
           "lead": "Level 2+",
           "flying": "No",
-          "notes": ""
+          "notes": "",
+          "splashMaxHits": 1000
         },
         {
           "level": 1,
@@ -5252,7 +5253,8 @@
           "hidden": "No",
           "lead": "Level 2+",
           "flying": "No",
-          "notes": "+2 Damage 1.5 > 1.2 Firerate Sell Price changes to 933"
+          "notes": "+2 Damage 1.5 > 1.2 Firerate Sell Price changes to 933",
+          "splashMaxHits": 1000
         },
         {
           "level": 2,
@@ -5264,7 +5266,8 @@
           "hidden": "No",
           "lead": "Yes",
           "flying": "No",
-          "notes": "+10 Damage +1 Range +Lead Detection Lead Detection Sell Price changes to 2,133"
+          "notes": "+10 Damage +1 Range +Lead Detection Lead Detection Sell Price changes to 2,133",
+          "splashMaxHits": 1000
         },
         {
           "level": 3,
@@ -5276,7 +5279,8 @@
           "hidden": "No",
           "lead": "Yes",
           "flying": "No",
-          "notes": "1.2 > 0.55 Firerate Sell Price changes to 3,766"
+          "notes": "1.2 > 0.55 Firerate Sell Price changes to 3,766",
+          "splashMaxHits": 1000
         },
         {
           "level": 4,
@@ -5288,7 +5292,8 @@
           "hidden": "No",
           "lead": "Yes",
           "flying": "No",
-          "notes": "+10 Damage +0.5 Range Description = '''Pulse Trooper''' stops attacking with its main attack and instead starts firing two lasers that sweep through the entire map for a specific laser duration. These deal laser damage when hitting an enemy, and due to there being two of them they deal damage to an enemy twice. •175 Laser Damage •7.5 Laser Duration •60 Ability Cooldown •45 Initial Ability Cooldown Sell Price changes to 6,600"
+          "notes": "+10 Damage +0.5 Range Description = '''Pulse Trooper''' stops attacking with its main attack and instead starts firing two lasers that sweep through the entire map for a specific laser duration. These deal laser damage when hitting an enemy, and due to there being two of them they deal damage to an enemy twice. •175 Laser Damage •7.5 Laser Duration •60 Ability Cooldown •45 Initial Ability Cooldown Sell Price changes to 6,600",
+          "splashMaxHits": 1000
         },
         {
           "level": 5,
@@ -5300,7 +5305,8 @@
           "hidden": "No",
           "lead": "Yes",
           "flying": "No",
-          "notes": "+15 Damage +1 Range +125 Laser Damage 7.5 > 6 Laser Duration Sell Price changes to 12,266"
+          "notes": "+15 Damage +1 Range +125 Laser Damage 7.5 > 6 Laser Duration Sell Price changes to 12,266",
+          "splashMaxHits": 1000
         }
       ],
       "source": {
@@ -5311,7 +5317,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Pulse); generic DPS is not estimated."
+      "dpsMethod": "Source-listed main-pulse estimate: Damage / Firerate. Maximum Hits is shown separately and not multiplied into this rate; the Sweeper ability is excluded."
     },
     {
       "pageid": 179,

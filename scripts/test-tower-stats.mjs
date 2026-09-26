@@ -13,7 +13,7 @@ test("every imported tower has complete source-linked simulator fields", () => {
 });
 
 test("the simulator withholds generic DPS for special damage methods", () => {
-  for (const name of ["Biologist", "Pulse Trooper"]) {
+  for (const name of ["Biologist"]) {
     assert.equal(find(name)?.dpsFormula, "unmodeled-special", `${name} must not use generic DPS`);
   }
   assert.equal(find("Accelerator")?.dpsFormula, "accelerator-overcharge-cycle");
@@ -26,6 +26,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Ace Pilot")?.dpsFormula, "ace-pilot-bomb-cycle");
   assert.equal(find("Golden Snowballer")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Slime Trooper")?.dpsFormula, "single-target-damage-cycle");
+  assert.equal(find("Pulse Trooper")?.dpsFormula, "pulse-direct-cycle");
   assert.equal(find("Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Mortar")?.dpsFormula, "splash-damage-cycle");
@@ -128,6 +129,24 @@ test("Slime Trooper uses the source one-target rate without multiplying its Leve
   const broken = { ...slimeTrooper, levels: slimeTrooper.levels.map((level) => ({ ...level })) };
   broken.levels[4].interval = null;
   assert.ok(validateTowerStats([broken], corpus.entries.filter((entry) => entry.pageid === broken.pageid)).includes("Slime Trooper single-target inputs are incomplete at level 4"));
+});
+
+test("Pulse Trooper estimates the source main-pulse rate and excludes Sweeper ability damage", () => {
+  const pulseTrooper = find("Pulse Trooper");
+  assert.deepEqual(pulseTrooper.levels.map(({ damage, interval, splashMaxHits }) => [damage, interval, splashMaxHits]), [
+    [13, 1.5, 1000],
+    [15, 1.2, 1000],
+    [25, 1.2, 1000],
+    [25, 0.55, 1000],
+    [35, 0.55, 1000],
+    [50, 0.55, 1000],
+  ]);
+  assert.deepEqual(pulseTrooper.levels.map((level) => estimateTowerDps(pulseTrooper, level)), [13 / 1.5, 12.5, 25 / 1.2, 25 / 0.55, 35 / 0.55, 50 / 0.55]);
+  assert.match(pulseTrooper.dpsMethod, /Maximum Hits is shown separately/i);
+  assert.match(pulseTrooper.dpsMethod, /Sweeper ability is excluded/i);
+  const broken = { ...pulseTrooper, levels: pulseTrooper.levels.map((level) => ({ ...level })) };
+  broken.levels[5].splashMaxHits = null;
+  assert.ok(validateTowerStats([broken], corpus.entries.filter((entry) => entry.pageid === broken.pageid)).includes("Pulse Trooper inputs are incomplete at level 5"));
 });
 
 test("Accelerator DPS follows its source-listed charge, tick, cooldown, and overcharge cycle", () => {
