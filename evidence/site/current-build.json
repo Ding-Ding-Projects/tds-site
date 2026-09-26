@@ -1,42 +1,43 @@
 {
   "version": 1,
   "source": {
-    "revision": "Local uncommitted source snapshot at capture time",
-    "buildTimeDisplayed": "2026-09-26 03:19:49 Eastern Daylight Time",
-    "buildArtifactCommitBound": false,
-    "note": "The screenshots predate a read-aloud control and view-label refinement. Rebuild and recapture against the first pushed source revision before publishing."
+    "revision": "a3025f8d4d79fdf816c2d603cc88597632e5b0c7",
+    "buildReceiptSha256": "8f551951a377ce147d47f9d5b2cf05baa6d9a4feebb4e6ba9357939031102170",
+    "outputManifestSha256": "389feb7b256187a205c1ef866eb6d41b550c0082372ecd5670b09566c6c3081e",
+    "buildArtifactCommitBound": true,
+    "note": "Local production build pinned to the source revision. Captures below share one isolated Edge target."
   },
   "page": "http://127.0.0.1:8787/",
   "theme": "dark",
   "language": "English",
   "captures": [
     {
-      "path": "desktop-solo-molten-1280x900.png",
-      "capturedAt": "2026-09-26T07:30:57.601Z",
+      "path": "desktop-a3025f8-1280x900.png",
+      "capturedAt": "2026-09-26T07:47:59.920Z",
       "captureTimeZone": "UTC",
       "viewport": { "width": 1280, "height": 900, "scale": 1, "mobile": false },
-      "image": { "width": 1280, "height": 900, "sha256": "5a8bb93dc5823fdac97ae75adfff701d8f11b45f0edde8d6596d434a65343294" },
+      "image": { "width": 1280, "height": 900, "sha256": "b27c927cf99db1d0ea9faed743b42890e1237dbd47c94ab8fef6ad23fee3735b" },
       "kind": "page",
-      "state": "Solo Molten plan, interactive scene visible",
-      "checks": { "clientWidth": 1265, "scrollWidth": 1265, "bodyOverflow": false, "consoleErrorEvents": 0, "runtimeExceptionEvents": 0 }
+      "state": "Solo Molten plan, tower simulator, read-aloud control, and interactive scene visible",
+      "checks": { "clientWidth": 1265, "scrollWidth": 1265, "bodyOverflow": false, "consoleErrorEvents": 0, "runtimeExceptionEvents": 0, "unexpectedThirdPartyOrigins": 0, "httpErrorStatuses": 0, "failedResources": 0, "accessibilityRootFound": true, "unnamedInteractiveCount": 0, "keyboardPathVerified": true, "visibleFocusVerified": true, "modeOptions": 14 }
     },
     {
-      "path": "mobile-solo-molten-390x844-verified.png",
-      "capturedAt": "2026-09-26T07:30:01.328Z",
+      "path": "mobile-a3025f8-390x844.png",
+      "capturedAt": "2026-09-26T07:51:16.579Z",
       "captureTimeZone": "UTC",
       "viewport": { "width": 390, "height": 844, "scale": 1, "mobile": true, "touchEmulated": true, "evidenceKind": "emulated-mobile" },
-      "image": { "width": 390, "height": 844, "sha256": "e85fddcd92f4b36fae1e69a19b90c067650eb969626f34c68a185889b57ba6db" },
+      "image": { "width": 390, "height": 844, "sha256": "aa6c9b6c5de42c27d6d6a114fb615e1404e4da1ce270403b6267b2512deb6678" },
       "kind": "page",
-      "state": "Solo Molten plan, horizontal section rail, one-column hero and planner",
-      "checks": { "clientWidth": 390, "scrollWidth": 390, "bodyOverflow": false, "consoleErrorEvents": 0, "runtimeExceptionEvents": 0, "unexpectedThirdPartyOrigins": 0, "httpErrorStatuses": 0, "accessibilityRootFound": true, "unnamedInteractiveCount": 0, "keyboardPathVerified": true, "visibleFocusVerified": true, "modeOptions": 14 }
+      "state": "Solo Molten plan, horizontal section rail, one-column hero and planner, simulator, and scene",
+      "checks": { "clientWidth": 390, "scrollWidth": 390, "bodyOverflow": false, "consoleErrorEvents": 0, "runtimeExceptionEvents": 0, "unexpectedThirdPartyOrigins": 0, "httpErrorStatuses": 0, "failedResources": 0, "accessibilityRootFound": true, "unnamedInteractiveCount": 0, "keyboardPathVerified": true, "visibleFocusVerified": true, "modeOptions": 14 }
     }
   ],
   "notVerified": [
     "The full language, theme, and display-scale matrix",
     "Pointer or touch orbit gestures and 3D rotate-button state changes",
-    "The simulator inputs and formula outputs across all tower types",
+    "Simulator formula outputs across special tower types, including Accelerator's special cycle",
     "Full readable rendering of every imported wiki page",
-    "Post-commit source and build identity"
+    "Public deployment and live image delivery"
   ],
   "excludedCaptures": [
     {

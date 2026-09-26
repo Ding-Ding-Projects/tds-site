@@ -14,11 +14,11 @@ The live guide is being built and is not published yet.
 
 ## Current built experience
 
-These pre-commit captures show the local production build with the Solo Molten plan and interactive 3D scene. One is a 1280×900 desktop viewport; the other is a 390×844 emulated mobile viewport. Both are dark-theme, English captures from a single verified local page target. The mobile capture confirms the horizontal section rail, one-column hero and planner, and no document-width overflow. A read-aloud control and its noninteractive view label were refined afterward, so these pixels are retained as layout evidence, not as a capture of the latest source. Capture times, viewport details, SHA-256 values, and verification limits are recorded in [capture metadata](evidence/site/current-build.json). Refresh them against the published source revision before release.
+These captures show the local production build pinned to the first source revision, with the Solo Molten plan, tower simulator, read-aloud control, and interactive 3D scene. One is a 1280×900 desktop viewport; the other is a 390×844 emulated mobile viewport. Both are dark-theme, English captures from one isolated page target. The mobile capture confirms the horizontal section rail, one-column hero and planner, and no document-width overflow. These are genuine local-build captures, not proof of a live deployment. Capture times, viewport details, SHA-256 values, and verification limits are recorded in [capture metadata](evidence/site/current-build.json).
 
-![Built TDS Strategy Lab desktop view at 1280 by 900](evidence/site/desktop-solo-molten-1280x900.png)
+![Built TDS Strategy Lab desktop view at 1280 by 900](evidence/site/desktop-a3025f8-1280x900.png)
 
-![Built TDS Strategy Lab emulated mobile view at 390 by 844](evidence/site/mobile-solo-molten-390x844-verified.png)
+![Built TDS Strategy Lab emulated mobile view at 390 by 844](evidence/site/mobile-a3025f8-390x844.png)
 
 The research build uses the Official Tower Defense Simulator Wiki as its primary detailed reference and also records official developer material, creator demonstrations, and community strategies. Game facts and recommendations are labeled separately. Counts are generated from the dated API inventory because the wiki's live header, footer, site statistics, and paginated title list reported different totals on 2026-09-26.
 
