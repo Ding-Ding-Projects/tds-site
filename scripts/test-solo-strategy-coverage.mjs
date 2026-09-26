@@ -15,6 +15,13 @@ test("every supported mode has exactly one solo and one co-op plan with phases a
   assert.ok(component.includes("current official page's impossibility claim conflicts with its own Index solo badge"));
 });
 
+test("Fallen Solo exposes the attributed staged proposal without calling it a verified clear", () => {
+  const sourceUrl = "https://www.reddit.com/r/TDS_Roblox/comments/1vgav6u/solo_fallen_mode_strategy_level_50/";
+  const containsCandidate = (source) => source.includes(sourceUrl) && source.includes("August 2026 player post outlines a pre-Wave-35 build") && source.includes("does not claim a verified clear");
+  assert.equal(containsCandidate(component), true);
+  assert.equal(containsCandidate(component.split(sourceUrl).join("")), false, "removing every copy of the source link must remove the sourced-candidate evidence");
+});
+
 test("every mode has four Solo decision checkpoints and the checklist stays out of Co-op", () => {
   assert.deepEqual(validateSoloStrategyCoverage(component), []);
   const missingMode = component.replace('  "Challenge Trials": [', '  "Challenge Trial": [');
