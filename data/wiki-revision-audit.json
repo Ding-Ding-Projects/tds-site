@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "auditedAt": "2026-09-26T21:34:12.627Z",
-  "snapshotGeneratedAt": "2026-09-26T21:33:36.389Z",
+  "auditedAt": "2026-09-26T22:13:42.605Z",
+  "snapshotGeneratedAt": "2026-09-26T22:13:09.401Z",
   "snapshotCount": 2836,
   "liveCount": 2836,
   "counts": {
@@ -603,15 +603,15 @@
     {
       "pageid": 504,
       "title": "Stone Viking",
-      "snapshotRevisionId": 32287,
-      "currentRevisionId": 32287,
+      "snapshotRevisionId": 672902,
+      "currentRevisionId": 672902,
       "status": "current"
     },
     {
       "pageid": 505,
       "title": "Crystalite",
-      "snapshotRevisionId": 32351,
-      "currentRevisionId": 32351,
+      "snapshotRevisionId": 672903,
+      "currentRevisionId": 672903,
       "status": "current"
     },
     {
@@ -631,8 +631,8 @@
     {
       "pageid": 508,
       "title": "Swordmaster",
-      "snapshotRevisionId": 32808,
-      "currentRevisionId": 32808,
+      "snapshotRevisionId": 672904,
+      "currentRevisionId": 672904,
       "status": "current"
     },
     {
@@ -736,8 +736,8 @@
     {
       "pageid": 581,
       "title": "Lawnmower",
-      "snapshotRevisionId": 35150,
-      "currentRevisionId": 35150,
+      "snapshotRevisionId": 672901,
+      "currentRevisionId": 672901,
       "status": "current"
     },
     {
@@ -1345,8 +1345,8 @@
     {
       "pageid": 2135,
       "title": "Swamp Thing",
-      "snapshotRevisionId": 51786,
-      "currentRevisionId": 51786,
+      "snapshotRevisionId": 672900,
+      "currentRevisionId": 672900,
       "status": "current"
     },
     {
@@ -1499,8 +1499,8 @@
     {
       "pageid": 2728,
       "title": "Burnt Gingerbread",
-      "snapshotRevisionId": 58087,
-      "currentRevisionId": 58087,
+      "snapshotRevisionId": 672898,
+      "currentRevisionId": 672898,
       "status": "current"
     },
     {
@@ -1527,8 +1527,8 @@
     {
       "pageid": 2732,
       "title": "Frost Tank",
-      "snapshotRevisionId": 58362,
-      "currentRevisionId": 58362,
+      "snapshotRevisionId": 672899,
+      "currentRevisionId": 672899,
       "status": "current"
     },
     {
@@ -1751,8 +1751,8 @@
     {
       "pageid": 4477,
       "title": "Zombegg",
-      "snapshotRevisionId": 66570,
-      "currentRevisionId": 66570,
+      "snapshotRevisionId": 672891,
+      "currentRevisionId": 672891,
       "status": "current"
     },
     {
@@ -1765,15 +1765,15 @@
     {
       "pageid": 4580,
       "title": "Sugrawr",
-      "snapshotRevisionId": 66858,
-      "currentRevisionId": 66858,
+      "snapshotRevisionId": 672892,
+      "currentRevisionId": 672892,
       "status": "current"
     },
     {
       "pageid": 4581,
       "title": "Eggsplosive",
-      "snapshotRevisionId": 66923,
-      "currentRevisionId": 66923,
+      "snapshotRevisionId": 672893,
+      "currentRevisionId": 672893,
       "status": "current"
     },
     {
@@ -1786,29 +1786,29 @@
     {
       "pageid": 4583,
       "title": "Bunny",
-      "snapshotRevisionId": 67031,
-      "currentRevisionId": 67031,
+      "snapshotRevisionId": 672894,
+      "currentRevisionId": 672894,
       "status": "current"
     },
     {
       "pageid": 4584,
       "title": "Sir Hopsalot",
-      "snapshotRevisionId": 67099,
-      "currentRevisionId": 67099,
+      "snapshotRevisionId": 672895,
+      "currentRevisionId": 672895,
       "status": "current"
     },
     {
       "pageid": 4585,
       "title": "Beehive",
-      "snapshotRevisionId": 67154,
-      "currentRevisionId": 67154,
+      "snapshotRevisionId": 672896,
+      "currentRevisionId": 672896,
       "status": "current"
     },
     {
       "pageid": 4586,
       "title": "Grizzly",
-      "snapshotRevisionId": 67188,
-      "currentRevisionId": 67188,
+      "snapshotRevisionId": 672897,
+      "currentRevisionId": 672897,
       "status": "current"
     },
     {
@@ -2661,8 +2661,8 @@
     {
       "pageid": 20946,
       "title": "Reanimated",
-      "snapshotRevisionId": 127748,
-      "currentRevisionId": 127748,
+      "snapshotRevisionId": 672889,
+      "currentRevisionId": 672889,
       "status": "current"
     },
     {
@@ -2787,8 +2787,8 @@
     {
       "pageid": 20979,
       "title": "Hallow Bones",
-      "snapshotRevisionId": 129570,
-      "currentRevisionId": 129570,
+      "snapshotRevisionId": 672890,
+      "currentRevisionId": 672890,
       "status": "current"
     },
     {
@@ -3088,8 +3088,8 @@
     {
       "pageid": 23426,
       "title": "Fey Yoshida",
-      "snapshotRevisionId": 143448,
-      "currentRevisionId": 143448,
+      "snapshotRevisionId": 672888,
+      "currentRevisionId": 672888,
       "status": "current"
     },
     {
@@ -3347,8 +3347,8 @@
     {
       "pageid": 26513,
       "title": "Shroogma",
-      "snapshotRevisionId": 161231,
-      "currentRevisionId": 161231,
+      "snapshotRevisionId": 672887,
+      "currentRevisionId": 672887,
       "status": "current"
     },
     {
@@ -3368,15 +3368,15 @@
     {
       "pageid": 26517,
       "title": "Wraith",
-      "snapshotRevisionId": 671867,
-      "currentRevisionId": 671867,
+      "snapshotRevisionId": 672878,
+      "currentRevisionId": 672878,
       "status": "current"
     },
     {
       "pageid": 26518,
       "title": "Ent",
-      "snapshotRevisionId": 161594,
-      "currentRevisionId": 161594,
+      "snapshotRevisionId": 672886,
+      "currentRevisionId": 672886,
       "status": "current"
     },
     {
@@ -3410,8 +3410,8 @@
     {
       "pageid": 26604,
       "title": "Pike",
-      "snapshotRevisionId": 162483,
-      "currentRevisionId": 162483,
+      "snapshotRevisionId": 672876,
+      "currentRevisionId": 672876,
       "status": "current"
     },
     {
@@ -3431,8 +3431,8 @@
     {
       "pageid": 26607,
       "title": "Zombie Horse",
-      "snapshotRevisionId": 162691,
-      "currentRevisionId": 162691,
+      "snapshotRevisionId": 672885,
+      "currentRevisionId": 672885,
       "status": "current"
     },
     {
@@ -3452,15 +3452,15 @@
     {
       "pageid": 26610,
       "title": "Ghost Knight",
-      "snapshotRevisionId": 162940,
-      "currentRevisionId": 162940,
+      "snapshotRevisionId": 672880,
+      "currentRevisionId": 672880,
       "status": "current"
     },
     {
       "pageid": 26612,
       "title": "Cursed Guard",
-      "snapshotRevisionId": 163039,
-      "currentRevisionId": 163039,
+      "snapshotRevisionId": 672882,
+      "currentRevisionId": 672882,
       "status": "current"
     },
     {
@@ -3487,8 +3487,8 @@
     {
       "pageid": 26666,
       "title": "Cursed Knight",
-      "snapshotRevisionId": 163922,
-      "currentRevisionId": 163922,
+      "snapshotRevisionId": 672881,
+      "currentRevisionId": 672881,
       "status": "current"
     },
     {
@@ -3501,8 +3501,8 @@
     {
       "pageid": 26747,
       "title": "Clanker",
-      "snapshotRevisionId": 164479,
-      "currentRevisionId": 164479,
+      "snapshotRevisionId": 672877,
+      "currentRevisionId": 672877,
       "status": "current"
     },
     {
@@ -3529,8 +3529,8 @@
     {
       "pageid": 26752,
       "title": "Dust",
-      "snapshotRevisionId": 671860,
-      "currentRevisionId": 671860,
+      "snapshotRevisionId": 672879,
+      "currentRevisionId": 672879,
       "status": "current"
     },
     {
@@ -3557,8 +3557,8 @@
     {
       "pageid": 26763,
       "title": "Flare",
-      "snapshotRevisionId": 165305,
-      "currentRevisionId": 165305,
+      "snapshotRevisionId": 672883,
+      "currentRevisionId": 672883,
       "status": "current"
     },
     {
@@ -3571,8 +3571,8 @@
     {
       "pageid": 26766,
       "title": "Lunar Shield",
-      "snapshotRevisionId": 165478,
-      "currentRevisionId": 165478,
+      "snapshotRevisionId": 672884,
+      "currentRevisionId": 672884,
       "status": "current"
     },
     {
@@ -4117,15 +4117,15 @@
     {
       "pageid": 28661,
       "title": "Cart",
-      "snapshotRevisionId": 179927,
-      "currentRevisionId": 179927,
+      "snapshotRevisionId": 672874,
+      "currentRevisionId": 672874,
       "status": "current"
     },
     {
       "pageid": 28662,
       "title": "Eggroll",
-      "snapshotRevisionId": 179999,
-      "currentRevisionId": 179999,
+      "snapshotRevisionId": 672875,
+      "currentRevisionId": 672875,
       "status": "current"
     },
     {
@@ -6567,8 +6567,8 @@
     {
       "pageid": 34556,
       "title": "Swamper",
-      "snapshotRevisionId": 223588,
-      "currentRevisionId": 223588,
+      "snapshotRevisionId": 672873,
+      "currentRevisionId": 672873,
       "status": "current"
     },
     {

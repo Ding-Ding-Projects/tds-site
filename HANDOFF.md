@@ -2,9 +2,9 @@
 
 ## Full wiki freshness and render refresh
 
-On 2026-09-26, the live revision audit found 146 stale records in the 2,836-page corpus. The full refresh reimported all 2,836 current page records, rebuilt 83 tower records and 431 upgrade levels, and materialized all article pages. Two pages changed after the first snapshot began; a second full import captured those updates. The final revision audit reports 2,836 current, 0 stale, 0 missing, 0 new, and 0 integrity issues. The page-ID inventory remains 2,836 with no additions, removals, renames, or namespace moves.
+On 2026-09-26, the first live revision audit found 146 stale records in the 2,836-page corpus. A later same-day audit found 32 additional stale records. The latest refresh reimported all 2,836 current page records, rebuilt all 83 tower records, and materialized the article pages. The final revision audit reports 2,836 current, 0 stale, 0 missing, 0 new, and 0 integrity issues. The page-ID inventory remains 2,836 with no additions, removals, renames, or namespace moves.
 
-The revision-render audit reused 2,482 verified files and refreshed 167 from exact current revisions. All 2,649 standard-page renders are present and pass, totaling 299,474,375 bytes; 187 map pages use the documented source fallback; 0 failures. The wiki suite passes 92/92, lint passes, and a production build completes with existing bundle-size and route-classification warnings. Fresh article-surface captures remain unavailable.
+The latest revision-render audit reused 2,617 verified files and refreshed 32 from exact current revisions. All 2,649 standard-page renders are present and pass, totaling 299,474,389 bytes; 187 map pages use the documented source fallback; 0 failures. The wiki suite passes 92/92, lint passes, and the production build completes with existing bundle-size and route-classification warnings. Fresh article-surface captures remain unavailable.
 
 ## Official Frost Solo encounter checkpoints
 

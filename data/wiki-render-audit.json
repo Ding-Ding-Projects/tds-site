@@ -1,25 +1,25 @@
 {
   "schemaVersion": 2,
-  "auditedAt": "2026-09-26T21:35:41.005Z",
-  "sourceSnapshotSha256": "922f30dfbac0fa204e0d177a44668ab17d4de3f3db0fa0da6b76592086347635",
-  "currentRevisionAllowlistSha256": "68f940f07b594c1fef9a2dc203759bd21b2ffabc0fe501571ea8445ea55a0db8",
-  "canonicalRevisionSetSha256": "68f940f07b594c1fef9a2dc203759bd21b2ffabc0fe501571ea8445ea55a0db8",
+  "auditedAt": "2026-09-26T22:14:00.206Z",
+  "sourceSnapshotSha256": "a121c84710914035729f15bc26a200948993df5a662965a57a2f29e74331d372",
+  "currentRevisionAllowlistSha256": "f5b7ca3f945fb4d29e809beebff0b5d729db6a5d6b7c1b945476e2c84b3254f4",
+  "canonicalRevisionSetSha256": "f5b7ca3f945fb4d29e809beebff0b5d729db6a5d6b7c1b945476e2c84b3254f4",
   "importedRevisionCount": 2836,
   "remoteRevisionHtml": {
     "namespace": 0,
     "count": 2649,
     "sanitized": 2649,
-    "reusedFromVerifiedCache": 2482,
-    "refreshedFromSource": 167,
-    "responseBytes": 27937784,
+    "reusedFromVerifiedCache": 2617,
+    "refreshedFromSource": 32,
+    "responseBytes": 4815887,
     "sanitizedNodeCount": 9488034
   },
   "offlineSanitizedCache": {
     "directory": "public/wiki/rendered",
     "records": 2649,
-    "bytes": 299474375,
+    "bytes": 299474389,
     "manifestPath": "public/wiki/rendered/index.json",
-    "boundToRevisionAllowlistSha256": "68f940f07b594c1fef9a2dc203759bd21b2ffabc0fe501571ea8445ea55a0db8"
+    "boundToRevisionAllowlistSha256": "f5b7ca3f945fb4d29e809beebff0b5d729db6a5d6b7c1b945476e2c84b3254f4"
   },
   "importedSourceFallback": {
     "namespace": 2900,
