@@ -58,6 +58,26 @@ function placementLimit(raw) {
   return regular ? Number(regular[1]) : null;
 }
 
+function acceleratorCycle(entry) {
+  const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
+  const formula = statistics.match(/\$DPS\$\s*=\s*Overcharge\s*\/\s*\(Charge-Up\s*\+\s*Cooldown\s*\+\s*\(Overcharge\s*\/\s*Damage\s*\*\s*Tick\)\)/i);
+  if (!formula) return null;
+  const start = statistics.search(/\|-\|Regular\s*=/i);
+  const end = statistics.search(/\|-\|PVP\s*=/i);
+  if (start < 0 || end <= start) return null;
+  const rows = [...statistics.slice(start, end).matchAll(/^\|\s*(\d+)\s*\|\|([^\n]+)$/gm)];
+  const values = rows.map((row) => {
+    const cells = [`${row[1]}`, ...row[2].split("||")];
+    const numberAt = (index) => {
+      const value = clean(cells[index] ?? "").match(/\d[\d,]*(?:\.\d+)?/)?.[0];
+      return value ? Number(value.replaceAll(",", "")) : null;
+    };
+    return { level: numberAt(0), damage: numberAt(3), tick: numberAt(4), chargeUp: numberAt(5), cooldown: numberAt(6), overcharge: numberAt(7) };
+  });
+  if (!values.length || values.some((value, index) => value.level !== index || Object.values(value).some((item) => !Number.isFinite(item)))) return null;
+  return { formula: "overcharge-cycle", values };
+}
+
 const result = [];
 for (const entry of corpus.entries) {
   if (!entry.wikitext.includes("{{TowerInfobox")) continue;
@@ -80,9 +100,15 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const dpsFormula = /accelerator/i.test(entry.title) || specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
-  const dpsMethod = /accelerator/i.test(entry.title) || specialDamageMethod
-    ? `Special damage cycle (${damageMethod}); generic DPS is not estimated.`
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : null;
+  if (cycle) {
+    for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
+  }
+  const dpsFormula = cycle ? "accelerator-overcharge-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsMethod = cycle
+    ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
+    : specialDamageMethod
+      ? `Special damage cycle (${damageMethod}); generic DPS is not estimated.`
     : revUp
       ? "Theoretical damage divided by attack interval; the source also documents firing startup, which this rate omits."
       : "Theoretical damage divided by attack interval.";

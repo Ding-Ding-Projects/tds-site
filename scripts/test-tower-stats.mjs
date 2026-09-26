@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { estimateInvestment, validateTowerStats } from "../lib/tower-stats-contract.mjs";
+import { estimateInvestment, estimateTowerDps, validateTowerStats } from "../lib/tower-stats-contract.mjs";
 
 const catalog = JSON.parse(await readFile(new URL("../data/tower-stats.json", import.meta.url), "utf8"));
 const corpus = JSON.parse(await readFile(new URL("../data/wiki-corpus.json", import.meta.url), "utf8"));
@@ -13,11 +13,20 @@ test("every imported tower has complete source-linked simulator fields", () => {
 });
 
 test("the simulator withholds generic DPS for special damage methods", () => {
-  for (const name of ["Biologist", "Pulse Trooper", "Accelerator"]) {
+  for (const name of ["Biologist", "Pulse Trooper"]) {
     assert.equal(find(name)?.dpsFormula, "unmodeled-special", `${name} must not use generic DPS`);
   }
+  assert.equal(find("Accelerator")?.dpsFormula, "accelerator-overcharge-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
+});
+
+test("Accelerator DPS follows its source-listed charge, tick, cooldown, and overcharge cycle", () => {
+  const accelerator = find("Accelerator");
+  assert.equal(estimateTowerDps(accelerator, accelerator.levels[0]), 9000 / (6.5 + 2.5 + (9000 / 12 * 0.25)));
+  assert.ok(Math.abs(estimateTowerDps(accelerator, accelerator.levels[0]) - 45.8) < 0.01);
+  assert.ok(Math.abs(estimateTowerDps(accelerator, accelerator.levels[5]) - 474.31) < 0.01);
+  assert.equal(estimateTowerDps(accelerator, { ...accelerator.levels[0], tick: null }), null);
 });
 
 test("detection footnotes remain separate from the detection flag", () => {
@@ -45,10 +54,14 @@ test("the data contract rejects missing records, broken provenance, and false ge
   };
   const biologistIndex = incomplete.findIndex((tower) => tower.name === "Biologist");
   incomplete[biologistIndex] = { ...incomplete[biologistIndex], dpsFormula: "damage-over-interval" };
+  const acceleratorIndex = incomplete.findIndex((tower) => tower.name === "Accelerator");
+  incomplete[acceleratorIndex] = { ...incomplete[acceleratorIndex], levels: incomplete[acceleratorIndex].levels.map((level) => ({ ...level })) };
+  delete incomplete[acceleratorIndex].levels[0].overcharge;
 
   const issues = validateTowerStats(incomplete, corpus.entries);
   assert.ok(issues.some((issue) => issue.includes("tower count mismatch")));
   assert.ok(issues.some((issue) => issue.includes("source revision mismatch")));
   assert.ok(issues.some((issue) => issue.includes("invalid placement limit")));
   assert.ok(issues.some((issue) => issue.includes("special damage method has a generic DPS formula for Biologist")));
+  assert.ok(issues.some((issue) => issue.includes("Accelerator cycle inputs are incomplete at level 0")));
 });
