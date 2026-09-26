@@ -5299,7 +5299,7 @@
       "placementCost": 4500,
       "pvpPlacementCost": 2000,
       "damageMethod": "Single Splash (Level 4)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "direct-splash-cycle",
       "detectionNotes": [
         {
           "attribute": "Hidden",
@@ -5317,7 +5317,9 @@
           "hidden": "No",
           "lead": "Level 2+",
           "flying": "Level 0+",
-          "notes": ""
+          "notes": "",
+          "splashDamage": null,
+          "splashMaxHits": null
         },
         {
           "level": 1,
@@ -5329,7 +5331,9 @@
           "hidden": "No",
           "lead": "Level 2+",
           "flying": "Level 0+",
-          "notes": "6 > 4.75 Firerate Sell Price changes to 2,000"
+          "notes": "6 > 4.75 Firerate Sell Price changes to 2,000",
+          "splashDamage": null,
+          "splashMaxHits": null
         },
         {
           "level": 2,
@@ -5341,7 +5345,9 @@
           "hidden": "No",
           "lead": "Yes",
           "flying": "Level 0+",
-          "notes": "+85 Damage +Lead Detection Lead Detection +10% Range Buff •12 Buff Range •Lasts 20 seconds Sell Price changes to 3,833"
+          "notes": "+85 Damage +Lead Detection Lead Detection +10% Range Buff •12 Buff Range •Lasts 20 seconds Sell Price changes to 3,833",
+          "splashDamage": null,
+          "splashMaxHits": null
         },
         {
           "level": 3,
@@ -5353,7 +5359,9 @@
           "hidden": "No",
           "lead": "Yes",
           "flying": "Level 0+",
-          "notes": "+245 Damage 4.75 > 4.5 Firerate Sell Price changes to 9,083"
+          "notes": "+245 Damage 4.75 > 4.5 Firerate Sell Price changes to 9,083",
+          "splashDamage": null,
+          "splashMaxHits": null
         },
         {
           "level": 4,
@@ -5365,7 +5373,9 @@
           "hidden": "No",
           "lead": "Yes",
           "flying": "Level 0+",
-          "notes": "+445 Damage 4.5 > 8 Firerate +Explosive Impact •375 Splash Damage •5 Explosion Range •3 Max Hits Sell Price changes to 17,416"
+          "notes": "+445 Damage 4.5 > 8 Firerate +Explosive Impact •375 Splash Damage •5 Explosion Range •3 Max Hits Sell Price changes to 17,416",
+          "splashDamage": 375,
+          "splashMaxHits": 3
         }
       ],
       "source": {
@@ -5376,7 +5386,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Single Splash (Level 4)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed single-target combined estimate: (Damage / Firerate) + (Splash Damage / Firerate). Maximum Hits is shown separately and is not multiplied into this estimate."
     },
     {
       "pageid": 55345,
