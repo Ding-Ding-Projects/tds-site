@@ -1,792 +1,968 @@
 {
   "schemaVersion": 2,
-  "auditedAt": "2026-09-26T09:41:15.768Z",
-  "fallbackRouteVerifiedAt": "2026-09-26T09:47:12.804Z",
-  "sourceSnapshotSha256": "2fc98f9f3ab5d29706fcbba022fe174abff723849916eab2f3e65394e8395420",
-  "importedRevisionCount": 2835,
+  "auditedAt": "2026-09-26T17:50:26.817Z",
+  "sourceSnapshotSha256": "314e6d9c7c8fe8a857fbf95651e9f37464db9025ca86f5ab2e052c21210c9fe9",
+  "currentRevisionAllowlistSha256": "224aa8ddfc3a4685b29ff594de51478609f718055c2fa67ad063626e28530b36",
+  "canonicalRevisionSetSha256": "ca50acf853d8850db7bcbad9bb0e21ca22bcf011df7c4ce87beed47a7e28f0cc",
+  "importedRevisionCount": 2836,
   "remoteRevisionHtml": {
     "namespace": 0,
     "count": 2649,
     "sanitized": 2649,
-    "responseBytes": 374517387,
-    "sanitizedNodeCount": 9486077
+    "responseBytes": 374622202,
+    "sanitizedNodeCount": 9487745
+  },
+  "offlineSanitizedCache": {
+    "directory": "public/wiki/rendered",
+    "records": 2649,
+    "bytes": 299463228,
+    "manifestPath": "public/wiki/rendered/index.json",
+    "boundToRevisionAllowlistSha256": "224aa8ddfc3a4685b29ff594de51478609f718055c2fa67ad063626e28530b36"
   },
   "importedSourceFallback": {
     "namespace": 2900,
-    "count": 186,
+    "count": 187,
     "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter.",
     "pages": [
       {
         "pageid": 35273,
-        "revisionId": 229553
+        "revisionId": 229553,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 30982,
-        "revisionId": 199596
+        "revisionId": 199596,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 30989,
-        "revisionId": 199632
+        "revisionId": 199632,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31067,
-        "revisionId": 200067
+        "revisionId": 200067,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31076,
-        "revisionId": 200116
+        "revisionId": 200116,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31163,
-        "revisionId": 200326
+        "revisionId": 200326,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31176,
-        "revisionId": 200364
+        "revisionId": 200364,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31342,
-        "revisionId": 200898
+        "revisionId": 200898,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31343,
-        "revisionId": 200908
+        "revisionId": 200908,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31383,
-        "revisionId": 201253
+        "revisionId": 201253,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31680,
-        "revisionId": 205467
+        "revisionId": 205467,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31681,
-        "revisionId": 205474
+        "revisionId": 205474,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31853,
-        "revisionId": 206176
+        "revisionId": 206176,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31912,
-        "revisionId": 206495
+        "revisionId": 206495,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32156,
-        "revisionId": 209533
+        "revisionId": 209533,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32407,
-        "revisionId": 211921
+        "revisionId": 211921,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32409,
-        "revisionId": 211936
+        "revisionId": 211936,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32470,
-        "revisionId": 214010
+        "revisionId": 214010,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33521,
-        "revisionId": 218766
+        "revisionId": 218766,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33523,
-        "revisionId": 665105
+        "revisionId": 665105,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33565,
-        "revisionId": 218992
+        "revisionId": 218992,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33722,
-        "revisionId": 219390
+        "revisionId": 219390,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 34141,
-        "revisionId": 221060
+        "revisionId": 221060,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 34143,
-        "revisionId": 221077
+        "revisionId": 221077,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 34362,
-        "revisionId": 221669
+        "revisionId": 221669,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35274,
-        "revisionId": 229559
+        "revisionId": 229559,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35435,
-        "revisionId": 231336
+        "revisionId": 231336,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35436,
-        "revisionId": 231341
+        "revisionId": 231341,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38224,
-        "revisionId": 257211
+        "revisionId": 257211,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38655,
-        "revisionId": 259475
+        "revisionId": 259475,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38827,
-        "revisionId": 260536
+        "revisionId": 260536,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38828,
-        "revisionId": 260544
+        "revisionId": 260544,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38829,
-        "revisionId": 260552
+        "revisionId": 260552,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38830,
-        "revisionId": 260559
+        "revisionId": 260559,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 40727,
-        "revisionId": 272562
+        "revisionId": 272562,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 41512,
-        "revisionId": 279063
+        "revisionId": 279063,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 45698,
-        "revisionId": 303697
+        "revisionId": 303697,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 45699,
-        "revisionId": 303701
+        "revisionId": 303701,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 45997,
-        "revisionId": 305505
+        "revisionId": 305505,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 46335,
-        "revisionId": 309757
+        "revisionId": 309757,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 46569,
-        "revisionId": 310608
+        "revisionId": 310608,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 48719,
-        "revisionId": 318522
+        "revisionId": 318522,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 49200,
-        "revisionId": 320194
+        "revisionId": 320194,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 51367,
-        "revisionId": 328960
+        "revisionId": 328960,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 51891,
-        "revisionId": 530515
+        "revisionId": 530515,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 58417,
-        "revisionId": 619209
+        "revisionId": 619209,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 58418,
-        "revisionId": 619212
+        "revisionId": 619212,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 58430,
-        "revisionId": 619236
+        "revisionId": 619236,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 59466,
-        "revisionId": 631110
+        "revisionId": 631110,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 60739,
-        "revisionId": 634002
+        "revisionId": 634002,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 60803,
-        "revisionId": 634139
+        "revisionId": 634139,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 30983,
-        "revisionId": 199608
+        "revisionId": 199608,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 30987,
-        "revisionId": 199622
+        "revisionId": 199622,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 30991,
-        "revisionId": 199641
+        "revisionId": 199641,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31065,
-        "revisionId": 200058
+        "revisionId": 200058,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31107,
-        "revisionId": 200177
+        "revisionId": 200177,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31169,
-        "revisionId": 200338
+        "revisionId": 200338,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31171,
-        "revisionId": 200348
+        "revisionId": 200348,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31192,
-        "revisionId": 200403
+        "revisionId": 200403,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31341,
-        "revisionId": 200889
+        "revisionId": 200889,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31385,
-        "revisionId": 201267
+        "revisionId": 201267,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31686,
-        "revisionId": 205488
+        "revisionId": 205488,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31865,
-        "revisionId": 206212
+        "revisionId": 206212,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31866,
-        "revisionId": 206219
+        "revisionId": 206219,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31867,
-        "revisionId": 206227
+        "revisionId": 206227,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31868,
-        "revisionId": 206233
+        "revisionId": 206233,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31914,
-        "revisionId": 206503
+        "revisionId": 206503,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31916,
-        "revisionId": 206511
+        "revisionId": 206511,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32408,
-        "revisionId": 211928
+        "revisionId": 211928,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32411,
-        "revisionId": 211951
+        "revisionId": 211951,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32412,
-        "revisionId": 211958
+        "revisionId": 211958,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32472,
-        "revisionId": 214024
+        "revisionId": 214024,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32473,
-        "revisionId": 214031
+        "revisionId": 214031,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33362,
-        "revisionId": 217524
+        "revisionId": 217524,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33520,
-        "revisionId": 218752
+        "revisionId": 218752,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33525,
-        "revisionId": 218787
+        "revisionId": 218787,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33526,
-        "revisionId": 218795
+        "revisionId": 218795,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33566,
-        "revisionId": 219002
+        "revisionId": 219002,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33724,
-        "revisionId": 219400
+        "revisionId": 219400,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33788,
-        "revisionId": 219853
+        "revisionId": 219853,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 34150,
-        "revisionId": 221094
+        "revisionId": 221094,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35710,
-        "revisionId": 235104
+        "revisionId": 235104,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35711,
-        "revisionId": 235117
+        "revisionId": 235117,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35712,
-        "revisionId": 235129
+        "revisionId": 235129,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 37025,
-        "revisionId": 242263
+        "revisionId": 242263,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 37267,
-        "revisionId": 244055
+        "revisionId": 244055,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 41345,
-        "revisionId": 277004
+        "revisionId": 277004,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 41638,
-        "revisionId": 279445
+        "revisionId": 279445,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 42225,
-        "revisionId": 281615
+        "revisionId": 281615,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 44931,
-        "revisionId": 300406
+        "revisionId": 300406,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 46013,
-        "revisionId": 305586
+        "revisionId": 305586,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 46014,
-        "revisionId": 305593
+        "revisionId": 305593,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 46040,
-        "revisionId": 305760
+        "revisionId": 305760,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 47110,
-        "revisionId": 312099
+        "revisionId": 312099,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 47111,
-        "revisionId": 312103
+        "revisionId": 312103,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 49339,
-        "revisionId": 320515
+        "revisionId": 320515,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 49342,
-        "revisionId": 320522
+        "revisionId": 320522,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 49725,
-        "revisionId": 321259
+        "revisionId": 321259,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 51926,
-        "revisionId": 530688
+        "revisionId": 530688,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 60820,
-        "revisionId": 634158
+        "revisionId": 634158,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 60939,
-        "revisionId": 634445
+        "revisionId": 634445,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 30980,
-        "revisionId": 199574
+        "revisionId": 199574,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 30993,
-        "revisionId": 199651
+        "revisionId": 199651,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31014,
-        "revisionId": 199798
+        "revisionId": 199798,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31063,
-        "revisionId": 200051
+        "revisionId": 200051,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31074,
-        "revisionId": 200103
+        "revisionId": 200103,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31108,
-        "revisionId": 200184
+        "revisionId": 200184,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31156,
-        "revisionId": 200298
+        "revisionId": 200298,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31158,
-        "revisionId": 200305
+        "revisionId": 200305,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31173,
-        "revisionId": 200355
+        "revisionId": 200355,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31910,
-        "revisionId": 206482
+        "revisionId": 206482,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32471,
-        "revisionId": 214017
+        "revisionId": 214017,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32793,
-        "revisionId": 215676
+        "revisionId": 215676,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33088,
-        "revisionId": 216949
+        "revisionId": 216949,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33366,
-        "revisionId": 217534
+        "revisionId": 217534,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33827,
-        "revisionId": 219987
+        "revisionId": 219987,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 34142,
-        "revisionId": 221069
+        "revisionId": 221069,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 37711,
-        "revisionId": 251296
+        "revisionId": 251296,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38095,
-        "revisionId": 256088
+        "revisionId": 256088,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38638,
-        "revisionId": 259423
+        "revisionId": 259423,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38639,
-        "revisionId": 259428
+        "revisionId": 259428,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38640,
-        "revisionId": 259433
+        "revisionId": 259433,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38642,
-        "revisionId": 259441
+        "revisionId": 259441,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38643,
-        "revisionId": 259446
+        "revisionId": 259446,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38644,
-        "revisionId": 259451
+        "revisionId": 259451,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 38647,
-        "revisionId": 259459
+        "revisionId": 259459,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 40860,
-        "revisionId": 273039
+        "revisionId": 273039,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 41874,
-        "revisionId": 280754
+        "revisionId": 280754,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 42661,
-        "revisionId": 289006
+        "revisionId": 289006,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 42754,
-        "revisionId": 289419
+        "revisionId": 289419,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 42759,
-        "revisionId": 289428
+        "revisionId": 289428,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 43141,
-        "revisionId": 291029
+        "revisionId": 291029,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 45796,
-        "revisionId": 304298
+        "revisionId": 304298,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 45998,
-        "revisionId": 305509
+        "revisionId": 305509,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 45999,
-        "revisionId": 305516
+        "revisionId": 305516,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 46000,
-        "revisionId": 305522
+        "revisionId": 305522,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 47105,
-        "revisionId": 312088
+        "revisionId": 312088,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 48197,
-        "revisionId": 316404
+        "revisionId": 316404,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 48202,
-        "revisionId": 316433
+        "revisionId": 316433,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 48220,
-        "revisionId": 316475
+        "revisionId": 316475,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 48285,
-        "revisionId": 317085
+        "revisionId": 317085,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 49046,
-        "revisionId": 669728
-      },
-      {
-        "pageid": 49201,
-        "revisionId": 320199
+        "revisionId": 669728,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 49338,
-        "revisionId": 320509
+        "revisionId": 320509,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 49767,
-        "revisionId": 321642
+        "revisionId": 321642,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 50446,
-        "revisionId": 325037
+        "revisionId": 325037,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 51892,
-        "revisionId": 530521
+        "revisionId": 530521,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 52341,
-        "revisionId": 547107
+        "revisionId": 547107,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 59354,
-        "revisionId": 630765
+        "revisionId": 630765,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 60639,
-        "revisionId": 633747
+        "revisionId": 633747,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 60753,
-        "revisionId": 634019
+        "revisionId": 634019,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
+      },
+      {
+        "pageid": 79102,
+        "revisionId": 672541,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31069,
-        "revisionId": 200075
+        "revisionId": 200075,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31072,
-        "revisionId": 200089
+        "revisionId": 200089,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31105,
-        "revisionId": 200164
+        "revisionId": 200164,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31106,
-        "revisionId": 200171
+        "revisionId": 200171,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31160,
-        "revisionId": 200315
+        "revisionId": 200315,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31186,
-        "revisionId": 200382
+        "revisionId": 200382,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 31384,
-        "revisionId": 201261
+        "revisionId": 201261,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32410,
-        "revisionId": 211944
+        "revisionId": 211944,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32413,
-        "revisionId": 211965
+        "revisionId": 211965,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 32768,
-        "revisionId": 215569
+        "revisionId": 215569,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33061,
-        "revisionId": 216864
+        "revisionId": 216864,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33527,
-        "revisionId": 218803
+        "revisionId": 218803,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33902,
-        "revisionId": 220343
+        "revisionId": 220343,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 33954,
-        "revisionId": 220408
+        "revisionId": 220408,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 34151,
-        "revisionId": 221104
+        "revisionId": 221104,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35275,
-        "revisionId": 229565
+        "revisionId": 229565,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35276,
-        "revisionId": 229571
+        "revisionId": 229571,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35277,
-        "revisionId": 229578
+        "revisionId": 229578,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 35434,
-        "revisionId": 231330
+        "revisionId": 231330,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 36729,
-        "revisionId": 240456
+        "revisionId": 240456,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 37541,
-        "revisionId": 248787
+        "revisionId": 248787,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 39799,
-        "revisionId": 267327
+        "revisionId": 267327,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 41346,
-        "revisionId": 277012
+        "revisionId": 277012,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 46015,
-        "revisionId": 305601
+        "revisionId": 305601,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 48123,
-        "revisionId": 315976
+        "revisionId": 315976,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
+      },
+      {
+        "pageid": 49201,
+        "revisionId": 320199,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 49466,
-        "revisionId": 320726
+        "revisionId": 320726,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 51943,
-        "revisionId": 530733
+        "revisionId": 530733,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 53393,
-        "revisionId": 592338
+        "revisionId": 592338,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 54667,
-        "revisionId": 595931
+        "revisionId": 595931,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 55760,
-        "revisionId": 604227
+        "revisionId": 604227,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 58421,
-        "revisionId": 619217
+        "revisionId": 619217,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 59340,
-        "revisionId": 637352
+        "revisionId": 637352,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 59364,
-        "revisionId": 630778
+        "revisionId": 630778,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 60715,
-        "revisionId": 633964
+        "revisionId": 633964,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       },
       {
         "pageid": 64805,
-        "revisionId": 671607
+        "revisionId": 671607,
+        "reason": "The custom map namespace returns a widget fragment without the standard page-revision envelope; use the complete imported source with the local formatter."
       }
     ]
   },
-  "representativeMapApiResponse": {
-    "pageid": 30980,
-    "revisionId": 199574,
-    "httpStatus": 200,
-    "htmlProfile": "0.0.0",
-    "revisionEnvelope": false
-  },
-  "localProductionWorker": {
-    "standardRevision": {
-      "revisionId": 670384,
-      "httpStatus": 200,
-      "semanticNodes": 1699
-    },
-    "mapNamespace": {
-      "revisionId": 199574,
-      "httpStatus": 501,
-      "fallback": "imported-source"
-    },
-    "outOfSnapshotRevision": {
-      "revisionId": 123456789999,
-      "httpStatus": 404
-    }
-  },
   "failedCount": 0,
-  "failures": [],
-  "currentRevisionAllowlistSha256": "4a818638a0b79b3d30a5418985c586c0bed5ee46bbe9cf7718c19c47afe16209",
-  "canonicalRevisionSetSha256": "a463aec8c10af08318b7dc4b4a08a82ac2b4981c75c6528d9c72d0ec16fd01f4"
+  "concurrency": 3,
+  "interRequestDelayMs": 180,
+  "failures": []
 }

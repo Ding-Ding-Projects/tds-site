@@ -1,5 +1,5 @@
 {
-  "generatedFromRevisionSnapshot": "2026-09-26T06:52:10.192Z",
+  "generatedFromRevisionSnapshot": "2026-09-26T17:20:10.637Z",
   "count": 83,
   "towers": [
     {
@@ -1760,7 +1760,7 @@
       "unlock": "Triumph Totality Tower",
       "placementCost": 1800,
       "pvpPlacementCost": null,
-      "damageMethod": "Ricochet Pierce",
+      "damageMethod": "Ricochet",
       "dpsFormula": "damage-over-interval",
       "detectionNotes": [
         {
@@ -1803,7 +1803,7 @@
           "hidden": "Level 3+",
           "lead": "No",
           "flying": "Level 0+",
-          "notes": "+7 Damage +1 Max Hits +1 Max Bounces Sell price changes to 1,342"
+          "notes": "+7 Damage +1 Max Targets +1 Max Bounces Sell price changes to 1,342"
         },
         {
           "level": 3,
@@ -1815,7 +1815,7 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "Level 0+",
-          "notes": "+6 Damage +Hidden Detection Hidden Detection +1 Bounces 6 > 12 Added Damage on bounce Sell price changes to 2,592"
+          "notes": "+6 Damage +Hidden Detection Hidden Detection +1 Max Bounces +6 Added Damage Sell price changes to 2,592"
         },
         {
           "level": 4,
@@ -1827,7 +1827,7 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "Level 0+",
-          "notes": "+20 Damage +2 Max Hits +2 Max Bounces 12 > 13 Added Damage on bounce Sell price changes to 4,842"
+          "notes": "+20 Damage +2 Max Targets +2 Max Bounces +1 Added Damage Sell price changes to 4,842"
         },
         {
           "level": 5,
@@ -1839,14 +1839,14 @@
           "hidden": "Yes",
           "lead": "No",
           "flying": "Level 0+",
-          "notes": "+2 Range 0.75 > 0.5 Firerate +10 Damage +1 Max Hits +3 Bounces 13 > 15 Added Damage on bounce Sell price changes to 9,342"
+          "notes": "+2 Range 0.75 > 0.5 Firerate +10 Damage +1 Max Targets +3 Max Bounces +2 Added Damage Sell price changes to 9,342"
         }
       ],
       "source": {
         "url": "https://tds.wiki/w/Executioner",
         "historyUrl": "https://tds.wiki/w/Executioner?action=history",
-        "revisionId": 672081,
-        "revisionTimestamp": "2026-09-25T22:14:54Z",
+        "revisionId": 672457,
+        "revisionTimestamp": "2026-09-26T15:54:26Z",
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
@@ -3607,8 +3607,8 @@
       "source": {
         "url": "https://tds.wiki/w/Hacker",
         "historyUrl": "https://tds.wiki/w/Hacker?action=history",
-        "revisionId": 671261,
-        "revisionTimestamp": "2026-09-23T14:38:56Z",
+        "revisionId": 672436,
+        "revisionTimestamp": "2026-09-26T15:26:38Z",
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
@@ -5328,8 +5328,8 @@
       "source": {
         "url": "https://tds.wiki/w/Pulse_Trooper",
         "historyUrl": "https://tds.wiki/w/Pulse_Trooper?action=history",
-        "revisionId": 667399,
-        "revisionTimestamp": "2026-09-18T16:50:04Z",
+        "revisionId": 672425,
+        "revisionTimestamp": "2026-09-26T15:04:13Z",
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },

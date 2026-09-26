@@ -42,6 +42,22 @@ test("the completeness check fails when license provenance is removed", () => {
   assert.ok(issues.some((issue) => issue.includes(`source provenance URL mismatch for page ${first.pageid}`)));
 });
 
+test("the completeness check fails when adaptation or direct license provenance is removed", () => {
+  const first = index.entries[0];
+  const original = records.get(String(first.pageid));
+  const missingAdaptation = new Map(records);
+  missingAdaptation.set(String(first.pageid), { ...original, adaptation: null });
+  assert.ok(validateWikiCorpus(index, revisions, missingAdaptation).some((issue) => issue.includes(`missing or mismatched adaptation provenance for page ${first.pageid}`)));
+
+  const missingLicense = new Map(records);
+  missingLicense.set(String(first.pageid), { ...original, licenseUrl: "" });
+  assert.ok(validateWikiCorpus(index, revisions, missingLicense).some((issue) => issue.includes(`missing licenseUrl for page ${first.pageid}`)));
+
+  const missingHistoricalLicense = new Map(records);
+  missingHistoricalLicense.set(String(first.pageid), { ...original, historicalLicenseUrl: "" });
+  assert.ok(validateWikiCorpus(index, revisions, missingHistoricalLicense).some((issue) => issue.includes(`missing historicalLicenseUrl for page ${first.pageid}`)));
+});
+
 test("the full rendering audit matches the exact imported revision snapshot", () => {
   const namespaceZeroCount = index.entries.filter((entry) => entry.namespace === 0).length;
   const mapNamespaceCount = index.entries.filter((entry) => entry.namespace === 2900).length;

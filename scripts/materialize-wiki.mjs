@@ -16,7 +16,8 @@ async function writeIfChanged(target, content) {
 const index = source.entries.map((entry) => ({
   pageid: entry.pageid, title: entry.title, namespace: entry.namespace,
   revisionId: entry.revisionId, revisionTimestamp: entry.revisionTimestamp,
-  sourceUrl: entry.sourceUrl, historyUrl: entry.historyUrl,
+  sourceUrl: entry.sourceUrl, historyUrl: entry.historyUrl, retrievedAt: entry.retrievedAt,
+  licenseUrl: entry.licenseUrl, historicalLicenseUrl: entry.historicalLicenseUrl, adaptation: entry.adaptation,
   licensePolicyUrl: entry.licensePolicyUrl, license: entry.license,
   summary: entry.plainText.slice(0, 320),
 }));

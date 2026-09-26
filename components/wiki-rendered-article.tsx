@@ -30,6 +30,7 @@ function sanitizeAnchorHref(value: string) {
 export function WikiRenderedArticle({
   revisionId,
   pageid,
+  namespace,
   title,
   plainText,
   sourceMarkup,
@@ -38,6 +39,7 @@ export function WikiRenderedArticle({
 }: {
   revisionId: number;
   pageid: number;
+  namespace: number;
   title: string;
   plainText: string;
   sourceMarkup: string;
@@ -45,20 +47,27 @@ export function WikiRenderedArticle({
   onOpenArticle: (entry: ArticleEntry) => void;
 }) {
   const [rendered, setRendered] = useState<RenderedArticle | null>(null);
-  const [loadState, setLoadState] = useState<"loading" | "ready" | "source-fallback" | "unavailable">("loading");
+  const [loadState, setLoadState] = useState<"loading" | "ready" | "source-fallback" | "unavailable">(namespace === 2900 ? "source-fallback" : "loading");
   const entryByTitle = useMemo(() => new Map(entries.map((entry) => [wikiTitleKey(entry.title), entry])), [entries]);
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch(`/api/wiki-rendered/${revisionId}`, { signal: controller.signal })
-      .then(async (response) => {
-        if (response.status === 501) {
-          setLoadState("source-fallback");
-          return null;
-        }
-        if (!response.ok) throw new Error("Rendered article unavailable");
-        return response.json() as Promise<RenderedArticle>;
-      })
+    if (namespace === 2900) return () => controller.abort();
+    async function loadArticle() {
+      const localResponse = await fetch(`/wiki/rendered/${pageid}.json`, { signal: controller.signal });
+      if (localResponse.ok) {
+        const cached = await localResponse.json() as RenderedArticle & { pageid: number; revisionId: number };
+        if (cached.pageid === pageid && cached.revisionId === revisionId) return cached;
+      }
+      const fallbackResponse = await fetch(`/api/wiki-rendered/${revisionId}`, { signal: controller.signal });
+      if (fallbackResponse.status === 501) {
+        setLoadState("source-fallback");
+        return null;
+      }
+      if (!fallbackResponse.ok) throw new Error("Rendered article unavailable");
+      return fallbackResponse.json() as Promise<RenderedArticle>;
+    }
+    loadArticle()
       .then((article) => {
         if (!article) return;
         if (article.schemaVersion !== 1 || !Array.isArray(article.content)) throw new Error("Rendered article format is unsupported");
@@ -67,7 +76,7 @@ export function WikiRenderedArticle({
       })
       .catch(() => { if (!controller.signal.aborted) setLoadState("unavailable"); });
     return () => controller.abort();
-  }, [revisionId]);
+  }, [namespace, pageid, revisionId]);
 
   function renderLink(node: WikiNode, key: string): ReactNode | null {
     if (typeof node === "string" || node.type !== "a" || typeof node.props.href !== "string") return null;
@@ -124,7 +133,7 @@ export function WikiRenderedArticle({
 
   return <div className="wiki-readable">
     {plainText && <section className="wiki-summary"><h2>Quick summary</h2><p>{plainText}</p></section>}
-    {loadState === "loading" && <p className="wiki-render-status" role="status">Loading this imported revision’s readable article…</p>}
+    {loadState === "loading" && <p className="wiki-render-status" role="status">Loading the saved readable article…</p>}
     {loadState === "source-fallback" && <p className="wiki-render-status" role="status">This map article uses its complete imported source and the local reader.</p>}
     {loadState === "unavailable" && <div className="wiki-render-status" role="status">The rendered article is temporarily unavailable. Showing the local partial rendering and complete imported source instead.</div>}
     {rendered ? rendered.content.map((node, index) => renderNode(node, `wiki-${revisionId}-${index}`)) : <WikiArticleBody pageid={pageid} title={title} plainText="" sourceMarkup={sourceMarkup} entries={entries} onOpenArticle={onOpenArticle}/>}

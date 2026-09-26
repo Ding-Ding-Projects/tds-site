@@ -27,6 +27,7 @@ const inventory = [...pages.values()].sort((a, b) => a.ns - b.ns || a.title.loca
 const corpus = [];
 for (let offset = 0; offset < inventory.length; offset += 50) {
   const chunk = inventory.slice(offset, offset + 50);
+  const retrievedAt = new Date().toISOString();
   const body = await request({
     action: "query", pageids: chunk.map((page) => page.pageid).join("|"), prop: "info|extracts|revisions",
     inprop: "url", explaintext: 1, exsectionformat: "plain",
@@ -40,9 +41,21 @@ for (let offset = 0; offset < inventory.length; offset += 50) {
       sourceUrl: page.fullurl ?? `https://tds.wiki/wiki/${encodeURIComponent(page.title.replaceAll(" ", "_"))}`,
       historyUrl: `https://tds.wiki/w/${encodeURIComponent(page.title.replaceAll(" ", "_"))}?action=history`,
       revisionId: revision.revid, parentRevisionId: revision.parentid ?? null, revisionTimestamp: revision.timestamp,
-      sizeBytes: revision.size, licensePolicyUrl: "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
+      retrievedAt, sizeBytes: revision.size,
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      historicalLicenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      licensePolicyUrl: "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
       license: "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0.",
       attribution: `Adapted from ${page.title}, revision ${revision.revid}, retrieved from the Tower Defense Simulator Wiki API.`,
+      adaptation: {
+        method: page.ns === 0 ? "revision-html-sanitized" : "local-wikitext-renderer",
+        sourceMarkupPreserved: true,
+        changesMade: page.ns === 0
+          ? "Article presentation uses the matching revision HTML with scripts, styles, hidden challenge markup, and remote image files removed; original source markup is retained."
+          : "Article presentation uses the local source formatter because the map endpoint returns a widget fragment; original source markup is retained.",
+        historicalLicenseNotice: "Unchanged wording from before 2026-09-12 remains under CC BY-SA 3.0; consult the revision history when reusing excerpts.",
+        retrievedAt,
+      },
       plainText: page.extract ?? "", wikitext: revision.slots?.main?.content ?? "",
     });
   }
