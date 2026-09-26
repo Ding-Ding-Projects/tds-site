@@ -16,6 +16,10 @@ Research cutoff: 2026-09-26. A solo report is separate from a co-op strategy. Re
 
 ## Official solo-completion evidence
 
+### Frost encounter facts that change Solo planning
+
+The current [Frost Mode wave list](https://tds.wiki/w/Frost_Mode) puts Frost Champion on Wave 33 and Frost Spirit on Wave 40. [Frost Champion](https://tds.wiki/w/Frost_Champion) identifies Champion as a mini-boss with 100,000 base health. Its summon creates five enemies, with Lead Frost Invader and Hidden Unstable Ice among the possible summons. Its banner applies a 10% firerate debuff for 30 seconds, and the strategy section says Medic's shield does not prevent the debuff. [Frost Spirit](https://tds.wiki/w/Frost_Spirit) lists 350,000 base health and 20% defense for regular Frost Mode. It becomes temporarily invulnerable at 80%, can summon beacons that redirect attacks and heal 4,500 health per second, and becomes Hidden at 32%. These official mechanics support separate Solo detection and boss-phase checkpoints, but do not establish a complete wave-by-wave Solo build.
+
 The Official Wiki's [Index page](https://tds.wiki/w/Index) lists solo-specific triumph badges for Molten Mode, Fallen Mode, Pizza Party, Badlands II, and Polluted Wasteland II. The Badlands II page separately lists the Outlaw solo badge and describes its three-path All Paths modifier, solo cash allocation, and wave-30 Gunslinger. These entries support solo availability, but do not supply a reproducible current build by themselves.
 
 The current [Gamemodes catalog](https://tds.wiki/w/Gamemodes) lists Hidden Wave as a secret Fallen Mode encounter, rather than as a separate queue. Its [page](https://tds.wiki/w/Hidden_Wave) documents the activation sequence, base-health condition, 60-second wave-40 Fallen King requirement, consumable restrictions, and wave-41 encounter. The planner includes a Solo adaptation of those official mechanics, labeled unverified because this project has not reproduced a solo triumph. A separate Co-op plan assigns trigger, boss-damage, and add-control responsibilities; that role split is editorial.

@@ -29,6 +29,17 @@ test("Frost Solo exposes the caveated budget proposal and fails when its source 
   assert.equal(containsCandidate(component.split(sourceUrl).join("")), false, "removing every source link must invalidate the sourced Frost candidate");
 });
 
+test("Frost Solo distinguishes both official bosses and their detection and phase requirements", () => {
+  const row = component.split(/\r?\n/).find((line) => line.startsWith('  { mode: "Frost"') && line.includes('team: "Solo"'));
+  assert.ok(row);
+  for (const fact of ["Frost Champion mini-boss", "Wave 33", "Wave 40", "Lead Frost Invaders", "Hidden Unstable Ice", "10% for 30 seconds", "32% health", "Ice Beacons", "4,500 HP per second"]) {
+    assert.ok(row.includes(fact), `Solo Frost plan should preserve the source-backed checkpoint: ${fact}`);
+  }
+  assert.ok(row.includes("Frost_Champion"));
+  assert.ok(row.includes("Frost_Spirit"));
+  assert.ok(row.includes("no current wave-by-wave Solo route is independently reproduced"));
+});
+
 test("every mode has four Solo decision checkpoints and the checklist stays out of Co-op", () => {
   assert.deepEqual(validateSoloStrategyCoverage(component), []);
   const missingMode = component.replace('  "Challenge Trials": [', '  "Challenge Trial": [');

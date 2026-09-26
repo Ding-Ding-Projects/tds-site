@@ -15,7 +15,7 @@ Official Roblox metadata identified the experience as v2.11.0 and last updated i
 
 The wiki's [Copyrights policy](https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights) says a mixed current-page adaptation may be reused under CC BY-SA 4.0 International with attribution and a change notice, while copied unchanged pre-2026-09-12 text stays under CC BY-SA 3.0. Each article retains a source-page and history link plus the policy link. Media files are licensed individually and are excluded unless reuse terms are verified.
 
-Solo strategy sources and disagreement notes are in [solo strategy evidence](solo-strategy-evidence.md). Creator clears and community posts support evidence labels, not developer confirmation or guaranteed outcomes.
+Solo strategy sources and disagreement notes are in [solo strategy evidence](solo-strategy-evidence.md). Creator clears and community posts support evidence labels, not developer confirmation or guaranteed outcomes. Its Frost section documents the Official Wiki's two separate boss checkpoints, summon detection, firerate debuff, Ice Beacon redirection, and the final hidden phase without claiming a reproduced Solo route.
 
 Use the [ChatGPT deep-research prompt](chatgpt-research-prompt.md) to commission a fresh, citation-heavy review. It asks for solo viability and reproducible solo routes as distinct questions, and requires patch dates, source links, contradiction handling, and explicit unknowns.
 

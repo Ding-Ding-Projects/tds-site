@@ -1,5 +1,11 @@
 # Handoff
 
+## Official Frost Solo encounter checkpoints
+
+The Solo Frost plan now separates Frost Champion on Wave 33 from Frost Spirit on Wave 40 and links each official wiki article. It records Champion's Lead Frost Invader and Hidden Unstable Ice summons, 10% nearby firerate debuff for 30 seconds, and the wiki warning that Medic's shield does not block that debuff. It also records Frost Spirit's 350,000 regular-mode base health, 20% defense, beacon damage redirection and 4,500 health-per-second healing, and Hidden phase at 32%. These checkpoints improve detection and target-priority advice; they are not a reproduced Solo route.
+
+The focused Solo suite passes 9/9, the full wiki suite passes 91/91, and lint passes. The production build completes with the existing large-client-chunk and route-classification warnings. A current built interaction capture remains unavailable through the isolated browser route.
+
 ## Solo Frost community proposal
 
 The Solo Frost planner now includes a long-map budget proposal from a September 2026 Reddit post. It outlines early Military Base and Demoman purchases, a Militant/Ranger transition by Wave 15, and pressure points on Waves 29, 34, 35, 38, and 40. The candidate card, copy output, and read-aloud text retain its caveats: the base count is ambiguous, and a later author reply says the attempt used Turret, so the advertised loadout and triumph provenance are unclear. The linked image was not assessed. It is presented as a practice hypothesis, not a verified cheapest build or clear.

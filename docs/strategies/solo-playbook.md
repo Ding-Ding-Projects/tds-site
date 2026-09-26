@@ -34,6 +34,12 @@ These are candidate team compositions from public player discussions, not tested
 
 This separate Fallen candidate uses Trapper, Crook Boss, Commander, Tesla, and Turret. Compare its early setup and pre-Wave-35 transition against the current map and starting cash; track Damage and Firerate flags and consumable timing separately from tower purchases. It is a proposed sequence, not a claimed or independently reproduced clear. [Reddit guide](https://www.reddit.com/r/TDS_Roblox/comments/1vgav6u/solo_fallen_mode_strategy_level_50/)
 
+### Official Frost boss checkpoints
+
+Frost Mode's current wave list places Frost Champion on Wave 33 and Frost Spirit on Wave 40. Frost Champion is a 100,000-HP mini-boss. Its five-enemy summon can produce Lead Frost Invaders and Hidden Unstable Ice, so check both detection types before the summon. Its Frozen Banner reduces nearby tower firerate by 10% for 30 seconds; the Official Wiki says Medic's shield does not prevent this debuff. [Frost Champion](https://tds.wiki/w/Frost_Champion) · [Frost Mode](https://tds.wiki/w/Frost_Mode)
+
+Frost Spirit is the Wave 40 final boss, with 350,000 base health and 20% defense in regular Frost Mode. At 80% health it enters an invulnerable phase; its Ice Beacon ability then redirects damage to the beacons and heals 4,500 health per second while they remain. Focus attacks on the beacons instead of continuing to target the boss. At 32% health Frost Spirit becomes Hidden, so hidden detection must still work during the final phase. These are source-backed encounter checkpoints, not a reproduced Solo victory sequence. [Frost Spirit](https://tds.wiki/w/Frost_Spirit) · [Frost Mode](https://tds.wiki/w/Frost_Mode)
+
 ### Detailed Solo Frost budget proposal from September 2026
 
 The [Reddit proposal](https://www.reddit.com/r/TDS_Roblox/comments/1vaqkuy/cheapest_possible_solo_frost_loadout/) describes a long-map approach without consumables, the skill tree, or timescale tickets. Its author recommends a Level 2 Military Base opener, more Military Bases and two Level 2 Demomen, then one Level 4 Militant and a Level 1 Ranger by Wave 15. The wording for the early Military Base count is ambiguous, so no exact count is inferred here. Later choices include more Military Bases, Rangers, Demomen, or Wardens, with Commander chaining.
