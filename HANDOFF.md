@@ -1,5 +1,9 @@
 # Handoff
 
+## Polluted Wasteland II Solo evidence update
+
+The Solo planner now labels the January 10, 2026 v1.83.10 creator video as a historical solo-triumph report with a maxed skill tree and timestamps through Wave 25. It does not present that old run as a current build. The current Official Wiki Strategy text says solo completion is impossible, while The Cure remains listed on the page. The July 17 v2.3.0 release rebalanced Crook Boss, Golden Crook Boss, and Saboteur; a July 23 player discussion says a Saboteur-dependent solo route stopped working after the balance changes, but it contains no complete proof run. The evidence record now describes historical feasibility and leaves post-v2.3.0 viability unverified. Focused coverage checks verify the new attribution and fail if its video source is removed. A current built-page capture could not be obtained because the isolated headless capture route is unavailable; this strategy update has no new pixel evidence.
+
 ## Wiki freshness recheck at 23:36 UTC
 
 The live revision audit completed at `2026-09-26T23:36:22.991Z` against all 2,836 eligible snapshot records. It found 2,836 current revisions, zero stale, missing, or new records, and zero integrity issues. Only `data/wiki-revision-audit.json`'s `auditedAt` value changed; no corpus content refresh was needed.

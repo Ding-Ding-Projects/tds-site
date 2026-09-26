@@ -17,7 +17,7 @@ Research reviewed: 2026-09-26. The in-guide planner presents four mode-specific 
 | PvP | Read Solo as 1v1, keep a defense reserve before sending pressure, and recheck the current bans. | Official queue framing; tactical advice is not independently tested. |
 | Pizza Party | Respect the grid, cover Wox the Fox and other enemies, and apply the extra 20% defense only in Lost Souls matches. | Official rules plus a creator Solo triumph report; no current wave log. |
 | Badlands II | Cover all three All Paths routes, account for Mutation and HP Locked, and reserve damage for wave-30 Gunslinger. | Official Solo badge and a community clear report without wave detail. |
-| Polluted Wasteland II | Treat Solo availability as unresolved because the current strategy text says impossible while the Index lists a Solo badge. | Direct Official Wiki conflict; no current route can be responsibly promised. |
+| Polluted Wasteland II | Keep the January v1.83.10 creator triumph as historical evidence only. The current Wiki strategy says Solo is impossible; do not copy the older route as current after v2.3.0 balance changes. | Historical run report plus current official strategy and dated community context; no post-v2.3.0 complete Solo run verified. |
 | Story Mode | Select the exact chapter objective, then reserve the loadout around that chapter's constraints and boss. | Editorial template; no single route applies to every chapter. |
 
 ## Recent community loadout hypotheses

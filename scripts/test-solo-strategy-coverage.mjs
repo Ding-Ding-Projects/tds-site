@@ -12,7 +12,22 @@ test("every supported mode has exactly one solo and one co-op plan with phases a
   assert.ok(component.includes("Snapshot: v2.11.0 · reviewed 2026-09-26"));
   assert.ok(component.includes("https://www.roblox.com/games/3260590327/Tower-Defense-Simulator"));
   assert.ok(component.includes("For Lost Souls matches only"));
-  assert.ok(component.includes("current official page's impossibility claim conflicts with its own Index solo badge"));
+  assert.ok(component.includes("No post-v2.3.0 complete solo run is verified here."));
+});
+
+test("Polluted Wasteland II separates a historical v1.83.10 clear report from current feasibility", () => {
+  const soloRow = component.split(/\r?\n/).find((line) => line.startsWith('  { mode: "Polluted Wasteland II"') && line.includes('team: "Solo"'));
+  const historicalVideo = "https://www.youtube.com/watch?v=kNXHDUkjqa8";
+  const currentUpdate = "https://tds.wiki/w/V2.3.0";
+  assert.ok(soloRow);
+  for (const fact of ["v1.83.10", "maxed skill tree", "The live Official Wiki Strategy section now says solo completion is impossible", historicalVideo, currentUpdate, "No post-v2.3.0 complete solo run is verified here."]) {
+    assert.ok(soloRow.includes(fact), `Solo Polluted Wasteland II should preserve this dated evidence: ${fact}`);
+  }
+  const hasHistoricalCandidate = (source) => source.includes(historicalVideo)
+    && source.includes("Historical solo triumph report · v1.83.10 · maxed skill tree")
+    && source.includes("not a current build or guarantee");
+  assert.equal(hasHistoricalCandidate(component), true);
+  assert.equal(hasHistoricalCandidate(component.split(historicalVideo).join("")), false, "removing the video citation must invalidate the historical candidate");
 });
 
 test("Fallen Solo exposes the attributed staged proposal without calling it a verified clear", () => {
