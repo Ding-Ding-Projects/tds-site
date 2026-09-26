@@ -7,6 +7,7 @@ import project from "../package.json";
 import towerCatalog from "../data/tower-stats.json";
 import TowerSimulator from "@/components/tower-simulator";
 import TowerLibrary from "@/components/tower-library";
+import { ResearchPromptCard } from "@/components/research-prompt-card";
 import { getEffectiveStrategyMap, getStrategyMapOptions } from "@/lib/strategy-map-options.mjs";
 
 const DefenseScene = lazy(() => import("@/components/defense-scene"));
@@ -216,6 +217,7 @@ export default function StrategyLab() {
         <TowerLibrary towers={towers} />
 
         <section className="source-strip" id="sources"><Shield size={20}/><div><strong>Research with receipts</strong><p>Every imported article will retain source title, revision, history, license, and adaptation details. Community tactics stay labeled as reports, especially where solo clears conflict.</p></div><a href="https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights" target="_blank" rel="noreferrer">Content policy ↗</a></section>
+        <ResearchPromptCard/>
         <footer><span>TDS STRATEGY LAB · INDEPENDENT FAN RESOURCE</span><span>Research snapshot: 2026-09-26 · Source data is still being verified</span></footer>
       </section>
     </div>

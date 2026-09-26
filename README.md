@@ -1,6 +1,6 @@
 # TDS Strategy Lab
 
-TDS Strategy Lab is a public, source-linked reference and planning tool for Tower Defense Simulator. It combines the current public encyclopedia corpus with a tower-stat simulator, mode-by-mode strategy notes, and an original interactive 3D defense scene.
+TDS Strategy Lab is a public, source-linked reference and planning tool for Tower Defense Simulator. It combines the current public encyclopedia corpus with a tower-stat simulator, mode-by-mode strategy notes, an original interactive 3D defense scene, and a copy-ready deep-research prompt on the planner.
 
 The live guide is being built and is not published yet.
 

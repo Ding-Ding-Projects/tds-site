@@ -18,3 +18,5 @@ The wiki's [Copyrights policy](https://tds.wiki/w/Tower_Defense_Simulator_Wiki:C
 Solo strategy sources and disagreement notes are in [solo strategy evidence](solo-strategy-evidence.md). Creator clears and community posts support evidence labels, not developer confirmation or guaranteed outcomes.
 
 Use the [ChatGPT deep-research prompt](chatgpt-research-prompt.md) to commission a fresh, citation-heavy review. It asks for solo viability and reproducible solo routes as distinct questions, and requires patch dates, source links, contradiction handling, and explicit unknowns.
+
+The planner now displays the copy-ready prompt from [ChatGPT research prompt](chatgpt-research-prompt.md). Its UI copy control reads a checked-in string that is required to match the fenced source prompt exactly by `scripts/test-research-prompt.mjs`.
