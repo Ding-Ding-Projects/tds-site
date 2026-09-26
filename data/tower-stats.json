@@ -7,9 +7,18 @@
       "name": "Ace Pilot",
       "role": "Defense",
       "placement": "Ground (Air-based)",
+      "placementLimit": 8,
       "unlock": "1,500",
       "placementCost": 500,
       "pvpPlacementCost": null,
+      "damageMethod": "Single Splash (Level 2+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "From Level 2, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -18,7 +27,7 @@
           "damage": 2,
           "interval": 0.22,
           "range": 9,
-          "hidden": "Level 4+From Level 2, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4.",
+          "hidden": "Level 4+",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
           "notes": ""
@@ -30,7 +39,7 @@
           "damage": 3,
           "interval": 0.22,
           "range": 9,
-          "hidden": "Level 4+From Level 2, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4.",
+          "hidden": "Level 4+",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
           "notes": "+1 Damage Sell Price changes to 241"
@@ -42,7 +51,7 @@
           "damage": 4,
           "interval": 0.22,
           "range": 9,
-          "hidden": "Level 4+From Level 2, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4.",
+          "hidden": "Level 4+",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
           "notes": "+1 Damage +Figure8 Flight Path Description = •10 Damage •4 Bomb Cooldown •3 Explosion Range Sell Price changes to 450"
@@ -54,7 +63,7 @@
           "damage": 5,
           "interval": 0.15,
           "range": 10,
-          "hidden": "Level 4+From Level 2, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4.",
+          "hidden": "Level 4+",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
           "notes": "+1 Damage +1 Range 0.22 > 0.15 Firerate 10% Speed Increase Description = •30 Damage •4 Bomb Cooldown •3 Explosion Range Sell Price changes to 950"
@@ -92,16 +101,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Splash (Level 2+)); generic DPS is not estimated."
     },
     {
       "pageid": 16031,
       "name": "Accelerator",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 5,
       "unlock": "2,500",
       "placementCost": 7500,
       "pvpPlacementCost": 4250,
+      "damageMethod": "Burst",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -184,16 +197,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special cycle; not estimated by the generic damage divided by interval formula."
+      "dpsMethod": "Special damage cycle (Burst); generic DPS is not estimated."
     },
     {
       "pageid": 2655,
       "name": "Archer",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 15,
       "unlock": "Gift of Sharpness",
       "placementCost": 600,
       "pvpPlacementCost": null,
+      "damageMethod": "Pierce Fire (Level 3+) Splash (Level 4+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -276,16 +293,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Pierce Fire (Level 3+) Splash (Level 4+)); generic DPS is not estimated."
     },
     {
       "pageid": 48924,
       "name": "Assassin",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "800",
       "placementCost": 300,
       "pvpPlacementCost": 300,
+      "damageMethod": "Single Pierce (Level 2+)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "When assassin is using whirlwind slash, Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target Flying enemies alone."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -296,7 +322,7 @@
           "range": 6,
           "hidden": "Level 2+",
           "lead": "Level 2+",
-          "flying": "N/AWhen assassin is using whirlwind slash, Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target Flying enemies alone.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -308,7 +334,7 @@
           "range": 6,
           "hidden": "Level 2+",
           "lead": "Level 2+",
-          "flying": "N/AWhen assassin is using whirlwind slash, Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target Flying enemies alone.",
+          "flying": "No",
           "notes": "+3 Damage 0.6 > 0.5 Swingrate Sell Price changes to 250"
         },
         {
@@ -320,7 +346,7 @@
           "range": 6,
           "hidden": "Yes",
           "lead": "Yes",
-          "flying": "N/AWhen assassin is using whirlwind slash, Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target Flying enemies alone.",
+          "flying": "No",
           "notes": "+3 Damage +Hidden Detection Hidden Detection +Lead Detection Lead Detection Description = Releases a powerful whirlwind, dealing damage to multiple enemies in an area •Triggers on every 3rd slash •9 Damage •6 Range Sell Price changes to 458"
         },
         {
@@ -332,7 +358,7 @@
           "range": 6,
           "hidden": "Yes",
           "lead": "Yes",
-          "flying": "N/AWhen assassin is using whirlwind slash, Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target Flying enemies alone.",
+          "flying": "No",
           "notes": "+7 Damage 0.5 > 0.35 Swingrate +7 Whirlwind Damage Sell Price changes to 1,125"
         },
         {
@@ -344,7 +370,7 @@
           "range": 6.5,
           "hidden": "Yes",
           "lead": "Yes",
-          "flying": "N/AWhen assassin is using whirlwind slash, Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target Flying enemies alone.",
+          "flying": "No",
           "notes": "+19 Damage +19 Whirlwind Damage +0.5 Range +0.5 Whirlwind Range Description = Releases three knives in a fan shape upon reaching a certain threshold •Triggers on every 500 damage dealt •60 Damage •3 Max Hits •10 Range Sell Price changes to 3,391"
         }
       ],
@@ -356,16 +382,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 46169,
       "name": "Biologist",
       "role": "Support",
       "placement": "Ground",
+      "placementLimit": 8,
       "unlock": "Triumph Bathroom Approach in Hard difficulty",
       "placementCost": 750,
       "pvpPlacementCost": null,
+      "damageMethod": "Single (Sunflower & Nightshade) Splash (Ivy) Poison (Ivy)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -436,16 +466,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single (Sunflower & Nightshade) Splash (Ivy) Poison (Ivy)); generic DPS is not estimated."
     },
     {
       "pageid": 38019,
       "name": "Brawler",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 10,
       "unlock": "1,250",
       "placementCost": 300,
       "pvpPlacementCost": 600,
+      "damageMethod": "Single Pierce (Level 4+)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Although it cannot detect flying enemies, its ''Reposition'' ability can damage Flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -456,7 +495,7 @@
           "range": 6,
           "hidden": "Level 3+",
           "lead": "Level 0+",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Reposition'' ability can damage Flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -468,7 +507,7 @@
           "range": 6.5,
           "hidden": "Level 3+",
           "lead": "Level 0+",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Reposition'' ability can damage Flying enemies.",
+          "flying": "No",
           "notes": "+0.5 Range 1 > 0.6 Swingrate Sell Price changes to 166"
         },
         {
@@ -480,7 +519,7 @@
           "range": 6.5,
           "hidden": "Level 3+",
           "lead": "Level 0+",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Reposition'' ability can damage Flying enemies.",
+          "flying": "No",
           "notes": "+9 Damage Description = •21 Final Hit Damage •3 Hit Count •0.6 Cooldown •Knocks back enemies on final hit Knockback •17.5 Knockback Force Sell Price changes to 566"
         },
         {
@@ -492,7 +531,7 @@
           "range": 6.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Reposition'' ability can damage Flying enemies.",
+          "flying": "No",
           "notes": "+10 Damage +Hidden Detection Hidden Detection 0.6 > 0.5 Swingrate +27 Final Hit Damage 0.6 > 0.5 Cooldown +6.5 Knockback Force Knockback Sell Price changes to 1,400"
         },
         {
@@ -504,7 +543,7 @@
           "range": 7,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Reposition'' ability can damage Flying enemies.",
+          "flying": "No",
           "notes": "+0.5 Range +11 Damage +22 Final Hit Damage +4 Knockback Force Knockback Description = •7.5 Reposition Range •Knocks back all hit enemies Knockback •25 Knockback Force •The '''Brawler''' leaps to a selected spot on the map •50 Reposition Damage Sell Price changes to 2,566"
         },
         {
@@ -516,7 +555,7 @@
           "range": 8,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Reposition'' ability can damage Flying enemies.",
+          "flying": "No",
           "notes": "+1 Range +15 Damage +30 Final Hit Damage +50 Reposition Damage 0.5 > 0.4 Swingrate 0.5 > 0.4 Cooldown +4 Knockback Force Knockback +2.5 Reposition Range Sell Price changes to 5,159"
         }
       ],
@@ -528,16 +567,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 58605,
       "name": "Boomerang",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 12,
       "unlock": "300",
       "placementCost": 550,
       "pvpPlacementCost": null,
+      "damageMethod": "Ricochet",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through its boomerang flight pattern, hidden enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target hidden enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -546,7 +594,7 @@
           "damage": 7,
           "interval": 2.6,
           "range": 14,
-          "hidden": "N/AThrough its boomerang flight pattern, hidden enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 3+",
           "flying": "Level 0+",
           "notes": ""
@@ -558,7 +606,7 @@
           "damage": 12,
           "interval": 2.6,
           "range": 15,
-          "hidden": "N/AThrough its boomerang flight pattern, hidden enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 3+",
           "flying": "Level 0+",
           "notes": "+5 Damage +1 Range Sell Price changes to 316"
@@ -570,7 +618,7 @@
           "damage": 12,
           "interval": 1.6,
           "range": 15,
-          "hidden": "N/AThrough its boomerang flight pattern, hidden enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 3+",
           "flying": "Level 0+",
           "notes": "2.6 > 1.6 Firerate 0.4 > 0.3 Boomerang Travel Time +1 Max Hits Sell Price changes to 566"
@@ -582,7 +630,7 @@
           "damage": 16,
           "interval": 1.6,
           "range": 16,
-          "hidden": "N/AThrough its boomerang flight pattern, hidden enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Yes",
           "flying": "Level 0+",
           "notes": "+4 Damage +1 Range +1 Boomerang Count +Lead Detection Lead Detection Sell Price changes to 1,400"
@@ -594,7 +642,7 @@
           "damage": 40,
           "interval": 1.4,
           "range": 16,
-          "hidden": "N/AThrough its boomerang flight pattern, hidden enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Yes",
           "flying": "Level 0+",
           "notes": "+24 Damage 1.6 > 1.4 Firerate 0.3 > 0.25 Boomerang Travel Time +1 Max Hits Sell Price changes to 3,733"
@@ -608,16 +656,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 185,
       "name": "Commander",
       "role": "Support",
       "placement": "Ground",
+      "placementLimit": 6,
       "unlock": "4,000",
       "placementCost": 650,
       "pvpPlacementCost": null,
+      "damageMethod": "Single Collision (Level 4) Splash (Level 4)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -627,7 +679,7 @@
           "interval": 0,
           "range": 10,
           "hidden": "Level 2+",
-          "lead": "Level 2+ (Tower)Level 4 (Missile APC & Gunner APC Collision)",
+          "lead": "Level 2+ (Tower) Level 4 (Missile APC & Gunner APC Collision)",
           "flying": "Level 2+ (Tower & Gunner APC)",
           "notes": ""
         },
@@ -639,7 +691,7 @@
           "interval": 0,
           "range": 10,
           "hidden": "Level 2+",
-          "lead": "Level 2+ (Tower)Level 4 (Missile APC & Gunner APC Collision)",
+          "lead": "Level 2+ (Tower) Level 4 (Missile APC & Gunner APC Collision)",
           "flying": "Level 2+ (Tower & Gunner APC)",
           "notes": "10% > 15% Buff Sell Price changes to 350"
         },
@@ -688,16 +740,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Collision (Level 4) Splash (Level 4)); generic DPS is not estimated."
     },
     {
       "pageid": 571,
       "name": "Commando",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 8,
       "unlock": "Triumph Area 51",
       "placementCost": 2150,
       "pvpPlacementCost": null,
+      "damageMethod": "Pierce Splash (Level 3+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "From Level 3, its missiles may hit Hidden enemies if they are caught in their explosions. Starting from Level 0, the '''Commando's''' piercing can also hit enemies indirectly, if there is another detectable enemy nearby."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -706,7 +767,7 @@
           "damage": 5,
           "interval": 0.225,
           "range": 16,
-          "hidden": "Level 2+From Level 3, its missiles may hit Hidden enemies if they are caught in their explosions. Starting from Level 0, the '''Commando's''' piercing can also hit enemies indirectly, if there is another detectable enemy nearby.",
+          "hidden": "Level 2+",
           "lead": "Level 3+ (Splash Damage only)",
           "flying": "Level 0+",
           "notes": ""
@@ -718,7 +779,7 @@
           "damage": 5,
           "interval": 0.17,
           "range": 16,
-          "hidden": "Level 2+From Level 3, its missiles may hit Hidden enemies if they are caught in their explosions. Starting from Level 0, the '''Commando's''' piercing can also hit enemies indirectly, if there is another detectable enemy nearby.",
+          "hidden": "Level 2+",
           "lead": "Level 3+ (Splash Damage only)",
           "flying": "Level 0+",
           "notes": "0.225 > 0.17 Firerate Description = 2.25 > 2 Reload Time Sell Price changes to 1,028"
@@ -768,16 +829,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Pierce Splash (Level 3+)); generic DPS is not estimated."
     },
     {
       "pageid": 55383,
       "name": "Combatant",
       "role": "Unknown",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Exclusive",
       "placementCost": 100,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -800,16 +865,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 212,
       "name": "Crook Boss",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 5,
       "unlock": "30 or 168",
       "placementCost": 2250,
       "pvpPlacementCost": 800,
+      "damageMethod": "Single Collision",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -880,16 +949,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 7282,
       "name": "Cowboy",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 12,
       "unlock": "Triumph Badlands II & 4,000 or 340",
       "placementCost": 550,
       "pvpPlacementCost": 550,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -972,16 +1045,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 35523,
       "name": "Cryomancer",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Triumph Krampus Frosthold",
       "placementCost": 250,
       "pvpPlacementCost": null,
+      "damageMethod": "Pierce Freeze",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -1052,16 +1129,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 55611,
       "name": "Crystallizer",
       "role": "Unknown",
       "placement": "Ground",
+      "placementLimit": 4,
       "unlock": "Unknown",
       "placementCost": 1383159437052743700,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -1144,16 +1225,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 222,
       "name": "Demoman",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "200",
       "placementCost": 700,
       "pvpPlacementCost": 575,
+      "damageMethod": "Splash",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -1164,7 +1254,7 @@
           "range": 4.5,
           "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -1176,7 +1266,7 @@
           "range": 6.5,
           "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+2 Range 2.6 > 1.9 Firerate Sell Price changes to 33"
         },
         {
@@ -1188,7 +1278,7 @@
           "range": 6.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+10 Damage 4.5 > 5 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 650"
         },
         {
@@ -1200,7 +1290,7 @@
           "range": 8.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+2 Range 1.9 > 1.5 Firerate +7 Damage 1 > 0 Aim Time 5 > 5.5 Explosion Range +Faster Projectile Sell Price changes to 1,450"
         },
         {
@@ -1212,7 +1302,7 @@
           "range": 10.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+2 Range 1.5 > 1 Firerate +10 Damage Sell Price changes to 3,283"
         }
       ],
@@ -1224,16 +1314,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
     },
     {
       "pageid": 2167,
       "name": "DJ Booth",
       "role": "Support",
       "placement": "Ground",
+      "placementLimit": 1,
       "unlock": "5,000",
       "placementCost": 850,
       "pvpPlacementCost": null,
+      "damageMethod": "N/A",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "At Level 3, its pulses can indirectly hit hidden enemies if they are in its range, though the actual tower cannot detect them."
+        },
+        {
+          "attribute": "Flying",
+          "text": "At Level 3, its pulses can indirectly hit flying enemies if they are in its range, though the actual tower cannot detect them."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -1242,9 +1345,9 @@
           "damage": null,
           "interval": 1,
           "range": 12,
-          "hidden": "N/AAt Level 3, its pulses can indirectly hit hidden enemies if they are in its range, though the actual tower cannot detect them.",
+          "hidden": "No",
           "lead": "Level 3+",
-          "flying": "N/AAt Level 3, its pulses can indirectly hit flying enemies if they are in its range, though the actual tower cannot detect them.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -1254,9 +1357,9 @@
           "damage": null,
           "interval": 1,
           "range": 15,
-          "hidden": "N/AAt Level 3, its pulses can indirectly hit hidden enemies if they are in its range, though the actual tower cannot detect them.",
+          "hidden": "No",
           "lead": "Level 3+",
-          "flying": "N/AAt Level 3, its pulses can indirectly hit flying enemies if they are in its range, though the actual tower cannot detect them.",
+          "flying": "No",
           "notes": "+3 Range Sell Price changes to 383"
         },
         {
@@ -1266,9 +1369,9 @@
           "damage": null,
           "interval": 1,
           "range": 15,
-          "hidden": "N/AAt Level 3, its pulses can indirectly hit hidden enemies if they are in its range, though the actual tower cannot detect them.",
+          "hidden": "No",
           "lead": "Level 3+",
-          "flying": "N/AAt Level 3, its pulses can indirectly hit flying enemies if they are in its range, though the actual tower cannot detect them.",
+          "flying": "No",
           "notes": "Description = 12.5% > 15% Range Buff Description = 5% > 7.5% Discount Buff ]] Description = Provides a 10% Damage Buff Sell Price changes to 800"
         },
         {
@@ -1278,9 +1381,9 @@
           "damage": null,
           "interval": 1,
           "range": 15,
-          "hidden": "N/AAt Level 3, its pulses can indirectly hit hidden enemies if they are in its range, though the actual tower cannot detect them.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/AAt Level 3, its pulses can indirectly hit flying enemies if they are in its range, though the actual tower cannot detect them.",
+          "flying": "No",
           "notes": "Description = Performs different abilities based on the current track •Purple: Creates pulses that knockback enemies and apply slowness to them, with slowness increasing for each tower in its range •Green: Generates Cash when used, with the amount increasing for each tower in its range •Red: Creates pulses that damage and reduce defense of enemies, with each tower in its range boosting how much defense is reduced •30s Cooldown Description = 15% > 17.5% Range Buff +3 Pulses •1.5 Cooldown •20 Knockback Force Knockback •6 Max Hits 0 > 5 Slowness Time 0% > 10% Base Slowness 0% > 1% Slowness per Tower 0% > 25% Max Slowness Description = 7.5% > 10% Discount Buff 0 > 250 Base Cash 0 > 35 Cash per Tower 0 > 600 Max Cash Description = 10% > 12.5% Damage Buff +25 Damage +3 Pulses •1.5 Cooldown +Lead Detection Lead Detection 0% > 2% Base Defense Drop Base Defense Drop 0% > 0.25% Defense Drop per Tower Defense Drop per Tower 0% > 10% Max Defense Drop Max Defense Drop Sell Price changes to 1,800"
         },
         {
@@ -1290,9 +1393,9 @@
           "damage": null,
           "interval": 1,
           "range": 16.5,
-          "hidden": "N/AAt Level 3, its pulses can indirectly hit hidden enemies if they are in its range, though the actual tower cannot detect them.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/AAt Level 3, its pulses can indirectly hit flying enemies if they are in its range, though the actual tower cannot detect them.",
+          "flying": "No",
           "notes": "+1.5 Range Description = 17.5% > 22.5% Range Buff 5 > 8 Slowness Time 25% > 30% Max Slowness Description = 10% > 12.5% Discount Buff 250 > 500 Base Cash 35 > 50 Cash per Tower 600 > 1,250 Max Cash Description = 12.5% > 15% Damage Buff +25 Damage 2% > 3% Base Defense Drop Defense 10% > 12% Max Defense Drop Max Defense Drop Sell Price changes to 4,466"
         },
         {
@@ -1302,9 +1405,9 @@
           "damage": null,
           "interval": 1,
           "range": 18,
-          "hidden": "N/AAt Level 3, its pulses can indirectly hit hidden enemies if they are in its range, though the actual tower cannot detect them.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/AAt Level 3, its pulses can indirectly hit flying enemies if they are in its range, though the actual tower cannot detect them.",
+          "flying": "No",
           "notes": "+1.5 Range Description = Applies all buffs at all times, but at reduced power if its track is not active •10% Range Buff •5% Discount Buff •7.5% Damage Buff Description = 22.5% > 25% Range Buff +1 Pulses +2 Max Hits 8 > 10 Slowness Time 30% > 35% Max Slowness Description = 12.5% > 15% Discount Buff 500 > 750 Base Cash 50 > 75 Cash per Tower 1,250 > 2,250 Max Cash Description = 15% > 20% Damage Buff +25 Damage +1 Pulses 3% > 5% Base Defense Drop Defense 12% > 15% Max Defense Drop Max Defense Drop Sell Price changes to 11,133"
         }
       ],
@@ -1316,16 +1419,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 3610,
       "name": "Electroshocker",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 7,
       "unlock": "2,500",
       "placementCost": 650,
       "pvpPlacementCost": null,
+      "damageMethod": "Chain",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Through chaining, Flying enemies may be hit indirectly if another detectable enemy is nearby."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -1336,7 +1448,7 @@
           "range": 10,
           "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "N/AThrough chaining, Flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -1348,7 +1460,7 @@
           "range": 12,
           "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "N/AThrough chaining, Flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "No",
           "notes": "+2 Range +1 Damage 1.35 > 1.15 Firerate Sell Price changes to 308"
         },
         {
@@ -1360,7 +1472,7 @@
           "range": 13,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough chaining, Flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "No",
           "notes": "+2 Damage +1 Range +Hidden Detection Hidden Detection +1 Max Hits Sell Price changes to 625"
         },
         {
@@ -1372,7 +1484,7 @@
           "range": 13,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough chaining, Flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "No",
           "notes": "+12 Damage +2.5 Chain Range Sell Price changes to 1,425"
         },
         {
@@ -1384,7 +1496,7 @@
           "range": 13,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough chaining, Flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "No",
           "notes": "+40 Damage 1.15 > 2.5 Firerate +2.5 Chain Range +1 Max Hits 0.1 > 0.15 Shock Time Sell Price changes to 2,758"
         },
         {
@@ -1396,7 +1508,7 @@
           "range": 15,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough chaining, Flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "No",
           "notes": "+30 Damage +2 Range +3 Max Hits 0.15 > 0.25 Shock Time 0% > 20% Defense Melting Defense Melting Sell Price changes to 6,091"
         }
       ],
@@ -1408,16 +1520,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 31953,
       "name": "Elf Camp",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 4,
       "unlock": "Triumph Cold Ambush",
       "placementCost": 300,
       "pvpPlacementCost": null,
+      "damageMethod": "Collision Single (Level 1+) Splash (Level 2+) Burst (Level 3+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -1488,16 +1604,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Collision Single (Level 1+) Splash (Level 2+) Burst (Level 3+)); generic DPS is not estimated."
     },
     {
       "pageid": 42431,
       "name": "Elementalist",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 5,
       "unlock": "Triumph Outpost 32 on Hard difficulty",
       "placementCost": 2000,
       "pvpPlacementCost": null,
+      "damageMethod": "Burst Fire Single (Ice Turret)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Although it cannot detect flying enemies, its ''Heatwave'' ability can damage flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -1508,7 +1633,7 @@
           "range": 12,
           "hidden": "Level 2+",
           "lead": "Level 0+ (Burn only)",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Heatwave'' ability can damage flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -1520,7 +1645,7 @@
           "range": 15,
           "hidden": "Level 2+",
           "lead": "Level 0+ (Burn only)",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Heatwave'' ability can damage flying enemies.",
+          "flying": "No",
           "notes": "+2 Damage +3 Range 3 > 4 Burst Size Description = +3 Burn Damage 2 > 3 Burn Time Description = 2% > 2.5% Slowdown per Hit Sell Price changes to 1,166"
         },
         {
@@ -1532,7 +1657,7 @@
           "range": 17,
           "hidden": "Yes",
           "lead": "Level 0+ (Burn only)",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Heatwave'' ability can damage flying enemies.",
+          "flying": "No",
           "notes": "+5 Damage +2 Range +Hidden Detection Hidden Detection Description = 3 > 4 Burn Time Description = 10% > 15% Max Slowdown Description = Creates a heatwave that deals damage, applies burn and knockbacks enemies •150 Damage •10 Burn Damage •0.5 Burn Tick •5 Burn Time •12.5 Range •20 Knockback Force Knockback Force •40 Ability Cooldown Description = Creates an Ice Turret in the selected spot, which freezes enemies on max chillness •10 Damage •0.45 Firerate •10 Range •1,000 Health •45 Second Lifespan •2.5% Slowdown per Hit •15% Max Slowdown •5 Slowdown Time •2 Freeze Time •50 Ability Cooldown Sell Price changes to 2,500"
         },
         {
@@ -1544,7 +1669,7 @@
           "range": 20.5,
           "hidden": "Yes",
           "lead": "Level 0+ (Burn only)",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Heatwave'' ability can damage flying enemies.",
+          "flying": "No",
           "notes": "+2 Damage 4 > 5 Burst Size 0.6 > 0.5 Burst Cooldown Description = +2 Burn Damage 4 > 2 Burn Time 0.5 > 0.25 Burn Tick Description = 2.5% > 5% Slowdown per Hit Description = +100 Damage +4 Burn Damage +1 Range +2.5 Knockback Force Knockback Force Description = +10 Damage +2.5 Range 0.45 > 0.35 Firerate 2.5% > 5% Slowdown per Hit Sell Price changes to 5,166"
         },
         {
@@ -1556,7 +1681,7 @@
           "range": 24.5,
           "hidden": "Yes",
           "lead": "Level 0+ (Burn only)",
-          "flying": "N/AAlthough it cannot detect flying enemies, its ''Heatwave'' ability can damage flying enemies.",
+          "flying": "No",
           "notes": "+4 Damage 5 > 7 Burst Size 0.2 > 0.125 Firerate 0.5 > 0.4 Burst Cooldown Description = 2 > 4 Burn Time Description = 15% > 20% Max Slowdown Description = +150 Damage +5 Burn Damage +1.5 Range +2.5 Knockback Force Knockback Force Description = +8 Damage +2.5 Range 0.35 > 0.3 Firerate 15% > 20% Max Slowdown Sell Price changes to 10,166"
         }
       ],
@@ -1568,16 +1693,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Burst Fire Single (Ice Turret)); generic DPS is not estimated."
     },
     {
       "pageid": 26460,
       "name": "Executioner",
       "role": "Offensive",
       "placement": "Ground",
+      "placementLimit": 9,
       "unlock": "Triumph Totality Tower",
       "placementCost": 1800,
       "pvpPlacementCost": null,
+      "damageMethod": "Ricochet Pierce",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through axe bouncing and piercing, the '''Executioner''' may indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 3."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -1586,7 +1720,7 @@
           "damage": 7,
           "interval": 1,
           "range": 15,
-          "hidden": "Level 3+Through axe bouncing and piercing, the '''Executioner''' may indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 3.",
+          "hidden": "Level 3+",
           "lead": "No",
           "flying": "Level 0+",
           "notes": ""
@@ -1598,7 +1732,7 @@
           "damage": 7,
           "interval": 0.75,
           "range": 17,
-          "hidden": "Level 3+Through axe bouncing and piercing, the '''Executioner''' may indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 3.",
+          "hidden": "Level 3+",
           "lead": "No",
           "flying": "Level 0+",
           "notes": "+2 Range 1 > 0.75 Firerate Sell price changes to 750"
@@ -1610,7 +1744,7 @@
           "damage": 14,
           "interval": 0.75,
           "range": 17,
-          "hidden": "Level 3+Through axe bouncing and piercing, the '''Executioner''' may indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 3.",
+          "hidden": "Level 3+",
           "lead": "No",
           "flying": "Level 0+",
           "notes": "+7 Damage +1 Max Hits +1 Max Bounces Sell price changes to 1,342"
@@ -1660,16 +1794,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 28622,
       "name": "Engineer",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 6,
       "unlock": "4,500 or 1,267",
       "placementCost": 600,
       "pvpPlacementCost": 700,
+      "damageMethod": "Single Splash (Level 6)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Through War Machine Sentry splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -1678,9 +1821,9 @@
           "damage": 2,
           "interval": 1,
           "range": 1.5,
-          "hidden": "Level 2+ (Tower)Level 2+ (Units)",
+          "hidden": "Level 2+ (Tower) Level 2+ (Units)",
           "lead": "Level 0+ (Tower & Splash only)",
-          "flying": "Level 0+ (Tower only)Through War Machine Sentry splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 0+ (Tower only)",
           "notes": ""
         },
         {
@@ -1690,9 +1833,9 @@
           "damage": 4,
           "interval": 1.2,
           "range": 4.5,
-          "hidden": "Level 2+ (Tower)Level 2+ (Units)",
+          "hidden": "Level 2+ (Tower) Level 2+ (Units)",
           "lead": "Level 0+ (Tower & Splash only)",
-          "flying": "Level 0+ (Tower only)Through War Machine Sentry splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 0+ (Tower only)",
           "notes": "+2 Damage 1.4 > 1.2 Firerate +3 Range Sell Price changes to 308"
         },
         {
@@ -1704,7 +1847,7 @@
           "range": 6.5,
           "hidden": "Yes",
           "lead": "Level 0+ (Tower & Splash only)",
-          "flying": "Level 0+ (Tower only)Through War Machine Sentry splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 0+ (Tower only)",
           "notes": "+4 Damage +2 Range +Hidden Detection Hidden Detection Description = •1 Damage •0.2 Firerate •20 Range •400 Health •30 Second Lifespan •32 Scrap Meter •Hidden Detection Hidden Detection Sell Price changes to 608"
         },
         {
@@ -1716,7 +1859,7 @@
           "range": 6.5,
           "hidden": "Yes",
           "lead": "Level 0+ (Tower & Splash only)",
-          "flying": "Level 0+ (Tower only)Through War Machine Sentry splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 0+ (Tower only)",
           "notes": "+10 Damage +1 Max Units 1.2 > 1 Firerate Sell Price changes to 1,300"
         },
         {
@@ -1728,7 +1871,7 @@
           "range": 9.5,
           "hidden": "Yes",
           "lead": "Level 0+ (Tower & Splash only)",
-          "flying": "Level 0+ (Tower only)Through War Machine Sentry splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 0+ (Tower only)",
           "notes": "+10 Damage +3 Range -1 Build Range 1 > 0.9 Firerate Description = •3 Damage •0.15 Firerate •22 Range •750 Health •45 Second Lifespan •150 Scrap Meter •Hidden Detection Hidden Detection Sell Price changes to 3,384"
         },
         {
@@ -1740,7 +1883,7 @@
           "range": 9.5,
           "hidden": "Yes",
           "lead": "Level 0+ (Tower & Splash only)",
-          "flying": "Level 0+ (Tower only)Through War Machine Sentry splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 0+ (Tower only)",
           "notes": "+50 Damage 0.9 > 0.75 Firerate +Sentry Shield +1 Max Units Sell Price changes to 7,550"
         },
         {
@@ -1752,7 +1895,7 @@
           "range": 11,
           "hidden": "Yes",
           "lead": "Level 0+ (Tower & Splash only)",
-          "flying": "Level 0+ (Tower only)Through War Machine Sentry splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 0+ (Tower only)",
           "notes": "+10 Damage +1.5 Range -1 Build Range 0.75 > 0.6 Firerate +1 Max Units Description = •3 Damage •0.125 Firerate •24 Range •60x2 Splash Damage •4 Rocket Firerate •5 Explosion Range •1,000 Health •60 Second Lifespan •340 Scrap Meter •Hidden Detection Hidden Detection Sell Price changes to 18,384"
         }
       ],
@@ -1764,16 +1907,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Splash (Level 6)); generic DPS is not estimated."
     },
     {
       "pageid": 58604,
       "name": "Enforcer",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 5,
       "unlock": "15,000 & 4,750",
       "placementCost": 3000,
       "pvpPlacementCost": null,
+      "damageMethod": "Pierce Spread",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -1844,16 +1991,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 184,
       "name": "Farm",
       "role": "Support",
       "placement": "Ground",
+      "placementLimit": 10,
       "unlock": "2,000",
       "placementCost": 300,
       "pvpPlacementCost": 250,
+      "damageMethod": "N/A",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -1936,16 +2087,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 42764,
       "name": "Firework Technician",
       "role": "Support",
       "placement": "Ground",
+      "placementLimit": 1,
       "unlock": "Mission Quests",
       "placementCost": 1500,
       "pvpPlacementCost": null,
+      "damageMethod": "Splash Fire",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2016,16 +2171,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash Fire); generic DPS is not estimated."
     },
     {
       "pageid": 171,
       "name": "Freezer",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "650",
       "placementCost": 450,
       "pvpPlacementCost": 450,
+      "damageMethod": "Single Burst (Level 3+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2096,16 +2255,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Burst (Level 3+)); generic DPS is not estimated."
     },
     {
       "pageid": 2641,
       "name": "Frost Blaster",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 12,
       "unlock": "Triumph Village of Despair",
       "placementCost": 850,
       "pvpPlacementCost": null,
+      "damageMethod": "Pierce",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Through its projectile, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -2116,7 +2284,7 @@
           "range": 12,
           "hidden": "Level 1+",
           "lead": "Level 0+",
-          "flying": "N/AThrough its projectile, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -2128,7 +2296,7 @@
           "range": 15,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough its projectile, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "0.8 > 0.6 Firerate +3 Range +Hidden Detection Hidden Detection 0.2 > 0.3 Slowness Time 0.2 > 0.3 Freeze Time Sell Price changes to 400"
         },
         {
@@ -2140,7 +2308,7 @@
           "range": 15,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough its projectile, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+4 Damage +1 Max Hits 15% > 25% Slowness per Hit 15% > 25% Max Slowness Melts 15% defense every tick Defense Melting Sell Price changes to 900"
         },
         {
@@ -2152,7 +2320,7 @@
           "range": 17.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough its projectile, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+4 Damage +2.5 Range 0.6 > 0.45 Firerate Sell Price changes to 2,166"
         },
         {
@@ -2164,7 +2332,7 @@
           "range": 22.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough its projectile, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+41 Damage 0.45 > 0.9 Firerate +5 Range Melts 35% defense every tick Defense Melting 0.3 > 0.6 Slowness Time 0.3 > 0.6 Freeze Time +1 Max Hits +30 Projectile Speed Sell Price changes to 5,333"
         }
       ],
@@ -2176,16 +2344,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 40567,
       "name": "Gatling Gun",
       "role": "Offense",
-      "placement": "GroundCliff",
+      "placement": "Ground Cliff",
+      "placementLimit": 1,
       "unlock": "35,000 or 1,364",
       "placementCost": 5250,
       "pvpPlacementCost": 4500,
+      "damageMethod": "Single (Tower) Pierce (Controlled)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2194,7 +2366,7 @@
           "damage": 5,
           "interval": 0.17,
           "range": 25,
-          "hidden": "Level 3+ (Tower)Level 0+ (Controlled)",
+          "hidden": "Level 3+ (Tower) Level 0+ (Controlled)",
           "lead": "No",
           "flying": "Level 0+",
           "notes": ""
@@ -2206,7 +2378,7 @@
           "damage": 8,
           "interval": 0.17,
           "range": 30,
-          "hidden": "Level 3+ (Tower)Level 0+ (Controlled)",
+          "hidden": "Level 3+ (Tower) Level 0+ (Controlled)",
           "lead": "No",
           "flying": "Level 0+",
           "notes": "+3 Damage +5 Range Sell Price changes to 2,750"
@@ -2218,7 +2390,7 @@
           "damage": 12,
           "interval": 0.17,
           "range": 30,
-          "hidden": "Level 3+ (Tower)Level 0+ (Controlled)",
+          "hidden": "Level 3+ (Tower) Level 0+ (Controlled)",
           "lead": "No",
           "flying": "Level 0+",
           "notes": "+4 Damage 2.5 > 2 Reload Time +5 Angle -1 Spread +50 Ammo Sell Price changes to 5,250"
@@ -2280,16 +2452,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 283,
       "name": "Gladiator",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Triumph The Heights",
       "placementCost": 525,
       "pvpPlacementCost": null,
+      "damageMethod": "Pierce Fire (Level 3+)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2372,16 +2548,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 29284,
       "name": "Golden Minigunner",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Unknown",
       "placementCost": 2400,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2452,16 +2632,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval; the source also documents firing startup, which this rate omits."
     },
     {
       "pageid": 29288,
       "name": "Golden Cowboy",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 12,
       "unlock": "Unknown",
       "placementCost": 600,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2544,16 +2728,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 29291,
       "name": "Golden Crook Boss",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 5,
       "unlock": "Unknown",
       "placementCost": 2400,
       "pvpPlacementCost": null,
+      "damageMethod": "Single Collision",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2624,16 +2812,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 62930,
       "name": "Golden Demoman",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Unknown",
       "placementCost": 875,
       "pvpPlacementCost": null,
+      "damageMethod": "Splash",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -2644,7 +2841,7 @@
           "range": 4.5,
           "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -2656,7 +2853,7 @@
           "range": 6,
           "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+1.5 Range 1.95 > 1.8 Firerate Sell Price changes to 358"
         },
         {
@@ -2668,7 +2865,7 @@
           "range": 6,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+8 Damage 4.5 > 5 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 741"
         },
         {
@@ -2680,7 +2877,7 @@
           "range": 7.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+1.5 Range 1.8 > 1.1 Firerate +7 Damage 0.8 > 0 Aim Time 5 > 5.5 Explosion Range +Faster Projectile Sell Price changes to 1,625"
         },
         {
@@ -2692,7 +2889,7 @@
           "range": 9.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+2 Range 1.1 > 0.45 Firerate +Stun Immunity Stun Immunity Sell Price changes to 4,208"
         }
       ],
@@ -2704,16 +2901,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
     },
     {
       "pageid": 29286,
       "name": "Golden Pyromancer",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Unknown",
       "placementCost": 850,
       "pvpPlacementCost": null,
+      "damageMethod": "Pierce Fire",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2796,16 +2997,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 29289,
       "name": "Golden Soldier",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Unknown",
       "placementCost": 450,
       "pvpPlacementCost": null,
+      "damageMethod": "Burst (Level 0-2) Single (Level 3+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2876,16 +3081,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Burst (Level 0-2) Single (Level 3+)); generic DPS is not estimated."
     },
     {
       "pageid": 29290,
       "name": "Golden Scout",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Unknown",
       "placementCost": 250,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -2956,16 +3165,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 55454,
       "name": "Golden Snowballer",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 67,
       "unlock": "Unknown",
       "placementCost": 67,
       "pvpPlacementCost": null,
+      "damageMethod": "Splash",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -3024,16 +3237,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
     },
     {
       "pageid": 41441,
       "name": "Hallow Punk",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 10,
       "unlock": "Triumph Failed Gateway, The Nightmare Realm & Containment on Easy difficulty",
       "placementCost": 500,
       "pvpPlacementCost": null,
+      "damageMethod": "Splash Fire (Level 2)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby."
+        },
+        {
+          "attribute": "Flying",
+          "text": "On Levels 0-1, through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -3042,9 +3268,9 @@
           "damage": 12,
           "interval": 4.5,
           "range": 7.5,
-          "hidden": "Level 2+Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "Level 3On Levels 0-1, through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "Level 3",
           "notes": ""
         },
         {
@@ -3054,9 +3280,9 @@
           "damage": 18,
           "interval": 4,
           "range": 10.5,
-          "hidden": "Level 2+Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "Level 3On Levels 0-1, through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "Level 3",
           "notes": "+6 Damage 4.5 > 4 Firerate +3 Range 3 > 3.5 Explosion Range Sell Price changes to 266"
         },
         {
@@ -3068,7 +3294,7 @@
           "range": 10.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "Level 3On Levels 0-1, through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby.",
+          "flying": "Level 3",
           "notes": "+32 Damage 35 > 45 Rocket Speed +Hidden Detection Hidden Detection Description = •6 Burn Time •6 Burn Damage •1 Tick Sell Price changes to 1,166"
         },
         {
@@ -3092,16 +3318,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash Fire (Level 2)); generic DPS is not estimated."
     },
     {
       "pageid": 41443,
       "name": "Harvester",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 5,
       "unlock": "Triumph Failed Gateway, The Nightmare Realm & Containment on Hard difficulty",
       "placementCost": 2000,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -3184,16 +3414,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 47477,
       "name": "Hacker",
       "role": "Support",
       "placement": "Ground",
+      "placementLimit": 2,
       "unlock": "5,500 or 1,574",
       "placementCost": 900,
       "pvpPlacementCost": 1400,
+      "damageMethod": "Single Multi-target (Level 2+)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -3264,16 +3498,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 1490,
       "name": "Hunter",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 10,
       "unlock": "1,000",
       "placementCost": 1625,
       "pvpPlacementCost": 1600,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -3344,16 +3582,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 34977,
       "name": "Jester",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 8,
       "unlock": "Triumph The Great Finale",
       "placementCost": 650,
       "pvpPlacementCost": null,
+      "damageMethod": "Splash Fire Poison",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "From Level 0, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 3."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -3362,9 +3613,9 @@
           "damage": 4,
           "interval": 1.2,
           "range": 6,
-          "hidden": "Level 3+From Level 0, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 3.",
+          "hidden": "Level 3+",
           "lead": "Level 0+ (Splash and Fire only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -3374,9 +3625,9 @@
           "damage": 6,
           "interval": 1,
           "range": 8.3,
-          "hidden": "Level 3+From Level 0, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 3.",
+          "hidden": "Level 3+",
           "lead": "Level 0+ (Splash and Fire only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+2 Damage +1 Burn Damage 1.2 > 1 Firerate +2.3 Range Sell Price changes to 350"
         },
         {
@@ -3386,9 +3637,9 @@
           "damage": 10,
           "interval": 1,
           "range": 9,
-          "hidden": "Level 3+From Level 0, its bombs can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 3.",
+          "hidden": "Level 3+",
           "lead": "Level 0+ (Splash and Fire only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+4 Damage +1 Burn Damage +0.7 Range Description = •20% of Bomb Damage •25% Slowdown per Hit •25% Max Slowdown •3 Slowdown Time Sell Price changes to 573"
         },
         {
@@ -3400,7 +3651,7 @@
           "range": 9,
           "hidden": "Yes",
           "lead": "Level 0+ (Splash and Fire only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+20 Damage +6 Burn Damage +Hidden Detection Hidden Detection 6 > 7 Ice Explosion Range 1% Chill Defense Melting Defense Melting Description = •3 Poison Damage •30 Poison Time •0.4 Poison Tick Sell Price changes to 1,490"
         },
         {
@@ -3412,7 +3663,7 @@
           "range": 12,
           "hidden": "Yes",
           "lead": "Level 0+ (Splash and Fire only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+3 Range +18 Damage 1 > 0.6 Firerate +6 Burn Damage +2 Poison Damage +Second bomb slot Description = •0% of Base Damage •2 Confusion Time •6 Cooldown Sell Price changes to 4,323"
         }
       ],
@@ -3424,16 +3675,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash Fire Poison); generic DPS is not estimated."
     },
     {
       "pageid": 56118,
       "name": "Juggernaut",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 1,
       "unlock": "Unknown",
       "placementCost": 10000,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -3492,16 +3747,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval; the source also documents firing startup, which this rate omits."
     },
     {
       "pageid": 58603,
       "name": "Kingpin",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 4,
       "unlock": "Unknown",
       "placementCost": 3600,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -3511,7 +3770,7 @@
           "interval": 1.1,
           "range": 17.5,
           "hidden": "Level 0+ (Units only)",
-          "lead": "Level 4A+ (Top Path)Level 6B (Bottom Path)Level 4B+ (Bouncer & Contractor)",
+          "lead": "Level 4A+ (Top Path) Level 6B (Bottom Path) Level 4B+ (Bouncer & Contractor)",
           "flying": "Level 3+ (Tower & Contractor only)",
           "notes": ""
         },
@@ -3523,7 +3782,7 @@
           "interval": 0.85,
           "range": 20,
           "hidden": "Level 0+ (Units only)",
-          "lead": "Level 4A+ (Top Path)Level 6B (Bottom Path)Level 4B+ (Bouncer & Contractor)",
+          "lead": "Level 4A+ (Top Path) Level 6B (Bottom Path) Level 4B+ (Bouncer & Contractor)",
           "flying": "Level 3+ (Tower & Contractor only)",
           "notes": "+2.5 Range 1.1 > 0.85 Firerate Sell Price changes to 1,666"
         },
@@ -3535,7 +3794,7 @@
           "interval": 0.14,
           "range": 20,
           "hidden": "Level 0+ (Units only)",
-          "lead": "Level 4A+ (Top Path)Level 6B (Bottom Path)Level 4B+ (Bouncer & Contractor)",
+          "lead": "Level 4A+ (Top Path) Level 6B (Bottom Path) Level 4B+ (Bouncer & Contractor)",
           "flying": "Level 3+ (Tower & Contractor only)",
           "notes": "0.85 > 0.14 Firerate -17 Damage +1 Unit Queue Sell Price changes to 3,000"
         },
@@ -3547,7 +3806,7 @@
           "interval": 0.14,
           "range": 20,
           "hidden": "Level 0+ (Units only)",
-          "lead": "Level 4A+ (Top Path)Level 6B (Bottom Path)Level 4B+ (Bouncer & Contractor)",
+          "lead": "Level 4A+ (Top Path) Level 6B (Bottom Path) Level 4B+ (Bouncer & Contractor)",
           "flying": "Yes",
           "notes": "+Flying Detection Flying Detection +5 Damage Description = 37.5 > 30 Spawn Time Description = 40 > 30 Spawn Time Sell Price changes to 5,000"
         }
@@ -3560,16 +3819,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 1489,
       "name": "Medic",
       "role": "Support",
       "placement": "Ground",
+      "placementLimit": 4,
       "unlock": "2,000",
       "placementCost": 400,
       "pvpPlacementCost": null,
+      "damageMethod": "N/A",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -3652,16 +3915,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 6932,
       "name": "Mecha Base",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 3,
       "unlock": "ExclusiveDuring Hardcore Testing BETA, it had a cost of 3,500 and a level requirement of 50.",
       "placementCost": 6000,
       "pvpPlacementCost": null,
+      "damageMethod": "Single Collision Splash",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -3672,7 +3944,7 @@
           "range": 3,
           "hidden": "Level 0+",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 5",
           "notes": ""
         },
         {
@@ -3684,7 +3956,7 @@
           "range": 3,
           "hidden": "Level 0+",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 5",
           "notes": "45 > 30 Spawnrate Adds Missile Launcher to Mark I •25 Missile Damage •7 Missile Cooldown •5 Missile Explosion Range Description = AI ruined my funny descriptions ill fix later Sell Price changes to 1,800"
         },
         {
@@ -3696,7 +3968,7 @@
           "range": 3,
           "hidden": "Yes",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 5",
           "notes": "Spawns Mark II •1,000 Health •12 Damage •0.15 Firerate •35 Range •40 Missile Damage •7 Missile Cooldown •Hidden Detection Hidden Detection Description = Mikey Boss Sell Price changes to 3,066"
         },
         {
@@ -3708,7 +3980,7 @@
           "range": 3,
           "hidden": "Yes",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 5",
           "notes": "Spawns Mark III •1,500 Health •10 Damage •0.1 Firerate •35 Range •60 Missile Damage •3.5 Missile Cooldown •Hidden Detection Hidden Detection Description = Mikey Boss Sell Price changes to 4,400"
         },
         {
@@ -3720,7 +3992,7 @@
           "range": 3,
           "hidden": "Yes",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "Level 5",
           "notes": "Spawns Mark IV •2,500 Health •22 Damage •0.1 Firerate •50 Range •60x4 Missile Damage •5 Missile Cooldown •Hidden Detection Hidden Detection Description = Mikey Boss Sell Price changes to 7,066"
         },
         {
@@ -3744,16 +4016,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Collision Splash); generic DPS is not estimated."
     },
     {
       "pageid": 37431,
       "name": "Mercenary Base",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 3,
       "unlock": "Unknown",
       "placementCost": 2750,
       "pvpPlacementCost": 2000,
+      "damageMethod": "Single Collision Splash (Level 1+) Pierce (Level 4+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through splash and collision damage, hidden enemies may be hit indirectly."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Through the Grenadier's splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but the Grenadier itself is unable to detect flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -3762,9 +4047,9 @@
           "damage": null,
           "interval": null,
           "range": 6,
-          "hidden": "Level 3+ (Rifleman & Riot Guard only)Through splash and collision damage, hidden enemies may be hit indirectly.",
+          "hidden": "Level 3+ (Rifleman & Riot Guard only)",
           "lead": "Level 0+ (Collision & Splash only)",
-          "flying": "Level 3+ (Rifleman only)Through the Grenadier's splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but the Grenadier itself is unable to detect flying enemies.",
+          "flying": "Level 3+ (Rifleman only)",
           "notes": ""
         },
         {
@@ -3774,9 +4059,9 @@
           "damage": null,
           "interval": null,
           "range": 8,
-          "hidden": "Level 3+ (Rifleman & Riot Guard only)Through splash and collision damage, hidden enemies may be hit indirectly.",
+          "hidden": "Level 3+ (Rifleman & Riot Guard only)",
           "lead": "Level 0+ (Collision & Splash only)",
-          "flying": "Level 3+ (Rifleman only)Through the Grenadier's splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but the Grenadier itself is unable to detect flying enemies.",
+          "flying": "Level 3+ (Rifleman only)",
           "notes": "+2 Range Description = •50 Health •20 Damage •19 Range •1.4 Firerate •4.5 Explosion Range •150 Lifespan •25s Spawnrate Sell Price changes to 1,366"
         },
         {
@@ -3786,9 +4071,9 @@
           "damage": null,
           "interval": null,
           "range": 8,
-          "hidden": "Level 3+ (Rifleman & Riot Guard only)Through splash and collision damage, hidden enemies may be hit indirectly.",
+          "hidden": "Level 3+ (Rifleman & Riot Guard only)",
           "lead": "Level 0+ (Collision & Splash only)",
-          "flying": "Level 3+ (Rifleman only)Through the Grenadier's splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but the Grenadier itself is unable to detect flying enemies.",
+          "flying": "Level 3+ (Rifleman only)",
           "notes": "+1 Unit Queue Sell Price changes to 2,283"
         },
         {
@@ -3848,16 +4133,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Collision Splash (Level 1+) Pierce (Level 4+)); generic DPS is not estimated."
     },
     {
       "pageid": 148,
       "name": "Minigunner",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "8,000",
       "placementCost": 1850,
       "pvpPlacementCost": 2550,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -3928,16 +4217,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval; the source also documents firing startup, which this rate omits."
     },
     {
       "pageid": 183,
       "name": "Military Base",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 5,
       "unlock": "4,000",
       "placementCost": 400,
       "pvpPlacementCost": 400,
+      "damageMethod": "Collision Single (Level 3+) Splash (Level 4+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Units spawned by the '''Military Base''' can collide with Hidden enemies from Level 0."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -3946,9 +4248,9 @@
           "damage": null,
           "interval": null,
           "range": 5,
-          "hidden": "Level 3+Units spawned by the '''Military Base''' can collide with Hidden enemies from Level 0.",
+          "hidden": "Level 3+",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -3958,9 +4260,9 @@
           "damage": null,
           "interval": null,
           "range": 5,
-          "hidden": "Level 3+Units spawned by the '''Military Base''' can collide with Hidden enemies from Level 0.",
+          "hidden": "Level 3+",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "45 > 35 Spawnrate Sell Price changes to 200"
         },
         {
@@ -3970,9 +4272,9 @@
           "damage": null,
           "interval": null,
           "range": 5,
-          "hidden": "Level 3+Units spawned by the '''Military Base''' can collide with Hidden enemies from Level 0.",
+          "hidden": "Level 3+",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "Spawns Humvee 2 •100 Health Sell Price changes to 333"
         },
         {
@@ -3984,7 +4286,7 @@
           "range": 5,
           "hidden": "Yes",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "Spawns Humvee 3 •100 Health •4 Damage •0.225 Firerate •30 Range •Hidden Detection Hidden Detection Sell Price changes to 1,000"
         },
         {
@@ -3996,7 +4298,7 @@
           "range": 5,
           "hidden": "Yes",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "Spawns Tank •500 Health •8 Damage •30 Range •0.225 Firerate •40 Cannon Damage •2 Cannon Firerate •6 Explosion Range •Hidden Detection Hidden Detection +Airstrike •75x6 Damage •8 Explosion Range Sell Price changes to 3,500"
         },
         {
@@ -4008,7 +4310,7 @@
           "range": 5,
           "hidden": "Yes",
           "lead": "Level 0+ (Collision & Splash Damage only)",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but units from this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "Spawns Railgun Tank •1,600 Health •22 Damage •30 Range •0.175 Firerate •75 Cannon Damage •2 Cannon Firerate •8 Explosion Range •Hidden Detection Hidden Detection +50 Airstrike Damage 8 > 12 Airstrike Explosion Range Sell Price changes to 11,833"
         }
       ],
@@ -4020,16 +4322,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Collision Single (Level 3+) Splash (Level 4+)); generic DPS is not estimated."
     },
     {
       "pageid": 186,
       "name": "Militant",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "800",
       "placementCost": 600,
       "pvpPlacementCost": 1400,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -4100,16 +4406,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 55600,
       "name": "Moderator",
       "role": "Unknown",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "ExclusiveIn-game, cost was listed as 25,000,000,000,000.",
       "placementCost": 300,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Based on its appearance changes with upgrades. During this period of the game, towers generally gained some eyewear when they gained hidden detection. As it gains night vision goggles at Level 2, it is assumed it would gain hidden detection there as the Minigunner back then shared the same trait."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -4118,7 +4433,7 @@
           "damage": 2,
           "interval": 1.05,
           "range": 15,
-          "hidden": "Level 2+ (PresumablyBased on its appearance changes with upgrades. During this period of the game, towers generally gained some eyewear when they gained hidden detection. As it gains night vision goggles at Level 2, it is assumed it would gain hidden detection there as the Minigunner back then shared the same trait.)",
+          "hidden": "Level 2+ (Presumably)",
           "lead": "No",
           "flying": "No",
           "notes": ""
@@ -4132,16 +4447,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 55603,
       "name": "Mine",
       "role": "Unknown",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Unknown",
       "placementCost": null,
       "pvpPlacementCost": null,
+      "damageMethod": "N/A",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -4164,16 +4483,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 2639,
       "name": "Mortar",
       "role": "Defense",
       "placement": "Cliff",
+      "placementLimit": 4,
       "unlock": "75 or 300",
       "placementCost": 1000,
       "pvpPlacementCost": 1000,
+      "damageMethod": "Splash",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -4182,7 +4510,7 @@
           "damage": 15,
           "interval": 4,
           "range": 5,
-          "hidden": "N/AThrough splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": ""
@@ -4194,7 +4522,7 @@
           "damage": 15,
           "interval": 2.75,
           "range": 8,
-          "hidden": "N/AThrough splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "4 > 2.75 Firerate +3 Range Sell Price changes to 500"
@@ -4206,7 +4534,7 @@
           "damage": 35,
           "interval": 2.75,
           "range": 8,
-          "hidden": "N/AThrough splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "+20 Damage 5 > 7 Explosion Radius Sell Price changes to 1,250"
@@ -4218,7 +4546,7 @@
           "damage": 65,
           "interval": 2.75,
           "range": 11,
-          "hidden": "N/AThrough splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "+30 Damage +3 Range 7 > 8.5 Explosion Radius Sell Price changes to 2,666"
@@ -4230,7 +4558,7 @@
           "damage": 100,
           "interval": 2.75,
           "range": 15,
-          "hidden": "N/AThrough splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "+35 Damage +4 Range Description = •30x4 Damage •5 Explosion Radius Sell Price changes to 7,166"
@@ -4242,7 +4570,7 @@
           "damage": 245,
           "interval": 2.75,
           "range": 15,
-          "hidden": "N/AThrough splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "+135 Damage 8.5 > 9 Explosion Radius Description = +10 Damage +2 Cluster Amount Sell Price changes to 17,166"
@@ -4256,16 +4584,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
     },
     {
       "pageid": 34644,
       "name": "Necromancer",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 3,
       "unlock": "2,250",
       "placementCost": 4200,
       "pvpPlacementCost": 1500,
+      "damageMethod": "Single Multi-target (Level 4) Splash (Level 4)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "At Level 0, the projectile fired by the '''Necromancer''' can indirectly hit a hidden enemy. Additionally, the Skeletons it spawns can collide with hidden enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -4274,7 +4611,7 @@
           "damage": 15,
           "interval": 1.2,
           "range": 6.5,
-          "hidden": "Level 2+At Level 0, the projectile fired by the '''Necromancer''' can indirectly hit a hidden enemy. Additionally, the Skeletons it spawns can collide with hidden enemies.",
+          "hidden": "Level 2+",
           "lead": "Level 4 (Tower and collision only)",
           "flying": "Level 0+ (Tower & Executioner Skeleton only)",
           "notes": ""
@@ -4336,16 +4673,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Multi-target (Level 4) Splash (Level 4)); generic DPS is not estimated."
     },
     {
       "pageid": 58602,
       "name": "Operator",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 16,
       "unlock": "15,000 & 4,500",
       "placementCost": 300,
       "pvpPlacementCost": null,
+      "damageMethod": "Burst Single (Level 5+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -4440,16 +4781,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Burst Single (Level 5+)); generic DPS is not estimated."
     },
     {
       "pageid": 188,
       "name": "Paintballer",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "100",
       "placementCost": 100,
       "pvpPlacementCost": 200,
+      "damageMethod": "Splash",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby at Level 0."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -4458,9 +4812,9 @@
           "damage": 1,
           "interval": 1.7,
           "range": 3,
-          "hidden": "Level 1+Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby at Level 0.",
+          "hidden": "Level 1+",
           "lead": "No",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -4472,7 +4826,7 @@
           "range": 4.5,
           "hidden": "Yes",
           "lead": "No",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+1.5 Range 3 > 3.5 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 41"
         },
         {
@@ -4484,7 +4838,7 @@
           "range": 4.5,
           "hidden": "Yes",
           "lead": "No",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+1 Damage 3.5 > 4 Explosion Range 1.7 > 1.4 Firerate Sell Price changes to 91"
         },
         {
@@ -4496,7 +4850,7 @@
           "range": 4.5,
           "hidden": "Yes",
           "lead": "No",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "1.4 > 0.7 Firerate +1 Damage Sell Price changes to 291"
         },
         {
@@ -4508,7 +4862,7 @@
           "range": 6,
           "hidden": "Yes",
           "lead": "No",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+1.5 Range +5 Damage 4 > 4.5 Explosion Range Sell Price changes to 791"
         },
         {
@@ -4520,7 +4874,7 @@
           "range": 6,
           "hidden": "Yes",
           "lead": "No",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+12 Damage 4.5 > 5 Explosion Range Sell Price changes to 1,991"
         }
       ],
@@ -4532,16 +4886,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
     },
     {
       "pageid": 181,
       "name": "Pyromancer",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "1,250",
       "placementCost": 900,
       "pvpPlacementCost": 850,
+      "damageMethod": "Pierce Fire",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "At Levels 0, hidden enemies may be hit and/or burned indirectly if another detectable enemy is nearby, but this tower can never directly target hidden enemies at this level."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -4550,7 +4913,7 @@
           "damage": 2,
           "interval": 0.275,
           "range": 9,
-          "hidden": "Level 1+At Levels 0, hidden enemies may be hit and/or burned indirectly if another detectable enemy is nearby, but this tower can never directly target hidden enemies at this level.",
+          "hidden": "Level 1+",
           "lead": "Level 0+",
           "flying": "No",
           "notes": ""
@@ -4624,16 +4987,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 6508,
       "name": "Pursuit",
       "role": "Offense",
       "placement": "Ground (Air-based)",
+      "placementLimit": 6,
       "unlock": "15,000 or 1,500",
       "placementCost": 5000,
       "pvpPlacementCost": 2500,
+      "damageMethod": "Single Splash (Level 3+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "From Level 3, its missiles can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4B."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -4642,7 +5014,7 @@
           "damage": 7,
           "interval": 0.225,
           "range": 7,
-          "hidden": "Level 4B+From Level 3, its missiles can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4B.",
+          "hidden": "Level 4B+",
           "lead": "Level 3+ (Splash only)",
           "flying": "Level 0+",
           "notes": ""
@@ -4654,7 +5026,7 @@
           "damage": 10,
           "interval": 0.225,
           "range": 7,
-          "hidden": "Level 4B+From Level 3, its missiles can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4B.",
+          "hidden": "Level 4B+",
           "lead": "Level 3+ (Splash only)",
           "flying": "Level 0+",
           "notes": "+3 Damage Sell Price changes to 2,250"
@@ -4666,7 +5038,7 @@
           "damage": 10,
           "interval": 0.175,
           "range": 8,
-          "hidden": "Level 4B+From Level 3, its missiles can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4B.",
+          "hidden": "Level 4B+",
           "lead": "Level 3+ (Splash only)",
           "flying": "Level 0+",
           "notes": "+1 Range 0.225 > 0.175 Firerate +2 Patrol Range Description = +25 Ammo 3.5 > 3 Reload Time Sell Price changes to 3,250"
@@ -4678,7 +5050,7 @@
           "damage": 12,
           "interval": 0.175,
           "range": 8,
-          "hidden": "Level 4B+From Level 3, its missiles can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies until Level 4B.",
+          "hidden": "Level 4B+",
           "lead": "Level 3+ (Splash only)",
           "flying": "Level 0+",
           "notes": "+2 Damage Description = •30 Missile Damage •4 Explosion Range •4 Missile Cooldown •2 Missiles •0.5 Burst Time •20 Missile Speed Sell Price changes to 4,833"
@@ -4692,16 +5064,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Splash (Level 3+)); generic DPS is not estimated."
     },
     {
       "pageid": 58606,
       "name": "Pulse Trooper",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 7,
       "unlock": "3,250",
       "placementCost": 2100,
       "pvpPlacementCost": null,
+      "damageMethod": "Pulse",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Can indirectly hit Hidden enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Can indirectly hit Flying enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -4710,9 +5095,9 @@
           "damage": 13,
           "interval": 1.5,
           "range": 7.5,
-          "hidden": "N/ACan indirectly hit Hidden enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "hidden": "No",
           "lead": "Level 2+",
-          "flying": "N/ACan indirectly hit Flying enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -4722,9 +5107,9 @@
           "damage": 15,
           "interval": 1.2,
           "range": 7.5,
-          "hidden": "N/ACan indirectly hit Hidden enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "hidden": "No",
           "lead": "Level 2+",
-          "flying": "N/ACan indirectly hit Flying enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "flying": "No",
           "notes": "+2 Damage 1.5 > 1.2 Firerate Sell Price changes to 933"
         },
         {
@@ -4734,9 +5119,9 @@
           "damage": 25,
           "interval": 1.2,
           "range": 8.5,
-          "hidden": "N/ACan indirectly hit Hidden enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/ACan indirectly hit Flying enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "flying": "No",
           "notes": "+10 Damage +1 Range +Lead Detection Lead Detection Sell Price changes to 2,133"
         },
         {
@@ -4746,9 +5131,9 @@
           "damage": 25,
           "interval": 0.55,
           "range": 8.5,
-          "hidden": "N/ACan indirectly hit Hidden enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/ACan indirectly hit Flying enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "flying": "No",
           "notes": "1.2 > 0.55 Firerate Sell Price changes to 3,766"
         },
         {
@@ -4758,9 +5143,9 @@
           "damage": 35,
           "interval": 0.55,
           "range": 9,
-          "hidden": "N/ACan indirectly hit Hidden enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/ACan indirectly hit Flying enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "flying": "No",
           "notes": "+10 Damage +0.5 Range Description = '''Pulse Trooper''' stops attacking with its main attack and instead starts firing two lasers that sweep through the entire map for a specific laser duration. These deal laser damage when hitting an enemy, and due to there being two of them they deal damage to an enemy twice. •175 Laser Damage •7.5 Laser Duration •60 Ability Cooldown •45 Initial Ability Cooldown Sell Price changes to 6,600"
         },
         {
@@ -4770,9 +5155,9 @@
           "damage": 50,
           "interval": 0.55,
           "range": 10,
-          "hidden": "N/ACan indirectly hit Hidden enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/ACan indirectly hit Flying enemies with its attacks, with the main one only being able to do so if there is an detectable enemy in range.",
+          "flying": "No",
           "notes": "+15 Damage +1 Range +125 Laser Damage 7.5 > 6 Laser Duration Sell Price changes to 12,266"
         }
       ],
@@ -4784,16 +5169,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Pulse); generic DPS is not estimated."
     },
     {
       "pageid": 179,
       "name": "Ranger",
       "role": "Defense",
       "placement": "Cliff",
+      "placementLimit": 8,
       "unlock": "12,000",
       "placementCost": 4500,
       "pvpPlacementCost": 2000,
+      "damageMethod": "Single Splash (Level 4)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through splash damage from Level 4, hidden enemies may be hit indirectly if another detectable enemy is nearby."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -4802,7 +5196,7 @@
           "damage": 100,
           "interval": 6,
           "range": 70,
-          "hidden": "N/AThrough splash damage from Level 4, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 2+",
           "flying": "Level 0+",
           "notes": ""
@@ -4814,7 +5208,7 @@
           "damage": 100,
           "interval": 4.75,
           "range": 70,
-          "hidden": "N/AThrough splash damage from Level 4, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 2+",
           "flying": "Level 0+",
           "notes": "6 > 4.75 Firerate Sell Price changes to 2,000"
@@ -4826,7 +5220,7 @@
           "damage": 185,
           "interval": 4.75,
           "range": 70,
-          "hidden": "N/AThrough splash damage from Level 4, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Yes",
           "flying": "Level 0+",
           "notes": "+85 Damage +Lead Detection Lead Detection +10% Range Buff •12 Buff Range •Lasts 20 seconds Sell Price changes to 3,833"
@@ -4838,7 +5232,7 @@
           "damage": 430,
           "interval": 4.5,
           "range": 70,
-          "hidden": "N/AThrough splash damage from Level 4, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Yes",
           "flying": "Level 0+",
           "notes": "+245 Damage 4.75 > 4.5 Firerate Sell Price changes to 9,083"
@@ -4850,7 +5244,7 @@
           "damage": 875,
           "interval": 8,
           "range": 70,
-          "hidden": "N/AThrough splash damage from Level 4, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Yes",
           "flying": "Level 0+",
           "notes": "+445 Damage 4.5 > 8 Firerate +Explosive Impact •375 Splash Damage •5 Explosion Range •3 Max Hits Sell Price changes to 17,416"
@@ -4864,16 +5258,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Splash (Level 4)); generic DPS is not estimated."
     },
     {
       "pageid": 55345,
       "name": "Railgunner",
       "role": "Unknown",
       "placement": "Cliff (Presumably)",
+      "placementLimit": null,
       "unlock": "Exclusive",
       "placementCost": null,
       "pvpPlacementCost": null,
+      "damageMethod": "Single (Presumably)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -4956,16 +5354,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 111,
       "name": "Scout",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Free",
       "placementCost": 125,
       "pvpPlacementCost": 300,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5036,16 +5438,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 288,
       "name": "Rocketeer",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 8,
       "unlock": "2,500",
       "placementCost": 2000,
       "pvpPlacementCost": null,
+      "damageMethod": "Splash",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "For Levels 0-1, through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -5054,9 +5469,9 @@
           "damage": 30,
           "interval": 3.75,
           "range": 9,
-          "hidden": "Level 2+For Levels 0-1, through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -5066,9 +5481,9 @@
           "damage": 30,
           "interval": 3,
           "range": 9,
-          "hidden": "Level 2+For Levels 0-1, through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "Level 2+",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "3.75 > 3 Firerate Sell Price changes to 866"
         },
         {
@@ -5080,7 +5495,7 @@
           "range": 11.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+20 Damage +2.5 Range 3 > 4 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 1,466"
         },
         {
@@ -5092,7 +5507,7 @@
           "range": 11.5,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+45 Damage 3 > 2.75 Firerate 4 > 5 Explosion Range Sell Price changes to 3,466"
         },
         {
@@ -5104,7 +5519,7 @@
           "range": 13,
           "hidden": "Yes",
           "lead": "Level 0+",
-          "flying": "N/AThrough splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+1.5 Range 2.75 > 4.5 Firerate Description = +3 Missile Count +100 Angle -0.75 Accuracy Sell Price changes to 9,633"
         }
       ],
@@ -5116,16 +5531,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
     },
     {
       "pageid": 56729,
       "name": "Saboteur",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 8,
       "unlock": "Triumph Polluted Wasteland II & 7,500 or 449",
       "placementCost": 775,
       "pvpPlacementCost": 575,
+      "damageMethod": "Pierce Spread Poison",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5196,16 +5615,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Pierce Spread Poison); generic DPS is not estimated."
     },
     {
       "pageid": 258,
       "name": "Shotgunner",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "850",
       "placementCost": 1500,
       "pvpPlacementCost": 400,
+      "damageMethod": "Pierce Spread",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "From Level 0, hidden enemies may be hit indirectly if another detectable enemy is nearby, but this tower cannot directly target hidden enemies until Level 1."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower cannot directly target flying enemies until Level 2."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -5214,9 +5646,9 @@
           "damage": 8,
           "interval": 1.1,
           "range": 8,
-          "hidden": "Level 1+From Level 0, hidden enemies may be hit indirectly if another detectable enemy is nearby, but this tower cannot directly target hidden enemies until Level 1.",
+          "hidden": "Level 1+",
           "lead": "No",
-          "flying": "Level 2+Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower cannot directly target flying enemies until Level 2.",
+          "flying": "Level 2+",
           "notes": ""
         },
         {
@@ -5228,7 +5660,7 @@
           "range": 8,
           "hidden": "Yes",
           "lead": "No",
-          "flying": "Level 2+Flying enemies may be hit indirectly if another detectable enemy is nearby, but this tower cannot directly target flying enemies until Level 2.",
+          "flying": "Level 2+",
           "notes": "+1 Damage +Hidden Detection Hidden Detection Sell Price changes to 750"
         },
         {
@@ -5276,16 +5708,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 367,
       "name": "Sentry",
       "role": "Unknown",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "3,650",
       "placementCost": 750,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5368,16 +5804,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 1691,
       "name": "Slasher",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 8,
       "unlock": "Triumph Nightmare Carnival",
       "placementCost": 2400,
       "pvpPlacementCost": null,
+      "damageMethod": "Single Bleed (Level 2+)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5448,16 +5888,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 23365,
       "name": "Sledger",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 6,
       "unlock": "Triumph Outpost 32",
       "placementCost": 950,
       "pvpPlacementCost": null,
+      "damageMethod": "Pierce",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Its pierce damage can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -5466,7 +5915,7 @@
           "damage": 10,
           "interval": 1.2,
           "range": 7,
-          "hidden": "N/AIts pierce damage can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "No",
           "notes": ""
@@ -5478,7 +5927,7 @@
           "damage": 14,
           "interval": 1.2,
           "range": 7,
-          "hidden": "N/AIts pierce damage can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "No",
           "notes": "+4 Damage Sell Price changes to 450"
@@ -5490,7 +5939,7 @@
           "damage": 28,
           "interval": 1.2,
           "range": 7,
-          "hidden": "N/AIts pierce damage can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "No",
           "notes": "+14 Damage +1 Max Hits Sell Price changes to 1,000"
@@ -5502,7 +5951,7 @@
           "damage": 55,
           "interval": 1.2,
           "range": 7,
-          "hidden": "N/AIts pierce damage can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "No",
           "notes": "+27 Damage Description = 30% > 35% Max Slowdown 15% > 35% Slowdown per Hit Freezes enemies on max chill •0.85 Freeze Time Sell Price changes to 2,066"
@@ -5514,7 +5963,7 @@
           "damage": 105,
           "interval": 1.2,
           "range": 7.5,
-          "hidden": "N/AIts pierce damage can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "No",
           "notes": "+0.5 Range +50 Damage Description = 4 > 5 Slowdown Time Description = Deals double damage to frozen and chilled enemies Sell Price changes to 4,816"
@@ -5526,7 +5975,7 @@
           "damage": 150,
           "interval": 1.2,
           "range": 7.5,
-          "hidden": "N/AIts pierce damage can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "No",
           "notes": "+45 Damage +3 Max Hits Description = 0.4 Aftershock Delay 40% of its base damage Applies chill Description = 0.85 > 1.2 Freeze Time Sell Price changes to 10,150"
@@ -5540,16 +5989,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 57643,
       "name": "Slime Trooper",
       "role": "Support",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "300",
       "placementCost": 500,
       "pvpPlacementCost": null,
+      "damageMethod": "Single Splash (Level 4)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5620,16 +6073,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Splash (Level 4)); generic DPS is not estimated."
     },
     {
       "pageid": 113,
       "name": "Sniper",
       "role": "Defense",
       "placement": "Cliff",
+      "placementLimit": null,
       "unlock": "Free",
       "placementCost": 450,
       "pvpPlacementCost": 500,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5700,16 +6157,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 42430,
       "name": "Snowballer",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Triumph Outpost 32 on Easy difficulty",
       "placementCost": 300,
       "pvpPlacementCost": null,
+      "damageMethod": "Splash",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5768,16 +6229,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
     },
     {
       "pageid": 112,
       "name": "Soldier",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "350",
       "placementCost": 400,
       "pvpPlacementCost": 450,
+      "damageMethod": "Burst",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5848,16 +6313,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Burst); generic DPS is not estimated."
     },
     {
       "pageid": 53044,
       "name": "Spotlight Tech",
       "role": "Support",
       "placement": "Cliff",
+      "placementLimit": 1,
       "unlock": "Triumph The Narratorium on Hard DifficultyOnly triumphs between the 20th of December 2025 and 11th of February 2026 gave the tower.",
       "placementCost": 3225,
       "pvpPlacementCost": null,
+      "damageMethod": "AOE Burn (Level 1+)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -5928,16 +6397,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 4417,
       "name": "Swarmer",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Triumph Eggy Island (Hard Difficulty)",
       "placementCost": 900,
       "pvpPlacementCost": null,
+      "damageMethod": "Single Sting Splash (Ability)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "From Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies."
+        },
+        {
+          "attribute": "Flying",
+          "text": "From Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit flying enemies, but this tower cannot directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -5946,9 +6428,9 @@
           "damage": 2,
           "interval": 1.2,
           "range": 13,
-          "hidden": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+ (Sting & Splash Damage only)",
-          "flying": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit flying enemies, but this tower cannot directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -5958,9 +6440,9 @@
           "damage": 2,
           "interval": 1.2,
           "range": 13,
-          "hidden": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+ (Sting & Splash Damage only)",
-          "flying": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit flying enemies, but this tower cannot directly target flying enemies.",
+          "flying": "No",
           "notes": "+2 Stack Limit BeeStack Sell Price changes to 433"
         },
         {
@@ -5970,9 +6452,9 @@
           "damage": 4,
           "interval": 1.2,
           "range": 15,
-          "hidden": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Level 0+ (Sting & Splash Damage only)",
-          "flying": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit flying enemies, but this tower cannot directly target flying enemies.",
+          "flying": "No",
           "notes": "+2 Range +2 Damage 2.1 > 4.1 Sting Time +3 Stack Limit BeeStack Sell Price changes to 850"
         },
         {
@@ -5982,9 +6464,9 @@
           "damage": 4,
           "interval": 1.5,
           "range": 18,
-          "hidden": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit flying enemies, but this tower cannot directly target flying enemies.",
+          "flying": "No",
           "notes": "-4 Damage +3 Range 1.2 > 1.5 Firerate 4.1 > 5.25 Sting Time 1 > 0.75 Tick +6 Stack Limit BeeStack Description = •6 Explosion Range •30 Grenade Damage •15 Ability Cooldown •Lead Detection Lead Detection •Defense Bypass Defense Bypass Sell Price changes to 1,516"
         },
         {
@@ -5994,9 +6476,9 @@
           "damage": 4,
           "interval": 1.25,
           "range": 20,
-          "hidden": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit flying enemies, but this tower cannot directly target flying enemies.",
+          "flying": "No",
           "notes": "1.5 > 1.25 Firerate +2 Range 5.25 > 7.5 Sting Time +13 Stack Limit BeeStack Description = 6 > 7 Explosion Range +40 Grenade Damage Sell Price changes to 3,433"
         },
         {
@@ -6006,9 +6488,9 @@
           "damage": 4,
           "interval": 1.25,
           "range": 20,
-          "hidden": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit hidden enemies, but this tower cannot directly target hidden enemies.",
+          "hidden": "No",
           "lead": "Yes",
-          "flying": "N/AFrom Level 3, its ''Bee Swarm Grenade'' ability can indirectly hit flying enemies, but this tower cannot directly target flying enemies.",
+          "flying": "No",
           "notes": "+1 Bee Damage 7.5 > 15 Sting Time +5 Stack Limit BeeStack Description = 7 > 8 Explosion Range +55 Grenade Damage Sell Price changes to 6,766"
         }
       ],
@@ -6020,16 +6502,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Sting Splash (Ability)); generic DPS is not estimated."
     },
     {
       "pageid": 54307,
       "name": "Tesla",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 2,
       "unlock": "6,000",
       "placementCost": 5750,
       "pvpPlacementCost": null,
+      "damageMethod": "Chain Splash (Level 2+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through chaining and explosions, Hidden enemies may be hit indirectly if another detectable enemy is nearby."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -6038,7 +6529,7 @@
           "damage": 55,
           "interval": 2,
           "range": 12,
-          "hidden": "N/AThrough chaining and explosions, Hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": ""
@@ -6050,7 +6541,7 @@
           "damage": 70,
           "interval": 2,
           "range": 12,
-          "hidden": "N/AThrough chaining and explosions, Hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "+15 Damage 0.3 > 0.45 Shock Time +1 Max Hits Sell Price changes to 3,354"
@@ -6062,7 +6553,7 @@
           "damage": 70,
           "interval": 1.6,
           "range": 13.5,
-          "hidden": "N/AThrough chaining and explosions, Hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "+1.5 Range 2 > 1.6 Firerate +4 Chain Range Description = Smites the currently targeted enemy once the hit meter is full, creating an explosion •200 Smite Damage •5 Smite Radius •9 Meter Sell Price changes to 6,690"
@@ -6074,7 +6565,7 @@
           "damage": 90,
           "interval": 1.6,
           "range": 15,
-          "hidden": "N/AThrough chaining and explosions, Hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "+1.5 Range +20 Damage +275 Smite Damage 5 > 5.5 Smite Radius 9 > 12 Meter 0.45 > 0.6 Shock Time Sell Price changes to 14,690"
@@ -6086,7 +6577,7 @@
           "damage": 125,
           "interval": 1.4,
           "range": 15,
-          "hidden": "N/AThrough chaining and explosions, Hidden enemies may be hit indirectly if another detectable enemy is nearby.",
+          "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
           "notes": "1.6 > 1.4 Firerate +35 Damage 0.6 > 0.85 Shock Time +4 Chain Range +175 Smite Damage 5.5 > 7.5 Smite Radius 12 > 15 Meter Sell Price changes to 33,023"
@@ -6100,16 +6591,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Chain Splash (Level 2+)); generic DPS is not estimated."
     },
     {
       "pageid": 60822,
       "name": "Time Dilator",
       "role": "Unknown",
       "placement": "Unknown",
+      "placementLimit": null,
       "unlock": "Unknown",
       "placementCost": null,
       "pvpPlacementCost": null,
+      "damageMethod": "Unknown",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -6132,16 +6627,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 427,
       "name": "Turret",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 3,
       "unlock": "50 or 340",
       "placementCost": 7750,
       "pvpPlacementCost": 4000,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -6224,16 +6723,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 23367,
       "name": "Toxic Gunner",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Triumph Trick or Threat Town",
       "placementCost": 525,
       "pvpPlacementCost": null,
+      "damageMethod": "Burst (Level 0-3) Poison (Level 0+) Single (Level 4)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -6304,16 +6807,25 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Burst (Level 0-3) Poison (Level 0+) Single (Level 4)); generic DPS is not estimated."
     },
     {
       "pageid": 36680,
       "name": "Trapper",
       "role": "Defense",
       "placement": "Ground",
+      "placementLimit": 7,
       "unlock": "3,000",
       "placementCost": 500,
       "pvpPlacementCost": 500,
+      "damageMethod": "Collision Splash (Level 2+) Burn (Level 2+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Flying",
+          "text": "Through landmine splash damage, flying enemies may be indirectly damaged if another enemy triggers a nearby landmine, but this tower can never directly target flying enemies."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -6324,7 +6836,7 @@
           "range": 7,
           "hidden": "Level 0+",
           "lead": "Level 0+",
-          "flying": "N/AThrough landmine splash damage, flying enemies may be indirectly damaged if another enemy triggers a nearby landmine, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -6336,7 +6848,7 @@
           "range": 7,
           "hidden": "Level 0+",
           "lead": "Level 0+",
-          "flying": "N/AThrough landmine splash damage, flying enemies may be indirectly damaged if another enemy triggers a nearby landmine, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "Description = +10 Spike Damage +10 Spike Health Sell Price changes to 333"
         },
         {
@@ -6348,7 +6860,7 @@
           "range": 7,
           "hidden": "Level 0+",
           "lead": "Level 0+",
-          "flying": "N/AThrough landmine splash damage, flying enemies may be indirectly damaged if another enemy triggers a nearby landmine, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+1 Max Traps Description = +5 Spike Damage +55 Spike Health +2 Spike Range Description = •50 Damage •5 Burn Damage •4 Firerate •0.25 Tick •9 Range •5 Explosion Range •1 Burn Time •25 Lifespan Sell Price changes to 833"
         },
         {
@@ -6360,7 +6872,7 @@
           "range": 7,
           "hidden": "Level 0+",
           "lead": "Level 0+",
-          "flying": "N/AThrough landmine splash damage, flying enemies may be indirectly damaged if another enemy triggers a nearby landmine, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+2 Max Traps Description = +20 Spike Damage +150 Spike Health 4 > 3 Spike Firerate +1 Spike Range Description = +50 Landmine Damage -2 Burn Damage +1 Landmine Range 4 > 3 Landmine Firerate 1 > 2 Burn Time Sell Price changes to 2,833"
         },
         {
@@ -6372,7 +6884,7 @@
           "range": 7,
           "hidden": "Level 0+",
           "lead": "Level 0+",
-          "flying": "N/AThrough landmine splash damage, flying enemies may be indirectly damaged if another enemy triggers a nearby landmine, but this tower can never directly target flying enemies.",
+          "flying": "No",
           "notes": "+4 Max Traps Description = +20 Spike Damage +100 Spike Health 3 > 2.5 Spike Firerate Description = +60 Landmine Damage +1 Burn Damage 3 > 2.5 Landmine Firerate 2 > 5 Burn Time 5 > 6 Explosion Range Description = •325 Damage •2.5 Firerate •10 Range •3 Stun Time •25 Lifespan Sell Price changes to 6,666"
         }
       ],
@@ -6384,16 +6896,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Collision Splash (Level 2+) Burn (Level 2+)); generic DPS is not estimated."
     },
     {
       "pageid": 55332,
       "name": "Twitgunner",
       "role": "Unknown",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Exclusive",
       "placementCost": 350,
       "pvpPlacementCost": null,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -6476,16 +6992,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 6933,
       "name": "War Machine",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 5,
       "unlock": "Exclusive",
       "placementCost": 6750,
       "pvpPlacementCost": null,
+      "damageMethod": "Single Splash (Level 2+)",
+      "dpsFormula": "unmodeled-special",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 4."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 5."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -6494,9 +7023,9 @@
           "damage": 10,
           "interval": 0.175,
           "range": 13,
-          "hidden": "Level 4Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 4.",
+          "hidden": "Level 4",
           "lead": "Level 2+ (Splash & Collision only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 5.",
+          "flying": "Level 5",
           "notes": ""
         },
         {
@@ -6506,9 +7035,9 @@
           "damage": 10,
           "interval": 0.15,
           "range": 18,
-          "hidden": "Level 4Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 4.",
+          "hidden": "Level 4",
           "lead": "Level 2+ (Splash & Collision only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 5.",
+          "flying": "Level 5",
           "notes": "0.175 > 0.15 Firerate +5 Range Sell Price changes to 2,750"
         },
         {
@@ -6518,9 +7047,9 @@
           "damage": 12,
           "interval": 0.15,
           "range": 18,
-          "hidden": "Level 4Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 4.",
+          "hidden": "Level 4",
           "lead": "Level 2+ (Splash & Collision only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 5.",
+          "flying": "Level 5",
           "notes": "+2 Damage Description = •40 Rocket Damage •1 Rocket Volley Count •2 Rocket Cooldown •4.5 Explosion Range Description = Applies buffs to all towers in its range. •10% Range Buff Sell Price changes to 4,416"
         },
         {
@@ -6530,9 +7059,9 @@
           "damage": 20,
           "interval": 0.09,
           "range": 18,
-          "hidden": "Level 4Through splash damage, hidden enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 4.",
+          "hidden": "Level 4",
           "lead": "Level 2+ (Splash & Collision only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 5.",
+          "flying": "Level 5",
           "notes": "+8 Damage 0.15 > 0.09 Firerate 0 > 3 Rev-Up Time +1 Rockey Volley Count Description = Now also applies a Firerate Buff. •10% Firerate Buff Sell Price changes to 11,083"
         },
         {
@@ -6544,7 +7073,7 @@
           "range": 24,
           "hidden": "Yes",
           "lead": "Level 2+ (Splash & Collision only)",
-          "flying": "Level 5Through splash damage, flying enemies may be hit indirectly if another detectable enemy is nearby, but '''War Machine''' cannot detect such enemies until Level 5.",
+          "flying": "Level 5",
           "notes": "+25 Damage +6 Range +Hidden Detection Hidden Detection +1 Rockey Volley Count +20 Rocket Damage 4.5 > 6 Explosion Range Description = Now also applies a Damage Buff. •10% Damage Buff Description = Summons in a convoy of Railgun Tanks on the path. •2 Railgun Tank Spawn Count •1,600 Health •22 Damage •30 Range •0.175 Firerate •75 Cannon Damage •2 Cannon Firerate •8 Explosion Range •Hidden Detection Hidden Detection Sell Price changes to 27,750"
         },
         {
@@ -6568,16 +7097,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Special damage cycle (Single Splash (Level 2+)); generic DPS is not estimated."
     },
     {
       "pageid": 31428,
       "name": "Warden",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 12,
       "unlock": "Triumph Pizza Party & 4,000 or 337",
       "placementCost": 1850,
       "pvpPlacementCost": 1000,
+      "damageMethod": "Single",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -6648,16 +7181,29 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 51515,
       "name": "Warlock",
       "role": "Offense",
       "placement": "Ground",
+      "placementLimit": 4,
       "unlock": "Triumph Outpost 16, Banlands and Blind Faith on Hard difficulty",
       "placementCost": 4200,
       "pvpPlacementCost": null,
+      "damageMethod": "Single (Ranged) Pierce (Melee) Bleed (Level 4+)",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [
+        {
+          "attribute": "Hidden",
+          "text": "Through melee, hidden enemies may be hit indirectly if another detectable enemy is nearby."
+        },
+        {
+          "attribute": "Flying",
+          "text": "Through melee from Level 4+, Flying enemies may be hit indirectly if another detectable enemy is nearby. While previous Levels can also hit them, this will have no effect as the '''Warlock''' deals no damage to them through its main attack, only the bleed."
+        }
+      ],
       "levels": [
         {
           "level": 0,
@@ -6666,9 +7212,9 @@
           "damage": 45,
           "interval": 2,
           "range": 7,
-          "hidden": "Level 2+Through melee, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
-          "lead": "Level 4+ (Bleed)Level 5",
-          "flying": "N/AThrough melee from Level 4+, Flying enemies may be hit indirectly if another detectable enemy is nearby. While previous Levels can also hit them, this will have no effect as the '''Warlock''' deals no damage to them through its main attack, only the bleed.",
+          "hidden": "Level 2+",
+          "lead": "Level 4+ (Bleed) Level 5",
+          "flying": "No",
           "notes": ""
         },
         {
@@ -6678,9 +7224,9 @@
           "damage": 90,
           "interval": 2,
           "range": 8,
-          "hidden": "Level 2+Through melee, hidden enemies may be hit indirectly if another detectable enemy is nearby.",
-          "lead": "Level 4+ (Bleed)Level 5",
-          "flying": "N/AThrough melee from Level 4+, Flying enemies may be hit indirectly if another detectable enemy is nearby. While previous Levels can also hit them, this will have no effect as the '''Warlock''' deals no damage to them through its main attack, only the bleed.",
+          "hidden": "Level 2+",
+          "lead": "Level 4+ (Bleed) Level 5",
+          "flying": "No",
           "notes": "Description = +15 Damage +1 Range Description = +30 Damage Sell Price Changes to 2,233"
         },
         {
@@ -6691,8 +7237,8 @@
           "interval": 0.8,
           "range": 11.5,
           "hidden": "Yes",
-          "lead": "Level 4+ (Bleed)Level 5",
-          "flying": "N/AThrough melee from Level 4+, Flying enemies may be hit indirectly if another detectable enemy is nearby. While previous Levels can also hit them, this will have no effect as the '''Warlock''' deals no damage to them through its main attack, only the bleed.",
+          "lead": "Level 4+ (Bleed) Level 5",
+          "flying": "No",
           "notes": "+Hidden Detection Hidden Detection Description = Now knocks back enemies •15 Knockback Force Knockback Force +20 Damage 1.1 > 0.8 Firerate +3 Range Description = +65 Damage +0.5 Range Sell Price Changes to 4,500"
         },
         {
@@ -6703,8 +7249,8 @@
           "interval": 0.8,
           "range": 11.5,
           "hidden": "Yes",
-          "lead": "Level 4+ (Bleed)Level 5",
-          "flying": "N/AThrough melee from Level 4+, Flying enemies may be hit indirectly if another detectable enemy is nearby. While previous Levels can also hit them, this will have no effect as the '''Warlock''' deals no damage to them through its main attack, only the bleed.",
+          "lead": "Level 4+ (Bleed) Level 5",
+          "flying": "No",
           "notes": "Description = +55 Damage +2.5 Knockback Force Knockback Force Description = +60 Damage 2 > 1.8 Swingrate Sell Price Changes to 8,500"
         },
         {
@@ -6715,8 +7261,8 @@
           "interval": 0.8,
           "range": 14,
           "hidden": "Yes",
-          "lead": "Level 4+ (Bleed)Level 5",
-          "flying": "N/AThrough melee from Level 4+, Flying enemies may be hit indirectly if another detectable enemy is nearby. While previous Levels can also hit them, this will have no effect as the '''Warlock''' deals no damage to them through its main attack, only the bleed.",
+          "lead": "Level 4+ (Bleed) Level 5",
+          "flying": "No",
           "notes": "Description = +75 Damage +2 Range Description = Now applies Bleed debuff •3 Bleed Stack Bleed Stack •2 Base Bleed Damage Base Bleed Damage •0.28 EV •40 Max Stacks Max Stacks +150 Damage +0.5 Range +1 Max Hits Sell Price Changes to 15,166"
         },
         {
@@ -6728,7 +7274,7 @@
           "range": 15,
           "hidden": "Yes",
           "lead": "Yes",
-          "flying": "N/AThrough melee from Level 4+, Flying enemies may be hit indirectly if another detectable enemy is nearby. While previous Levels can also hit them, this will have no effect as the '''Warlock''' deals no damage to them through its main attack, only the bleed.",
+          "flying": "No",
           "notes": "+Lead Detection Lead Detection Description = +60 Damage 0.8 > 0.7 Firerate +2.5 Knockback Force Knockback Force Description = +200 Damage +1 Range +2 Bleed Stack Bleed Stack Sell Price Changes to 25,166"
         }
       ],
@@ -6740,16 +7286,20 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     },
     {
       "pageid": 54671,
       "name": "Void Miner",
       "role": "Unknown",
       "placement": "Ground",
+      "placementLimit": null,
       "unlock": "Exclusive",
       "placementCost": 800,
       "pvpPlacementCost": null,
+      "damageMethod": "None",
+      "dpsFormula": "damage-over-interval",
+      "detectionNotes": [],
       "levels": [
         {
           "level": 0,
@@ -6832,7 +7382,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles."
+      "dpsMethod": "Theoretical damage divided by attack interval."
     }
   ]
 }

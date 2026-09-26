@@ -35,9 +35,12 @@ function args(body) {
 }
 function lastNumber(value) { return [...String(value ?? "").matchAll(/\d[\d,]*(?:\.\d+)?/g)].map((x) => Number(x[0].replaceAll(",", ""))).at(-1) ?? null; }
 function clean(value) {
-  let text = String(value ?? "").replace(/\[\[File:[^\]]+\]\]/gi, "").replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2").replace(/\[\[([^\]]+)\]\]/g, "$1").replace(/<[^>]+>/g, "");
+  let text = String(value ?? "").replace(/\[\[File:[^\]]+\]\]/gi, "").replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, "$2").replace(/\[\[([^\]]+)\]\]/g, "$1").replace(/<br\s*\/?\s*>/gi, " ").replace(/<[^>]+>/g, "");
   while (/\{\{[^{}]*\}\}/.test(text)) text = text.replace(/\{\{([^{}]*)\}\}/g, (_whole, inner) => inner.split("|").at(-1) ?? "");
   return text.replace(/\s+/g, " ").trim();
+}
+function referencedNotes(value) {
+  return [...String(value ?? "").matchAll(/<ref(?:\s+[^>]*)?>([\s\S]*?)<\/ref>/gi)].map((match) => clean(match[1])).filter(Boolean);
 }
 function parseUpgrade(body, prior) {
   const data = args(body); const info = clean(data.information ?? "");
@@ -48,13 +51,20 @@ function parseUpgrade(body, prior) {
   return next;
 }
 
+function placementLimit(raw) {
+  const value = clean(raw ?? "");
+  if (!value || /∞|unlimited/i.test(value)) return null;
+  const regular = value.match(/^\s*(\d+)/);
+  return regular ? Number(regular[1]) : null;
+}
+
 const result = [];
 for (const entry of corpus.entries) {
   if (!entry.wikitext.includes("{{TowerInfobox")) continue;
   const box = templates(entry.wikitext, "TowerInfobox")[0];
   if (!box) continue;
   const tower = args(box);
-  const detection = (raw) => { const value = clean(raw ?? "No"); return /^(?:N\/A|None|No)$/i.test(value) ? "No" : value || "No"; };
+  const detection = (raw) => { const value = clean(String(raw ?? "No").replace(/<ref(?:\s+[^>]*)?>[\s\S]*?<\/ref>/gi, "")); return /^(?:N\/A|None|No)$/i.test(value) ? "No" : value || "No"; };
   const base = { level: 0, title: "Base", cost: lastNumber(tower.basecost), damage: lastNumber(tower.basedamage), interval: lastNumber(tower.basefirerate), range: lastNumber(tower.baserange), hidden: detection(tower.hidden_detection), lead: detection(tower.lead_detection), flying: detection(tower.flying_detection), notes: "" };
   const upgradesSection = entry.wikitext.split(/==Upgrades==/i)[1]?.split(/\n==/)[0] ?? "";
   const tabber = templates(upgradesSection, "PVPTabber")[0];
@@ -67,7 +77,21 @@ for (const entry of corpus.entries) {
   }
   const levels = [base];
   for (const upgrade of templates(regular, "Upgrade")) levels.push(parseUpgrade(upgrade, levels.at(-1)));
-  result.push({ pageid: entry.pageid, name: entry.title, role: clean(tower.role ?? "Unknown"), placement: clean(tower.placement ?? "Unknown"), unlock: clean(tower.unlockcost ?? "Unknown"), placementCost: base.cost, pvpPlacementCost: lastNumber(tower.pvp_basecost), levels, source: { url: entry.sourceUrl, historyUrl: entry.historyUrl, revisionId: entry.revisionId, revisionTimestamp: entry.revisionTimestamp, licensePolicyUrl: entry.licensePolicyUrl, license: entry.license }, dpsMethod: /accelerator/i.test(entry.title) ? "Special cycle; not estimated by the generic damage divided by interval formula." : "Damage divided by attack interval. This omits targeting downtime and any unparsed special cycles." });
+  const damageMethod = clean(tower.damagetype ?? "Unknown");
+  const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
+  const revUp = /rev[- ]?up/i.test(entry.wikitext);
+  const dpsFormula = /accelerator/i.test(entry.title) || specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsMethod = /accelerator/i.test(entry.title) || specialDamageMethod
+    ? `Special damage cycle (${damageMethod}); generic DPS is not estimated.`
+    : revUp
+      ? "Theoretical damage divided by attack interval; the source also documents firing startup, which this rate omits."
+      : "Theoretical damage divided by attack interval.";
+  const detectionNotes = [
+    ...referencedNotes(tower.hidden_detection).map((text) => ({ attribute: "Hidden", text })),
+    ...referencedNotes(tower.lead_detection).map((text) => ({ attribute: "Lead", text })),
+    ...referencedNotes(tower.flying_detection).map((text) => ({ attribute: "Flying", text })),
+  ];
+  result.push({ pageid: entry.pageid, name: entry.title, role: clean(tower.role ?? "Unknown"), placement: clean(tower.placement ?? "Unknown"), placementLimit: placementLimit(tower.placement_limit), unlock: clean(tower.unlockcost ?? "Unknown"), placementCost: base.cost, pvpPlacementCost: lastNumber(tower.pvp_basecost), damageMethod, dpsFormula, detectionNotes, levels, source: { url: entry.sourceUrl, historyUrl: entry.historyUrl, revisionId: entry.revisionId, revisionTimestamp: entry.revisionTimestamp, licensePolicyUrl: entry.licensePolicyUrl, license: entry.license }, dpsMethod });
 }
 await mkdir(new URL("../data/", import.meta.url), { recursive: true });
 await writeFile(new URL("../data/tower-stats.json", import.meta.url), `${JSON.stringify({ generatedFromRevisionSnapshot: corpus.generatedAt, count: result.length, towers: result }, null, 2)}\n`);

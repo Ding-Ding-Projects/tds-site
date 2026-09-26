@@ -21,7 +21,7 @@ All status below reflects the source state on 2026-09-26. An item is complete on
 
 - [ ] Ship search, filters, article navigation, source attribution, and contribution/license notices. Search, source links, and a revision-pinned sanitized article reader exist; cross-viewport reader captures and offline rendered copies remain open.
 - [ ] Ship validated mode, wave, reward, map, enemy, and strategy coverage. Fourteen mode types have solo planning notes; most are editorial checklists and not verified clears. Continue checking source conflicts and map geometry.
-- [ ] Ship tower stat comparison and simulator formulas with worked, source-backed examples.
+- [ ] Finish tower stat comparison and simulator formulas with worked, source-backed examples. The current simulator retains attack method, detection footnotes, and finite placement limits, constrains its count slider, and withholds generic DPS for special damage methods. Its source-contract negative checks pass for 83 towers; tower-specific full-cycle formulas, comparison views, and built UI evidence remain open.
 - [ ] Ship the original interactive 3D defense explorer with keyboard, touch, reduced-motion, 2D, and text alternatives.
 - [ ] Complete required localization, accessibility, appearance, settings, history, export, notification, command, and other per-surface contracts, with a hand-written inventory.
 - [ ] Verify the full experience at small-screen widths, required themes, language modes, and scales. Dark English at 1280×900 and emulated mobile 390×844 are captured; the remaining matrix is open.
@@ -30,6 +30,6 @@ All status below reflects the source state on 2026-09-26. An item is complete on
 
 - [ ] Run the smallest decisive build and verification set after implementation stabilizes.
 - [x] Capture genuine local built-site evidence and record source commit, build identity, viewport, language, theme, and privacy state for 1280×900 desktop and 390×844 emulated mobile. The complete matrix remains open.
-- [x] Save Sites version 1 from source revision `d3e015b00be44c299e4536321f5d96d69676babd` and version 2 from source revision `7d7f26fc9e78a61eead31a347a2f753a6cdb56f8`. Version 2 has 2,928 files, 41,881,600 bytes, and SHA-256 `7d24ec190aa397d9a95d50c20694ea0aecdaf502519da8d136d7f321d5a45907`. Version 2 is not deployed, and this roadmap update will require a later Site version.
+- [x] Save Site versions 1 and 2 from their recorded source revisions, then version 3 from `a0f45ee6bb71c339ae1ba725e8c329eb13e5bad0`. Version 3 has 2,928 files, 41,881,600 bytes, and SHA-256 `0458b087ff203cf9c63d516068199a47fa51b05e439cdbfd8b13cb3e439e28f6`. It is not deployed and predates the current local simulator changes, so publication needs a later version.
 - [ ] Publish the complete guide publicly and confirm deployed source parity.
 - [ ] Complete handoff and exact task-owned closeout after the required archive and ancestry proofs.
