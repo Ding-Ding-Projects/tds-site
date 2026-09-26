@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { applyVocabularyText } from "@/lib/settings-preferences.mjs";
 
 type LanguageMode = "en" | "yue" | "bi";
@@ -103,7 +103,7 @@ const COPY = {
     copyFailed: "Clipboard access is unavailable. Select and copy the pattern manually.",
     flagConflict: "Unicode and Unicode sets flags cannot be used together.",
     settingsResults: "Settings matches",
-    unsupportedSetOps: "This pattern uses Unicode set operations but the selected engine mode does not enable them.",
+    unsupportedSetOps: "This pattern uses Unicode set operations require an engine with v-flag support and Unicode sets mode enabled.",
     saved: "Pattern saved for this session.",
   },
   yue: {
@@ -186,7 +186,7 @@ const COPY = {
     copyFailed: "剪貼簿用唔到，可以手動選取同複製 pattern。",
     flagConflict: "Unicode 同 Unicode 集合 flags 唔可以一齊用。",
     settingsResults: "設定項目匹配結果",
-    unsupportedSetOps: "呢個 pattern 用咗 Unicode 集合運算，但所選引擎模式未有啟用。",
+    unsupportedSetOps: "Unicode 集合運算需要引擎支援 v flag，亦要開啟 Unicode 集合模式。",
     saved: "Pattern 已儲存喺今次工作階段。",
   },
 } as const;
@@ -251,20 +251,16 @@ export function RegexWorkbench({
   const [notice, setNotice] = useState<WorkbenchKey | null>(null);
   const [selectedMatch, setSelectedMatch] = useState(0);
   const requestId = useRef(0);
-  const t = (key: WorkbenchKey) => localText(key, languageMode, vocabulary);
+  const t = useCallback((key: WorkbenchKey) => localText(key, languageMode, vocabulary), [languageMode, vocabulary]);
 
   useEffect(() => {
     if (!open && !regexEnabled) {
       onEvaluation(null, null);
-      setEvaluation(null);
-      setError(null);
       return;
     }
     const currentRequest = ++requestId.current;
     if (!pattern && regexEnabled) {
       onEvaluation(null, null);
-      setEvaluation(null);
-      setError(null);
       return;
     }
     const positiveCases = positiveText.split(/\r?\n/u).filter(Boolean).slice(0, 12);
@@ -282,6 +278,7 @@ export function RegexWorkbench({
       timeout = window.setTimeout(() => {
         worker?.terminate();
         worker = undefined;
+        if (requestId.current === currentRequest) {
           setEvaluation(null);
           setError(t("timeout"));
           onEvaluation(null, t("timeout"));
@@ -326,7 +323,7 @@ export function RegexWorkbench({
       worker = undefined;
       requestId.current += 1;
     };
-  }, [open, regexEnabled, pattern, flags, sample, replacement, positiveText, negativeText, searchItems, onEvaluation]);
+  }, [open, regexEnabled, pattern, flags, sample, replacement, positiveText, negativeText, searchItems, onEvaluation, t]);
 
   function appendLiteral() {
     const escaped = literal.replace(/[.*+?^${}()|[\]\\]/gu, "\\$&");
@@ -465,8 +462,8 @@ export function RegexWorkbench({
       </div>
       <p id="regex-case-limit" className="regex-workbench__help">{t("onePerLine")}</p>
 
-      {error && <p className="regex-workbench__error" role="alert">{error}</p>}
-      {evaluation && (
+      {error && pattern && <p className="regex-workbench__error" role="alert">{error}</p>}
+      {evaluation && pattern && (
         <div className="regex-workbench__results">
           <p className="regex-workbench__engine">{t("engine")}: {evaluation.engine}</p>
           <p>{t("profile")}: {evaluation.elapsedMs.toFixed(2)} ms for 30 bounded checks.</p>

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { RegexWorkbench } from "@/components/regex-workbench";
 import {
   clearVocabularyCache,
   DEFAULT_PREFERENCES,
@@ -41,6 +42,12 @@ const SETTINGS_COPY = {
     clear: "Clear or reset local vocabulary",
     cleared: "Local vocabulary was cleared. Original wording is in use.",
     note: "Settings and vocabulary stay in this browser. Files are not uploaded.",
+    search: "Search settings",
+    searchPlaceholder: "Search labels and current values",
+    regexMode: "Use regular-expression search",
+    regexBuilder: "Open advanced pattern builder",
+    results: "Matching settings",
+    noResults: "No settings match this search.",
   },
   yue: {
     open: "設定",
@@ -62,6 +69,12 @@ const SETTINGS_COPY = {
     clear: "清除或重設本地詞彙",
     cleared: "本地詞彙已清除，文字回復原樣。",
     note: "設定同詞彙只留喺呢個瀏覽器，檔案唔會上載。",
+    search: "搜尋設定",
+    searchPlaceholder: "搜尋標籤同目前內容",
+    regexMode: "使用正規表達式搜尋",
+    regexBuilder: "開啟進階 pattern 組合器",
+    results: "符合嘅設定",
+    noResults: "冇設定符合呢個搜尋。",
   },
 } as const;
 
@@ -136,11 +149,44 @@ export function SiteSettings() {
   const wasOpen = useRef(false);
   const fileRef = useRef<HTMLInputElement>(null);
   const [open, setOpen] = useState(false);
+  const [settingsQuery, setSettingsQuery] = useState("");
+  const [regexEnabled, setRegexEnabled] = useState(false);
+  const [regexFlags, setRegexFlags] = useState("i");
+  const [regexWorkbenchOpen, setRegexWorkbenchOpen] = useState(false);
+  const [regexMatchIds, setRegexMatchIds] = useState<string[]>([]);
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const [hasVocabulary, setHasVocabulary] = useState(false);
   const [statusKey, setStatusKey] = useState<keyof (typeof SETTINGS_COPY)["en"]>("empty");
   const [vocabulary, setVocabulary] = useState<ReturnType<typeof parseVocabularyPayload> | null>(null);
   const mode = preferences.languageMode;
-  const t = (key: keyof (typeof SETTINGS_COPY)["en"]) => applyVocabularyText(copyFor(mode, key), vocabulary);
+  const t = useCallback((key: keyof (typeof SETTINGS_COPY)["en"]) => applyVocabularyText(copyFor(mode, key), vocabulary), [mode, vocabulary]);
+  const searchItems = useMemo(() => [
+    { id: "search", text: t("search") },
+    { id: "regex-search", text: t("regexMode") },
+    { id: "language", text: `${t("language")} ${t("english")} ${t("cantonese")} ${t("bilingual")} ${mode}` },
+    { id: "emojis", text: `${t("emojis")} ${preferences.showDialogEmojis}` },
+    { id: "vocabulary", text: `${t("vocabulary")} ${t(hasVocabulary ? "loaded" : "empty")} ${t("choose")} ${t("replace")}` },
+    { id: "clear", text: t("clear") },
+    { id: "privacy", text: t("note") },
+  ], [mode, hasVocabulary, preferences.showDialogEmojis, t]);
+  const onRegexEvaluation = useCallback((result: { searchMatches: string[] } | null) => {
+    setRegexMatchIds(result?.searchMatches ?? []);
+  }, []);
+  const visibleSearchItems = regexEnabled
+    ? searchItems.filter((item) => regexMatchIds.includes(item.id))
+    : searchItems.filter((item) => !settingsQuery || item.text.toLocaleLowerCase().includes(settingsQuery.toLocaleLowerCase()));
+  function insertPattern(snippet: string, cursorOffset?: number) {
+    const input = searchInputRef.current;
+    const start = input?.selectionStart ?? settingsQuery.length;
+    const end = input?.selectionEnd ?? settingsQuery.length;
+    const next = `${settingsQuery.slice(0, start)}${snippet}${settingsQuery.slice(end)}`.slice(0, 512);
+    setSettingsQuery(next);
+    requestAnimationFrame(() => {
+      input?.focus();
+      const position = Math.min(start + (cursorOffset ?? snippet.length), next.length);
+      input?.setSelectionRange(position, position);
+    });
+  }
 
   useEffect(() => {
     let active = true;
@@ -250,20 +296,20 @@ export function SiteSettings() {
               {t("close")}
             </button>
           </div>
-          <label className="site-settings__field">
-            <span>{t("language")}</span>
-            <select
-              value={mode}
-              onChange={(event) => {
-                if (!updatePreferences({ languageMode: event.target.value as LanguageMode })) setStatusKey("persistenceUnavailable");
-              }}
-            >
-              <option value="en">{t("english")}</option>
-              <option value="yue">{t("cantonese")}</option>
-              <option value="bi">{t("bilingual")}</option>
-            </select>
-          </label>
-          <label className="site-settings__checkbox">
+          <fieldset className="site-settings__choices" id="settings-language">
+            <legend>{t("language")}</legend>
+            {([["en", "english"], ["yue", "cantonese"], ["bi", "bilingual"]] as const).map(([value, label]) => (
+              <label key={value}><input type="radio" name="settings-language" value={value} checked={mode === value} onChange={() => { if (!updatePreferences({ languageMode: value })) setStatusKey("persistenceUnavailable"); }} /><span>{t(label)}</span></label>
+            ))}
+          </fieldset>
+          <div className="site-settings__search">
+            <label className="site-settings__field" htmlFor="settings-search"><span>{t("search")}</span><input id="settings-search" ref={searchInputRef} value={settingsQuery} maxLength={512} placeholder={t("searchPlaceholder")} onChange={(event) => setSettingsQuery(event.target.value)} /></label>
+            <label className="site-settings__checkbox" id="settings-regex-search"><input type="checkbox" checked={regexEnabled} onChange={(event) => { setRegexEnabled(event.target.checked); setRegexWorkbenchOpen(event.target.checked); }} /><span>{t("regexMode")}</span></label>
+            <button type="button" className="site-settings__reset" aria-expanded={regexWorkbenchOpen} onClick={() => setRegexWorkbenchOpen((value) => !value)}>{t("regexBuilder")}</button>
+            <div className="site-settings__search-results" aria-live="polite"><h3>{t("results")} ({visibleSearchItems.length})</h3>{visibleSearchItems.length ? <ul>{visibleSearchItems.map((item) => <li key={item.id}><a href={`#settings-${item.id}`}>{item.text}</a></li>)}</ul> : <p>{t("noResults")}</p>}</div>
+            <RegexWorkbench open={regexWorkbenchOpen} languageMode={mode} vocabulary={vocabulary} pattern={settingsQuery} onPatternChange={setSettingsQuery} regexEnabled={regexEnabled} onRegexEnabledChange={setRegexEnabled} flags={regexFlags} onFlagsChange={setRegexFlags} searchItems={searchItems} onEvaluation={onRegexEvaluation} onInsertPattern={insertPattern} />
+          </div>
+          <label className="site-settings__checkbox" id="settings-emojis">
             <input
               type="checkbox"
               checked={preferences.showDialogEmojis}
@@ -273,7 +319,7 @@ export function SiteSettings() {
             />
             <span>{t("emojis")}</span>
           </label>
-          <div className="site-settings__field">
+          <div className="site-settings__field" id="settings-vocabulary">
             <span>{t("vocabulary")}</span>
             <input
               ref={fileRef}
@@ -287,10 +333,10 @@ export function SiteSettings() {
           <p className="site-settings__status" role="status" aria-live="polite">
             {t(statusKey)}
           </p>
-          <button type="button" className="site-settings__reset" onClick={clearVocabulary} disabled={!hasVocabulary}>
+          <button id="settings-clear" type="button" className="site-settings__reset" onClick={clearVocabulary} disabled={!hasVocabulary}>
             {t("clear")}
           </button>
-          <p className="site-settings__privacy">{t("note")}</p>
+          <p className="site-settings__privacy" id="settings-privacy">{t("note")}</p>
         </section>
       )}
     </div>
