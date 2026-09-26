@@ -26,6 +26,9 @@ test("every mode has four Solo decision checkpoints and the checklist stays out 
   assert.ok(validateSoloStrategyCoverage(shortened).includes("Solo decision checkpoints must contain four steps: Easy"));
   const coOpLeak = component.replace('team === "Solo" && <section className="solo-checklist"', '<section className="solo-checklist"');
   assert.ok(validateSoloStrategyCoverage(coOpLeak).includes("Solo decision checkpoints are not restricted to the Solo view"));
+  assert.match(component, /const planText = .*soloNotes/);
+  assert.ok(component.includes("new SpeechSynthesisUtterance(planText)"));
+  assert.ok(component.includes("navigator.clipboard?.writeText(planText)"));
 });
 
 test("strategy coverage fails when a solo mode plan is removed", () => {
