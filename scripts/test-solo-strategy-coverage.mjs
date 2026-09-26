@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 import { STRATEGY_MODES, validateSoloStrategyCoverage } from "../lib/solo-strategy-coverage.mjs";
+import { getEffectiveStrategyMap, getStrategyMapOptions } from "../lib/strategy-map-options.mjs";
 
 const component = await readFile(new URL("../components/strategy-lab.tsx", import.meta.url), "utf8");
 
@@ -29,4 +30,14 @@ test("co-op strategy coverage fails when a mode plan is removed", () => {
   assert.ok(row);
   const incomplete = component.replace(row, "");
   assert.ok(validateSoloStrategyCoverage(incomplete).includes("missing Co-op strategy plan: Badlands II"));
+});
+
+test("solo map choices respect fixed-map modes and replace stale selections", () => {
+  assert.deepEqual(getStrategyMapOptions("Pizza Party"), ["Pizza Party"]);
+  assert.deepEqual(getStrategyMapOptions("Badlands II"), ["Badlands II"]);
+  assert.deepEqual(getStrategyMapOptions("Polluted Wasteland II"), ["Polluted Wasteland II"]);
+  assert.deepEqual(getStrategyMapOptions("Hidden Wave"), ["Fungi Island", "Wrecked Battlefield", "Summer Castle"]);
+  assert.equal(getEffectiveStrategyMap("Pizza Party", "Gilded Path"), "Pizza Party");
+  assert.equal(getEffectiveStrategyMap("Frost", "Mode default"), "Mode default");
+  assert.equal(getEffectiveStrategyMap("Frost", "Space City"), "Space City");
 });
