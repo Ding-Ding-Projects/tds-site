@@ -20,6 +20,21 @@ Research reviewed: 2026-09-26. The in-guide planner presents four mode-specific 
 | Polluted Wasteland II | Treat Solo availability as unresolved because the current strategy text says impossible while the Index lists a Solo badge. | Direct Official Wiki conflict; no current route can be responsibly promised. |
 | Story Mode | Select the exact chapter objective, then reserve the loadout around that chapter's constraints and boss. | Editorial template; no single route applies to every chapter. |
 
+## Recent community loadout hypotheses
+
+These are candidate team compositions from public player discussions, not tested routes or endorsements. The posts omit at least one of wave-by-wave purchases, tower levels, map placement, and exact current game build. Use them to choose a practice hypothesis, then confirm each tower's current upgrade path, detection, and mode rules before a serious run.
+
+| Mode | Reported Solo candidate | Practical question to test | Evidence limit |
+|---|---|---|---|
+| Frost, no special towers | Militant, Warden, Turret, DJ Booth, Commander | Can the opening pair stabilize the early waves while both supports and late damage are funded in time for Frost Champion at wave 33 and Frost Spirit at wave 40? Verify hidden and lead coverage for each boss's summons. | A September 2026 Reddit reply suggests this loadout; no purchase order or run log is attached. [Discussion](https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/) |
+| Frost, special towers | Operator, Engineer, Juggernaut, Hacker, DJ Booth | Verify whether the selected upgrades cover flying, hidden, and lead enemies, then check whether the build has enough independent boss damage after support costs. | A separate reply in the same thread suggests this composition. It does not resolve conflicting tower-detection advice or demonstrate a complete run. |
+| Fallen | Engineer, DJ Booth or Commander, Crook Boss or Pursuit or Ranger, Golden Minigunner or Turret, Mortar | Try one option per role, rather than carrying every alternative: early/mid coverage, support, focused damage, and crowd damage. Record the chosen map and boss/add handling. | September 2026 community advice names these role alternatives but gives no wave sequence. [Discussion](https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/) |
+| Hardcore | Farm, DJ Booth, Kingpin, Golden Minigunner, Commander | Test whether the opening can survive without relying on periodic cash, when Kingpin detection must be upgraded, and when to transition from early tanking to the damage core. | The post is a loadout suggestion in response to a Wave 43 question, not a recorded triumph or a complete route. [Discussion](https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/) |
+
+The same discussion includes September replies recommending a solo-role pattern of early-game tower, midgame tower, late-game tower, Commander, and DJ Booth. Treat that as a slot-planning heuristic only: the right choices depend on the mode, player unlocks, placement limits, and detection. A loadout list does not establish that its economy or wave timing works.
+
+For contrast, the linked [TDS Hub endgame loadout guide](https://www.towerdefensesimulator.com/best-loadout/) says it was updated for v2.4.0, while this playbook's snapshot is v2.11.0. It is useful as a discovery lead but too old to serve as current tower or balance evidence without checking its claims against current pages.
+
 ## Evidence labels
 
 - **Mode fact** means the linked current mode or enemy source documents a rule or wave detail.

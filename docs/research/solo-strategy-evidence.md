@@ -26,6 +26,16 @@ The [Pizza Party strategy page](https://tds.wiki/w/Pizza_Party) separates regula
 
 ## Community reports and disagreements
 
+### Recent September 2026 loadout suggestions
+
+The September [TDS_Roblox basic-questions megathread](https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/) contains several specific Solo build suggestions. A reply to a Frost question offers a no-special-tower lineup of Militant, Warden, Turret, DJ Booth, and Commander, and a separate special-tower lineup of Operator, Engineer, Juggernaut, Hacker, and DJ Booth. A reply on Solo Fallen proposes one early/mid tower, one support, a choice among Crook Boss, Pursuit, or Ranger, a choice among Golden Minigunner or Turret, and Mortar for crowd coverage. A Hardcore reply suggests Farm, DJ Booth, Kingpin, Golden Minigunner, and Commander while responding to a player stuck at Wave 43.
+
+These are useful current candidate loadouts for the planner because they name solo-specific role coverage and tower alternatives. The posts do not include a complete wave-by-wave purchase sequence, placements, full tower levels, and a version-pinned run log. They remain community hypotheses. In particular, Frost candidates still need upgrade-specific detection checks against both boss summon sets, and the Hardcore candidate must be evaluated under current kill-income rules rather than assumed Farm payback. The public planner shows these as test candidates and includes their caveats and source links; it does not call them proven clears.
+
+The same megathread maintains links to community strategy sheets for Frost and Fallen, including named solo strategies, modifiers, and player counts. Those sheets are discovery sources; the linked tactics should be reviewed individually and checked against current mode and tower pages before being presented as current facts. The thread also includes the occasional 10–12 minute Solo Molten claim, but a comment without a linked step sequence is not sufficient to replace the existing creator source and confidence label.
+
+The secondary [TDS Hub best-loadout page](https://www.towerdefensesimulator.com/best-loadout/) describes its data as updated for v2.4.0. Since this project labels its reference snapshot v2.11.0, that guide is retained only as a discovery lead and is not used for current tower stats or balance claims without checking the newer source pages.
+
 | Mode | Report | Evidence status |
 |---|---|---|
 | Hardcore | [Solo or duo feasibility discussion](https://www.reddit.com/r/TowerDefenseSimulator/comments/1uig1hi/is_it_possible_to_beat_hardcore_soloduo/) includes a player report of Farm, Engineer, Commander, DJ Booth, and Golden Minigunner, with a near-max skill tree and active boss micro. The player names Wretched Front and Outskirts Commune in a later comment. | Anecdotal loadout and map report. No controlled reproduction or run log is attached to this guide. |
