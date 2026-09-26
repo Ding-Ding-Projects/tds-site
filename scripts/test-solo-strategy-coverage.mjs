@@ -11,6 +11,8 @@ test("every supported mode has exactly one solo and one co-op plan with phases a
   assert.deepEqual(validateSoloStrategyCoverage(component), []);
   assert.ok(component.includes("Snapshot: v2.11.0 · reviewed 2026-09-26"));
   assert.ok(component.includes("https://www.roblox.com/games/3260590327/Tower-Defense-Simulator"));
+  assert.ok(component.includes("For Lost Souls matches only"));
+  assert.ok(component.includes("current official page's impossibility claim conflicts with its own Index solo badge"));
 });
 
 test("strategy coverage fails when a solo mode plan is removed", () => {
