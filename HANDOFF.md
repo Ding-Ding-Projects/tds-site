@@ -1,5 +1,9 @@
 # Handoff
 
+## Wiki freshness recheck at 23:36 UTC
+
+The live revision audit completed at `2026-09-26T23:36:22.991Z` against all 2,836 eligible snapshot records. It found 2,836 current revisions, zero stale, missing, or new records, and zero integrity issues. Only `data/wiki-revision-audit.json`'s `auditedAt` value changed; no corpus content refresh was needed.
+
 ## Wiki revision refresh at 23:00 UTC
 
 The live revision audit found one stale record, `Nil Zone II`, with snapshot revision `672718` and current revision `672909`. The full refresh reimported all 2,836 wiki records, regenerated all 83 tower records, and rebuilt the materialized pages. A follow-up audit at `2026-09-26T23:02:19Z` reports 2,836 current, 0 stale, 0 missing, 0 new, and 0 integrity issues. The revision-pinned render audit at `2026-09-26T23:02:27Z` reused 2,648 verified standard-page renders, refreshed one, produced zero unavailable responses, and leaves 2,649 cached pages totaling 299,474,456 bytes. The 187 map pages use the documented source fallback.
