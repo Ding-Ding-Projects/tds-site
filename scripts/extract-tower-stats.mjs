@@ -99,6 +99,27 @@ function operatorCycle(entry, levels) {
   return { formula: "operator-burst-cycle", values };
 }
 
+function commandoCycle(entry, levels) {
+  const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
+  const formula = statistics.match(/\$DPS\$\s*=\s*\(Ammo\s*\*\s*Damage\)\s*\/\s*\(Ammo\s*\*\s*Firerate\s*\+\s*Reload Time\)/i);
+  if (!formula) return null;
+  const start = statistics.search(/!\s*colspan=[^\n]*\|\s*Tower Stats/i);
+  const endOffset = start < 0 ? -1 : statistics.slice(start).search(/^\|\}/m);
+  const end = endOffset < 0 ? -1 : start + endOffset;
+  if (start < 0 || end <= start) return null;
+  const rows = [...statistics.slice(start, end).matchAll(/^\|\s*(\d+)\s*\|\|([^\n]+)$/gm)];
+  const values = rows.map((row) => {
+    const cells = [`${row[1]}`, ...row[2].replace(/^\s*\|\|/, "").split("||")];
+    const numberAt = (index) => {
+      const value = clean(cells[index] ?? "").match(/\d[\d,]*(?:\.\d+)?/)?.[0];
+      return value ? Number(value.replaceAll(",", "")) : null;
+    };
+    return { level: numberAt(0), damage: numberAt(3), interval: numberAt(4), reloadTime: numberAt(5), ammo: numberAt(6) };
+  });
+  if (!values.length || values.length !== levels.length || values.some((value, index) => value.level !== index || !Number.isFinite(value.damage) || !Number.isFinite(value.interval) || !Number.isFinite(value.reloadTime) || value.reloadTime < 0 || !Number.isFinite(value.ammo) || value.ammo < 1 || Math.abs(value.damage - levels[index].damage) > 1e-9 || Math.abs(value.interval - levels[index].interval) > 1e-9)) return null;
+  return { formula: "commando-magazine-cycle", values };
+}
+
 const result = [];
 for (const entry of corpus.entries) {
   if (!entry.wikitext.includes("{{TowerInfobox")) continue;
@@ -121,15 +142,17 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
-  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : "operator-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : "commando-magazine-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
   const dpsMethod = cycle
     ? cycle.formula === "overcharge-cycle"
       ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
-      : "Source-listed burst estimate: (Damage × Burst Count) / (Burst Cooldown + (Firerate × Burst Count)); levels without a burst use Damage / Firerate. Coordination damage buffs are excluded."
+      : cycle.formula === "operator-burst-cycle"
+        ? "Source-listed burst estimate: (Damage × Burst Count) / (Burst Cooldown + (Firerate × Burst Count)); levels without a burst use Damage / Firerate. Coordination damage buffs are excluded."
+        : "Source-listed magazine estimate: (Ammo × Damage) / (Ammo × Firerate + Reload Time). Missile ability damage is excluded."
     : specialDamageMethod
       ? `Special damage cycle (${damageMethod}); generic DPS is not estimated.`
     : revUp

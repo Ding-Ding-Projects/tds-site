@@ -18,6 +18,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   }
   assert.equal(find("Accelerator")?.dpsFormula, "accelerator-overcharge-cycle");
   assert.equal(find("Operator")?.dpsFormula, "operator-burst-cycle");
+  assert.equal(find("Commando")?.dpsFormula, "commando-magazine-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
 });
@@ -38,6 +39,15 @@ test("Operator DPS follows source-listed burst stats and switches to single-fire
   assert.ok(Math.abs(estimateTowerDps(operator, operator.levels[4]) - 28.42) < 0.01);
   assert.equal(estimateTowerDps(operator, operator.levels[5]), 37.5);
   assert.equal(estimateTowerDps(operator, operator.levels[6]), 62.5);
+});
+
+test("Commando DPS follows its source-listed magazine cycle and excludes missile ability damage", () => {
+  const commando = find("Commando");
+  assert.equal(commando.levels.length, 5);
+  assert.deepEqual(commando.levels.map(({ ammo, reloadTime }) => [ammo, reloadTime]), [[30, 2.25], [30, 2], [45, 2], [60, 1.5], [80, 1.25]]);
+  assert.ok(Math.abs(estimateTowerDps(commando, commando.levels[0]) - (30 * 5) / (30 * 0.225 + 2.25)) < 0.01);
+  assert.ok(Math.abs(estimateTowerDps(commando, commando.levels[4]) - (80 * 23) / (80 * 0.1 + 1.25)) < 0.01);
+  assert.match(commando.dpsMethod, /Missile ability damage is excluded/i);
 });
 
 test("detection footnotes remain separate from the detection flag", () => {
@@ -71,6 +81,9 @@ test("the data contract rejects missing records, broken provenance, and false ge
   const operatorIndex = incomplete.findIndex((tower) => tower.name === "Operator");
   incomplete[operatorIndex] = { ...incomplete[operatorIndex], levels: incomplete[operatorIndex].levels.map((level) => ({ ...level })) };
   delete incomplete[operatorIndex].levels[0].burstCount;
+  const commandoIndex = incomplete.findIndex((tower) => tower.name === "Commando");
+  incomplete[commandoIndex] = { ...incomplete[commandoIndex], levels: incomplete[commandoIndex].levels.map((level) => ({ ...level })) };
+  delete incomplete[commandoIndex].levels[0].ammo;
 
   const issues = validateTowerStats(incomplete, corpus.entries);
   assert.ok(issues.some((issue) => issue.includes("tower count mismatch")));
@@ -79,4 +92,5 @@ test("the data contract rejects missing records, broken provenance, and false ge
   assert.ok(issues.some((issue) => issue.includes("special damage method has a generic DPS formula for Biologist")));
   assert.ok(issues.some((issue) => issue.includes("Accelerator cycle inputs are incomplete at level 0")));
   assert.ok(issues.some((issue) => issue.includes("Operator cycle inputs are incomplete at level 0")));
+  assert.ok(issues.some((issue) => issue.includes("Commando cycle inputs are incomplete at level 0")));
 });

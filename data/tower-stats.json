@@ -776,7 +776,7 @@
       "placementCost": 2150,
       "pvpPlacementCost": null,
       "damageMethod": "Pierce Splash (Level 3+)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "commando-magazine-cycle",
       "detectionNotes": [
         {
           "attribute": "Hidden",
@@ -794,7 +794,9 @@
           "hidden": "Level 2+",
           "lead": "Level 3+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": ""
+          "notes": "",
+          "reloadTime": 2.25,
+          "ammo": 30
         },
         {
           "level": 1,
@@ -806,7 +808,9 @@
           "hidden": "Level 2+",
           "lead": "Level 3+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "0.225 > 0.17 Firerate Description = 2.25 > 2 Reload Time Sell Price changes to 1,028"
+          "notes": "0.225 > 0.17 Firerate Description = 2.25 > 2 Reload Time Sell Price changes to 1,028",
+          "reloadTime": 2,
+          "ammo": 30
         },
         {
           "level": 2,
@@ -818,7 +822,9 @@
           "hidden": "Yes",
           "lead": "Level 3+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "+Hidden Detection Hidden Detection +1.5 Range +2 Damage 0.17 > 0.14 Firerate Description = +15 Ammo Sell Price changes to 1,978"
+          "notes": "+Hidden Detection Hidden Detection +1.5 Range +2 Damage 0.17 > 0.14 Firerate Description = +15 Ammo Sell Price changes to 1,978",
+          "reloadTime": 2,
+          "ammo": 45
         },
         {
           "level": 3,
@@ -830,7 +836,9 @@
           "hidden": "Yes",
           "lead": "Level 3+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "+7 Damage Description = +15 Ammo 2 > 1.5 Reload Time Description = •275 Splash Damage •2 Missile Count •0.5 Stun Time •35 Missile Range •1.5 Explosion Range •80 Missile Lifespan •20 Ability Cooldown Sell Price changes to 4,683"
+          "notes": "+7 Damage Description = +15 Ammo 2 > 1.5 Reload Time Description = •275 Splash Damage •2 Missile Count •0.5 Stun Time •35 Missile Range •1.5 Explosion Range •80 Missile Lifespan •20 Ability Cooldown Sell Price changes to 4,683",
+          "reloadTime": 1.5,
+          "ammo": 60
         },
         {
           "level": 4,
@@ -842,7 +850,9 @@
           "hidden": "Yes",
           "lead": "Level 3+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "+2.5 Range +9 Damage 0.14 > 0.1 Firerate Description = +20 Ammo 1.5 > 1.25 Reload Time Description = +50 Splash Damage +2 Missile Count 0.5 > 1 Stun Time +5 Missile Range 20 > 10 Ability Cooldown Description = May or may not be stolen from Area 51. Sell Price changes to 12,988"
+          "notes": "+2.5 Range +9 Damage 0.14 > 0.1 Firerate Description = +20 Ammo 1.5 > 1.25 Reload Time Description = +50 Splash Damage +2 Missile Count 0.5 > 1 Stun Time +5 Missile Range 20 > 10 Ability Cooldown Description = May or may not be stolen from Area 51. Sell Price changes to 12,988",
+          "reloadTime": 1.25,
+          "ammo": 80
         }
       ],
       "source": {
@@ -853,7 +863,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Pierce Splash (Level 3+)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed magazine estimate: (Ammo × Damage) / (Ammo × Firerate + Reload Time). Missile ability damage is excluded."
     },
     {
       "pageid": 55383,
