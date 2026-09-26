@@ -7,6 +7,7 @@ import { createSceneRenderScheduler } from "@/lib/scene-render-scheduler.mjs";
 export default function DefenseScene() {
   const host = useRef<HTMLDivElement>(null);
   const [webglAvailable, setWebglAvailable] = useState(true);
+  const [viewMode, setViewMode] = useState<"3D" | "2D">("3D");
   useEffect(() => {
     const root = host.current;
     if (!root) return;
@@ -17,7 +18,10 @@ export default function DefenseScene() {
     camera.position.set(13, 14, 17);
     let renderer: THREE.WebGLRenderer;
     try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false }); }
-    catch { window.setTimeout(() => setWebglAvailable(false), 0); return; }
+    catch {
+      const fallbackTimer = window.setTimeout(() => { setWebglAvailable(false); setViewMode("2D"); }, 0);
+      return () => window.clearTimeout(fallbackTimer);
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.7));
     renderer.setSize(root.clientWidth, root.clientHeight);
     renderer.shadowMap.enabled = true;
@@ -62,8 +66,14 @@ export default function DefenseScene() {
     const observer = new ResizeObserver(resize); observer.observe(root);
     return () => { scheduler.stop(); motionPreference.removeEventListener("change", onMotionPreferenceChange); observer.disconnect(); renderer.domElement.removeEventListener("pointerdown", down); renderer.domElement.removeEventListener("pointermove", move); renderer.domElement.removeEventListener("pointerup", up); renderer.domElement.removeEventListener("pointercancel", up); root.removeEventListener("keydown", keydown); root.removeEventListener("scene-rotate", rotate); scene.traverse((object) => { if (object instanceof THREE.Mesh) { object.geometry.dispose(); if (Array.isArray(object.material)) object.material.forEach((material) => material.dispose()); else object.material.dispose(); } }); renderer.dispose(); renderer.domElement.remove(); };
   }, []);
-  return <>
-    <p id="defense-scene-description" className="sr-only">Illustrative defense scene: a winding path runs from the left side through the center to the lower right, and a red enemy marker is shown along it. Five towers stand beside the path, with translucent rings showing approximate attack range. The marker travels along the path when scene motion is enabled. The scene is a visual overview, not a playable map; exact placement geometry and attack calculations are not represented.</p>
-    <div className="scene-canvas" ref={host} tabIndex={webglAvailable ? 0 : -1} aria-label="Interactive 3D defense scene. Drag to orbit, use arrow keys, or use the rotate controls below." aria-describedby="defense-scene-description">{webglAvailable ? <><span className="scene-wave">WAVE 28 <b>● DEMO</b></span><span className="scene-health">BASE HEALTH <b>100%</b></span><div className="scene-controls" aria-label="3D view controls"><button type="button" aria-label="Rotate view left" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "left" }))}>←</button><button type="button" aria-label="Reset 3D view" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "reset" }))}>↺</button><button type="button" aria-label="Rotate view right" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "right" }))}>→</button></div></> : <div className="scene-fallback" role="status"><strong>3D view unavailable</strong><span>A route runs around five towers. The tower index, statistics, and text strategy remain usable without WebGL.</span></div>}</div>
-  </>;
+  return <section className="scene-view" aria-label="Defense scene preview">
+    <p id="defense-scene-description" className="sr-only">Illustrative defense scene: a winding path runs from the left side through the center to the lower right, and a red enemy marker is shown along it. Five towers stand beside the path, with translucent rings showing approximate attack range. In the 3D view, the marker travels along the path when scene motion is enabled. The 2D schematic is static. Neither view is a playable map; exact placement geometry and attack calculations are not represented.</p>
+    <div className={`scene-canvas${viewMode === "2D" ? " scene-canvas-hidden" : ""}`} ref={host} tabIndex={webglAvailable && viewMode === "3D" ? 0 : -1} aria-hidden={viewMode === "2D"} aria-label="Interactive 3D defense scene. Drag to orbit, use arrow keys, or use the rotate controls below." aria-describedby="defense-scene-description">{webglAvailable ? <><span className="scene-wave">WAVE 28 <b>● DEMO</b></span><span className="scene-health">BASE HEALTH <b>100%</b></span><div className="scene-controls" aria-label="3D view controls"><button type="button" aria-label="Rotate view left" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "left" }))}>←</button><button type="button" aria-label="Reset 3D view" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "reset" }))}>↺</button><button type="button" aria-label="Rotate view right" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "right" }))}>→</button></div></> : <div className="scene-fallback" role="status"><strong>3D view unavailable</strong><span>A route runs around five towers. The tower index, statistics, and text strategy remain usable without WebGL.</span></div>}</div>
+    {viewMode === "2D" && <div className="scene-canvas scene-map-2d" role="img" aria-label="Static two-dimensional schematic of one winding enemy path and five towers with approximate range circles" aria-describedby="defense-scene-description"><svg viewBox="0 0 600 300" aria-hidden="true" focusable="false"><path className="scene-map-grid" d="M0 50H600M0 100H600M0 150H600M0 200H600M0 250H600M50 0V300M100 0V300M150 0V300M200 0V300M250 0V300M300 0V300M350 0V300M400 0V300M450 0V300M500 0V300M550 0V300"/><path className="scene-map-route" d="M20 225H145V145H310V230H470V275H590"/><g className="scene-map-tower"><circle cx="105" cy="175" r="48"/><rect x="92" y="162" width="26" height="26" rx="5"/><circle cx="230" cy="90" r="42"/><rect x="218" y="78" width="24" height="24" rx="5"/><circle cx="345" cy="183" r="46"/><rect x="332" y="170" width="26" height="26" rx="5"/><circle cx="478" cy="226" r="40"/><rect x="466" y="214" width="24" height="24" rx="5"/><circle cx="65" cy="74" r="38"/><rect x="54" y="63" width="22" height="22" rx="5"/></g><circle className="scene-map-enemy" cx="225" cy="145" r="8"/></svg><span className="scene-map-caption">Static schematic · not to scale</span></div>}
+    <div className="scene-view-toggle" role="group" aria-label="Defense scene view">
+      <button type="button" aria-pressed={viewMode === "3D"} disabled={!webglAvailable} title={webglAvailable ? "Show the 3D view" : "3D view unavailable"} onClick={() => setViewMode("3D")}>3D</button>
+      <button type="button" aria-pressed={viewMode === "2D"} onClick={() => setViewMode("2D")}>2D map</button>
+      <span className="scene-view-status" aria-live="polite">{viewMode === "2D" && !webglAvailable ? "WebGL is unavailable. Showing the 2D schematic." : `${viewMode} view`}</span>
+    </div>
+  </section>;
 }
