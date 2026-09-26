@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">TDS Strategy Lab mark</title>
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#294c46"/><stop offset="1" stop-color="#162427"/></linearGradient>
+    <linearGradient id="tower" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c0f1d9"/><stop offset="1" stop-color="#68b8a2"/></linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#field)"/>
+  <path d="M7 51h11V29h18v14h20" fill="none" stroke="#e9ae68" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 27h14l5 5v13H20V32z" fill="url(#tower)" stroke="#d8f0df" stroke-width="1.5"/>
+  <path d="M26 25v-6h12v6m-6-6v-5m-4 9h8" fill="none" stroke="#dff8e8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="52" cy="43" r="3" fill="#f27a69"/>
+</svg>

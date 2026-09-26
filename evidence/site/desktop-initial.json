@@ -1,0 +1,8 @@
+{
+  "path": "evidence/site/desktop-initial.png",
+  "dimensions": "1575x1499",
+  "sha256": "710b5ac1f8993d4392294168d35073cd6031a61309d162f1c9f71d8da9c18db2",
+  "captureTime": "Unavailable from validated capture provenance",
+  "page": "http://127.0.0.1:8787/",
+  "state": "Initial desktop render, Frost solo plan, interactive scene visible"
+}

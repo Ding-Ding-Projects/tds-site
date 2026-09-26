@@ -1,0 +1,11 @@
+# Data pipeline
+
+The 2026-09-26 snapshot contains 2,649 non-redirect pages from namespace 0 and 186 entries from namespace 2900, for 2,835 source records. The wiki header and API title inventory reported different totals on the same date, so the exact paginated API inventory is recorded rather than replaced by a guessed fixed total.
+
+Each content record retains its namespace, page ID, title, current revision ID, source timestamp, source URL, history URL, retrieval snapshot date, and the wiki copyright-policy link. The guide attaches the complete imported revision source in an expandable section and indexes its full text on demand. The concise readable extract is not a full rendered page. Redirects remain aliases to canonical guide entries. Talk, user/profile, discussion, deleted, and revision-history archives are outside this guide's corpus.
+
+The current wiki policy says mixed current pages may be reused as adaptations under CC BY-SA 4.0 International when attributed and marked as changed; unchanged pre-2026-09-12 wording remains CC BY-SA 3.0. Every imported record shows the current-page adaptation notice, page link, history link, and policy link. Media files remain excluded unless individually verified.
+
+`scripts/import-wiki.mjs` uses a descriptive user agent, namespace continuation, 50-page revision batches, and a short inter-request delay. `scripts/extract-tower-stats.mjs` structures 83 tower infobox pages and upgrade levels from the same dated snapshot. `scripts/materialize-wiki.mjs` produces one lazy-loaded file per article, a title index, and a full-text inverted search index. The source markup is displayed as escaped text, so imported markup cannot execute. Retry/resume checkpoints and an automated missing/stale-entry report remain open work.
+
+The MediaWiki API's `action=parse` route returned a Cloudflare challenge to the current Node fetch context on 2026-09-26. Therefore this snapshot preserves complete source markup and complete-text search, while the readable article body currently uses the API extract and may omit later sections, tables, and expanded templates. The original rendered article and revision history remain one click away. Do not claim the native readable renderer is complete until a sanitized full-page render path works and is verified.

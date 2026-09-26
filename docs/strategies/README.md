@@ -1,0 +1,5 @@
+# Strategies
+
+Every strategy is tied to a mode, map, player count, game version, last-checked date, tower ownership assumptions, skill assumptions, and its evidence sources. Separate creator-demonstrated runs, community-reported builds, wiki advice, and editorial analysis. Solo coverage is required for every mode where solo play is supported; do not infer solo viability from a team strategy.
+
+The front planner has distinct Solo and Co-op views. Solo notes exist for 14 modes. Most are conservative planning checklists until a complete, version-stamped route is independently verified. Frost, Molten, Fallen, and Pizza Party have linked creator solo-guide reports; Badlands II, Pizza Party, Molten, Fallen, and Polluted Wasteland II also have solo triumph badges listed by the Official Wiki. Hardcore and Voidcore community reports remain anecdotal, with Voidcore reports explicitly marked as conflicting. Polluted Wasteland II has official evidence of a solo triumph, but no reproduced route here. See [solo strategy evidence](../research/solo-strategy-evidence.md).
