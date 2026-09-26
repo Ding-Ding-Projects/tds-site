@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-26T22:14:00.204Z",
-  "revisionAllowlistSha256": "f5b7ca3f945fb4d29e809beebff0b5d729db6a5d6b7c1b945476e2c84b3254f4",
+  "generatedAt": "2026-09-26T23:02:27.561Z",
+  "revisionAllowlistSha256": "17e8e76ab9c9b058ac284ae479b58e335fcec94f682f755dcf7a9f73348c0877",
   "standardPageCount": 2649,
   "entries": [
     {
@@ -18528,10 +18528,10 @@
     },
     {
       "pageid": 78869,
-      "revisionId": 672718,
+      "revisionId": 672909,
       "file": "78869.json",
-      "sizeBytes": 72438,
-      "sha256": "57c2e5822fe76b47cbe1f0032b11220e3b332279042ca3d8ce94d9467a5cffdd"
+      "sizeBytes": 72505,
+      "sha256": "e3908c0fb7bfd2ca07506a3b6b9eb7320f0a80a5219a4edbfc8af9d389510f38"
     },
     {
       "pageid": 78878,

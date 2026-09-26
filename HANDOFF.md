@@ -1,5 +1,9 @@
 # Handoff
 
+## Wiki revision refresh at 23:00 UTC
+
+The live revision audit found one stale record, `Nil Zone II`, with snapshot revision `672718` and current revision `672909`. The full refresh reimported all 2,836 wiki records, regenerated all 83 tower records, and rebuilt the materialized pages. A follow-up audit at `2026-09-26T23:02:19Z` reports 2,836 current, 0 stale, 0 missing, 0 new, and 0 integrity issues. The revision-pinned render audit at `2026-09-26T23:02:27Z` reused 2,648 verified standard-page renders, refreshed one, produced zero unavailable responses, and leaves 2,649 cached pages totaling 299,474,456 bytes. The 187 map pages use the documented source fallback.
+
 ## General Solo survival role skeleton
 
 The current Solo planner now surfaces one recent community role progression for Casual, Easy, and Intermediate: Electroshocker for early defense, Ranger for the midgame, Golden Minigunner for late damage, and Commander plus DJ Booth as support. Each mode card says that the source does not supply wave timings, map, tower levels, or a verified run, and prompts the player to adapt the roles to that mode's cash and enemy order. The strategy evidence document and playbook record the same caveat and source link. This is a community hypothesis, not a per-mode verified purchase route.
@@ -16,9 +20,9 @@ The GitHub Wiki remote lookup returned `Repository not found`, so no Wiki page w
 
 ## Full wiki freshness and render refresh
 
-On 2026-09-26, the first live revision audit found 146 stale records in the 2,836-page corpus. A later same-day audit found 32 additional stale records. The latest refresh reimported all 2,836 current page records, rebuilt all 83 tower records, and materialized the article pages. The final revision audit reports 2,836 current, 0 stale, 0 missing, 0 new, and 0 integrity issues. The page-ID inventory remains 2,836 with no additions, removals, renames, or namespace moves.
+On 2026-09-26, the first live revision audit found 146 stale records in the 2,836-page corpus. A later same-day audit found 32 additional stale records, followed by one more stale page, `Nil Zone II` (snapshot `672718`, current `672909`). The latest full refresh reimported all 2,836 records, rebuilt all 83 tower records, and materialized the article pages. The final revision audit at `2026-09-26T23:02:19Z` reports 2,836 current, 0 stale, 0 missing, 0 new, and 0 integrity issues. The live page-ID inventory still matches 2,836 with no additions, removals, renames, or namespace moves.
 
-The latest revision-render audit reused 2,617 verified files and refreshed 32 from exact current revisions. All 2,649 standard-page renders are present and pass, totaling 299,474,389 bytes; 187 map pages use the documented source fallback; 0 failures. The wiki suite passes 92/92, lint passes, and the production build completes with existing bundle-size and route-classification warnings. Fresh article-surface captures remain unavailable.
+The latest revision-render audit at `2026-09-26T23:02:27Z` reused 2,648 verified files and refreshed one exact current revision, with 88,658 response bytes and zero unavailable responses. All 2,649 standard-page renders are present, totaling 299,474,456 bytes; 187 map pages use the documented source fallback; 0 failures. Lint passes and the production build completes with existing bundle-size and route-classification warnings. Automated tests were not run after this refresh. Fresh article-surface captures remain unavailable.
 
 ## Official Frost Solo encounter checkpoints
 
