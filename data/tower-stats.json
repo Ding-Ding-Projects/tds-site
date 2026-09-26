@@ -3347,7 +3347,7 @@
       "placementCost": 500,
       "pvpPlacementCost": null,
       "damageMethod": "Splash Fire (Level 2)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "hallow-punk-burn-cycle",
       "detectionNotes": [
         {
           "attribute": "Hidden",
@@ -3369,7 +3369,11 @@
           "hidden": "Level 2+",
           "lead": "Level 0+",
           "flying": "Level 3",
-          "notes": ""
+          "notes": "",
+          "splashDamage": 12,
+          "splashInterval": 4.5,
+          "burnDamage": null,
+          "burnTick": null
         },
         {
           "level": 1,
@@ -3381,7 +3385,11 @@
           "hidden": "Level 2+",
           "lead": "Level 0+",
           "flying": "Level 3",
-          "notes": "+6 Damage 4.5 > 4 Firerate +3 Range 3 > 3.5 Explosion Range Sell Price changes to 266"
+          "notes": "+6 Damage 4.5 > 4 Firerate +3 Range 3 > 3.5 Explosion Range Sell Price changes to 266",
+          "splashDamage": 18,
+          "splashInterval": 4,
+          "burnDamage": null,
+          "burnTick": null
         },
         {
           "level": 2,
@@ -3393,7 +3401,11 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "Level 3",
-          "notes": "+32 Damage 35 > 45 Rocket Speed +Hidden Detection Hidden Detection Description = •6 Burn Time •6 Burn Damage •1 Tick Sell Price changes to 1,166"
+          "notes": "+32 Damage 35 > 45 Rocket Speed +Hidden Detection Hidden Detection Description = •6 Burn Time •6 Burn Damage •1 Tick Sell Price changes to 1,166",
+          "splashDamage": 50,
+          "splashInterval": 4,
+          "burnDamage": 6,
+          "burnTick": 1
         },
         {
           "level": 3,
@@ -3405,7 +3417,11 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "Yes",
-          "notes": "+100 Damage 6 > 7 Burn Time +6 Burn Damage 3.5 > 5 Explosion Range +2.5 Knockback Force Knockback Force +Flying Detection Flying Detection Sell Price changes to 3,590"
+          "notes": "+100 Damage 6 > 7 Burn Time +6 Burn Damage 3.5 > 5 Explosion Range +2.5 Knockback Force Knockback Force +Flying Detection Flying Detection Sell Price changes to 3,590",
+          "splashDamage": 150,
+          "splashInterval": 4,
+          "burnDamage": 12,
+          "burnTick": 1
         }
       ],
       "source": {
@@ -3416,7 +3432,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Splash Fire (Level 2)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed combined estimate: Splash Damage / Firerate + Burn Damage / Tick. Assumes one enemy receives full splash damage; projectile travel time and multi-target blast output are excluded."
     },
     {
       "pageid": 41443,

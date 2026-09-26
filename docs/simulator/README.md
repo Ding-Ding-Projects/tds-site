@@ -28,6 +28,10 @@ The current [Slime Trooper page](https://tds.wiki/w/Slime_Trooper) publishes `DP
 
 The current [Pulse Trooper page](https://tds.wiki/w/Pulse_Trooper) publishes `DPS = Damage / Firerate` for its main pulse and lists `Max Hits` separately. The simulator calculates the per-target main-pulse rate and does not multiply by the maximum-hit value. Levels 4–5 also list the map-wide Sweeper lasers; those ability hits are excluded from the regular attack rate.
 
+## Hallow Punk splash and burn estimate
+
+The current [Hallow Punk page](https://tds.wiki/w/Hallow_Punk) publishes `Splash Damage / Firerate + Burn Damage / Tick` and states that one enemy receives full splash damage. The four-level model uses the named source columns; Levels 0–1 have no burn contribution, while Levels 2–3 add the listed burn rate. Projectile travel time and damage to additional blast targets are excluded.
+
 `npm run test:wiki` checks all extracted tower rows against the imported revision snapshot, including source links, license policy links, level data, damage-method classification, and placement-limit shape. Negative cases remove a row, corrupt revision provenance, set an invalid cap, assign a generic formula to a special-damage tower, or remove a required Accelerator, Operator, Commando, Soldier, Golden Soldier, Freezer, Demoman, Golden Demoman, Mortar, Paintballer, Ranger, or Rocketeer cycle input; each must be rejected.
 
 ## Snowballer source formula
