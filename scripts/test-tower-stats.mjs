@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { estimateInvestment, estimateTowerDps, validateTowerStats } from "../lib/tower-stats-contract.mjs";
+import { estimateInvestment, estimateTowerDps, estimateTowerMaxDps, validateTowerStats } from "../lib/tower-stats-contract.mjs";
 
 const catalog = JSON.parse(await readFile(new URL("../data/tower-stats.json", import.meta.url), "utf8"));
 const corpus = JSON.parse(await readFile(new URL("../data/wiki-corpus.json", import.meta.url), "utf8"));
@@ -10,6 +10,24 @@ const find = (name) => catalog.towers.find((tower) => tower.name === name);
 test("every imported tower has complete source-linked simulator fields", () => {
   assert.equal(catalog.count, catalog.towers.length);
   assert.deepEqual(validateTowerStats(catalog.towers, corpus.entries), []);
+});
+
+test("Tesla keeps listed DPS separate from its source maximum-chain Smite estimate", async () => {
+  const tesla = find("Tesla");
+  assert.equal(tesla.source.revisionId, 667818);
+  assert.equal(tesla.dpsFormula, "tesla-chain-smite-cycle");
+  assert.deepEqual(tesla.levels.map((level) => Number(estimateTowerDps(tesla, level).toFixed(2))), [27.5, 35, 43.75, 56.25, 89.29]);
+  assert.deepEqual(tesla.levels.map((level) => Number(estimateTowerMaxDps(tesla, level).toFixed(2))), [55, 105, 172.92, 242.97, 360.71]);
+  assert.equal(estimateTowerDps(tesla, { ...tesla.levels[2], interval: 0 }), null);
+  assert.equal(estimateTowerMaxDps(tesla, { ...tesla.levels[2], smiteMeter: 0 }), null);
+  assert.equal(estimateTowerMaxDps(tesla, { ...tesla.levels[2], splashMaxHits: null }), null);
+  const broken = { ...tesla, levels: tesla.levels.map((level) => ({ ...level })) };
+  broken.levels[2].smiteMeter = null;
+  assert.ok(validateTowerStats([broken], [corpus.entries.find((entry) => entry.pageid === broken.pageid)]).includes("Tesla chain-and-Smite inputs are incomplete at level 2"));
+  const component = await readFile(new URL("../components/tower-simulator.tsx", import.meta.url), "utf8");
+  assert.ok(component.includes("estimateTowerMaxDps(tower, stat)"));
+  assert.ok(component.includes("MAX CHAIN DPS"));
+  assert.ok(component.includes("Maximum chain DPS follows the wiki&apos;s rounded-up hits-per-Smite formula"));
 });
 
 test("the simulator withholds generic DPS for special damage methods", () => {
