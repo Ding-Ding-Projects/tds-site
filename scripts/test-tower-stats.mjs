@@ -22,6 +22,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Soldier")?.dpsFormula, "soldier-burst-cycle");
   assert.equal(find("Golden Soldier")?.dpsFormula, "golden-soldier-cycle");
   assert.equal(find("Freezer")?.dpsFormula, "freezer-damage-cycle");
+  assert.equal(find("Toxic Gunner")?.dpsFormula, "toxic-gunner-poison-cycle");
   assert.equal(find("Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Mortar")?.dpsFormula, "splash-damage-cycle");
@@ -47,6 +48,27 @@ test("Snowballer uses the wiki-listed single-target splash cycle and does not mu
   const broken = { ...snowballer, levels: snowballer.levels.map((level) => ({ ...level })) };
   broken.levels[3].splashMaxHits = null;
   assert.ok(validateTowerStats([broken], catalog.towers.filter((tower) => tower.name === "Snowballer").map(() => corpus.entries.find((entry) => entry.pageid === broken.pageid))).includes("Snowballer maximum-hit source value is missing at level 3"));
+});
+
+test("Toxic Gunner combines source-listed burst or single-fire DPS with poison ticks", () => {
+  const toxicGunner = find("Toxic Gunner");
+  assert.deepEqual(toxicGunner.levels.map(({ damage, poisonDamage, burstCount, interval, tick, cooldown }) => [damage, poisonDamage, burstCount, interval, tick, cooldown]), [
+    [1, 1, 4, 0.12, 1, 1.2],
+    [1, 1, 4, 0.12, 1, 0.6],
+    [1, 3, 8, 0.12, 1, 0.6],
+    [4, 3, 20, 0.12, 1, 0.6],
+    [8, 10, null, 0.12, 1, 0],
+  ]);
+  assert.deepEqual(toxicGunner.levels.map((level) => estimateTowerDps(toxicGunner, level)), [
+    1 + 4 / 1.68,
+    1 + 4 / 1.08,
+    3 + 8 / 1.56,
+    3 + 80 / 3,
+    10 + 8 / 0.12,
+  ]);
+  assert.match(toxicGunner.dpsMethod, /assumes every shot poisons the same enemy/i);
+  assert.equal(estimateTowerDps(toxicGunner, { ...toxicGunner.levels[0], tick: 0 }), null);
+  assert.equal(estimateTowerDps(toxicGunner, { ...toxicGunner.levels[0], burstCount: null }), null);
 });
 
 test("Accelerator DPS follows its source-listed charge, tick, cooldown, and overcharge cycle", () => {

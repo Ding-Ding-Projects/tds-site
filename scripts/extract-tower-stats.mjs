@@ -265,6 +265,33 @@ function directSplashCycle(entry, levels) {
   return { formula: "direct-splash-cycle", values };
 }
 
+function toxicGunnerCycle(entry, levels) {
+  const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
+  const directFormula = /\$DPSGUN\$\s*=\s*\(Damage\s*\*\s*Burst Count\)\s*\/\s*\(Cooldown\s*\+\s*\(Firerate\s*\*\s*Burst Count\)\)/i.test(statistics);
+  const poisonFormula = /\$DPSPOISON\$\s*=\s*\(Poison Damage\s*\/\s*Tick\)/i.test(statistics);
+  if (!directFormula || !poisonFormula || !/\$DPS\$\s*=\s*\$DPSGUN\$\s*\+\s*\$DPSPOISON\$/i.test(statistics)) return null;
+  const header = statistics.match(/^!\s*Level\s*!!([^\n]+)$/m);
+  const columns = header ? ["Level", ...header[1].split("!!").map((column) => clean(column))] : [];
+  const index = (name) => columns.findIndex((column) => new RegExp(`^${name}(?:\\b|\\$)`, "i").test(column));
+  const indexes = Object.fromEntries(["Damage", "Poison Damage", "Burst Count", "Firerate", "Tick", "Cooldown"].map((name) => [name, index(name)]));
+  if (Object.values(indexes).some((value) => value < 1)) return null;
+  const start = statistics.search(/^!\s*Level\s*!![^\n]*Poison Damage[^\n]*Burst Count[^\n]*Cooldown/m);
+  const endOffset = start < 0 ? -1 : statistics.slice(start).search(/^\|\}/m);
+  const end = endOffset < 0 ? -1 : start + endOffset;
+  if (start < 0 || end <= start) return null;
+  const rows = [...statistics.slice(start, end).matchAll(/^\|\s*(\d+)\s*\|\|([^\n]+)$/gm)];
+  const values = rows.map((row) => {
+    const cells = [row[1], ...row[2].replace(/^\s*\|\|/, "").split("||")];
+    const numberAt = (column) => {
+      const value = clean(cells[indexes[column]] ?? "").match(/\d[\d,]*(?:\.\d+)?/);
+      return value ? Number(value[0].replaceAll(",", "")) : null;
+    };
+    return { level: Number(row[1]), damage: numberAt("Damage"), poisonDamage: numberAt("Poison Damage"), burstCount: /N\/A/i.test(clean(cells[indexes["Burst Count"]] ?? "")) ? null : numberAt("Burst Count"), interval: numberAt("Firerate"), tick: numberAt("Tick"), cooldown: numberAt("Cooldown") };
+  });
+  if (values.length !== levels.length || values.some((value, position) => value.level !== position || ![value.damage, value.poisonDamage, value.interval, value.tick, value.cooldown].every(Number.isFinite) || value.damage <= 0 || value.poisonDamage < 0 || value.interval <= 0 || value.tick <= 0 || value.cooldown < 0 || (value.burstCount !== null && (!Number.isFinite(value.burstCount) || value.burstCount < 1)) || Math.abs(value.damage - levels[position].damage) > 1e-9 || (value.burstCount === null && value.cooldown !== 0))) return null;
+  return { formula: "toxic-gunner-poison-cycle", values };
+}
+
 const result = [];
 for (const entry of corpus.entries) {
   if (!entry.wikitext.includes("{{TowerInfobox")) continue;
@@ -287,11 +314,11 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : entry.title === "Snowballer" ? snowballerSplashCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : entry.title === "Snowballer" ? snowballerSplashCycle(entry, levels) : entry.title === "Toxic Gunner" ? toxicGunnerCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
-  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : cycle.formula === "direct-splash-cycle" ? "direct-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
+  const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "toxic-gunner-poison-cycle" ? "toxic-gunner-poison-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : cycle.formula === "missile-splash-cycle" ? "missile-splash-cycle" : cycle.formula === "direct-splash-cycle" ? "direct-splash-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
   let dpsMethod = cycle
     ? cycle.formula === "overcharge-cycle"
       ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
@@ -301,8 +328,10 @@ for (const entry of corpus.entries) {
           ? "Source-listed magazine estimate: (Ammo × Damage) / (Ammo × Firerate + Reload Time). Missile ability damage is excluded."
         : cycle.formula === "golden-soldier-cycle"
           ? "Source-listed burst estimate: (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)); single-fire levels use Damage / Firerate."
-          : cycle.formula === "freezer-damage-cycle"
+      : cycle.formula === "freezer-damage-cycle"
             ? "Source-listed direct-damage cycle: burst levels use (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)); non-burst levels use Damage / Firerate. Chill and slowdown effects are excluded."
+            : cycle.formula === "toxic-gunner-poison-cycle"
+              ? "Source-listed combined estimate: burst gun DPS + Poison Damage / Tick; the single-fire level uses Damage / Firerate + Poison Damage / Tick. Assumes every shot poisons the same enemy."
             : cycle.formula === "splash-damage-cycle"
               ? entry.title === "Snowballer"
                 ? "Source-listed Snowballer estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count, projectile travel time, slowdown, and freeze effects are excluded."

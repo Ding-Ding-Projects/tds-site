@@ -30,7 +30,9 @@ GitHub issue #1 remains open for the broader delivery. Progress is recorded in D
 
 ## Latest simulator addition
 
-Snowballer now has a source-backed `Damage / Firerate` single-target-equivalent estimate. The extractor reads every level's damage, interval, and maximum hits from its current statistics table; the calculator excludes its slowdown and freeze effects and does not multiply the hit count into DPS. Source-data regressions pass for all four levels and reject a missing hit-count value. The new visible result still needs a genuine built-site capture.
+Toxic Gunner now has a source-backed combined burst-and-poison DPS estimate for all five levels. The extractor reads its six formula inputs from the imported regular-mode statistics table. Levels 0–3 use `(Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)) + (Poison Damage / Tick)`; Level 4 uses `Damage / Firerate + (Poison Damage / Tick)`. The estimate preserves the wiki's same-enemy poison assumption and does not turn slowdown or defense melting into DPS. The focused simulator suite passes 18/18, including invalid and missing-input cases. The new visible result still needs a genuine built-site capture.
+
+Solo strategy coverage remains part of the delivered planner: it separates Solo from Co-op, provides 15 scenario plans with four Solo checkpoints each, and labels reports, editorial adaptations, and unverified routes separately. The current public evidence does not support claiming every route as a reproducible Solo clear.
 
 ## Remaining work
 

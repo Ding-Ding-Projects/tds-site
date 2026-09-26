@@ -6900,7 +6900,7 @@
       "placementCost": 525,
       "pvpPlacementCost": null,
       "damageMethod": "Burst (Level 0-3) Poison (Level 0+) Single (Level 4)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "toxic-gunner-poison-cycle",
       "detectionNotes": [],
       "levels": [
         {
@@ -6908,60 +6908,80 @@
           "title": "Base",
           "cost": 525,
           "damage": 1,
-          "interval": 1,
+          "interval": 0.12,
           "range": 10,
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 3+",
-          "notes": ""
+          "notes": "",
+          "poisonDamage": 1,
+          "burstCount": 4,
+          "tick": 1,
+          "cooldown": 1.2
         },
         {
           "level": 1,
           "title": "Faster Reloading",
           "cost": 200,
           "damage": 1,
-          "interval": 1,
+          "interval": 0.12,
           "range": 10,
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 3+",
-          "notes": "1.2 > 0.6 Cooldown Sell Price changes to 241"
+          "notes": "1.2 > 0.6 Cooldown Sell Price changes to 241",
+          "poisonDamage": 1,
+          "burstCount": 4,
+          "tick": 1,
+          "cooldown": 0.6
         },
         {
           "level": 2,
           "title": "Poisonous Bullets",
           "cost": 800,
           "damage": 1,
-          "interval": 1,
+          "interval": 0.12,
           "range": 14,
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 3+",
-          "notes": "+4 Range 4 > 8 Burst +2 Poison Damage 10% > 20% Slowdown Sell Price changes to 508"
+          "notes": "+4 Range 4 > 8 Burst +2 Poison Damage 10% > 20% Slowdown Sell Price changes to 508",
+          "poisonDamage": 3,
+          "burstCount": 8,
+          "tick": 1,
+          "cooldown": 0.6
         },
         {
           "level": 3,
           "title": "Sinister Gear",
           "cost": 3500,
           "damage": 4,
-          "interval": 1,
+          "interval": 0.12,
           "range": 14,
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Yes",
-          "notes": "+3 Damage 8 > 20 Burst +Flying Detection Flying Detection Melts 3% defense every tick Defense Melting Sell Price changes to 1,675"
+          "notes": "+3 Damage 8 > 20 Burst +Flying Detection Flying Detection Melts 3% defense every tick Defense Melting Sell Price changes to 1,675",
+          "poisonDamage": 3,
+          "burstCount": 20,
+          "tick": 1,
+          "cooldown": 0.6
         },
         {
           "level": 4,
           "title": "Going Nuclear!",
           "cost": 14000,
           "damage": 8,
-          "interval": 1,
+          "interval": 0.12,
           "range": 18,
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Yes",
-          "notes": "+4 Range +4 Damage 0.6 > 0 Cooldown +7 Poison Damage 6 > 10 Poison Time 20% > 30% Slowdown Sell Price changes to 6,341"
+          "notes": "+4 Range +4 Damage 0.6 > 0 Cooldown +7 Poison Damage 6 > 10 Poison Time 20% > 30% Slowdown Sell Price changes to 6,341",
+          "poisonDamage": 10,
+          "burstCount": null,
+          "tick": 1,
+          "cooldown": 0
         }
       ],
       "source": {
@@ -6972,7 +6992,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Burst (Level 0-3) Poison (Level 0+) Single (Level 4)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed combined estimate: burst gun DPS + Poison Damage / Tick; the single-fire level uses Damage / Firerate + Poison Damage / Tick. Assumes every shot poisons the same enemy."
     },
     {
       "pageid": 36680,
