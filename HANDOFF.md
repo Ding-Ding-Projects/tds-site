@@ -1,5 +1,11 @@
 # Handoff
 
+## General Solo survival role skeleton
+
+The current Solo planner now surfaces one recent community role progression for Casual, Easy, and Intermediate: Electroshocker for early defense, Ranger for the midgame, Golden Minigunner for late damage, and Commander plus DJ Booth as support. Each mode card says that the source does not supply wave timings, map, tower levels, or a verified run, and prompts the player to adapt the roles to that mode's cash and enemy order. The strategy evidence document and playbook record the same caveat and source link. This is a community hypothesis, not a per-mode verified purchase route.
+
+For this follow-up, `npm run lint` passes and `npm run build` completes with the existing large-chunk and route-classification warnings. Automated tests were not run. A current built interface capture remains unavailable through the isolated route.
+
 ## Solo planner and Tesla simulator update
 
 The Solo planner already has separate Solo and Co-op mode plans, four Solo checkpoints for each of 15 scenarios, and clearly attributed community candidates with evidence limits. This change adds Tesla's current source-listed inputs to the simulator so players can compare its Solo loadout role: regular DPS remains `Damage / Firerate`, while a separate maximum-chain estimate applies the wiki's Max Hits and rounded-up Smite cycle. The Tesla notes call out that Smite AoE can hit more targets than this single-chain upper estimate, and the comparison view exposes the metric only when a selected tower supports it.

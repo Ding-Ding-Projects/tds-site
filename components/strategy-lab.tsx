@@ -149,6 +149,15 @@ const soloCheckpoints: Record<string, { title: string; action: string; basis: st
 };
 
 const soloLoadoutCandidates: Record<string, { label: string; caveat: string; source: string }[]> = {
+  "Casual": [
+    { label: "General survival role skeleton: Electroshocker · Ranger · Golden Minigunner · Commander · DJ Booth", caveat: "A September 2026 community reply suggests an early Electroshocker, midgame Ranger, lategame Golden Minigunner, and Commander plus DJ Booth. It does not name a mode, map, upgrade timing, or verified clear; adapt the roles to Casual's wave order and cash instead of treating this as a purchase sequence.", source: "https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/" },
+  ],
+  "Easy": [
+    { label: "General survival role skeleton: Electroshocker · Ranger · Golden Minigunner · Commander · DJ Booth", caveat: "A September 2026 community reply suggests an early Electroshocker, midgame Ranger, lategame Golden Minigunner, and Commander plus DJ Booth. It does not name a mode, map, upgrade timing, or verified clear; adapt the roles to Easy's starting cash and wave bonuses instead of treating this as a purchase sequence.", source: "https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/" },
+  ],
+  "Intermediate": [
+    { label: "General survival role skeleton: Electroshocker · Ranger · Golden Minigunner · Commander · DJ Booth", caveat: "A September 2026 community reply suggests an early Electroshocker, midgame Ranger, lategame Golden Minigunner, and Commander plus DJ Booth. It does not name a mode, map, upgrade timing, or verified clear; adapt the roles to Patient Zero's wave timing and the selected map instead of treating this as a purchase sequence.", source: "https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/" },
+  ],
   "Frost": [
     { label: "No special towers: Militant · Warden · Turret · DJ Booth · Commander", caveat: "September 2026 community suggestion. No wave order or run log was provided; verify detection and whether both wave 33 and wave 40 boss budgets fit.", source: "https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/" },
     { label: "Special towers: Operator · Engineer · Juggernaut · Hacker · DJ Booth", caveat: "Separate community suggestion, not a demonstrated route. Confirm upgrade-specific flying, hidden, and lead coverage before relying on it.", source: "https://www.reddit.com/r/TDS_Roblox/comments/1w0pzb3/basic_questions_megathread/" },
