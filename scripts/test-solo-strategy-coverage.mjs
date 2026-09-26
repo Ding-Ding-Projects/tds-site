@@ -22,6 +22,16 @@ test("Fallen Solo exposes the attributed staged proposal without calling it a ve
   assert.equal(containsCandidate(component.split(sourceUrl).join("")), false, "removing every copy of the source link must remove the sourced-candidate evidence");
 });
 
+test("Fallen Solo includes the reported wave-35 economy and pressure case with its evidence limit", () => {
+  const sourceUrl = "https://www.reddit.com/r/TowerDefenseSimulator/comments/1vaobut/any-tips-for-solo-fallen/";
+  const hasEvidence = (source) => source.includes(sourceUrl)
+    && source.includes("Economy-first pressure test: Engineer · Kingpin · Crook Boss · Juggernaut · Commander")
+    && source.includes("faster enemy waves after wave 35")
+    && source.includes("not a complete purchase order or independently verified clear");
+  assert.equal(hasEvidence(component), true);
+  assert.equal(hasEvidence(component.split(sourceUrl).join("")), false, "removing the discussion citation must invalidate the Solo Fallen candidate");
+});
+
 test("Frost Solo exposes the caveated budget proposal and fails when its source is removed", () => {
   const sourceUrl = "https://www.reddit.com/r/TDS_Roblox/comments/1vaqkuy/cheapest_possible_solo_frost_loadout/";
   const containsCandidate = (source) => source.includes(sourceUrl) && source.includes("Long-map budget route") && source.includes("clear provenance are unclear") && source.includes("not a verified route");

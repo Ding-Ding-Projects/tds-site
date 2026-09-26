@@ -4,13 +4,13 @@
 
 On 2026-09-26, the live revision audit found 146 stale records in the 2,836-page corpus. The full refresh reimported all 2,836 current page records, rebuilt 83 tower records and 431 upgrade levels, and materialized all article pages. Two pages changed after the first snapshot began; a second full import captured those updates. The final revision audit reports 2,836 current, 0 stale, 0 missing, 0 new, and 0 integrity issues. The page-ID inventory remains 2,836 with no additions, removals, renames, or namespace moves.
 
-The revision-render audit reused 2,482 verified files and refreshed 167 from exact current revisions. All 2,649 standard-page renders are present and pass, totaling 299,474,375 bytes; 187 map pages use the documented source fallback; 0 failures. The wiki suite passes 91/91, and a production build completes with existing bundle-size and route-classification warnings. Fresh article-surface captures remain unavailable.
+The revision-render audit reused 2,482 verified files and refreshed 167 from exact current revisions. All 2,649 standard-page renders are present and pass, totaling 299,474,375 bytes; 187 map pages use the documented source fallback; 0 failures. The wiki suite passes 92/92, lint passes, and a production build completes with existing bundle-size and route-classification warnings. Fresh article-surface captures remain unavailable.
 
 ## Official Frost Solo encounter checkpoints
 
 The Solo Frost plan now separates Frost Champion on Wave 33 from Frost Spirit on Wave 40 and links each official wiki article. It records Champion's Lead Frost Invader and Hidden Unstable Ice summons, 10% nearby firerate debuff for 30 seconds, and the wiki warning that Medic's shield does not block that debuff. It also records Frost Spirit's 350,000 regular-mode base health, 20% defense, beacon damage redirection and 4,500 health-per-second healing, and Hidden phase at 32%. These checkpoints improve detection and target-priority advice; they are not a reproduced Solo route.
 
-The focused Solo suite passes 9/9, the full wiki suite passes 91/91, and lint passes. The production build completes with the existing large-client-chunk and route-classification warnings. A current built interaction capture remains unavailable through the isolated browser route.
+The focused Solo suite passes 10/10, the full wiki suite passes 92/92, and lint passes. The production build completes with the existing large-client-chunk and route-classification warnings. A current built interaction capture remains unavailable through the isolated browser route.
 
 ## Solo Frost community proposal
 
@@ -92,6 +92,10 @@ Solo strategy coverage remains part of the delivered planner: it separates Solo 
 The Solo planner now shows four mode-specific checkpoints for each of its 15 scenarios. The sequence gives a solo player prompts for an opening, a mode-specific midgame decision, a late-game or boss response, and evidence interpretation. The UI keeps Solo checkpoints out of the Co-op view and labels their basis as a mode fact, a creator or community report, or editorial advice. The copy and read-aloud actions include the same Solo checkpoints shown on screen. The new [Solo playbook](docs/strategies/solo-playbook.md) summarizes all scenarios, evidence limits, and the fields needed to record a reproducible attempt. The source completeness check requires all 15 modes and exactly four steps per mode, with negative cases for a missing mode, a shortened step list, a Co-op leak, and missing copy or speech wiring. `npm run test:wiki` passes 52/52, lint passes, and the production build completes with existing chunk-size and route-classification warnings. A fresh built-surface capture remains unavailable through the isolated capture route. This addition does not establish any previously unverified Solo route as a proven clear.
 
 The planner shows recent community loadout candidates for Frost, Fallen, and Hardcore only in the Solo view. Candidate cards link to the September 2026 megathread and display the missing evidence caveats. The same candidate text is included in copy and read-aloud output. The solo playbook and evidence research document record the same hypotheses and reject the older v2.4.0 secondary guide as current stat authority. The current 85/85 wiki suite and lint pass, and the production build completes. The isolated capture route remains unavailable.
+
+## Solo Fallen economy and wave-35 report
+
+The planner and Solo playbook now include a July 2026 discussion in which a player reports reaching the later Fallen waves with Engineer, Kingpin, Crook Boss, Juggernaut, and Commander, then struggling against the faster post-wave-35 spawns before reporting that advice improved the run. Replies propose different economy, support, and damage-upgrade choices, including flags before Fallen Honor Guard. The guide presents this as a practice case, not a verified purchase route. `node --test scripts/test-solo-strategy-coverage.mjs` passes 10/10 after adding a citation-removal regression for the new candidate. The full wiki suite, lint, production build, and fresh built-surface capture remain to be verified for this update.
 
 ## 3D and 2D scene alternatives
 
