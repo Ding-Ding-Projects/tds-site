@@ -198,6 +198,37 @@ function splashDamageCycle(entry, levels) {
   return { formula: hasMissileCount ? "missile-splash-cycle" : "splash-damage-cycle", values };
 }
 
+function snowballerSplashCycle(entry, levels) {
+  const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
+  if (!/\$DPS\$\s*=\s*Damage\s*\/\s*Firerate/i.test(statistics)) return null;
+  const header = statistics.match(/^!\s*Level\s*!!([^\n]+)$/m);
+  const columns = header ? ["Level", ...header[1].split("!!").map((column) => clean(column))] : [];
+  const damageIndex = columns.findIndex((column) => /^Damage\b/i.test(column));
+  const firerateIndex = columns.findIndex((column) => /Firerate/i.test(column));
+  const maxHitsIndex = columns.findIndex((column) => /Max Hits/i.test(column));
+  if (damageIndex < 1 || firerateIndex < 1 || maxHitsIndex < 1) return null;
+  const start = statistics.search(/^!\s*Level\s*!![^\n]*Damage[^\n]*Firerate[^\n]*Max Hits/m);
+  const endOffset = start < 0 ? -1 : statistics.slice(start).search(/^\|\}/m);
+  const end = endOffset < 0 ? -1 : start + endOffset;
+  if (start < 0 || end <= start) return null;
+  const rows = [...statistics.slice(start, end).matchAll(/^\|\s*(\d+)\s*\|\|([^\n]+)$/gm)];
+  const values = rows.map((row) => {
+    const cells = [`${row[1]}`, ...row[2].replace(/^\s*\|\|/, "").split("||")];
+    const numberAt = (index) => {
+      const value = clean(cells[index] ?? "").match(/\d[\d,]*(?:\.\d+)?/)?.[0];
+      return value ? Number(value.replaceAll(",", "")) : null;
+    };
+    return {
+      level: numberAt(0),
+      splashDamage: numberAt(damageIndex),
+      splashInterval: numberAt(firerateIndex),
+      splashMaxHits: numberAt(maxHitsIndex),
+    };
+  });
+  if (!values.length || values.length !== levels.length || values.some((value, index) => value.level !== index || !Number.isFinite(value.splashDamage) || value.splashDamage <= 0 || !Number.isFinite(value.splashInterval) || value.splashInterval <= 0 || !Number.isFinite(value.splashMaxHits) || value.splashMaxHits < 1)) return null;
+  return { formula: "splash-damage-cycle", values };
+}
+
 function directSplashCycle(entry, levels) {
   const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
   const hasDirectFormula = /\$DPS\$\s*=\s*Damage\s*\/\s*Firerate/i.test(statistics);
@@ -256,7 +287,7 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : entry.title === "Ranger" ? directSplashCycle(entry, levels) : entry.title === "Snowballer" ? snowballerSplashCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar", "Paintballer", "Rocketeer"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
@@ -273,7 +304,9 @@ for (const entry of corpus.entries) {
           : cycle.formula === "freezer-damage-cycle"
             ? "Source-listed direct-damage cycle: burst levels use (Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)); non-burst levels use Damage / Firerate. Chill and slowdown effects are excluded."
             : cycle.formula === "splash-damage-cycle"
-              ? "Source-listed per-target splash estimate: Splash Damage / Firerate. Actual total damage depends on how many enemies a blast hits."
+              ? entry.title === "Snowballer"
+                ? "Source-listed Snowballer estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count, projectile travel time, slowdown, and freeze effects are excluded."
+                : "Source-listed per-target splash estimate: Splash Damage / Firerate. Actual total damage depends on how many enemies a blast hits."
               : cycle.formula === "missile-splash-cycle"
                 ? "Source-listed single-target missile splash estimate: (Splash Damage × Missile Count) / Firerate. Projectile travel time and multiple targets are excluded."
                 : cycle.formula === "direct-splash-cycle"

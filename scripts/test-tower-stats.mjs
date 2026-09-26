@@ -26,10 +26,27 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Mortar")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Paintballer")?.dpsFormula, "splash-damage-cycle");
+  assert.equal(find("Snowballer")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Rocketeer")?.dpsFormula, "missile-splash-cycle");
   assert.equal(find("Ranger")?.dpsFormula, "direct-splash-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
+});
+
+test("Snowballer uses the wiki-listed single-target splash cycle and does not multiply hit count", () => {
+  const snowballer = find("Snowballer");
+  assert.deepEqual(snowballer.levels.map(({ splashDamage, splashInterval, splashMaxHits }) => [splashDamage, splashInterval, splashMaxHits]), [
+    [3, 1.5, 2],
+    [3, 1.35, 2],
+    [6, 1.35, 2],
+    [28, 1.25, 3],
+  ]);
+  assert.deepEqual(snowballer.levels.map((level) => estimateTowerDps(snowballer, level)), [2, 3 / 1.35, 6 / 1.35, 22.4]);
+  assert.match(snowballer.dpsMethod, /Damage \/ Firerate/);
+  assert.match(snowballer.dpsMethod, /Maximum-hit count.*excluded/i);
+  const broken = { ...snowballer, levels: snowballer.levels.map((level) => ({ ...level })) };
+  broken.levels[3].splashMaxHits = null;
+  assert.ok(validateTowerStats([broken], catalog.towers.filter((tower) => tower.name === "Snowballer").map(() => corpus.entries.find((entry) => entry.pageid === broken.pageid))).includes("Snowballer maximum-hit source value is missing at level 3"));
 });
 
 test("Accelerator DPS follows its source-listed charge, tick, cooldown, and overcharge cycle", () => {

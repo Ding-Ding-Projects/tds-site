@@ -6312,7 +6312,7 @@
       "placementCost": 300,
       "pvpPlacementCost": null,
       "damageMethod": "Splash",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "splash-damage-cycle",
       "detectionNotes": [],
       "levels": [
         {
@@ -6325,7 +6325,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 3",
-          "notes": ""
+          "notes": "",
+          "splashDamage": 3,
+          "splashInterval": 1.5,
+          "splashMaxHits": 2
         },
         {
           "level": 1,
@@ -6337,7 +6340,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 3",
-          "notes": "1.5 > 1.35 Firerate +2.5 Range Sell Price changes to 116"
+          "notes": "1.5 > 1.35 Firerate +2.5 Range Sell Price changes to 116",
+          "splashDamage": 3,
+          "splashInterval": 1.35,
+          "splashMaxHits": 2
         },
         {
           "level": 2,
@@ -6349,7 +6355,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 3",
-          "notes": "+3 Damage 20% > 30% Max Slowdown 10% > 15% Slowdown per Hit Sell Price changes to 223"
+          "notes": "+3 Damage 20% > 30% Max Slowdown 10% > 15% Slowdown per Hit Sell Price changes to 223",
+          "splashDamage": 6,
+          "splashInterval": 1.35,
+          "splashMaxHits": 2
         },
         {
           "level": 3,
@@ -6361,7 +6370,10 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Yes",
-          "notes": "1.35 > 1.25 Firerate +2.5 Range +22 Damage +1 Max Hits +Flying Detection Flying Detection Freezes enemies when slowdown is higher than Max Slowdown •0.6 Freeze Time Sell Price changes to 1,223"
+          "notes": "1.35 > 1.25 Firerate +2.5 Range +22 Damage +1 Max Hits +Flying Detection Flying Detection Freezes enemies when slowdown is higher than Max Slowdown •0.6 Freeze Time Sell Price changes to 1,223",
+          "splashDamage": 28,
+          "splashInterval": 1.25,
+          "splashMaxHits": 3
         }
       ],
       "source": {
@@ -6372,7 +6384,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
+      "dpsMethod": "Source-listed Snowballer estimate: Damage / Firerate for one target receiving full damage. Maximum-hit count, projectile travel time, slowdown, and freeze effects are excluded."
     },
     {
       "pageid": 112,
