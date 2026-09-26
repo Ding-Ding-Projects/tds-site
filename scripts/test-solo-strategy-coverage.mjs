@@ -22,6 +22,13 @@ test("Fallen Solo exposes the attributed staged proposal without calling it a ve
   assert.equal(containsCandidate(component.split(sourceUrl).join("")), false, "removing every copy of the source link must remove the sourced-candidate evidence");
 });
 
+test("Frost Solo exposes the caveated budget proposal and fails when its source is removed", () => {
+  const sourceUrl = "https://www.reddit.com/r/TDS_Roblox/comments/1vaqkuy/cheapest_possible_solo_frost_loadout/";
+  const containsCandidate = (source) => source.includes(sourceUrl) && source.includes("Long-map budget route") && source.includes("clear provenance are unclear") && source.includes("not a verified route");
+  assert.equal(containsCandidate(component), true);
+  assert.equal(containsCandidate(component.split(sourceUrl).join("")), false, "removing every source link must invalidate the sourced Frost candidate");
+});
+
 test("every mode has four Solo decision checkpoints and the checklist stays out of Co-op", () => {
   assert.deepEqual(validateSoloStrategyCoverage(component), []);
   const missingMode = component.replace('  "Challenge Trials": [', '  "Challenge Trial": [');

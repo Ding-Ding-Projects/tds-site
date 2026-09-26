@@ -1,5 +1,11 @@
 # Handoff
 
+## Solo Frost community proposal
+
+The Solo Frost planner now includes a long-map budget proposal from a September 2026 Reddit post. It outlines early Military Base and Demoman purchases, a Militant/Ranger transition by Wave 15, and pressure points on Waves 29, 34, 35, 38, and 40. The candidate card, copy output, and read-aloud text retain its caveats: the base count is ambiguous, and a later author reply says the attempt used Turret, so the advertised loadout and triumph provenance are unclear. The linked image was not assessed. It is presented as a practice hypothesis, not a verified cheapest build or clear.
+
+`node --test scripts/test-solo-strategy-coverage.mjs` passes 8/8, `npm run test:wiki` passes 90/90, and `npm run lint` passes. `npm run build` completes with the existing large-chunk and route-classification warnings. The candidate-source negative test removes every occurrence of the source URL and confirms the evidence check fails. All seven changed public files pass the 167-needle private-vocabulary scan, and `git diff --check` passes. Built interaction capture remains unavailable through the isolated browser route. Sites still has no verified live URL and this source change has not been saved or deployed.
+
 ## Latest verified simulator slice
 
 The Archer simulator now imports its separate Flame, Explosive, and Shock Arrow tables from the eligible revision snapshot, shows only the arrow choices available at the selected upgrade level, and calculates the matching source-listed one-target estimate. The maximum-hit count remains separate from the estimate, and the UI states that extra pierce targets, status effects, immunity, and travel time are not modeled. The supporting source is revision 665496, with its history and reuse policy linked in `docs/simulator/README.md`.
