@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
+import { createSceneRenderScheduler } from "@/lib/scene-render-scheduler.mjs";
 
 export default function DefenseScene() {
   const host = useRef<HTMLDivElement>(null);
@@ -42,20 +43,24 @@ export default function DefenseScene() {
       scene.add(group);
     });
     const enemy = new THREE.Mesh(new THREE.IcosahedronGeometry(.38, 1), new THREE.MeshStandardMaterial({ color: "#f27668", emissive: "#63241f", emissiveIntensity: .7 })); enemy.castShadow = true; scene.add(enemy);
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let reduced = motionPreference.matches;
     let progress = 0; let dragging = false; let lastX = 0; let lastY = 0; let orbit = 0; let tilt = .72;
-    const animate = () => { frame = requestAnimationFrame(animate); if (!reduced) progress = (progress + .0012) % 1; const p = curve.getPointAt(progress); enemy.position.copy(p); enemy.position.y = .52 + Math.sin(progress * 120) * .06; camera.position.set(18 * Math.sin(orbit + .72), 12 + tilt * 3, 18 * Math.cos(orbit + .72)); camera.lookAt(0, .3, 0); renderer.render(scene, camera); };
-    let frame = requestAnimationFrame(animate);
+    const draw = () => { const p = curve.getPointAt(progress); enemy.position.copy(p); enemy.position.y = reduced ? .52 : .52 + Math.sin(progress * 120) * .06; camera.position.set(18 * Math.sin(orbit + .72), 12 + tilt * 3, 18 * Math.cos(orbit + .72)); camera.lookAt(0, .3, 0); renderer.render(scene, camera); };
+    const render = () => { if (!reduced) progress = (progress + .0012) % 1; draw(); };
+    let scheduler = createSceneRenderScheduler({ reducedMotion: reduced, render });
     const down = (e: PointerEvent) => { dragging = true; lastX = e.clientX; lastY = e.clientY; renderer.domElement.setPointerCapture(e.pointerId); };
-    const move = (e: PointerEvent) => { if (!dragging) return; orbit += (e.clientX - lastX) * .008; tilt = THREE.MathUtils.clamp(tilt + (e.clientY - lastY) * .004, -.5, 1.2); lastX = e.clientX; lastY = e.clientY; };
+    const move = (e: PointerEvent) => { if (!dragging) return; orbit += (e.clientX - lastX) * .008; tilt = THREE.MathUtils.clamp(tilt + (e.clientY - lastY) * .004, -.5, 1.2); lastX = e.clientX; lastY = e.clientY; scheduler.redraw(); };
     const up = () => { dragging = false; };
-    const keydown = (event: KeyboardEvent) => { if (event.key === "ArrowLeft") orbit -= .12; else if (event.key === "ArrowRight") orbit += .12; else if (event.key === "ArrowUp") tilt = THREE.MathUtils.clamp(tilt + .08, -.5, 1.2); else if (event.key === "ArrowDown") tilt = THREE.MathUtils.clamp(tilt - .08, -.5, 1.2); else return; event.preventDefault(); };
-    const rotate = (event: Event) => { const direction = (event as CustomEvent<string>).detail; if (direction === "left") orbit -= .28; else if (direction === "right") orbit += .28; else if (direction === "reset") { orbit = 0; tilt = .72; } };
+    const rotate = (event: Event) => { const direction = (event as CustomEvent<string>).detail; if (direction === "left") orbit -= .28; else if (direction === "right") orbit += .28; else if (direction === "reset") { orbit = 0; tilt = .72; } scheduler.redraw(); };
+    const onMotionPreferenceChange = (event: MediaQueryListEvent) => { reduced = event.matches; scheduler.stop(); scheduler = createSceneRenderScheduler({ reducedMotion: reduced, render }); };
+    const keydown = (event: KeyboardEvent) => { if (event.key === "ArrowLeft") orbit -= .12; else if (event.key === "ArrowRight") orbit += .12; else if (event.key === "ArrowUp") tilt = THREE.MathUtils.clamp(tilt + .08, -.5, 1.2); else if (event.key === "ArrowDown") tilt = THREE.MathUtils.clamp(tilt - .08, -.5, 1.2); else return; event.preventDefault(); scheduler.redraw(); };
     renderer.domElement.addEventListener("pointerdown", down); renderer.domElement.addEventListener("pointermove", move); renderer.domElement.addEventListener("pointerup", up); renderer.domElement.addEventListener("pointercancel", up);
     root.addEventListener("keydown", keydown); root.addEventListener("scene-rotate", rotate);
-    const resize = () => { if (!root.isConnected) return; camera.aspect = root.clientWidth / Math.max(root.clientHeight, 1); camera.updateProjectionMatrix(); renderer.setSize(root.clientWidth, root.clientHeight); };
+    motionPreference.addEventListener("change", onMotionPreferenceChange);
+    const resize = () => { if (!root.isConnected) return; camera.aspect = root.clientWidth / Math.max(root.clientHeight, 1); camera.updateProjectionMatrix(); renderer.setSize(root.clientWidth, root.clientHeight); scheduler.redraw(); };
     const observer = new ResizeObserver(resize); observer.observe(root);
-    return () => { cancelAnimationFrame(frame); observer.disconnect(); renderer.domElement.removeEventListener("pointerdown", down); renderer.domElement.removeEventListener("pointermove", move); renderer.domElement.removeEventListener("pointerup", up); renderer.domElement.removeEventListener("pointercancel", up); root.removeEventListener("keydown", keydown); root.removeEventListener("scene-rotate", rotate); scene.traverse((object) => { if (object instanceof THREE.Mesh) { object.geometry.dispose(); if (Array.isArray(object.material)) object.material.forEach((material) => material.dispose()); else object.material.dispose(); } }); renderer.dispose(); renderer.domElement.remove(); };
+    return () => { scheduler.stop(); motionPreference.removeEventListener("change", onMotionPreferenceChange); observer.disconnect(); renderer.domElement.removeEventListener("pointerdown", down); renderer.domElement.removeEventListener("pointermove", move); renderer.domElement.removeEventListener("pointerup", up); renderer.domElement.removeEventListener("pointercancel", up); root.removeEventListener("keydown", keydown); root.removeEventListener("scene-rotate", rotate); scene.traverse((object) => { if (object instanceof THREE.Mesh) { object.geometry.dispose(); if (Array.isArray(object.material)) object.material.forEach((material) => material.dispose()); else object.material.dispose(); } }); renderer.dispose(); renderer.domElement.remove(); };
   }, []);
   return <div className="scene-canvas" ref={host} tabIndex={webglAvailable ? 0 : -1} aria-label="Interactive 3D defense scene. Drag to orbit, use arrow keys, or use the rotate controls below.">{webglAvailable ? <><span className="scene-wave">WAVE 28 <b>● DEMO</b></span><span className="scene-health">BASE HEALTH <b>100%</b></span><div className="scene-controls" aria-label="3D view controls"><button type="button" aria-label="Rotate view left" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "left" }))}>←</button><button type="button" aria-label="Reset 3D view" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "reset" }))}>↺</button><button type="button" aria-label="Rotate view right" onClick={() => host.current?.dispatchEvent(new CustomEvent("scene-rotate", { detail: "right" }))}>→</button></div></> : <div className="scene-fallback" role="status"><strong>3D view unavailable</strong><span>A route runs around five towers. The tower index, statistics, and text strategy remain usable without WebGL.</span></div>}</div>;
 }
