@@ -24,6 +24,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Freezer")?.dpsFormula, "freezer-damage-cycle");
   assert.equal(find("Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
+  assert.equal(find("Mortar")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
 });
@@ -95,6 +96,14 @@ test("Demoman splash estimates use source damage and interval without assuming t
   assert.match(demoman.dpsMethod, /Actual total damage depends on how many enemies a blast hits/i);
 });
 
+test("Mortar splash estimates use the named source columns and exclude cluster damage", () => {
+  const mortar = find("Mortar");
+  assert.deepEqual(mortar.levels.map(({ splashDamage, splashInterval }) => [splashDamage, splashInterval]), [[15, 4], [15, 2.75], [35, 2.75], [65, 2.75], [100, 2.75], [235, 2.75]]);
+  assert.ok(Math.abs(estimateTowerDps(mortar, mortar.levels[0]) - 15 / 4) < 0.01);
+  assert.ok(Math.abs(estimateTowerDps(mortar, mortar.levels[5]) - 235 / 2.75) < 0.01);
+  assert.match(mortar.dpsMethod, /cluster damage and target count are excluded/i);
+});
+
 test("detection footnotes remain separate from the detection flag", () => {
   const pulseTrooper = find("Pulse Trooper");
   assert.equal(pulseTrooper?.levels[0].hidden, "No");
@@ -141,6 +150,9 @@ test("the data contract rejects missing records, broken provenance, and false ge
   const demomanIndex = incomplete.findIndex((tower) => tower.name === "Demoman");
   incomplete[demomanIndex] = { ...incomplete[demomanIndex], levels: incomplete[demomanIndex].levels.map((level) => ({ ...level })) };
   delete incomplete[demomanIndex].levels[0].splashDamage;
+  const mortarIndex = incomplete.findIndex((tower) => tower.name === "Mortar");
+  incomplete[mortarIndex] = { ...incomplete[mortarIndex], levels: incomplete[mortarIndex].levels.map((level) => ({ ...level })) };
+  delete incomplete[mortarIndex].levels[0].splashInterval;
 
   const issues = validateTowerStats(incomplete, corpus.entries);
   assert.ok(issues.some((issue) => issue.includes("tower count mismatch")));

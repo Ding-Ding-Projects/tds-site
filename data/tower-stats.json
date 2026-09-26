@@ -4569,7 +4569,7 @@
       "placementCost": 1000,
       "pvpPlacementCost": 1000,
       "damageMethod": "Splash",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "splash-damage-cycle",
       "detectionNotes": [
         {
           "attribute": "Hidden",
@@ -4587,7 +4587,9 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": ""
+          "notes": "",
+          "splashDamage": 15,
+          "splashInterval": 4
         },
         {
           "level": 1,
@@ -4599,7 +4601,9 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "4 > 2.75 Firerate +3 Range Sell Price changes to 500"
+          "notes": "4 > 2.75 Firerate +3 Range Sell Price changes to 500",
+          "splashDamage": 15,
+          "splashInterval": 2.75
         },
         {
           "level": 2,
@@ -4611,7 +4615,9 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "+20 Damage 5 > 7 Explosion Radius Sell Price changes to 1,250"
+          "notes": "+20 Damage 5 > 7 Explosion Radius Sell Price changes to 1,250",
+          "splashDamage": 35,
+          "splashInterval": 2.75
         },
         {
           "level": 3,
@@ -4623,7 +4629,9 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "+30 Damage +3 Range 7 > 8.5 Explosion Radius Sell Price changes to 2,666"
+          "notes": "+30 Damage +3 Range 7 > 8.5 Explosion Radius Sell Price changes to 2,666",
+          "splashDamage": 65,
+          "splashInterval": 2.75
         },
         {
           "level": 4,
@@ -4635,7 +4643,9 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "+35 Damage +4 Range Description = •30x4 Damage •5 Explosion Radius Sell Price changes to 7,166"
+          "notes": "+35 Damage +4 Range Description = •30x4 Damage •5 Explosion Radius Sell Price changes to 7,166",
+          "splashDamage": 100,
+          "splashInterval": 2.75
         },
         {
           "level": 5,
@@ -4647,7 +4657,9 @@
           "hidden": "No",
           "lead": "Level 0+",
           "flying": "Level 0+",
-          "notes": "+135 Damage 8.5 > 9 Explosion Radius Description = +10 Damage +2 Cluster Amount Sell Price changes to 17,166"
+          "notes": "+135 Damage 8.5 > 9 Explosion Radius Description = +10 Damage +2 Cluster Amount Sell Price changes to 17,166",
+          "splashDamage": 235,
+          "splashInterval": 2.75
         }
       ],
       "source": {
@@ -4658,7 +4670,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
+      "dpsMethod": "Source-listed per-target splash estimate: Splash Damage / Firerate. Actual total damage depends on how many enemies a blast hits. Cluster damage and target count are excluded; the source assumes full inner-sphere splash damage and excludes projectile travel time."
     },
     {
       "pageid": 34644,

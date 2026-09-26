@@ -167,6 +167,11 @@ function splashDamageCycle(entry, levels) {
   const statistics = entry.wikitext.split(/==Statistics==/i)[1]?.split(/\n==/)[0] ?? "";
   const formula = statistics.match(/\$DPS\$\s*=\s*(?:\[\[)?Splash Damage(?:\]\])?\s*\/\s*Firerate/i);
   if (!formula) return null;
+  const header = statistics.match(/^!\s*Level\s*!!([^\n]+)$/m);
+  const columns = header ? ["Level", ...header[1].split("!!").map((column) => clean(column))] : [];
+  const splashIndex = columns.findIndex((column) => /Splash Damage/i.test(column));
+  const firerateIndex = columns.findIndex((column) => /Firerate/i.test(column));
+  if (splashIndex < 1 || firerateIndex < 1) return null;
   const start = statistics.search(/^!\s*Level\s*!![^\n]*Splash Damage[^\n]*Firerate/m);
   const endOffset = start < 0 ? -1 : statistics.slice(start).search(/^\|\}/m);
   const end = endOffset < 0 ? -1 : start + endOffset;
@@ -178,7 +183,7 @@ function splashDamageCycle(entry, levels) {
       const value = clean(cells[index] ?? "").match(/\d[\d,]*(?:\.\d+)?/)?.[0];
       return value ? Number(value.replaceAll(",", "")) : null;
     };
-    return { level: numberAt(0), splashDamage: numberAt(3), splashInterval: numberAt(4) };
+    return { level: numberAt(0), splashDamage: numberAt(splashIndex), splashInterval: numberAt(firerateIndex) };
   });
   if (!values.length || values.length !== levels.length || values.some((value, index) => value.level !== index || !Number.isFinite(value.splashDamage) || value.splashDamage <= 0 || !Number.isFinite(value.splashInterval) || value.splashInterval <= 0)) return null;
   return { formula: "splash-damage-cycle", values };
@@ -206,12 +211,12 @@ for (const entry of corpus.entries) {
   const damageMethod = clean(tower.damagetype ?? "Unknown");
   const specialDamageMethod = /\b(?:burst|pulse|splash|poison|explosion|unit)\b/i.test(damageMethod);
   const revUp = /rev[- ]?up/i.test(entry.wikitext);
-  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : ["Demoman", "Golden Demoman"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
+  const cycle = entry.title === "Accelerator" ? acceleratorCycle(entry) : entry.title === "Operator" ? operatorCycle(entry, levels) : entry.title === "Commando" ? commandoCycle(entry, levels) : ["Soldier", "Golden Soldier"].includes(entry.title) ? soldierCycle(entry, levels) : entry.title === "Freezer" ? freezerCycle(entry, levels) : ["Demoman", "Golden Demoman", "Mortar"].includes(entry.title) ? splashDamageCycle(entry, levels) : null;
   if (cycle) {
     for (const stat of levels) Object.assign(stat, cycle.values.find((value) => value.level === stat.level));
   }
   const dpsFormula = cycle ? cycle.formula === "overcharge-cycle" ? "accelerator-overcharge-cycle" : cycle.formula === "operator-burst-cycle" ? "operator-burst-cycle" : cycle.formula === "commando-magazine-cycle" ? "commando-magazine-cycle" : cycle.formula === "golden-soldier-cycle" ? "golden-soldier-cycle" : cycle.formula === "freezer-damage-cycle" ? "freezer-damage-cycle" : cycle.formula === "splash-damage-cycle" ? "splash-damage-cycle" : "soldier-burst-cycle" : specialDamageMethod ? "unmodeled-special" : "damage-over-interval";
-  const dpsMethod = cycle
+  let dpsMethod = cycle
     ? cycle.formula === "overcharge-cycle"
       ? "Source-listed cycle estimate: Overcharge / (Charge-Up + Cooldown + (Overcharge / Damage × Tick))."
       : cycle.formula === "operator-burst-cycle"
@@ -230,6 +235,9 @@ for (const entry of corpus.entries) {
     : revUp
       ? "Theoretical damage divided by attack interval; the source also documents firing startup, which this rate omits."
       : "Theoretical damage divided by attack interval.";
+  if (entry.title === "Mortar" && dpsFormula === "splash-damage-cycle") {
+    dpsMethod += " Cluster damage and target count are excluded; the source assumes full inner-sphere splash damage and excludes projectile travel time.";
+  }
   const detectionNotes = [
     ...referencedNotes(tower.hidden_detection).map((text) => ({ attribute: "Hidden", text })),
     ...referencedNotes(tower.lead_detection).map((text) => ({ attribute: "Lead", text })),
