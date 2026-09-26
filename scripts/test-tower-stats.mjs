@@ -22,6 +22,8 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Soldier")?.dpsFormula, "soldier-burst-cycle");
   assert.equal(find("Golden Soldier")?.dpsFormula, "golden-soldier-cycle");
   assert.equal(find("Freezer")?.dpsFormula, "freezer-damage-cycle");
+  assert.equal(find("Demoman")?.dpsFormula, "splash-damage-cycle");
+  assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Scout")?.dpsFormula, "damage-over-interval");
   assert.match(find("Minigunner")?.dpsMethod ?? "", /startup/i);
 });
@@ -82,6 +84,17 @@ test("Freezer DPS follows single-hit levels and the burst cycle at Levels 3 and 
   assert.match(freezer.dpsMethod, /Chill and slowdown effects are excluded/i);
 });
 
+test("Demoman splash estimates use source damage and interval without assuming target count", () => {
+  const demoman = find("Demoman");
+  const goldenDemoman = find("Golden Demoman");
+  assert.deepEqual(demoman.levels.map(({ splashDamage, splashInterval }) => [splashDamage, splashInterval]), [[8, 2.6], [8, 1.9], [18, 1.9], [25, 1.5], [35, 1]]);
+  assert.deepEqual(goldenDemoman.levels.map(({ splashDamage, splashInterval }) => [splashDamage, splashInterval]), [[10, 1.95], [10, 1.8], [18, 1.8], [25, 1.1], [25, 0.45]]);
+  assert.ok(Math.abs(estimateTowerDps(demoman, demoman.levels[0]) - 8 / 2.6) < 0.01);
+  assert.equal(estimateTowerDps(demoman, { ...demoman.levels[0], splashDamage: null }), null);
+  assert.ok(Math.abs(estimateTowerDps(goldenDemoman, goldenDemoman.levels[4]) - 25 / 0.45) < 0.01);
+  assert.match(demoman.dpsMethod, /Actual total damage depends on how many enemies a blast hits/i);
+});
+
 test("detection footnotes remain separate from the detection flag", () => {
   const pulseTrooper = find("Pulse Trooper");
   assert.equal(pulseTrooper?.levels[0].hidden, "No");
@@ -125,6 +138,9 @@ test("the data contract rejects missing records, broken provenance, and false ge
   const freezerIndex = incomplete.findIndex((tower) => tower.name === "Freezer");
   incomplete[freezerIndex] = { ...incomplete[freezerIndex], levels: incomplete[freezerIndex].levels.map((level) => ({ ...level })) };
   delete incomplete[freezerIndex].levels[3].burstCount;
+  const demomanIndex = incomplete.findIndex((tower) => tower.name === "Demoman");
+  incomplete[demomanIndex] = { ...incomplete[demomanIndex], levels: incomplete[demomanIndex].levels.map((level) => ({ ...level })) };
+  delete incomplete[demomanIndex].levels[0].splashDamage;
 
   const issues = validateTowerStats(incomplete, corpus.entries);
   assert.ok(issues.some((issue) => issue.includes("tower count mismatch")));
@@ -137,4 +153,5 @@ test("the data contract rejects missing records, broken provenance, and false ge
   assert.ok(issues.some((issue) => issue.includes("Soldier cycle inputs are incomplete at level 0")));
   assert.ok(issues.some((issue) => issue.includes("Golden Soldier cycle inputs are incomplete at level 3")));
   assert.ok(issues.some((issue) => issue.includes("Freezer cycle inputs are incomplete at level 3")));
+  assert.ok(issues.some((issue) => issue.includes("splash-damage cycle inputs are incomplete at level 0")));
 });

@@ -1271,7 +1271,7 @@
       "placementCost": 700,
       "pvpPlacementCost": 575,
       "damageMethod": "Splash",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "splash-damage-cycle",
       "detectionNotes": [
         {
           "attribute": "Flying",
@@ -1289,7 +1289,9 @@
           "hidden": "Level 2+",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": ""
+          "notes": "",
+          "splashDamage": 8,
+          "splashInterval": 2.6
         },
         {
           "level": 1,
@@ -1301,7 +1303,9 @@
           "hidden": "Level 2+",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+2 Range 2.6 > 1.9 Firerate Sell Price changes to 33"
+          "notes": "+2 Range 2.6 > 1.9 Firerate Sell Price changes to 33",
+          "splashDamage": 8,
+          "splashInterval": 1.9
         },
         {
           "level": 2,
@@ -1313,7 +1317,9 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+10 Damage 4.5 > 5 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 650"
+          "notes": "+10 Damage 4.5 > 5 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 650",
+          "splashDamage": 18,
+          "splashInterval": 1.9
         },
         {
           "level": 3,
@@ -1325,7 +1331,9 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+2 Range 1.9 > 1.5 Firerate +7 Damage 1 > 0 Aim Time 5 > 5.5 Explosion Range +Faster Projectile Sell Price changes to 1,450"
+          "notes": "+2 Range 1.9 > 1.5 Firerate +7 Damage 1 > 0 Aim Time 5 > 5.5 Explosion Range +Faster Projectile Sell Price changes to 1,450",
+          "splashDamage": 25,
+          "splashInterval": 1.5
         },
         {
           "level": 4,
@@ -1337,7 +1345,9 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+2 Range 1.5 > 1 Firerate +10 Damage Sell Price changes to 3,283"
+          "notes": "+2 Range 1.5 > 1 Firerate +10 Damage Sell Price changes to 3,283",
+          "splashDamage": 35,
+          "splashInterval": 1
         }
       ],
       "source": {
@@ -1348,7 +1358,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
+      "dpsMethod": "Source-listed per-target splash estimate: Splash Damage / Firerate. Actual total damage depends on how many enemies a blast hits."
     },
     {
       "pageid": 2167,
@@ -2868,7 +2878,7 @@
       "placementCost": 875,
       "pvpPlacementCost": null,
       "damageMethod": "Splash",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "splash-damage-cycle",
       "detectionNotes": [
         {
           "attribute": "Flying",
@@ -2886,7 +2896,9 @@
           "hidden": "Level 2+",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": ""
+          "notes": "",
+          "splashDamage": 10,
+          "splashInterval": 1.95
         },
         {
           "level": 1,
@@ -2898,7 +2910,9 @@
           "hidden": "Level 2+",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+1.5 Range 1.95 > 1.8 Firerate Sell Price changes to 358"
+          "notes": "+1.5 Range 1.95 > 1.8 Firerate Sell Price changes to 358",
+          "splashDamage": 10,
+          "splashInterval": 1.8
         },
         {
           "level": 2,
@@ -2910,7 +2924,9 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+8 Damage 4.5 > 5 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 741"
+          "notes": "+8 Damage 4.5 > 5 Explosion Range +Hidden Detection Hidden Detection Sell Price changes to 741",
+          "splashDamage": 18,
+          "splashInterval": 1.8
         },
         {
           "level": 3,
@@ -2922,7 +2938,9 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+1.5 Range 1.8 > 1.1 Firerate +7 Damage 0.8 > 0 Aim Time 5 > 5.5 Explosion Range +Faster Projectile Sell Price changes to 1,625"
+          "notes": "+1.5 Range 1.8 > 1.1 Firerate +7 Damage 0.8 > 0 Aim Time 5 > 5.5 Explosion Range +Faster Projectile Sell Price changes to 1,625",
+          "splashDamage": 25,
+          "splashInterval": 1.1
         },
         {
           "level": 4,
@@ -2934,7 +2952,9 @@
           "hidden": "Yes",
           "lead": "Level 0+",
           "flying": "No",
-          "notes": "+2 Range 1.1 > 0.45 Firerate +Stun Immunity Stun Immunity Sell Price changes to 4,208"
+          "notes": "+2 Range 1.1 > 0.45 Firerate +Stun Immunity Stun Immunity Sell Price changes to 4,208",
+          "splashDamage": 25,
+          "splashInterval": 0.45
         }
       ],
       "source": {
@@ -2945,7 +2965,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Splash); generic DPS is not estimated."
+      "dpsMethod": "Source-listed per-target splash estimate: Splash Damage / Firerate. Actual total damage depends on how many enemies a blast hits."
     },
     {
       "pageid": 29286,
