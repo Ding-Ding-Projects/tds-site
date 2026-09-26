@@ -12,6 +12,7 @@
     "import:wiki": "node scripts/import-wiki.mjs",
     "extract:towers": "node scripts/extract-tower-stats.mjs",
     "refresh:wiki": "npm run import:wiki && npm run extract:towers && node scripts/materialize-wiki.mjs",
+    "test:wiki-renderer": "node --test scripts/test-wiki-source-renderer.mjs",
     "start": "node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js dev --config dist/server/wrangler.json --local --persist-to .wrangler/state --ip 127.0.0.1 --inspector-port 0",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"

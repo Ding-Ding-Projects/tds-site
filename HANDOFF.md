@@ -14,7 +14,7 @@ The planner has separate solo notes for all 14 mode types and keeps co-op guidan
 
 ## Data and research limits
 
-The import contains 2,835 wiki source records: 2,649 namespace 0 pages and 186 map pages, plus 83 tower records and 431 upgrade-level records. Counts are tied to the captured API inventory because live site counters and paginated titles differed. Source text and full-text search are available, but article bodies are not yet rendered as complete readable pages. The encyclopedia currently presents a concise readable extract and escaped original markup. Imported text retains page revision, attribution, history, retrieval date, license, and adaptation information. Media is not redistributed without individually verified terms.
+The import contains 2,835 wiki source records: 2,649 namespace 0 pages and 186 map pages, plus 83 tower records and 431 upgrade-level records. Counts are tied to the captured API inventory because live site counters and paginated titles differed. Source text and full-text search are available. The article view now renders common Wikitext structures through `lib/wiki-source-renderer.mjs`, preserves full source markup, and provides a readable partial page; MediaWiki-compatible extensions, parser functions, and complex templates remain unimplemented. Imported text retains page revision, attribution, history, retrieval date, license, and adaptation information. Media is not redistributed without individually verified terms.
 
 The initial user-supplied dossier was not imported as fact. Research identified stale or incorrect examples, including tower values and Frost boss identity. Raw community reports remain labeled as such.
 
@@ -24,7 +24,7 @@ Material Designer and Status Hub tools were unavailable in this session. A task-
 
 ## Remaining work
 
-1. Complete a readable renderer for full imported wiki article details and verify attribution presentation.
+1. Extend partial Wikitext coverage toward MediaWiki-compatible article rendering, then verify attribution and representative article layouts in the built site. The current renderer check has five focused cases; visual evidence for this new article view is still unrun.
 2. Expand simulator coverage and model tower-specific mechanics that the generic DPS formula cannot represent.
 3. Finish solo research with reproducible wave-by-wave routes, current update identifiers, and run evidence; keep unsupported entries labeled as checklists or anecdotes.
 4. Complete the required viewport, language, theme, and scale matrix, and verify touch interactions on the 3D scene.
@@ -34,6 +34,6 @@ Material Designer and Status Hub tools were unavailable in this session. A task-
 ## Verification
 
 - `npm run lint`: passed with zero warnings on the first source revision.
-- `npm run build`: passed on the first source revision; the client bundle warning remains.
+- `npm run build`: passed on the first source revision; the client bundle warning remains. After the readable-renderer change, `npm run test:wiki-renderer` passed 5/5 and `npm run build` passed; the large client chunk and route-classification warnings remain.
 - Isolated Edge production build review: one 1280×900 desktop and one 390×844 emulated mobile capture, with no console exceptions, failed resources, unnamed interactive controls, or horizontal page overflow in those tuples.
 - Not verified: full cross-product viewport matrix, physical-device behavior, all tower formulas, touch orbit, complete readable wiki rendering, deployment, or live public access.

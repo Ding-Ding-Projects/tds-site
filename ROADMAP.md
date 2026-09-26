@@ -13,13 +13,13 @@ All status below reflects the source state on 2026-09-26. An item is complete on
 
 - [x] Snapshot and reconcile the current eligible wiki inventory from the MediaWiki API, including namespace counts and snapshot time.
 - [x] Import 2,835 source records with revision, source, history, license, and adaptation metadata.
-- [ ] Sanitize imported markup, link article references into native guide routes, and represent unlicensed media as source links.
+- [ ] Complete MediaWiki-compatible rendering for imported markup. A safe partial renderer now covers common headings, prose, links, lists, tables, nowiki blocks, and structured template fields; source syntax remains available, while extension and complex template behavior still needs coverage.
 - [ ] Add an inventory Shek Q and prove deliberate missing-entry and missing-provenance cases fail.
 - [x] Add dated, cited official, creator, and public community research with disagreement and confidence labels.
 
 ## Product experience
 
-- [ ] Ship search, filters, article navigation, source attribution, and contribution/license notices. Search and source notices exist; native readable full-page rendering remains incomplete.
+- [ ] Ship search, filters, article navigation, source attribution, and contribution/license notices. Search, source notices, and a readable partial article renderer exist; built-surface capture and full wiki syntax coverage remain open.
 - [ ] Ship validated mode, wave, reward, map, enemy, and strategy coverage. Fourteen mode types have solo planning notes; most are editorial checklists and not verified clears. Continue checking source conflicts and map geometry.
 - [ ] Ship tower stat comparison and simulator formulas with worked, source-backed examples.
 - [ ] Ship the original interactive 3D defense explorer with keyboard, touch, reduced-motion, 2D, and text alternatives.
