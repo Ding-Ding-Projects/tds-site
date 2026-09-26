@@ -91,4 +91,3 @@ function TemplateDisclosure({block, renderTokens}: {block: {name: string; params
     <details className="wiki-template-source"><summary>Original template syntax</summary><pre>{block.source}</pre></details>
   </details>;
 }
-
