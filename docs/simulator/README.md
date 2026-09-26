@@ -12,6 +12,10 @@ For a simple single-hit tower, the displayed steady-rate estimate is damage divi
 
 The current [Toxic Gunner page](https://tds.wiki/w/Toxic_Gunner) publishes separate gun and poison formulas, then adds them for its displayed DPS. For Levels 0–3, the simulator calculates `(Damage × Burst Count) / (Cooldown + (Firerate × Burst Count)) + (Poison Damage / Tick)`. At Level 4, it uses `Damage / Firerate + (Poison Damage / Tick)` because that level has no burst cooldown. The imported regular-mode table provides all six inputs for all five levels. The estimate assumes every shot poisons the same enemy, as the source states; it does not turn slowdown or defense melting into damage or account for poison refresh and target changes.
 
+## Ace Pilot gun and bomb estimate
+
+The current [Ace Pilot page](https://tds.wiki/w/Ace_Pilot) publishes `Gun DPS + Bomb DPS`: `Normal Damage / Firerate + Splash Damage / Bomb Cooldown`. The extractor reads these named columns from all six regular upgrade rows. Levels 0–1 have no bomb values and use only the gun rate. From Level 2, the bomb contribution is shown as a one-target-equivalent splash rate. Actual output depends on flight-path uptime, enemies caught by the blast, and projectile travel; the calculator does not multiply the splash value by an assumed target count.
+
 `npm run test:wiki` checks all extracted tower rows against the imported revision snapshot, including source links, license policy links, level data, damage-method classification, and placement-limit shape. Negative cases remove a row, corrupt revision provenance, set an invalid cap, assign a generic formula to a special-damage tower, or remove a required Accelerator, Operator, Commando, Soldier, Golden Soldier, Freezer, Demoman, Golden Demoman, Mortar, Paintballer, Ranger, or Rocketeer cycle input; each must be rejected.
 
 ## Snowballer source formula

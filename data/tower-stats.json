@@ -12,7 +12,7 @@
       "placementCost": 500,
       "pvpPlacementCost": null,
       "damageMethod": "Single Splash (Level 2+)",
-      "dpsFormula": "unmodeled-special",
+      "dpsFormula": "ace-pilot-bomb-cycle",
       "detectionNotes": [
         {
           "attribute": "Hidden",
@@ -30,7 +30,9 @@
           "hidden": "Level 4+",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": ""
+          "notes": "",
+          "splashDamage": null,
+          "bombCooldown": null
         },
         {
           "level": 1,
@@ -42,7 +44,9 @@
           "hidden": "Level 4+",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "+1 Damage Sell Price changes to 241"
+          "notes": "+1 Damage Sell Price changes to 241",
+          "splashDamage": null,
+          "bombCooldown": null
         },
         {
           "level": 2,
@@ -54,7 +58,9 @@
           "hidden": "Level 4+",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "+1 Damage +Figure8 Flight Path Description = •10 Damage •4 Bomb Cooldown •3 Explosion Range Sell Price changes to 450"
+          "notes": "+1 Damage +Figure8 Flight Path Description = •10 Damage •4 Bomb Cooldown •3 Explosion Range Sell Price changes to 450",
+          "splashDamage": 10,
+          "bombCooldown": 4
         },
         {
           "level": 3,
@@ -66,7 +72,9 @@
           "hidden": "Level 4+",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "+1 Damage +1 Range 0.22 > 0.15 Firerate 10% Speed Increase Description = •30 Damage •4 Bomb Cooldown •3 Explosion Range Sell Price changes to 950"
+          "notes": "+1 Damage +1 Range 0.22 > 0.15 Firerate 10% Speed Increase Description = •30 Damage •4 Bomb Cooldown •3 Explosion Range Sell Price changes to 950",
+          "splashDamage": 30,
+          "bombCooldown": 4
         },
         {
           "level": 4,
@@ -78,7 +86,9 @@
           "hidden": "Yes",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "+3 Damage +Hidden Detection Hidden Detection Grants Hidden Detection to nearby towers •10 Range Description = •30 Damage •2 Bomb Cooldown •3 Explosion Range Sell Price changes to 1,950"
+          "notes": "+3 Damage +Hidden Detection Hidden Detection Grants Hidden Detection to nearby towers •10 Range Description = •30 Damage •2 Bomb Cooldown •3 Explosion Range Sell Price changes to 1,950",
+          "splashDamage": 30,
+          "bombCooldown": 2
         },
         {
           "level": 5,
@@ -90,7 +100,9 @@
           "hidden": "Yes",
           "lead": "Level 2+ (Splash Damage only)",
           "flying": "Level 0+",
-          "notes": "+6 Damage 0.15 > 0.12 Firerate 10% > 35% Speed Increase Description = •45 Damage •1.5 Bomb Cooldown •4 Explosion Range Sell Price changes to 4,283"
+          "notes": "+6 Damage 0.15 > 0.12 Firerate 10% > 35% Speed Increase Description = •45 Damage •1.5 Bomb Cooldown •4 Explosion Range Sell Price changes to 4,283",
+          "splashDamage": 45,
+          "bombCooldown": 1.5
         }
       ],
       "source": {
@@ -101,7 +113,7 @@
         "licensePolicyUrl": "https://tds.wiki/w/Tower_Defense_Simulator_Wiki:Copyrights",
         "license": "Current page adaptations are reused under CC BY-SA 4.0 International with attribution and a change notice; copied pre-2026-09-12 wording may remain CC BY-SA 3.0."
       },
-      "dpsMethod": "Special damage cycle (Single Splash (Level 2+)); generic DPS is not estimated."
+      "dpsMethod": "Source-listed combined estimate: Normal Damage / Firerate + Splash Damage / Bomb Cooldown. Bomb splash is shown as a per-target-equivalent estimate; blast target count and projectile travel time are excluded."
     },
     {
       "pageid": 16031,

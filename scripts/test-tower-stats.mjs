@@ -23,6 +23,7 @@ test("the simulator withholds generic DPS for special damage methods", () => {
   assert.equal(find("Golden Soldier")?.dpsFormula, "golden-soldier-cycle");
   assert.equal(find("Freezer")?.dpsFormula, "freezer-damage-cycle");
   assert.equal(find("Toxic Gunner")?.dpsFormula, "toxic-gunner-poison-cycle");
+  assert.equal(find("Ace Pilot")?.dpsFormula, "ace-pilot-bomb-cycle");
   assert.equal(find("Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Golden Demoman")?.dpsFormula, "splash-damage-cycle");
   assert.equal(find("Mortar")?.dpsFormula, "splash-damage-cycle");
@@ -69,6 +70,29 @@ test("Toxic Gunner combines source-listed burst or single-fire DPS with poison t
   assert.match(toxicGunner.dpsMethod, /assumes every shot poisons the same enemy/i);
   assert.equal(estimateTowerDps(toxicGunner, { ...toxicGunner.levels[0], tick: 0 }), null);
   assert.equal(estimateTowerDps(toxicGunner, { ...toxicGunner.levels[0], burstCount: null }), null);
+});
+
+test("Ace Pilot combines the source-listed gun rate with bomb splash cooldowns", () => {
+  const acePilot = find("Ace Pilot");
+  assert.deepEqual(acePilot.levels.map(({ damage, splashDamage, interval, bombCooldown }) => [damage, splashDamage, interval, bombCooldown]), [
+    [2, null, 0.22, null],
+    [3, null, 0.22, null],
+    [4, 10, 0.22, 4],
+    [5, 30, 0.15, 4],
+    [8, 30, 0.15, 2],
+    [14, 45, 0.12, 1.5],
+  ]);
+  assert.deepEqual(acePilot.levels.map((level) => estimateTowerDps(acePilot, level)), [
+    2 / 0.22,
+    3 / 0.22,
+    4 / 0.22 + 10 / 4,
+    5 / 0.15 + 30 / 4,
+    8 / 0.15 + 30 / 2,
+    14 / 0.12 + 45 / 1.5,
+  ]);
+  assert.match(acePilot.dpsMethod, /bomb splash is shown as a per-target-equivalent estimate/i);
+  assert.equal(estimateTowerDps(acePilot, { ...acePilot.levels[2], bombCooldown: null }), null);
+  assert.equal(estimateTowerDps(acePilot, { ...acePilot.levels[0], bombCooldown: 4 }), null);
 });
 
 test("Accelerator DPS follows its source-listed charge, tick, cooldown, and overcharge cycle", () => {
