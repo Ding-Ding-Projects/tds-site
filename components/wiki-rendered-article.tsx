@@ -1,5 +1,6 @@
 "use client";
 
+import { sitePath } from "@/lib/site-path.mjs";
 import { createElement, useEffect, useMemo, useState, type ReactNode } from "react";
 import { WikiArticleBody } from "@/components/wiki-article-body";
 import { wikiTitleKey } from "@/lib/wiki-source-renderer.mjs";
@@ -54,12 +55,15 @@ export function WikiRenderedArticle({
     const controller = new AbortController();
     if (namespace === 2900) return () => controller.abort();
     async function loadArticle() {
-      const localResponse = await fetch(`/wiki/rendered/${pageid}.json`, { signal: controller.signal });
+      const localResponse = await fetch(sitePath(`/wiki/rendered/${pageid}.json`), { signal: controller.signal });
       if (localResponse.ok) {
         const cached = await localResponse.json() as RenderedArticle & { pageid: number; revisionId: number };
         if (cached.pageid === pageid && cached.revisionId === revisionId) return cached;
       }
-      const fallbackResponse = await fetch(`/api/wiki-rendered/${revisionId}`, { signal: controller.signal });
+      if (process.env.NEXT_PUBLIC_STATIC_EXPORT === "true") {
+        throw new Error("The exported article cache is missing or does not match this revision.");
+      }
+      const fallbackResponse = await fetch(sitePath(`/api/wiki-rendered/${revisionId}`), { signal: controller.signal });
       if (fallbackResponse.status === 501) {
         setLoadState("source-fallback");
         return null;

@@ -1,5 +1,6 @@
 "use client";
 
+import { sitePath } from "@/lib/site-path.mjs";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { applyVocabularyText } from "@/lib/settings-preferences.mjs";
 
@@ -269,7 +270,7 @@ export function RegexWorkbench({
     let timeout = 0;
     const timer = window.setTimeout(() => {
       try {
-        worker = new Worker("/regex-worker.js");
+        worker = new Worker(sitePath("/regex-worker.js"));
       } catch {
         setError("The local regex worker could not start.");
         onEvaluation(null, "The local regex worker could not start.");

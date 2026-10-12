@@ -40,6 +40,10 @@ TDS Strategy Lab is an independent fan resource and is not affiliated with or en
 
 This project uses the Sites Vinext starter and the Sites portable build workflow. Local generated data and build output are documented in `docs/data-pipeline/` and remain reproducible from the public source API. Never put private credentials, private vocabulary data, or unlicensed media in this repository.
 
+For a local GitHub Pages artifact under `/tds-site`, use the separate
+[static export workflow](docs/static-pages.md). It verifies the complete home,
+encyclopedia, assets, and data output without invoking Sites or publishing.
+
 ## Documentation
 
 - [Documentation index](docs/README.md)

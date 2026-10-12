@@ -1,3 +1,4 @@
+import { sitePath } from "@/lib/site-path.mjs";
 import type { Metadata } from "next";
 import { SiteSettings } from "@/components/site-settings";
 import "./globals.css";
@@ -9,8 +10,8 @@ export const metadata: Metadata = {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: sitePath("/favicon.svg"),
+    shortcut: sitePath("/favicon.svg"),
   },
 };
 

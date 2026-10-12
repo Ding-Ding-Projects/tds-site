@@ -1,5 +1,6 @@
 "use client";
 
+import { sitePath } from "@/lib/site-path.mjs";
 import { Suspense, lazy, useEffect, useState } from "react";
 import { BookOpen, Compass, Crosshair, Shield, SlidersHorizontal, Sparkles, Swords, Users, Volume2 } from "lucide-react";
 import Image from "next/image";
@@ -209,8 +210,8 @@ export default function StrategyLab() {
 
   return <main className="app-shell">
     <header className="topbar">
-      <a className="brand" href="#home" aria-label="TDS Strategy Lab home"><Image className="brand-icon" src="/tds-mark.svg" alt="" width={38} height={38} unoptimized/><span><strong>TDS <i>STRATEGY LAB</i></strong><small>FIELD GUIDE · RESEARCH CUTOFF 2026-09-26</small><small className="version-stamp">Version {project.version} · Updated {localBuildStamp ?? (buildDate ? `${buildDate.toISOString().replace("T", " ").replace("Z", " UTC")}` : "time unavailable")} · {localBuildStamp ? buildZone : "build time in UTC"}</small></span></a>
-      <nav className="primary-nav" aria-label="Main navigation">{["Strategy", "Towers", "Modes", "Encyclopedia"].map((tab) => <a key={tab} className={activeTab === tab ? "nav-link selected" : "nav-link"} href={tab === "Encyclopedia" ? "/encyclopedia" : tab === "Towers" ? "#towers" : tab === "Modes" ? "#mode-plans" : "#planner"} onClick={() => setActiveTab(tab)}>{tab}</a>)}</nav>
+      <a className="brand" href="#home" aria-label="TDS Strategy Lab home"><Image className="brand-icon" src={sitePath("/tds-mark.svg")} alt="" width={38} height={38} unoptimized/><span><strong>TDS <i>STRATEGY LAB</i></strong><small>FIELD GUIDE · RESEARCH CUTOFF 2026-09-26</small><small className="version-stamp">Version {project.version} · Updated {localBuildStamp ?? (buildDate ? `${buildDate.toISOString().replace("T", " ").replace("Z", " UTC")}` : "time unavailable")} · {localBuildStamp ? buildZone : "build time in UTC"}</small></span></a>
+      <nav className="primary-nav" aria-label="Main navigation">{["Strategy", "Towers", "Modes", "Encyclopedia"].map((tab) => <a key={tab} className={activeTab === tab ? "nav-link selected" : "nav-link"} href={tab === "Encyclopedia" ? sitePath("/encyclopedia/") : tab === "Towers" ? "#towers" : tab === "Modes" ? "#mode-plans" : "#planner"} onClick={() => setActiveTab(tab)}>{tab}</a>)}</nav>
       <div className="top-actions"><button className="icon-button" type="button" aria-label={speaking ? "Stop reading the strategy aloud" : "Read the selected strategy aloud"} aria-pressed={speaking} title={speaking ? "Stop reading" : "Read strategy aloud"} onClick={readStrategyAloud}><Volume2 size={18}/></button><span className="profile-button" aria-label="Current view: Guide mode" title="Current view">GUIDE MODE</span></div>
     </header>
     <div className="layout">
