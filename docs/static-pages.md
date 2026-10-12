@@ -49,3 +49,19 @@ layout, accessibility, or a deployed URL. Those require current browser evidence
 from the exact artifact, followed by separately authorized publication and live
 source-parity checks. Existing screenshots are from older source and do not
 verify this export. The complete delivery issue remains open.
+
+## Reader and regex callback regression checks
+
+The local follow-on repair restores known article links to the reader callback,
+including nested label formatting and same-article section links. Regex imports
+now enable the parent-controlled search mode and accept the version 1 JSON
+produced by the export control, while retaining legacy unversioned input support.
+Unknown fields, unsupported versions, and existing input limits remain rejected.
+
+The repaired source passes 13 focused component regression checks, included in
+107 aggregate wiki tests, plus 11 export tests, lint, the Pages build, and artifact
+verification. The component checks execute actual TSX and event callbacks using
+deterministic hook state and real React elements; they are not browser or
+hydration tests. Type checking still reports 82 existing application diagnostics,
+down from 84 after removing the two undefined callback references. This does not
+establish browser interaction, default Worker runtime, or full delivery acceptance.

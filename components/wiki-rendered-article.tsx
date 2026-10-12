@@ -92,7 +92,7 @@ export function WikiRenderedArticle({
       const target = decodeURIComponent(url.pathname.slice(3)).replaceAll("_", " ");
       const entry = entryByTitle.get(wikiTitleKey(target));
       if (!entry) return null;
-      const label = node.children.map((child, index) => createWikiNode(child, `${key}-label-${index}`));
+      const label = node.children.map((child, index) => renderNode(child, `${key}-label-${index}`));
       if (entry.pageid !== pageid) return <button className="wiki-internal-link" key={key} type="button" onClick={() => onOpenArticle(entry)}>{label}</button>;
       if (url.hash) return <a className="wiki-internal-link" key={key} href={`#${sectionIdFromHash(url.hash.slice(1))}`}>{label}</a>;
       return <span key={key}>{label}</span>;

@@ -345,12 +345,13 @@ export function RegexWorkbench({
     try {
       if (new TextEncoder().encode(importText).byteLength > 16 * 1024) throw new Error("oversize");
       const parsed = JSON.parse(importText);
-      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed) || Object.keys(parsed).some((key) => !["pattern", "flags", "replacement"].includes(key))) throw new Error("shape");
+      if (!parsed || typeof parsed !== "object" || Array.isArray(parsed) || Object.keys(parsed).some((key) => !["schemaVersion", "pattern", "flags", "replacement"].includes(key))) throw new Error("shape");
+      if ("schemaVersion" in parsed && parsed.schemaVersion !== 1) throw new Error("version");
       if (typeof parsed.pattern !== "string" || parsed.pattern.length > 512 || typeof parsed.flags !== "string" || typeof parsed.replacement !== "string" || parsed.replacement.length > 4096) throw new Error("value");
       onPatternChange(parsed.pattern);
       onFlagsChange([...new Set(parsed.flags)].filter((flag: string) => FLAG_NAMES.includes(flag as (typeof FLAG_NAMES)[number])).join(""));
       setReplacement(parsed.replacement);
-      setRegexEnabled(true);
+      onRegexEnabledChange(true);
       setNotice("imported");
       setError(null);
     } catch {
